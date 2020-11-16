@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WUk/NiiqzvBQmbP1amTZOST/1/ll0wGXADXsXWeP0zI9WAGcXCxewJQ7Kv958P843/pNQ3KRBVRUOtgONv4n5A==",
+  "dgSpecHash": "aO0icE0vvZn2zZUln9VzeMF5Xob/y/z6CiSpNOoxKC1rrYxA5o3TxOUIWmcl2chloQrhb2opbFPhErrVhBmEwA==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TGJ.NetworkFreight\\TGJ.NetworkFreight.SeckillAggregateServices\\TGJ.NetworkFreight.SeckillAggregateServices.csproj",
+  "projectFilePath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.SeckillAggregateServices\\TGJ.NetworkFreight.SeckillAggregateServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",

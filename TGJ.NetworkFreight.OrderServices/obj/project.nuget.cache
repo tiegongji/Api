@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7EMlA3EjwL2YkrfysQ/h+u+MBiqXsqZojtP7V3cWGA6RRIjaEwCilVAEfowJvop6RfH7O/tgka2Q63rOruCqsA==",
+  "dgSpecHash": "GuVFGgrHDeu6tppCm93IFpiqzSoc+zPwF2qsHzfxo2GGSm8Rb+gc6da0pmUcGlBHbj1qyCT2o9yOLMTqT9xbTw==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\TGJ.NetworkFreight.OrderServices.csproj",
+  "projectFilePath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\TGJ.NetworkFreight.OrderServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {}
+    "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {}
   },
   "projects": {
-    "D:\\Git\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
+    "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
+        "projectUniqueName": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
         "projectName": "TGJ.NetworkFreight.Cores",
-        "projectPath": "D:\\Git\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
+        "projectPath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\obj\\",
+        "outputPath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

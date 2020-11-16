@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CMbmgBPTYBkTd4AHy9S5bPfgIJMAf0uSWAV/xzabC9ar509yuzelyKRxvAoFbV+BPGINd6qugeEX7eOxC06Y5A==",
+  "dgSpecHash": "HOcTBmBzbzNwj6UL9yhVtkKSNeiaJhlhIvz6yyJHtu4b1R5sZJrTNtYZrmr89nU+qQQc0BIDhkd4yIDpWQNgiA==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
+  "projectFilePath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

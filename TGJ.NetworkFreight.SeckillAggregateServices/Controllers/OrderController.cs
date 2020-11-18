@@ -10,20 +10,29 @@ using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
-{    /// <summary>
-     /// 订单聚合控制器
-     /// </summary>
-    [Route("api/Order")]
+{
+    /// <summary>
+    /// 订单聚合控制器
+    /// </summary>
+    [Route("api/[controller]")]
     [ApiController]
     //[Authorize]
     public class OrderController : ControllerBase
     {
         private readonly IOrderClient orderClient;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="orderClient"></param>
         public OrderController(IOrderClient orderClient)
         {
             this.orderClient = orderClient;
         }
 
+        /// <summary>
+        /// 获取订单列表
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult GetOrder()
         {
@@ -32,12 +41,22 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             //return orderClient.GetOrder();
         }
 
+        /// <summary>
+        /// 获取订单成交量
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet("Gather/userId")]
         public ActionResult<GatherDto> GetOrderGather(int userId)
         {
             return orderClient.GetOrderGather(userId);
         }
 
+        /// <summary>
+        /// 获取订单成交额
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet("Turnover/userId")]
         public ActionResult<TurnoverDto> GetOrderTurnover(int userId)
         {

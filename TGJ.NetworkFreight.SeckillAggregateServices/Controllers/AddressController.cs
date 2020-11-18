@@ -11,16 +11,28 @@ using TGJ.NetworkFreight.UserServices.Models;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 {
-    [Route("api/[Address]")]
+    /// <summary>
+    /// 地址控制器
+    /// </summary>
+    [Route("api/[controller]")]
     [ApiController]
     public class AddressController : ControllerBase
     {
         private readonly IAddressClient addressClient;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="addressClient"></param>
         public AddressController(IAddressClient addressClient)
         {
             this.addressClient = addressClient;
         }
 
+        /// <summary>
+        /// 添加地址
+        /// </summary>
+        /// <param name="addressPo"></param>
+        /// <returns></returns>
         [HttpPost]
         public UserAddress Post([FromForm] UserAddressPo addressPo)
         {
@@ -42,18 +54,35 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             return userAddress;
         }
 
+        /// <summary>
+        /// 获取地址列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet("{userId}")]
         public IEnumerable<UserAddress> GetUserAddresss(int userId)
         {
             return addressClient.GetUserAddresss(userId);
         }
 
+        /// <summary>
+        /// 获取单个地址
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{userId}/{id}")]
         public UserAddress GetUserAddress(int userId, int id)
         {
             return addressClient.GetUserAddressById(userId, id);
         }
 
+        /// <summary>
+        /// 修改地址
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="addressPo"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult PutUserAddress(int id, [FromForm] UserAddressPo addressPo)
         {
@@ -74,6 +103,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// 删除地址
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{userId}/{id}")]
         public UserAddress DeleteUserAddress(int userId, int id)
         {

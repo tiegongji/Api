@@ -18,14 +18,19 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     /// <summary>
     /// 用户控制器
     /// </summary>
-    [Route("api/User")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
         private readonly IUserClient userClient;
         private readonly IDynamicMiddleUrl dynamicMiddleUrl; // 中台url
         private readonly HttpClient httpClient;
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userClient"></param>
+        /// <param name="dynamicMiddleUrl"></param>
+        /// <param name="httpClientFactory"></param>
         public UserController(IUserClient userClient, IDynamicMiddleUrl dynamicMiddleUrl
                                 , IHttpClientFactory httpClientFactory)
         {

@@ -9,8 +9,15 @@ using Microsoft.Extensions.Logging;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {
             //var host = new WebHostBuilder()
@@ -24,7 +31,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             CreateHostBuilder(args).Build().Run();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using System;
+using System.IO;
 using TGJ.NetworkFreight.Commons.Exceptions.Handlers;
 using TGJ.NetworkFreight.Commons.Filters;
 using TGJ.NetworkFreight.Commons.Users;
@@ -12,16 +15,27 @@ using TGJ.NetworkFreight.Cores.MicroClients.Extentions;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             // 1、注册服务发现
@@ -92,9 +106,24 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 // 防止将大写转换成小写
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
-        }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            #region 配置Swagger
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "聚合微服务文档", Version = "v1" });
+                //var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                //var xmlPath = Path.Combine(basePath, "TGJ.Api.xml");
+                options.IncludeXmlComments($"{AppContext.BaseDirectory}/TGJ.Api.xml");
+            });
+
+            #endregion 配置Swagger
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             /*if (env.IsDevelopment())
@@ -115,7 +144,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "接口文档");
+                c.RoutePrefix = string.Empty;
             });
         }
     }

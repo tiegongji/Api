@@ -1,30 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace TGJ.NetworkFreight.OrderServices.Models
 {
     /// <summary>
-    /// 订单模型
+    /// 订单表
     /// </summary>
     public class Order
     {
-        public int Id { set; get; } // 主键
-        public string OrderType { set; get; } // 订单类型
-                                              // public string OrderFlag { set; get; } // 订单标志
-        public int UserId { set; get; } // 用户Id
-        public string OrderSn { set; get; }// 订单号
-        public string OrderTotalPrice { set; get; } // 订单总价
-        public DateTime Createtime { set; get; } // 创建时间
-        public DateTime Updatetime { set; get; } // 更新时间
-        public DateTime Paytime { set; get; }// 支付时间
-        public DateTime Sendtime { set; get; }// 发货时间
-        public DateTime Successtime { set; get; }// 订单完成时间
-        public int OrderStatus { set; get; } // 订单状态
-        public string OrderName { set; get; } // 订单名称
-        public string OrderTel { set; get; } // 订单电话
-        public string OrderAddress { set; get; } // 订单地址
-        public string OrderRemark { set; get; }// 订单备注
+        /// <summary>
+        /// 主键
+        /// </summary>
+        [Key]
+        public int ID { set; get; }
+
+        /// <summary>
+        /// 用户ID
+        /// </summary>
+        public int UserID { set; get; }
+        /// <summary>
+        /// 订单号
+        /// </summary>
+        public string OrderNo { set; get; }
+
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        public int TradeStatus { set; get; }
+        /// <summary>
+        /// 支付状态
+        /// </summary>
+        public int PayStatus { set; get; }
+        /// <summary>
+        /// 订单金额
+        /// </summary>
+        public decimal TotalAmount { set; get; }
+        /// <summary>
+        /// 承运人ID
+        /// </summary>
+        public int CarrierUserID { set; get; }
+        /// <summary>
+        /// 承运人车辆ID
+        /// </summary>
+        public int CarrierTruckID { set; get; }
+        /// <summary>
+        /// 是否已上传装货回单
+        /// </summary>
+        public bool HasDepartureImg { set; get; }
+        /// <summary>
+        /// 是否已上传卸货回单
+        /// </summary>
+        public bool HasArrivalImg { set; get; }
+        /// <summary>
+        /// 装货时间
+        /// </summary>
+        public DateTime? StartTime { set; get; }
+        /// <summary>
+        /// 起运时间
+        /// </summary>
+        public DateTime? DepartureTime { set; get; }
+        /// <summary>
+        /// 到达时间
+        /// </summary>
+        public DateTime? ArrivalTime { set; get; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreateTime { set; get; }
+        /// <summary>
+        /// 更新时间
+        /// </summary>
+        public DateTime LastUpdateTime { set; get; }
     }
 }

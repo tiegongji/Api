@@ -13,22 +13,23 @@ namespace TGJ.NetworkFreight.UserServices
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseUrls("http://139.196.200.122:5005")
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
+            //var host = new WebHostBuilder()
+            //    .UseKestrel()
+            //    .UseUrls("http://139.196.200.122:5005")
+            //    .UseIISIntegration()
+            //    .UseStartup<Startup>()
+            //    .Build();
 
-            host.Run();
+            //host.Run();
 
-            //CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    //webBuilder.UseUrls("http://139.196.200.122:5005");
                     webBuilder.UseStartup<Startup>();
                 });
     }

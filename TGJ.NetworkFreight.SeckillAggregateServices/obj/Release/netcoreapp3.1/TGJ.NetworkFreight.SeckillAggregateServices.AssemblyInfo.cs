@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("b3847de1-ec17-40bc-95f3-a40eec3e3439")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TGJ.NetworkFreight.SeckillAggregateServices")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

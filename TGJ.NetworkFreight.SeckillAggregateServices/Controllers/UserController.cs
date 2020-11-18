@@ -42,19 +42,19 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetUser()
         {
-            var model = new User()
-            {
-                CreateTime = DateTime.Now,
-                Phone = "ss",
-                wx_HeadImgUrl = "ss",
-                wx_NickName = "11111",
-                wx_OpenID = "eeeeeee",
-                wx_UnionID = "ss",
-                HasAuthenticated = false,
-                Name = "哇哇哇我哇",
-                Status = 1
-            };
-            var obj = userClient.PostUser(model);
+        //    var model = new User()
+        //    {
+        //        CreateTime = DateTime.Now,
+        //        Phone = "ss",
+        //        wx_HeadImgUrl = "ss",
+        //        wx_NickName = "11111",
+        //        wx_OpenID = "eeeeeee",
+        //        wx_UnionID = "ss",
+        //        HasAuthenticated = false,
+        //        Name = "哇哇哇我哇",
+        //        Status = 1
+        //    };
+            var obj = userClient.GetUsers();
 
             return Ok(obj);
         }

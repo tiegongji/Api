@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TGJ.NetworkFreight.Cores.MicroClients.Attributes;
 using TGJ.NetworkFreight.OrderServices.Models;
+using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
 {
@@ -19,5 +20,21 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         [GetPath("/Orders")]
 
         public Order GetOrder();
+
+
+        /// <summary>
+        /// 获取订单成交量
+        /// </summary>
+        [GetPath("/Orders/Gather/{userId}")]
+
+        public GatherDto GetOrderGather(int userId);
+
+
+        /// <summary>
+        /// 获取订单成交额
+        /// </summary>
+        [GetPath("/Orders/Turnover/{userId}")]
+
+        public TurnoverDto GetOrderTurnover(int userId);
     }
 }

@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TGJ.NetworkFreight.OrderSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TGJ.NetworkFreight.Commons", "TGJ.NetworkFreight.Commons\TGJ.NetworkFreight.Commons.csproj", "{239EE84B-C48C-4416-8D43-41949AE423F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGJ.NetworkFreight.CertificationServices", "TGJ.NetworkFreight.CertificationServices\TGJ.NetworkFreight.CertificationServices.csproj", "{8B1D7E47-4690-4FB4-A566-25D5F2E66426}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TGJ.NetworkFreight.CertificationServices", "TGJ.NetworkFreight.CertificationServices\TGJ.NetworkFreight.CertificationServices.csproj", "{8B1D7E47-4690-4FB4-A566-25D5F2E66426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

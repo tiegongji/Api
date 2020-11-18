@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "76yXos/kUksQVnXNjGBeFFWOhAow2ZBvUEiCh2fWXSXyWIC8lerpvtgkiPRq0uxfIyUFpOJPTi2MfMi7Si8esg==",
+  "dgSpecHash": "s4COpPjeDGOq1pRcRMC5J6+aZq4DKxo3jI9kqjUSvnkXFzGgthp03BzxlxvQYMwyeZ7HcQE8xTyAmqXWZ6UbPw==",
   "success": true,
-  "projectFilePath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.SeckillAggregateServices\\TGJ.NetworkFreight.SeckillAggregateServices.csproj",
+  "projectFilePath": "D:\\Code\\Api\\TGJ.NetworkFreight.SeckillAggregateServices\\TGJ.NetworkFreight.SeckillAggregateServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",

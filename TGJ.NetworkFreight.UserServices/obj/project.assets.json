@@ -10814,11 +10814,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.UserServices\\TGJ.NetworkFreight.UserServices.csproj",
+      "projectUniqueName": "D:\\Code\\Api\\TGJ.NetworkFreight.UserServices\\TGJ.NetworkFreight.UserServices.csproj",
       "projectName": "TGJ.NetworkFreight.UserServices",
-      "projectPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.UserServices\\TGJ.NetworkFreight.UserServices.csproj",
+      "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.UserServices\\TGJ.NetworkFreight.UserServices.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.UserServices\\obj\\",
+      "outputPath": "D:\\Code\\Api\\TGJ.NetworkFreight.UserServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -10838,11 +10838,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
-              "projectPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj"
+            "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
+              "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj"
             },
-            "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
-              "projectPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj"
+            "D:\\Code\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
+              "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {}
+    "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {}
   },
   "projects": {
-    "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
+    "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
+        "projectUniqueName": "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
         "projectName": "TGJ.NetworkFreight.Commons",
-        "projectPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
+        "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\obj\\",
+        "outputPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

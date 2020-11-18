@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5BpJkWu2/ZBsxkTm2R3/Uv/e2s3X+GNYy/TiwGjKbugbakcT2rspoz87K3HJeN95Cg+m/83VLxNBSDGwM58/pQ==",
+  "dgSpecHash": "aEIQ7kxW0c34hrLhp/JN4PDMIbBAKdsReKGF8hwMa+pzD8WZ2evRb7XtEYH9JV5/aXWHfyJeVc5Qn7W4F8i1UA==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\TGJ.NetworkFreight.OrderServices.csproj",
+  "projectFilePath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\TGJ.NetworkFreight.OrderServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",

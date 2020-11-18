@@ -8566,11 +8566,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\TGJ.NetworkFreight.OrderServices.csproj",
+      "projectUniqueName": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\TGJ.NetworkFreight.OrderServices.csproj",
       "projectName": "TGJ.NetworkFreight.OrderServices",
-      "projectPath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\TGJ.NetworkFreight.OrderServices.csproj",
+      "projectPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\TGJ.NetworkFreight.OrderServices.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\obj\\",
+      "outputPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.OrderServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -8590,11 +8590,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
-              "projectPath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj"
+            "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
+              "projectPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj"
             },
-            "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
-              "projectPath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj"
+            "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
+              "projectPath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj"
             }
           }
         }

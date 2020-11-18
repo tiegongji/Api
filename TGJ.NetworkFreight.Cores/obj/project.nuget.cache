@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gmSlR/L9HQUjs/ewqmtA0e5O7uUkg7cmRozhkH39+xalKZ8XNFW/1Fg6NE2IcTHSH+w+PDuwrJHqGCAofVOTeg==",
+  "dgSpecHash": "zSh+ZvowZ3GofYNtgNiak6yz+8hxw7LOcl9JbOOlcFuOm/LXDzvRFeOsjLn6DbIvVa8KL4rBq0inC7zEd7PAaA==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
+  "projectFilePath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\consul\\1.6.1.1\\consul.1.6.1.1.nupkg.sha512",

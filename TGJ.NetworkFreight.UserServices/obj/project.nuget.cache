@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4ofv4H4lBGhVpEfSYkWFBVyoAShBLqWg1HJkWGFZINXelx6siH5xSGG9pEeQzU9N+/ZmkfWimaqyomT/g93JiA==",
+  "dgSpecHash": "8btltfua1P23iV7THlS9XHXvVzS864RF0YB2sr7SeuAK/o8N5hIqLsgNp8vY2+NTkmFemh/7aPUI3oJKAacQuw==",
   "success": true,
-  "projectFilePath": "D:\\Git\\TMSApi\\TGJ.NetworkFreight\\TGJ.NetworkFreight.UserServices\\TGJ.NetworkFreight.UserServices.csproj",
+  "projectFilePath": "D:\\Coding\\Api\\TGJ.NetworkFreight\\TGJ.NetworkFreight.UserServices\\TGJ.NetworkFreight.UserServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",

@@ -84,12 +84,32 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController">
+            <summary>
+            推送消息控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient,TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching)">
+            <summary>
+            
+            </summary>
+            <param name="sendClient"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController.SendSms(System.String,System.String)">
+            <summary>
+            发送短信
+            </summary>
+            <param name="phone"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController">
             <summary>
             用户控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient,TGJ.NetworkFreight.Cores.DynamicMiddleware.Urls.IDynamicMiddleUrl,System.Net.Http.IHttpClientFactory)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient,TGJ.NetworkFreight.Cores.DynamicMiddleware.Urls.IDynamicMiddleUrl,System.Net.Http.IHttpClientFactory,TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching)">
             <summary>
             
             </summary>
@@ -107,6 +127,13 @@
             <summary>
             用户登录
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.ModifyPassword(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="passwordPo"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.GatherDto">
@@ -148,6 +175,22 @@
             <summary>
             用户登录成功返回的信息
             </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching">
+            <summary>
+            缓存接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.MemoryCaching">
+            <summary>
+            实例化缓存接口ICaching
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.MemoryCaching.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="cache"></param>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo">
             <summary>
@@ -244,6 +287,31 @@
             登录表单
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo">
+            <summary>
+            修改密码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.Password">
+            <summary>
+            新密码
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Program">
             <summary>
             
@@ -266,6 +334,19 @@
             <summary>
             用户地址微服务客户端
             </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient">
+            <summary>
+            推送服务客户端
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient.SendSms(System.String,System.String)">
+            <summary>
+            发送验证码
+            </summary>
+            <param name="phone"></param>
+            <param name="code"></param>
+            <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient">
             <summary>
@@ -311,6 +392,13 @@
             <param name="openId"></param>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.ModifyPassword(System.String,System.String)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="phone"></param>
+            <param name="password"></param>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Startup">
             <summary>
             
@@ -339,6 +427,17 @@
             </summary>
             <param name="app"></param>
             <param name="env"></param>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Utils.Util">
+            <summary>
+            工具类
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Utils.Util.GetSmsCode">
+            <summary>
+            获取短信Code
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

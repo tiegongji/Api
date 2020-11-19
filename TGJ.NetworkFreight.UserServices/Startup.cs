@@ -65,31 +65,31 @@ namespace TGJ.NetworkFreight.UserServices
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             // 添加IdentityServer4
-            //services.AddIdentityServer()
-            //    .AddDeveloperSigningCredential()
-            //    .AddConfigurationStore(options =>
-            //    {
-            //        options.ConfigureDbContext = builder =>
-            //        {
-            //            //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
-            //            //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"),
-            //            //                    sql => sql.MigrationsAssembly(migrationsAssembly));
-
-            //            builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-            //                                sql => sql.MigrationsAssembly(migrationsAssembly));
-
-            //            //builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            //        };
-            //    })
-
-            //    .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
-
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddInMemoryIdentityResources(Config.Ids)
-                .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
+                .AddConfigurationStore(options =>
+                {
+                    options.ConfigureDbContext = builder =>
+                    {
+                        //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
+                        //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"),
+                        //                    sql => sql.MigrationsAssembly(migrationsAssembly));
+
+                        builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                                            sql => sql.MigrationsAssembly(migrationsAssembly));
+
+                        //builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                    };
+                })
+
+                .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
+
+            //services.AddIdentityServer()
+            //    .AddDeveloperSigningCredential()
+            //    .AddInMemoryApiResources(Config.GetApiResources())
+            //    .AddInMemoryClients(Config.GetClients())
+            //    .AddInMemoryIdentityResources(Config.Ids)
+            //    .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
 
             // 添加控制器
             services.AddControllers(options =>
@@ -126,7 +126,7 @@ namespace TGJ.NetworkFreight.UserServices
                 endpoints.MapControllers();
             });
 
-            //InitializeDatabase(app);
+            InitializeDatabase(app);
         }
 
         // 将config中数据存储起来

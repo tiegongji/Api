@@ -206,3 +206,5 @@ D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\sta
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.dll
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.genruntimeconfig.cache
+D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\aliyun-net-sdk-core.dll
+D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\aliyun-net-sdk-dysmsapi.dll

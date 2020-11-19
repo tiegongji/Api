@@ -41,5 +41,13 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService
         /// <returns></returns>
         [GetPath("/Users/{openId}")]
         public User GetUserByOpenId(string openId);
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <param name="password"></param>
+        [PostPath("/Users/ModifyPassword")]
+        public void ModifyPassword(string phone, string password);
     }
 }

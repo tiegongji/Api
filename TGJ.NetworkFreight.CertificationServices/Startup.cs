@@ -26,15 +26,15 @@ namespace TGJ.NetworkFreight.CertificationServices
         public void ConfigureServices(IServiceCollection services)
         {
             // 添加服务注册
-            //services.AddServiceRegistry(options =>
-            //{
-            //    options.ServiceId = Guid.NewGuid().ToString();
-            //    options.ServiceName = "CertificationServices";
-            //    options.ServiceAddress = "https://localhost:5003";
-            //    options.HealthCheckAddress = "/HealthCheck";
+            services.AddServiceRegistry(options =>
+            {
+                options.ServiceId = Guid.NewGuid().ToString();
+                options.ServiceName = "CertificationServices";
+                options.ServiceAddress = Configuration["ServiceAddress"];
+                options.HealthCheckAddress = "/HealthCheck";
 
-            //    options.RegistryAddress = "http://localhost:8500";
-            //});
+                options.RegistryAddress = Configuration["RegistryAddress"];
+            });
 
             // 认证service
             services.AddScoped<ICertificationService, CertificationService>();

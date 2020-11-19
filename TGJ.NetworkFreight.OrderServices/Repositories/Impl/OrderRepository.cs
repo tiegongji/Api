@@ -112,7 +112,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             }
         }
 
-        public IEnumerable<Order> GetListByUid(int userid)
+        public IEnumerable<dynamic> GetListByUid(int userid)
         {
             return context.Order.Where(a => a.UserID == userid).ToList();
         }

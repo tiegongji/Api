@@ -51,6 +51,13 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
             return user;
         }
 
+        public User GetUserByPhone(string phone)
+        {
+            User user = UserContext.Users.FirstOrDefault(a => a.Phone == phone);
+
+            return user;
+        }
+
         public IEnumerable<User> GetUsers()
         {
             return UserContext.Users.ToList();

@@ -10,6 +10,14 @@
     <ProjectReference Include="..\TGJ.NetworkFreight.Commons\TGJ.NetworkFreight.Commons.csproj" />
     <ProjectReference Include="..\TGJ.NetworkFreight.Cores\TGJ.NetworkFreight.Cores.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="aliyun-net-sdk-core">
+      <HintPath>C:\Users\Administrator\Desktop\租享租\RER.Api\RER.Api\bin\Debug\netcoreapp3.1\aliyun-net-sdk-core.dll</HintPath>
+    </Reference>
+    <Reference Include="aliyun-net-sdk-dysmsapi">
+      <HintPath>C:\Users\Administrator\Desktop\租享租\RER.Api\RER.Api\bin\Debug\netcoreapp3.1\aliyun-net-sdk-dysmsapi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

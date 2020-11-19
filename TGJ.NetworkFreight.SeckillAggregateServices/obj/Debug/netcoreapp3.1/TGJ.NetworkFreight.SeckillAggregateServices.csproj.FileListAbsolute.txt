@@ -938,3 +938,5 @@ D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.csproj.CoreCompileInputs.cache
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.MvcApplicationPartsAssemblyInfo.cs
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.MvcApplicationPartsAssemblyInfo.cache
+D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\aliyun-net-sdk-core.dll
+D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\aliyun-net-sdk-dysmsapi.dll

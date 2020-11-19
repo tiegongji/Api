@@ -20,7 +20,7 @@ namespace TGJ.NetworkFreight.UserServices.Configs
         {
             return new List<ApiResource>
             {
-                new ApiResource("TGJService", "TGJService api需要被保护",new List<string> {"role","1" })
+                new ApiResource("TGJService", "TGJService")
             };
         }
 

@@ -14,6 +14,7 @@ namespace TGJ.NetworkFreight.UserServices.Services
         IEnumerable<User> GetUsers();
         User GetUser(string UserName);
         User GetUserById(int id);
+        User GetUserByPhone(string phone);
         User GetUserByOpenId(string openId);
         void Create(User User);
         void Update(User User);

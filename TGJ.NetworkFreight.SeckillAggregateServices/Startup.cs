@@ -78,23 +78,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                         options.RequireHttpsMetadata = false; // 3、https元数据，不需要
                     });
 
-            ////将身份验证服务添加到DI并配置Bearer为默认方案。
-            //services.AddAuthentication("Bearer")
-            //    .AddJwtBearer("Bearer", options =>
-            //    {
-            //        //指定授权地址
-            //        options.Authority = "http://localhost:5005";
-            //        //获取或设置元数据地址或权限是否需要HTTPS。默认值为true。这应该只在开发环境中禁用。
-            //        options.RequireHttpsMetadata = false;
-            //        //获取或设置任何接收到的OpenIdConnect令牌的访问群体。
-            //        options.Audience = "TGJService";
-
-            //        ////设置验证时间时要应用的时钟偏移，即token多久验证一次，默认为5分钟
-            //        //options.TokenValidationParameters.ClockSkew = TimeSpan.FromMinutes(1);
-            //        ////指示令牌是否必须具有“过期”值
-            //        //options.TokenValidationParameters.RequireExpirationTime = true;
-            //    });
-
             // 5、添加控制器
             services.AddControllers(options =>
             {

@@ -40,10 +40,10 @@ namespace TGJ.NetworkFreight.OrderServices
             services.AddServiceRegistry(options => {
                 options.ServiceId = Guid.NewGuid().ToString();
                 options.ServiceName = "OrderServices";
-                options.ServiceAddress = "https://localhost:5002";
+                options.ServiceAddress = Configuration["ServiceAddress"];
                 options.HealthCheckAddress = "/HealthCheck";
 
-                options.RegistryAddress = "http://localhost:8500";
+                options.RegistryAddress = Configuration["RegistryAddress"];
             });
 
             // Ìí¼Ó¿ØÖÆÆ÷

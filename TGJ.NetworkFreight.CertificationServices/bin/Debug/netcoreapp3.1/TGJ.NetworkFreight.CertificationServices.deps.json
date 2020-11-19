@@ -27,6 +27,8 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.9",
           "TGJ.NetworkFreight.Commons": "1.0.0",
           "TGJ.NetworkFreight.Cores": "1.0.0",
+          "aliyun-net-sdk-core": "2.0.0.0",
+          "aliyun-net-sdk-dysmsapi": "1.0.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -1531,6 +1533,28 @@
         },
         "compile": {
           "TGJ.NetworkFreight.Cores.dll": {}
+        }
+      },
+      "aliyun-net-sdk-core/2.0.0.0": {
+        "runtime": {
+          "aliyun-net-sdk-core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        },
+        "compile": {
+          "aliyun-net-sdk-core.dll": {}
+        }
+      },
+      "aliyun-net-sdk-dysmsapi/1.0.0.0": {
+        "runtime": {
+          "aliyun-net-sdk-dysmsapi.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "aliyun-net-sdk-dysmsapi.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3990,6 +4014,16 @@
     },
     "TGJ.NetworkFreight.Cores/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "aliyun-net-sdk-core/2.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "aliyun-net-sdk-dysmsapi/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

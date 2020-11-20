@@ -72,6 +72,54 @@
             <param name="name"></param>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRIdCard(System.String,System.String)">
+            <summary>
+            身份证OCR
+            </summary>
+            <param name="image">不包含图片头的，如data:image/jpg;base64,) </param>
+            <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRBank(System.String)">
+            <summary>
+            银行卡OCR
+            </summary>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.BankCertification(System.String,System.String,System.String)">
+            <summary>
+            银行卡认证
+            </summary>
+            <param name="backCard"></param>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRDriver(System.String,System.String)">
+            <summary>
+            驾驶证识别
+            </summary>
+            <param name="image"></param>
+            <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRVehicle(System.String,System.String)">
+            <summary>
+            行驶证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRPermit(System.String,System.String)">
+            <summary>
+            道路经营许可证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController">
             <summary>
             订单聚合控制器
@@ -366,6 +414,54 @@
             </summary>
             <param name="idCard"></param>
             <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRIdCard(System.String,System.String)">
+            <summary>
+            身份证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="side"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRBank(System.String)">
+            <summary>
+            银行卡OCR
+            </summary>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.BankCertification(System.String,System.String,System.String)">
+            <summary>
+            银行卡认证
+            </summary>
+            <param name="backCard"></param>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRDriver(System.String,System.String)">
+            <summary>
+            驾驶证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRVehicle(System.String,System.String)">
+            <summary>
+            行驶证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRPermit(System.String,System.String)">
+            <summary>
+            道路经营许可证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient">

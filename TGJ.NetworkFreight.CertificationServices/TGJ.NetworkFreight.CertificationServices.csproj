@@ -18,6 +18,6 @@
       <HintPath>C:\Users\Administrator\Desktop\租享租\RER.Api\RER.Api\bin\Debug\netcoreapp3.1\aliyun-net-sdk-dysmsapi.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://github.com/fbecart/zinoma/releases/latest/download/zinoma-schema.json" properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

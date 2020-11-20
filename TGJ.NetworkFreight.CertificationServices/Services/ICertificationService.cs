@@ -12,7 +12,11 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
     public interface ICertificationService
     {
         decimal RealNameCertification(string idCard, string name);
-
-        decimal OCRIdCardCertification(string image, string side);
+        decimal OCRIdCard(string image, string side);
+        decimal BankCertification(string bankCard, string idCard, string realName);
+        decimal OCRBank(string pic);
+        decimal OCRDriver(string pic, string type);
+        decimal OCRVehicle(string pic, string type);
+        decimal OCRPermit(string pic, string type);
     }
 }

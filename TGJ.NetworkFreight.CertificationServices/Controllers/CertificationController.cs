@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TGJ.NetworkFreight.CertificationServices.Dtos;
 using TGJ.NetworkFreight.CertificationServices.Services;
 
@@ -30,9 +31,17 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="name">姓名</param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult<RealNameDto> RealNameCertification(string idCard, string name)
+        public ActionResult<decimal> RealNameCertification(string idCard, string name)
         {
-            return CertificationService.RealNameCertification(idCard, name);
+            //var dto = CertificationService.RealNameCertification(idCard, name);
+
+            //return Ok(dto);
+
+            var json = "{\"status\":\"01\",\"msg\":\"实名认证通过！\",\"idCard\":\"61243019911018221X\",\"name\":\"汤龙\",\"sex\":\"男\",\"area\":\"陕西省安康地区白河县\",\"province\":\"陕西省\",\"city\":\"安康地区\",\"prefecture\":\"白河县\",\"birthday\":\"1991-10-18\",\"addrCode\":\"612430\",\"lastCode\":\"X\"}";
+
+            dynamic result = JsonConvert.DeserializeObject(json);
+
+            return Ok(result);
         }
 
         /// <summary>
@@ -42,9 +51,11 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<OCRDto> OCRCertification(string image, string side)
+        public ActionResult<decimal> OCRIdCardCertification(string image, string side)
         {
-            return CertificationService.OCRCertification(image, side);
+            var dto = CertificationService.OCRIdCardCertification(image, side);
+
+            return Ok(dto);
         }
     }
 }

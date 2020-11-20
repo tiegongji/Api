@@ -33,6 +33,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="userClient"></param>
         /// <param name="dynamicMiddleUrl"></param>
         /// <param name="httpClientFactory"></param>
+        /// <param name="cache"></param>
         public UserController(IUserClient userClient, IDynamicMiddleUrl dynamicMiddleUrl
                                 , IHttpClientFactory httpClientFactory, ICaching cache)
         {

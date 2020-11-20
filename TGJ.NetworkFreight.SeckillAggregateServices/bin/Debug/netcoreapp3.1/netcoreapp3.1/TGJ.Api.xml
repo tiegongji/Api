@@ -53,6 +53,25 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController">
+            <summary>
+            认证控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient)">
+            <summary>
+            
+            </summary>
+            <param name="certificationClient"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.RealNameCertification(System.String,System.String)">
+            <summary>
+            身份证实名接口
+            </summary>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController">
             <summary>
             订单聚合控制器
@@ -116,6 +135,7 @@
             <param name="userClient"></param>
             <param name="dynamicMiddleUrl"></param>
             <param name="httpClientFactory"></param>
+            <param name="cache"></param>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.GetUser">
             <summary>
@@ -334,6 +354,19 @@
             <summary>
             用户地址微服务客户端
             </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient">
+            <summary>
+            认证客户端
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.RealNameCertification(System.String,System.String)">
+            <summary>
+            身份证实名
+            </summary>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient">
             <summary>

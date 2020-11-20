@@ -8,7 +8,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Dtos
     /// <summary>
     /// OCRDto
     /// </summary>
-    public class OCRDto
+    public class OCRIdCardDto
     {
         /// <summary>
         /// 状态码

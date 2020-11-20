@@ -196,9 +196,6 @@ D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\TGJ
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.csprojAssemblyReference.cache
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.AssemblyInfoInputs.cache
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.AssemblyInfo.cs
-D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.csproj.CoreCompileInputs.cache
-D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.MvcApplicationPartsAssemblyInfo.cs
-D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.MvcApplicationPartsAssemblyInfo.cache
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.RazorTargetAssemblyInfo.cache
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.csproj.CopyComplete
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\staticwebassets\TGJ.NetworkFreight.CertificationServices.StaticWebAssets.Manifest.cache
@@ -208,3 +205,6 @@ D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.genruntimeconfig.cache
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\aliyun-net-sdk-core.dll
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\aliyun-net-sdk-dysmsapi.dll
+D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.csproj.CoreCompileInputs.cache
+D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.MvcApplicationPartsAssemblyInfo.cs
+D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.MvcApplicationPartsAssemblyInfo.cache

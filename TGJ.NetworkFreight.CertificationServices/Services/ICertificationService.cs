@@ -11,8 +11,8 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
     /// </summary>
     public interface ICertificationService
     {
-        RealNameDto RealNameCertification(string idCard, string name);
+        decimal RealNameCertification(string idCard, string name);
 
-        OCRDto OCRCertification(string image, string side);
+        decimal OCRIdCardCertification(string image, string side);
     }
 }

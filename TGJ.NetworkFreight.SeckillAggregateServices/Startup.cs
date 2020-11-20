@@ -12,6 +12,7 @@ using TGJ.NetworkFreight.Commons.Exceptions.Handlers;
 using TGJ.NetworkFreight.Commons.Filters;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.Cores.MicroClients.Extentions;
+using TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices
 {
@@ -48,6 +49,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                     { sdo.DiscoveryAddress = Configuration["DiscoveryAddress"]; };
                 };
             });
+
+            services.AddScoped<ICaching, MemoryCaching>();
 
             /*// 1、服务发现
             services.AddServiceDiscovery(options => {

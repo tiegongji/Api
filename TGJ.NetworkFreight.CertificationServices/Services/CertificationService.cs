@@ -28,37 +28,39 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
             Configuration = configuration;
 
         }
-        public OCRDto OCRCertification(string image, string side)
+        public decimal OCRIdCardCertification(string image, string side)
         {
-            string host = Configuration["IdCard:OCRUrl"];
+            string host = Configuration["AliCertification:OCRIdCarUrl"];
             string path = "/ocr/idcardocr";
             string method = "POST";
-            string appcode = Configuration["IdCard:AppCode"];
+            string appcode = Configuration["AliCertification:AppCode"];
 
             string querys = "";
             string bodys = $"image={image}&side={side}";
 
-            return Certification<OCRDto>(host, path, method, appcode, querys, bodys);
+            return Certification(host, path, method, appcode, querys, bodys);
         }
 
-        public RealNameDto RealNameCertification(string idCard, string name)
+        public decimal RealNameCertification(string idCard, string name)
         {
-            string host = Configuration["IdCard:Url"];
+            string host = Configuration["AliCertification:IdCardUrl"];
             string path = "/idcard";
             string method = "GET";
-            string appcode = Configuration["IdCard:AppCode"];
+            string appcode = Configuration["AliCertification:AppCode"];
 
             string querys = $"idCard={idCard}&name={name}";
             string bodys = "";
 
-            return Certification<RealNameDto>(host, path, method, appcode, querys, bodys);
+            return Certification(host, path, method, appcode, querys, bodys);
         }
+
+
         public static bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)
         {
             return true;
         }
 
-        public T Certification<T>(string host, string path, string method, string appcode, string querys, string bodys)
+        public decimal Certification(string host, string path, string method, string appcode, string querys, string bodys)
         {
             string url = host + path;
             HttpWebRequest httpRequest = null;
@@ -107,7 +109,9 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
             StreamReader reader = new StreamReader(st, Encoding.GetEncoding("utf-8"));
             var json = reader.ReadToEnd();
 
-            return JsonConvert.DeserializeObject<T>(json);
+            dynamic result = JsonConvert.DeserializeObject(json);
+
+            return result;
         }
     }
 }

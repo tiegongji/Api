@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService;
 
@@ -42,6 +37,62 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         public ActionResult<TurnoverDto> GetOrderTurnover(int userId)
         {
             return orderClient.GetOrderTurnover(userId);
+        }
+
+        /// <summary>
+        /// 货物类型列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetInitCategoryList")]
+        public ActionResult<dynamic> GetInitCategoryList()
+        {
+            return orderClient.GetInitCategoryList();
+        }
+
+        /// <summary>
+        /// 卡车类型列表
+        /// </summary>
+        /// <returns></returns>
+
+        [HttpGet("GetInitTruckList")]
+        public ActionResult<dynamic> GetInitTruckList()
+        {
+            return orderClient.GetInitTruckList();
+        }
+
+        /// <summary>
+        /// 新增订单
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("Add/{userId}")]
+        public ActionResult<dynamic> Add(int userId, OrderDetailDto entity)
+        {
+            entity.UserID = userId;
+            return orderClient.Add(entity);
+        }
+
+        /// <summary>
+        /// 订单列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("GetList/{userId}")]
+        public ActionResult<IEnumerable<dynamic>> GetList(int userId, int? status)
+        {
+            return orderClient.GetList(userId, status);
+        }
+
+        /// <summary>
+        /// 订单详情
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="OrderNo"></param>
+        /// <returns></returns>
+        [HttpGet("GetDetail/{userId}/{OrderNo}")]
+        public ActionResult<dynamic> GetDetail(int userId, string OrderNo)
+        {
+            return orderClient.GetDetail(userId, OrderNo);
         }
     }
 }

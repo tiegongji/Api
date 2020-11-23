@@ -36,5 +36,41 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         [GetPath("/Orders/Turnover/{userId}")]
 
         public TurnoverDto GetOrderTurnover(int userId);
+
+
+        /// <summary>
+        /// 获取货物类型
+        /// </summary>
+        [GetPath("/Orders/GetInitCategoryList")]
+
+        public dynamic GetInitCategoryList();
+
+        /// <summary>
+        /// 获取卡车类型
+        /// </summary>
+        [GetPath("/Orders/GetInitTruckList")]
+
+        public dynamic GetInitTruckList();
+
+        /// <summary>
+        /// 新增订单
+        /// </summary>
+        [GetPath("/Orders/Add")]
+
+        public dynamic Add(OrderDetailDto entity);
+
+        /// <summary>
+        /// 获取订单列表
+        /// </summary>
+        [GetPath("/Orders/GetList")]
+
+        public dynamic GetList(int userId, int? status);
+
+        /// <summary>
+        /// 获取订单详情
+        /// </summary>
+        [GetPath("/Orders/GetDetail")]
+
+        public dynamic GetDetail(int userId, string OrderNo);
     }
 }

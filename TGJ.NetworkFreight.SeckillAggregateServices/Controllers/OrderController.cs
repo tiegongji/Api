@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService;

@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp3.1\TGJ.Api.xml</DocumentationFile>
-    <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
+    <DocumentationFile>TGJ.Api.xml</DocumentationFile>
+    <OutputPath></OutputPath>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 

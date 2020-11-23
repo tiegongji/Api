@@ -55,7 +55,7 @@ namespace TGJ.NetworkFreight.UserServices
                 options.ServiceId = Guid.NewGuid().ToString();
                 options.ServiceName = "UserServices";
                 options.ServiceAddress = Configuration["ServiceAddress"];
-                options.HealthCheckAddress = "/HealthCheck";
+                options.HealthCheckAddress = "/health";
 
                 options.RegistryAddress = Configuration["RegistryAddress"];
             });
@@ -63,31 +63,27 @@ namespace TGJ.NetworkFreight.UserServices
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             // 添加IdentityServer4
-            //services.AddIdentityServer()
-            //    .AddDeveloperSigningCredential()
-            //    .AddConfigurationStore(options =>
-            //    {
-            //        options.ConfigureDbContext = builder =>
-            //        {
-            //            //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
-            //            //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"),
-            //            //                    sql => sql.MigrationsAssembly(migrationsAssembly));
-
-            //            builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-            //                                sql => sql.MigrationsAssembly(migrationsAssembly));
-
-            //            //builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            //        };
-            //    })
-
-            //    .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
-
-            // 1、ioc容器中添加IdentityServer4
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
-               .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddTestUsers(Config.GetUsers());
+                //.AddConfigurationStore(options =>
+                //{
+                //    options.ConfigureDbContext = builder =>
+                //    {
+                //        builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                //                            sql => sql.MigrationsAssembly(migrationsAssembly));
+
+                //        //builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                //    };
+                //})
+
+                .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
+
+            // 1、ioc容器中添加IdentityServer4
+            //services.AddIdentityServer()
+            //    .AddDeveloperSigningCredential()
+            //   .AddInMemoryApiResources(Config.GetApiResources())
+            //    .AddInMemoryClients(Config.GetClients())
+            //    .AddTestUsers(Config.GetUsers());
 
             // 添加控制器
             services.AddControllers(options =>
@@ -99,6 +95,8 @@ namespace TGJ.NetworkFreight.UserServices
                 // 防止将大写转换成小写
                 option.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
+
+            services.AddHealthChecks();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -122,6 +120,7 @@ namespace TGJ.NetworkFreight.UserServices
             {
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
 
             //InitializeDatabase(app);
@@ -130,37 +129,37 @@ namespace TGJ.NetworkFreight.UserServices
         // 将config中数据存储起来
         private void InitializeDatabase(IApplicationBuilder app)
         {
-        //    using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-        //    {
-        //        var context = serviceScope.ServiceProvider.GetService<ConfigurationDbContext>();
-        //        context.Database.Migrate();
-        //        if (!context.Clients.Any())
-        //        {
-        //            foreach (var client in Config.GetClients())
-        //            {
-        //                context.Clients.Add(client.ToEntity());
-        //            }
-        //            context.SaveChanges();
-        //        }
+            //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var context = serviceScope.ServiceProvider.GetService<ConfigurationDbContext>();
+            //    context.Database.Migrate();
+            //    if (!context.Clients.Any())
+            //    {
+            //        foreach (var client in Config.GetClients())
+            //        {
+            //            context.Clients.Add(client.ToEntity());
+            //        }
+            //        context.SaveChanges();
+            //    }
 
-        //        if (!context.IdentityResources.Any())
-        //        {
-        //            foreach (var resource in Config.Ids)
-        //            {
-        //                context.IdentityResources.Add(resource.ToEntity());
-        //            }
-        //            context.SaveChanges();
-        //        }
+            //    if (!context.IdentityResources.Any())
+            //    {
+            //        foreach (var resource in Config.Ids)
+            //        {
+            //            context.IdentityResources.Add(resource.ToEntity());
+            //        }
+            //        context.SaveChanges();
+            //    }
 
-        //        if (!context.ApiResources.Any())
-        //        {
-        //            foreach (var resource in Config.GetApiResources())
-        //            {
-        //                context.ApiResources.Add(resource.ToEntity());
-        //            }
-        //            context.SaveChanges();
-        //        }
-        //    }
+            //    if (!context.ApiResources.Any())
+            //    {
+            //        foreach (var resource in Config.GetApiResources())
+            //        {
+            //            context.ApiResources.Add(resource.ToEntity());
+            //        }
+            //        context.SaveChanges();
+            //    }
+            //}
         }
     }
 }

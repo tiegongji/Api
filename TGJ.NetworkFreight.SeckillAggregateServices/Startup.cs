@@ -97,12 +97,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             #region 配置Swagger
 
-            services.AddSwaggerGen(options =>
+            services.AddSwaggerGen(c =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "聚合微服务文档", Version = "v1" });
-                //var basePath = PlatformServices.Default.Application.ApplicationBasePath;
-                //var xmlPath = Path.Combine(basePath, "TGJ.Api.xml");
-                options.IncludeXmlComments($"{AppContext.BaseDirectory}/TGJ.Api.xml");
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
             });
 
             #endregion 配置Swagger
@@ -130,18 +127,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
             // 2、使用跨域
             app.UseCors("AllowSpecificOrigin");
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapDefaultControllerRoute();
-                endpoints.MapControllers();
-            });
-
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "接口文档");
                 c.RoutePrefix = string.Empty;
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllers();
             });
         }
     }

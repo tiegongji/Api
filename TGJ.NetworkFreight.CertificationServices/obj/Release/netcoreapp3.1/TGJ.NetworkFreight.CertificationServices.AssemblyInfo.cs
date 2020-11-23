@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("e590f1a5-ebec-467b-8c2e-9e3fa7992049")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TGJ.NetworkFreight.CertificationServices")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

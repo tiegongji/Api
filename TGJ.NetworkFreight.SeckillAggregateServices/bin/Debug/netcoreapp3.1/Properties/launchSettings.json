@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:62632",
-      "sslPort": 44392
+      "applicationUrl": "http://localhost:57193",
+      "sslPort": 44340
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -17,11 +17,11 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TGJ.NetworkFreight.UserServices": {
+    "TGJ.NetworkFreight.SeckillAggregateServices": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "Users",
-      "applicationUrl": "http://localhost:5005",
+      "launchUrl": "api/Seckill",
+      "applicationUrl": "http://localhost:5006",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

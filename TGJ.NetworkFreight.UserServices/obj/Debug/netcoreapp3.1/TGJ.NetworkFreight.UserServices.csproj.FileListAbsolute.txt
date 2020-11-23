@@ -699,10 +699,10 @@ D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\staticwebass
 D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.dll
 D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.genruntimeconfig.cache
-D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.csproj.CoreCompileInputs.cache
-D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.MvcApplicationPartsAssemblyInfo.cs
-D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.MvcApplicationPartsAssemblyInfo.cache
 D:\Code\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\IdentityModel.dll
 D:\Code\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\IdentityServer4.dll
 D:\Code\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\IdentityServer4.Storage.dll
 D:\Code\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.csproj.CoreCompileInputs.cache
+D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.MvcApplicationPartsAssemblyInfo.cs
+D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.MvcApplicationPartsAssemblyInfo.cache

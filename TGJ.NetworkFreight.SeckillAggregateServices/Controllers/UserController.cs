@@ -143,8 +143,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 ClientSecret = "secret",
                 GrantType = "password",
                 Scope = "TGJService",
-                UserName = wechatResult.openId,
-                Password = wechatResult.phoneNumber
+                //UserName = wechatResult.openId,
+                //Password = wechatResult.phoneNumber
+                UserName = "tony",
+                Password = "123456"
             }).Result;
 
             // 3、返回AccessToken

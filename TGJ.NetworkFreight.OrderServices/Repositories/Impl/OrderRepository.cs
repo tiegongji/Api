@@ -5,8 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using TGJ.NetworkFreight.OrderServices.Context;
 using TGJ.NetworkFreight.OrderServices.Dto;
+using TGJ.NetworkFreight.OrderServices.Extend;
 using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.OrderServices.Repositories.Interface;
+using static TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper;
 
 namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 {
@@ -61,26 +63,37 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         }
 
 
-        public IEnumerable<dynamic> GetList(int userid, int? status)
+        public IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize, int? status)
         {
-            return from o in context.Order
-                   where o.UserID == userid && (status.HasValue ? (o.TradeStatus == status) : (1 == 1))
-                   join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
-                    into _order
-                   from order in _order.DefaultIfEmpty()
-                   join t in context.InitTruck on order.TruckID equals t.ID
-                   into _truck
-                   from truck in _truck.DefaultIfEmpty()
-                   join c in context.InitCategory on order.CategoryID equals c.ID
-                   into _catetory
-                   from catetory in _catetory.DefaultIfEmpty()
-                   select new
-                   {
-                       order.Weight,
-                       order.StartDate,
-                       o.CarrierUserID,
-                       o.TradeStatus
-                   };
+            return (from o in context.Order
+                    where o.UserID == userid && (status.HasValue ? (o.TradeStatus == status) : (1 == 1))
+                    join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
+                     into _order
+                    from order in _order.DefaultIfEmpty()
+                    join t in context.InitTruck on order.TruckID equals t.ID
+                    into _truck
+                    from truck in _truck.DefaultIfEmpty()
+                    join c in context.InitCategory on order.CategoryID equals c.ID
+                    into _catetory
+                    from catetory in _catetory.DefaultIfEmpty()
+                    join DepartureAddress in context.UserAddress on order.DepartureAddressID equals DepartureAddress.ID
+                    into _DepartureAddress
+                    from DepartureAddress_New in _DepartureAddress.DefaultIfEmpty()
+                    join ArrivalAddress in context.UserAddress on order.ArrivalAddressID equals ArrivalAddress.ID
+                    into _ArrivalAddress
+                    from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
+                    select new
+                    {
+                        truck.MaxWeight,
+                        order.Weight,
+                        Date = order.StartDate.ToDate(),
+                        Distance = (order.Distance == null || order.Distance == 0) ? Tool.GetDistance(DepartureAddress_New.TencentLat, DepartureAddress_New.TencentLng, ArrivalAddress_New.TencentLat, ArrivalAddress_New.TencentLng).ToDecimal(0) : order.Distance,
+                        DepartureAddressName = DepartureAddress_New.Name,
+                        DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
+                        ArrivalAddressName = ArrivalAddress_New.Name,
+                        ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
+                        TradeStatus = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal()
+                    }).Skip(pageSize * (pageIndex - 1)).Take(pageSize); ;
         }
 
 

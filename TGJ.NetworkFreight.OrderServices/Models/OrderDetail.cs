@@ -57,5 +57,9 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// 备注
         /// </summary>
         public string Comment { set; get; }
+        /// <summary>
+        /// 距离
+        /// </summary>
+        public decimal? Distance { set; get; }
     }
 }

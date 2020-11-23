@@ -60,9 +60,9 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <param name="status"></param>
         /// <returns></returns>
         [HttpPost("GetList")]
-        public ActionResult<IEnumerable<dynamic>> GetList(int userId, int? status)
+        public ActionResult<IEnumerable<dynamic>> GetList(int userId, int pageIndex, int pageSize, int? status)
         {
-            return IOrderService.GetList(userId, status).ToList();
+            return IOrderService.GetList(userId, pageIndex, pageSize,status).ToList();
         }
 
         /// <summary>

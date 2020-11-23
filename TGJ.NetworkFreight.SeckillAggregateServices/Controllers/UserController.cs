@@ -27,6 +27,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         private readonly IDynamicMiddleUrl dynamicMiddleUrl; // 中台url
         private readonly HttpClient httpClient;
         private readonly ICaching Cache;
+
         /// <summary>
         /// 
         /// </summary>
@@ -92,7 +93,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var userInfo = userClient.GetUserByOpenId(wechatResult.openId);
 
-            var userid = 0;
+            //var userid = 0;
 
             if (null == userInfo || userInfo.Id <= 0)
             {
@@ -114,18 +115,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 {
                     throw new BizException("用户新增失败");
                 }
-                else
-                {
-                    userid = obj.Id;
-                }
+                //else
+                //{
+                //    userid = obj.Id;
+                //}
             }
-            else
-            {
-                userid = userInfo.Id;
-            }
+            //else
+            //{
+            //    userid = userInfo.Id;
+            //}
 
             // 1、获取IdentityServer接口文档
-            string userUrl = dynamicMiddleUrl.GetMiddleUrl("https", "UserServices");
+            string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
 
             DiscoveryDocumentResponse discoveryDocument = httpClient.GetDiscoveryDocumentAsync(userUrl).Result;
 
@@ -141,8 +142,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 ClientId = "client-password",
                 ClientSecret = "secret",
                 GrantType = "password",
-                UserName = userid.ToString(),
-                Password = userInfo.Phone
+                Scope = "TGJService",
+                UserName = wechatResult.openId,
+                Password = wechatResult.phoneNumber
             }).Result;
 
             // 3、返回AccessToken

@@ -93,6 +93,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
 
+            services.AddMemoryCacheSetup();
+
             #region ÅäÖÃSwagger
 
             services.AddSwaggerGen(options =>

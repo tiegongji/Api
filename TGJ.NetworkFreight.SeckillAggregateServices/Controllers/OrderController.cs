@@ -16,7 +16,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class OrderController : ControllerBase
     {
         private readonly IOrderClient orderClient;

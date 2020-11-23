@@ -779,8 +779,6 @@ D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\IdentityModel.AspNetCore.OAuth2Introspection.dll
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\IdentityServer4.dll
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\IdentityServer4.AccessTokenValidation.dll
-D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\IdentityServer4.EntityFramework.dll
-D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\IdentityServer4.EntityFramework.Storage.dll
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\IdentityServer4.Storage.dll
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\K4os.Compression.LZ4.dll
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
@@ -934,9 +932,9 @@ D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\TGJ.NetworkFreight.Commons.pdb
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\TGJ.NetworkFreight.Cores.pdb
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\TGJ.NetworkFreight.OrderServices.pdb
-D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\TGJ.NetworkFreight.UserServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.csproj.CoreCompileInputs.cache
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.MvcApplicationPartsAssemblyInfo.cs
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.MvcApplicationPartsAssemblyInfo.cache
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\aliyun-net-sdk-core.dll
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\aliyun-net-sdk-dysmsapi.dll
+D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\netcoreapp3.1\TGJ.NetworkFreight.UserServices.pdb

@@ -20,9 +20,10 @@ namespace TGJ.NetworkFreight.UserServices.Configs
         {
             return new List<ApiResource>
             {
-                new ApiResource("TGJService", "TGJService")
+                new ApiResource("TGJService", "TGJService api需要被保护",new List<string> {"role","admin" })
             };
         }
+
 
         /// <summary>
         /// 2、客户端
@@ -34,18 +35,22 @@ namespace TGJ.NetworkFreight.UserServices.Configs
             {
                 new Client
                 {
-                    ClientId = "client1",
+                    ClientId = "client",
+
+                    // 没有交互性用户，使用 clientid/secret 实现认证。
+                    // 1、client认证模式
+                    // 2、client用户密码认证模式
+                    // 3、授权码认证模式(code)
+                    // 4、简单认证模式(js)
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
 
+                    // 用于认证的密码
                     ClientSecrets =
                     {
                         new Secret("secret".Sha256())
                     },
-                    AllowedScopes = { "TGJService",
-                                       IdentityServerConstants.StandardScopes.OpenId, //必须要添加，否则报forbidden错误
-                                       IdentityServerConstants.StandardScopes.Profile
-                    },
-
+                    // 客户端有权访问的范围（Scopes）
+                    AllowedScopes = { "TGJService", "MemberService" }
                 },
                 new Client
                 {
@@ -58,10 +63,11 @@ namespace TGJ.NetworkFreight.UserServices.Configs
                     {
                         new Secret("secret".Sha256())
                     },
-                   AllowedScopes = { "TGJService",
-                        IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile}
-                }, 
+	                // 客户端有权访问的范围（Scopes）
+	                AllowedScopes = { "TGJService",
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile}
+                },
                 // openid客户端
                 new Client
                 {
@@ -92,8 +98,8 @@ namespace TGJ.NetworkFreight.UserServices.Configs
         /// </summary>
         public static IEnumerable<IdentityResource> Ids => new List<IdentityResource>
         {
-                new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+            new IdentityResources.OpenId(),
+            new IdentityResources.Profile()
         };
 
         /// <summary>
@@ -107,8 +113,21 @@ namespace TGJ.NetworkFreight.UserServices.Configs
                 new TestUser
                 {
                     SubjectId="1",
-                    Username="admin",
+                    Username="tony",
                     Password="123456"
+                },
+                // openid 身份验证
+                new TestUser{SubjectId = "818727", Username = "tony-1", Password = "123456",
+                    Claims =
+                    {
+                        new Claim(JwtClaimTypes.Name, "tony-1"),
+                        new Claim(JwtClaimTypes.GivenName, "tony-1"),
+                        new Claim(JwtClaimTypes.FamilyName, "tony-1"),
+                        new Claim(JwtClaimTypes.Email, "tony-1@email.com"),
+                        new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
+                        new Claim(JwtClaimTypes.WebSite, "http://tony-1.com"),
+                      //  new Claim(JwtClaimTypes.Address, @"{ '城市': '杭州', '邮政编码': '310000' }", IdentityServer4.IdentityServerConstants.ClaimValueTypes.Json)
+                    }
                 }
             };
         }

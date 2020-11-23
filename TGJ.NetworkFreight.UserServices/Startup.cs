@@ -1,8 +1,6 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using IdentityServer4.EntityFramework.DbContexts;
-using IdentityServer4.EntityFramework.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -65,31 +63,31 @@ namespace TGJ.NetworkFreight.UserServices
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             // 添加IdentityServer4
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddConfigurationStore(options =>
-                {
-                    options.ConfigureDbContext = builder =>
-                    {
-                        //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
-                        //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"),
-                        //                    sql => sql.MigrationsAssembly(migrationsAssembly));
-
-                        builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                                            sql => sql.MigrationsAssembly(migrationsAssembly));
-
-                        //builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-                    };
-                })
-
-                .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
-
             //services.AddIdentityServer()
             //    .AddDeveloperSigningCredential()
-            //    .AddInMemoryApiResources(Config.GetApiResources())
-            //    .AddInMemoryClients(Config.GetClients())
-            //    .AddInMemoryIdentityResources(Config.Ids)
-            //    .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
+            //    .AddConfigurationStore(options =>
+            //    {
+            //        options.ConfigureDbContext = builder =>
+            //        {
+            //            //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
+            //            //builder.UseMySQL(Configuration.GetConnectionString("DefaultConnection"),
+            //            //                    sql => sql.MigrationsAssembly(migrationsAssembly));
+
+            //            builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+            //                                sql => sql.MigrationsAssembly(migrationsAssembly));
+
+            //            //builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //        };
+            //    })
+
+            //    .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
+
+            // 1、ioc容器中添加IdentityServer4
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+               .AddInMemoryApiResources(Config.GetApiResources())
+                .AddInMemoryClients(Config.GetClients())
+                .AddTestUsers(Config.GetUsers());
 
             // 添加控制器
             services.AddControllers(options =>
@@ -126,43 +124,43 @@ namespace TGJ.NetworkFreight.UserServices
                 endpoints.MapControllers();
             });
 
-            InitializeDatabase(app);
+            //InitializeDatabase(app);
         }
 
         // 将config中数据存储起来
         private void InitializeDatabase(IApplicationBuilder app)
         {
-            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetService<ConfigurationDbContext>();
-                context.Database.Migrate();
-                if (!context.Clients.Any())
-                {
-                    foreach (var client in Config.GetClients())
-                    {
-                        context.Clients.Add(client.ToEntity());
-                    }
-                    context.SaveChanges();
-                }
+        //    using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+        //    {
+        //        var context = serviceScope.ServiceProvider.GetService<ConfigurationDbContext>();
+        //        context.Database.Migrate();
+        //        if (!context.Clients.Any())
+        //        {
+        //            foreach (var client in Config.GetClients())
+        //            {
+        //                context.Clients.Add(client.ToEntity());
+        //            }
+        //            context.SaveChanges();
+        //        }
 
-                if (!context.IdentityResources.Any())
-                {
-                    foreach (var resource in Config.Ids)
-                    {
-                        context.IdentityResources.Add(resource.ToEntity());
-                    }
-                    context.SaveChanges();
-                }
+        //        if (!context.IdentityResources.Any())
+        //        {
+        //            foreach (var resource in Config.Ids)
+        //            {
+        //                context.IdentityResources.Add(resource.ToEntity());
+        //            }
+        //            context.SaveChanges();
+        //        }
 
-                if (!context.ApiResources.Any())
-                {
-                    foreach (var resource in Config.GetApiResources())
-                    {
-                        context.ApiResources.Add(resource.ToEntity());
-                    }
-                    context.SaveChanges();
-                }
-            }
+        //        if (!context.ApiResources.Any())
+        //        {
+        //            foreach (var resource in Config.GetApiResources())
+        //            {
+        //                context.ApiResources.Add(resource.ToEntity());
+        //            }
+        //            context.SaveChanges();
+        //        }
+        //    }
         }
     }
 }

@@ -132,3 +132,4 @@ D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.
 D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.dll
 D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.pdb
 D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.genruntimeconfig.cache
+D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.csprojAssemblyReference.cache

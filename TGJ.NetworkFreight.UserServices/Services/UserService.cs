@@ -44,11 +44,6 @@ namespace TGJ.NetworkFreight.UserServices.Services
             return UserRepository.GetUserByOpenId(openId);
         }
 
-        public User GetUserByPhone(string phone)
-        {
-            return UserRepository.GetUserByPhone(phone);
-        }
-
         public IEnumerable<User> GetUsers()
         {
             return UserRepository.GetUsers();

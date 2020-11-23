@@ -55,6 +55,10 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// </summary>
         public Single TencentLat { set; get; }
         /// <summary>
+        /// 腾讯经度
+        /// </summary>
+        public Single TencentLng { set; get; }
+        /// <summary>
         /// 地址
         /// </summary>
         public string Address { set; get; }

@@ -32,14 +32,14 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             return IInitTruckRepository.GetList();
         }
 
-        public void Add(OrderDetail entity)
+        public void Add(OrderDetailDto entity)
         {
             IOrderRepository.Add(entity);
         }
 
-        public IEnumerable<dynamic> GetList(int userid, int? status)
+        public IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize,  int? status)
         {
-            return IOrderRepository.GetList(userid, status);
+            return IOrderRepository.GetList(userid, pageIndex, pageSize,status);
         }
 
         public dynamic GetDetail(int userid, string OrderNo)

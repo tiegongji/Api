@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.EntityFramework.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -78,12 +80,21 @@ namespace TGJ.NetworkFreight.UserServices
 
                 .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
 
+<<<<<<< HEAD
             // 1、ioc容器中添加IdentityServer4
             //services.AddIdentityServer()
             //    .AddDeveloperSigningCredential()
             //   .AddInMemoryApiResources(Config.GetApiResources())
             //    .AddInMemoryClients(Config.GetClients())
             //    .AddTestUsers(Config.GetUsers());
+=======
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+                .AddInMemoryApiResources(Config.GetApiResources())
+                .AddInMemoryClients(Config.GetClients())
+                .AddInMemoryIdentityResources(Config.Ids)
+                .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
 
             // 添加控制器
             services.AddControllers(options =>
@@ -129,6 +140,7 @@ namespace TGJ.NetworkFreight.UserServices
         // 将config中数据存储起来
         private void InitializeDatabase(IApplicationBuilder app)
         {
+<<<<<<< HEAD
             //using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             //{
             //    var context = serviceScope.ServiceProvider.GetService<ConfigurationDbContext>();
@@ -160,6 +172,39 @@ namespace TGJ.NetworkFreight.UserServices
             //        context.SaveChanges();
             //    }
             //}
+=======
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<ConfigurationDbContext>();
+                context.Database.Migrate();
+                if (!context.Clients.Any())
+                {
+                    foreach (var client in Config.GetClients())
+                    {
+                        context.Clients.Add(client.ToEntity());
+                    }
+                    context.SaveChanges();
+                }
+
+                if (!context.IdentityResources.Any())
+                {
+                    foreach (var resource in Config.Ids)
+                    {
+                        context.IdentityResources.Add(resource.ToEntity());
+                    }
+                    context.SaveChanges();
+                }
+
+                if (!context.ApiResources.Any())
+                {
+                    foreach (var resource in Config.GetApiResources())
+                    {
+                        context.ApiResources.Add(resource.ToEntity());
+                    }
+                    context.SaveChanges();
+                }
+            }
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
         }
     }
 }

@@ -132,9 +132,7 @@ namespace TGJ.NetworkFreight.Cores.MicroClients
             string resultJson = JsonConvert.SerializeObject(result);
 
             // 7、再反序列成需要的对象
-            //dynamic returnResult = JsonConvert.DeserializeObject(resultJson, convertType);
-
-            dynamic returnResult = JsonConvert.DeserializeObject(resultJson);
+            dynamic returnResult = JsonConvert.DeserializeObject(resultJson, convertType);
 
             return returnResult;
         }

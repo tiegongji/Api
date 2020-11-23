@@ -99,6 +99,7 @@ D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.pdb
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.genruntimeconfig.cache
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.csprojAssemblyReference.cache
+<<<<<<< HEAD
 D:\Code\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.exe
 D:\Code\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.deps.json
 D:\Code\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.runtimeconfig.json
@@ -132,3 +133,36 @@ D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.
 D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.dll
 D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.pdb
 D:\Code\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.genruntimeconfig.cache
+=======
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.exe
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.deps.json
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.runtimeconfig.json
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.runtimeconfig.dev.json
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.pdb
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Castle.Core.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Consul.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Http.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Http.Polly.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Polly.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\Polly.Extensions.Http.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.AssemblyInfoInputs.cache
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.AssemblyInfo.cs
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.csproj.CopyComplete
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Cores\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.pdb
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da

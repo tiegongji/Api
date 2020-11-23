@@ -154,6 +154,7 @@ D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.CertificationServices\obj\De
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.dll
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.pdb
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.genruntimeconfig.cache
+<<<<<<< HEAD
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.exe
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.exe
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -208,3 +209,5 @@ D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\sta
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.dll
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.genruntimeconfig.cache
+=======
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da

@@ -563,6 +563,7 @@ D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.SeckillAggregateServices\bin
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Git\TMSApi\TGJ.NetworkFreight\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+<<<<<<< HEAD
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.exe
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.exe
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -758,3 +759,14 @@ D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.dll
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.genruntimeconfig.cache
+=======
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.csprojAssemblyReference.cache
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\staticwebassets\TGJ.NetworkFreight.SeckillAggregateServices.StaticWebAssets.Manifest.cache
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\staticwebassets\TGJ.NetworkFreight.SeckillAggregateServices.StaticWebAssets.xml
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.MvcApplicationPartsAssemblyInfo.cs
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.MvcApplicationPartsAssemblyInfo.cache
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.AssemblyInfoInputs.cache
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.AssemblyInfo.cs
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.pdb
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da

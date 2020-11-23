@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.Cores.DynamicMiddleware.Urls;
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService;
-using TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService;
 using TGJ.NetworkFreight.UserServices.Models;
@@ -19,50 +18,42 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     /// <summary>
     /// 用户控制器
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/User")]
     [ApiController]
     public class UserController : ControllerBase
     {
         private readonly IUserClient userClient;
         private readonly IDynamicMiddleUrl dynamicMiddleUrl; // 中台url
         private readonly HttpClient httpClient;
-        private readonly ICaching Cache;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userClient"></param>
-        /// <param name="dynamicMiddleUrl"></param>
-        /// <param name="httpClientFactory"></param>
-        /// <param name="cache"></param>
         public UserController(IUserClient userClient, IDynamicMiddleUrl dynamicMiddleUrl
-                                , IHttpClientFactory httpClientFactory, ICaching cache)
+                                , IHttpClientFactory httpClientFactory)
         {
             this.userClient = userClient;
             this.dynamicMiddleUrl = dynamicMiddleUrl;
             this.httpClient = httpClientFactory.CreateClient();
-            this.Cache = cache;
         }
 
         /// <summary>
         /// 获取用户集合
         /// </summary>
         /// <returns></returns>
+
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetUser()
         {
-            //    var model = new User()
-            //    {
-            //        CreateTime = DateTime.Now,
-            //        Phone = "ss",
-            //        wx_HeadImgUrl = "ss",
-            //        wx_NickName = "11111",
-            //        wx_OpenID = "eeeeeee",
-            //        wx_UnionID = "ss",
-            //        HasAuthenticated = false,
-            //        Name = "哇哇哇我哇",
-            //        Status = 1
-            //    };
+        //    var model = new User()
+        //    {
+        //        CreateTime = DateTime.Now,
+        //        Phone = "ss",
+        //        wx_HeadImgUrl = "ss",
+        //        wx_NickName = "11111",
+        //        wx_OpenID = "eeeeeee",
+        //        wx_UnionID = "ss",
+        //        HasAuthenticated = false,
+        //        Name = "哇哇哇我哇",
+        //        Status = 1
+        //    };
             var obj = userClient.GetUsers();
 
             return Ok(obj);
@@ -93,7 +84,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var userInfo = userClient.GetUserByOpenId(wechatResult.openId);
 
-            //var userid = 0;
+            var userid = 0;
 
             if (null == userInfo || userInfo.Id <= 0)
             {
@@ -115,18 +106,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 {
                     throw new BizException("用户新增失败");
                 }
-                //else
-                //{
-                //    userid = obj.Id;
-                //}
+                else
+                {
+                    userid = obj.Id;
+                }
             }
-            //else
-            //{
-            //    userid = userInfo.Id;
-            //}
+            else
+            {
+                userid = userInfo.Id;
+            }
 
             // 1、获取IdentityServer接口文档
-            string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
+            string userUrl = dynamicMiddleUrl.GetMiddleUrl("https", "UserServices");
 
             DiscoveryDocumentResponse discoveryDocument = httpClient.GetDiscoveryDocumentAsync(userUrl).Result;
 
@@ -142,11 +133,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 ClientId = "client-password",
                 ClientSecret = "secret",
                 GrantType = "password",
+<<<<<<< HEAD
                 Scope = "TGJService",
                 //UserName = wechatResult.openId,
                 //Password = wechatResult.phoneNumber
                 UserName = "tony",
                 Password = "123456"
+=======
+                UserName = userid.ToString(),
+                Password = userInfo.Phone
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
             }).Result;
 
             // 3、返回AccessToken
@@ -170,27 +166,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             userDto.ExpiresIn = tokenResponse.ExpiresIn;
 
             return userDto;
-        }
-
-        /// <summary>
-        /// 修改密码
-        /// </summary>
-        /// <param name="passwordPo"></param>
-        /// <returns></returns>
-        [HttpPost("ModifyPassword")]
-        public ActionResult ModifyPassword(ModifyPasswordPo passwordPo)
-        {
-            var code = Cache.Get(passwordPo.UserId.ToString());
-
-            if (code == null)
-                throw new BizException("验证码已过期");
-
-            if (code.Equals(passwordPo.Code))
-                throw new BizException("验证码不正确");
-
-            userClient.ModifyPassword(passwordPo.Phone, passwordPo.Password);
-
-            return NoContent();
         }
     }
 }

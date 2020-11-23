@@ -174,6 +174,7 @@ D:\git\TMS\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\Microsoft.Exte
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\Microsoft.Net.Http.Headers.dll
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\git\TMS\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.csprojAssemblyReference.cache
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.AssemblyInfoInputs.cache
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.AssemblyInfo.cs
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.csproj.CopyComplete

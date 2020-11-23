@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TGJ.NetworkFreight.OrderServices.Dto;
-using TGJ.NetworkFreight.OrderServices.Models;
-using TGJ.NetworkFreight.OrderServices.Services;
 using TGJ.NetworkFreight.OrderServices.Services.Interface;
 
 namespace TGJ.NetworkFreight.OrderServices.Controllers

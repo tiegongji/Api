@@ -9,9 +9,9 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Interface
 {
     public interface IOrderRepository
     {
-        void Add(OrderDetail entity);
-        IEnumerable<dynamic> GetList(int userid, int? status);
-        IEnumerable<dynamic> GetListByUid(int userid);
+        void Add(OrderDetailDto entity);
+        IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize, int? status);
+        IEnumerable<Order> GetListByUid(int userid);
         dynamic GetDetail(int userid, string OrderNo);
     }
 }

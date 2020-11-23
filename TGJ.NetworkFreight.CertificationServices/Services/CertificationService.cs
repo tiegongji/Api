@@ -23,151 +23,42 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         /// 配置文件
         /// </summary>
         public IConfiguration Configuration { get; }
-         
         public CertificationService(IConfiguration configuration)
         {
             Configuration = configuration;
 
         }
-
-        /// <summary>
-        /// 身份证OCR
-        /// </summary>
-        /// <param name="image"></param>
-        /// <param name="side"></param>
-        /// <returns></returns>
-        public decimal OCRIdCard(string image, string side)
+        public OCRDto OCRCertification(string image, string side)
         {
-            string host = Configuration["AliCertification:OCRIdCarUrl"];
+            string host = Configuration["IdCard:OCRUrl"];
             string path = "/ocr/idcardocr";
             string method = "POST";
-            string appcode = Configuration["AliCertification:AppCode"];
+            string appcode = Configuration["IdCard:AppCode"];
 
             string querys = "";
             string bodys = $"image={image}&side={side}";
 
-            return Certification(host, path, method, appcode, querys, bodys);
+            return Certification<OCRDto>(host, path, method, appcode, querys, bodys);
         }
 
-        /// <summary>
-        /// 身份证实名
-        /// </summary>
-        /// <param name="idCard"></param>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public decimal RealNameCertification(string idCard, string name)
+        public RealNameDto RealNameCertification(string idCard, string name)
         {
-            string host = Configuration["AliCertification:IdCardUrl"];
+            string host = Configuration["IdCard:Url"];
             string path = "/idcard";
             string method = "GET";
-            string appcode = Configuration["AliCertification:AppCode"];
+            string appcode = Configuration["IdCard:AppCode"];
 
             string querys = $"idCard={idCard}&name={name}";
             string bodys = "";
 
-            return Certification(host, path, method, appcode, querys, bodys);
-        }
-
-        /// <summary>
-        /// 银行卡实名认证
-        /// </summary>
-        /// <param name="bankCard"></param>
-        /// <param name="idCard"></param>
-        /// <param name="realName"></param>
-        /// <returns></returns>
-        public decimal BankCertification(string bankCard, string idCard, string realName)
-        {
-            string host = Configuration["AliCertification:BankCardUrl"];
-            string path = "/bankcard3";
-            string method = "GET";
-            string appcode = Configuration["AliCertification:AppCode"];
-
-            string querys = $"bankcard={bankCard}&idcard={idCard}&realname={realName}";
-            string bodys = "";
-
-            return Certification(host, path, method, appcode, querys, bodys);
-        }
-
-        /// <summary>
-        /// 银行卡OCR
-        /// </summary>
-        /// <param name="pic"></param>
-        /// <returns></returns>
-        public decimal OCRBank(string pic)
-        {
-            string host = Configuration["AliCertification:OCRBankUrl"];
-            string path = "/ocr/bank-card";
-            string method = "GET";
-            string appcode = Configuration["AliCertification:AppCode"];
-
-            string querys = "";
-            string bodys = $"pic={pic}";
-
-            return Certification(host, path, method, appcode, querys, bodys);
-        }
-
-        /// <summary>
-        /// 驾驶证识别
-        /// </summary>
-        /// <param name="pic"></param>
-        /// <param name="type">1:正面/2:反面</param>
-        /// <returns></returns>
-        public decimal OCRDriver(string pic, string type)
-        {
-            string host = Configuration["AliCertification:DriverCardUrl"];
-            string path = "/ocr/driving-license";
-            string method = "POST";
-            string appcode = Configuration["AliCertification:AppCode"];
-
-            string querys = "";
-            string bodys = $"pic={pic}&type={type}";
-
-            return Certification(host, path, method, appcode, querys, bodys);
-        }
-
-        /// <summary>
-        /// 行驶证识别
-        /// </summary>
-        /// <param name="pic"></param>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public decimal OCRVehicle(string pic, string type)
-        {
-            string host = Configuration["AliCertification:VehicleUrl"];
-            string path = "/ocr/vehicle-license";
-            string method = "POST";
-            string appcode = Configuration["AliCertification:AppCode"];
-
-            string querys = "";
-            string bodys = $"pic={pic}&type={type}";
-
-            return Certification(host, path, method, appcode, querys, bodys);
-        }
-
-        /// <summary>
-        /// 道路经营许可证识别
-        /// </summary>
-        /// <param name="pic"></param>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public decimal OCRPermit(string pic, string type)
-        {
-            string host = Configuration["AliCertification:PermitUrl"];
-            string path = "/ai_market/ai_ocr_universal/dao_lu_jiao_tong/v1";
-            string method = "POST";
-            string appcode = Configuration["AliCertification:AppCode"];
-
-            string querys = "";
-            string bodys = $"IMAGE={pic}&type={type}";
-
-            return Certification(host, path, method, appcode, querys, bodys);
+            return Certification<RealNameDto>(host, path, method, appcode, querys, bodys);
         }
         public static bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)
         {
             return true;
         }
 
-        public decimal Certification(string host, string path, string method, string appcode, string querys, string bodys)
+        public T Certification<T>(string host, string path, string method, string appcode, string querys, string bodys)
         {
             string url = host + path;
             HttpWebRequest httpRequest = null;
@@ -216,10 +107,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
             StreamReader reader = new StreamReader(st, Encoding.GetEncoding("utf-8"));
             var json = reader.ReadToEnd();
 
-            dynamic result = JsonConvert.DeserializeObject(json);
-
-            return result;
+            return JsonConvert.DeserializeObject<T>(json);
         }
-
     }
 }

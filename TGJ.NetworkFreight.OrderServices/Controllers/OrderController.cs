@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TGJ.NetworkFreight.OrderServices.Dto;
-using TGJ.NetworkFreight.OrderServices.Models;
-using TGJ.NetworkFreight.OrderServices.Services;
 using TGJ.NetworkFreight.OrderServices.Services.Interface;
 
 namespace TGJ.NetworkFreight.OrderServices.Controllers
@@ -21,11 +14,10 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService IOrderService;
-        private readonly IMapper mapper;
-        public OrderController(IOrderService _IOrderService, IMapper _mapper)
+
+        public OrderController(IOrderService _IOrderService)
         {
             IOrderService = _IOrderService;
-            mapper = _mapper;
         }
 
         /// <summary>
@@ -33,9 +25,9 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("GetInitCategoryList")]
-        public ActionResult GetInitCategoryList()
+        public ActionResult<IEnumerable<dynamic>> GetInitCategoryList()
         {
-            return Ok(IOrderService.GetInitCategoryList());
+            return IOrderService.GetInitCategoryList().ToList();
         }
 
         /// <summary>
@@ -43,31 +35,45 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("GetInitTruckList")]
-        public ActionResult GetInitTruckList()
+        public ActionResult<IEnumerable<dynamic>> GetInitTruckList()
         {
-            return Ok(IOrderService.GetInitTruckList());
+            return IOrderService.GetInitTruckList().ToList();
         }
 
+
+        /// <summary>
+        /// 新增订单
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         [HttpPost("add")]
         public ActionResult Add(OrderDetailDto entity)
         {
-            var OrderDetail = mapper.Map<OrderDetail>(entity);
-            IOrderService.Add(OrderDetail);
+            IOrderService.Add(entity);
             return Ok("添加成功");
         }
 
 
+        /// <summary>
+        /// 订单列表
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
         [HttpPost("GetList")]
-        public ActionResult GetList(int? status)
+        public ActionResult<IEnumerable<dynamic>> GetList(int userId, int pageIndex, int pageSize, int? status)
         {
-            return Ok(IOrderService.GetList(0, status));
-
+            return IOrderService.GetList(userId, pageIndex, pageSize,status).ToList();
         }
 
+        /// <summary>
+        /// 订单详情
+        /// </summary>
+        /// <param name="OrderNo"></param>
+        /// <returns></returns>
         [HttpPost("GetDetail/{OrderNo}")]
-        public ActionResult GetDetail(string OrderNo)
+        public ActionResult<dynamic> GetDetail(int userId, string OrderNo)
         {
-            return Ok(IOrderService.GetDetail(0, OrderNo));
+            return IOrderService.GetDetail(userId, OrderNo);
         }
 
         [HttpGet("Gather/userId")]

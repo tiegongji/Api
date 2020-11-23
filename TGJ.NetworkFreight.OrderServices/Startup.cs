@@ -1,11 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +10,6 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using TGJ.NetworkFreight.Commons.Exceptions.Handlers;
 using TGJ.NetworkFreight.Commons.Filters;
-using TGJ.NetworkFreight.Cores.Middleware.Extentions;
 using TGJ.NetworkFreight.Cores.Registry.Extentions;
 using TGJ.NetworkFreight.OrderServices.AutoMapper;
 using TGJ.NetworkFreight.OrderServices.Context;
@@ -36,6 +31,10 @@ namespace TGJ.NetworkFreight.OrderServices
             {
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            //添加AutoMapper
+            services.AddAutoMapper(typeof(AutoMapperConfigs).Assembly);
+            services.AddDataServices();
+
             // 添加服务注册
             services.AddServiceRegistry(options =>
             {
@@ -57,9 +56,7 @@ namespace TGJ.NetworkFreight.OrderServices
                 // 防止将大写转换成小写
                 option.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
-            //添加AutoMapper
-            services.AddAutoMapper(typeof(AutoMapperConfigs).Assembly);
-            services.AddDataServices();
+      
 
             // 添加Swagger
             //services.AddSwaggerGen(c =>

@@ -11,8 +11,8 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Interface
     {
         IEnumerable<dynamic> GetInitCategoryList();
         IEnumerable<dynamic> GetInitTruckList();
-        void Add(OrderDetail entity);
-        IEnumerable<dynamic> GetList(int userid, int? status);
+        void Add(OrderDetailDto entity);
+        IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize, int? status);
         dynamic GetDetail(int userid, string OrderNo);
         OrderGatherDto GetOrderGather(int userid);
         OrderTurnoverDto GetOrderTurnover(int userid);

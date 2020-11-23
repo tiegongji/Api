@@ -73,21 +73,5 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             UserService.Create(User);
             return CreatedAtAction("GetUser", new { id = User.Id }, User);
         }
-
-        [HttpPost("ModifyPassword")]
-        public ActionResult ModifyPassword(string phone, string password)
-        {
-            var user = UserService.GetUserByPhone(phone);
-
-            if (user == null)
-                return NotFound();
-
-            user.LoginPassword = password;
-            user.LastUpdateTime = DateTime.Now;
-
-            UserService.Update(user);
-
-            return NoContent();
-        }
     }
 }

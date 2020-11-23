@@ -79,12 +79,21 @@ namespace TGJ.NetworkFreight.UserServices
                 })
                 .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
 
+
             // 1、ioc容器中添加IdentityServer4
             //services.AddIdentityServer()
             //    .AddDeveloperSigningCredential()
             //   .AddInMemoryApiResources(Config.GetApiResources())
             //    .AddInMemoryClients(Config.GetClients())
             //    .AddTestUsers(Config.GetUsers());
+
+            //services.AddIdentityServer()
+            //    .AddDeveloperSigningCredential()
+            //    .AddInMemoryApiResources(Config.GetApiResources())
+            //    .AddInMemoryClients(Config.GetClients())
+            //    .AddInMemoryIdentityResources(Config.Ids)
+            //    .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
+
 
             // 添加控制器
             services.AddControllers(options =>
@@ -155,11 +164,13 @@ namespace TGJ.NetworkFreight.UserServices
                 if (!context.ApiResources.Any())
                 {
                     foreach (var resource in Config.GetResource())
+
                     {
                         context.ApiResources.Add(resource.ToEntity());
                     }
                     context.SaveChanges();
                 }
+
                 if (!context.ApiScopes.Any())
                 {
                     foreach (var resource in Config.ApiScopes)
@@ -169,6 +180,7 @@ namespace TGJ.NetworkFreight.UserServices
                     context.SaveChanges();
                 }
             }
+
         }
     }
 }

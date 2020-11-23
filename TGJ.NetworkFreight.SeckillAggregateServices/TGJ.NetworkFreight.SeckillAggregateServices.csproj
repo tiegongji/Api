@@ -39,11 +39,10 @@
 
   <ItemGroup>
     <Reference Include="aliyun-net-sdk-core">
-      <HintPath>C:\Users\Administrator\Desktop\租享租\RER.Api\RER.Api\bin\Debug\netcoreapp3.1\aliyun-net-sdk-core.dll</HintPath>
+      <HintPath>bin\Release\netcoreapp3.1\aliyun-net-sdk-core.dll</HintPath>
     </Reference>
     <Reference Include="aliyun-net-sdk-dysmsapi">
-      <HintPath>C:\Users\Administrator\Desktop\租享租\RER.Api\RER.Api\bin\Debug\netcoreapp3.1\aliyun-net-sdk-dysmsapi.dll</HintPath>
+      <HintPath>bin\Release\netcoreapp3.1\aliyun-net-sdk-dysmsapi.dll</HintPath>
     </Reference>
   </ItemGroup>
-
 </Project>

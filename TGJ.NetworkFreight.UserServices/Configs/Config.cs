@@ -16,11 +16,23 @@ namespace TGJ.NetworkFreight.UserServices.Configs
         /// 1、微服务API资源
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<ApiResource> GetApiResources()
+        //public static IEnumerable<ApiResource> GetApiResources()
+        //{
+        //    return new List<ApiResource>
+        //    {
+        //        new ApiResource("TGJService", "TGJService api需要被保护",new List<string> {"role","admin" })
+        //    };
+        //}
+
+
+        public static IEnumerable<ApiResource> GetResource()
         {
             return new List<ApiResource>
             {
-                new ApiResource("TGJService", "TGJService api需要被保护",new List<string> {"role","admin" })
+                new ApiResource("TGJService","my api")
+                {
+                    Scopes ={"TGJService"},//重要,不配置返回 invalid_scope
+                }
             };
         }
 
@@ -64,7 +76,7 @@ namespace TGJ.NetworkFreight.UserServices.Configs
                         new Secret("secret".Sha256())
                     },
 	                // 客户端有权访问的范围（Scopes）
-	                AllowedScopes = { "TGJService",
+	                AllowedScopes = {"TGJService",
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile}
                 },
@@ -101,6 +113,12 @@ namespace TGJ.NetworkFreight.UserServices.Configs
             new IdentityResources.OpenId(),
             new IdentityResources.Profile()
         };
+        public static IEnumerable<ApiScope> ApiScopes =>
+        new ApiScope[]
+        {
+            new ApiScope("TGJService")
+        };
+
 
         /// <summary>
         /// 3、测试用户

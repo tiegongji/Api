@@ -93,7 +93,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var userInfo = userClient.GetUserByOpenId(wechatResult.openId);
 
-            //var userid = 0;
+            var userid = 0;
 
             if (null == userInfo || userInfo.Id <= 0)
             {
@@ -115,15 +115,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 {
                     throw new BizException("用户新增失败");
                 }
-                //else
-                //{
-                //    userid = obj.Id;
-                //}
+                else
+                {
+                    userid = obj.Id;
+                }
             }
-            //else
-            //{
-            //    userid = userInfo.Id;
-            //}
+            else
+            {
+                userid = userInfo.Id;
+            }
 
             // 1、获取IdentityServer接口文档
             string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
@@ -142,8 +142,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 ClientId = "client-password",
                 ClientSecret = "secret",
                 GrantType = "password",
-                Scope = "TGJService",
-                UserName = wechatResult.openId,
+                //Scope = "openid",
+                //UserName = wechatResult.openId,
+                //Password = wechatResult.phoneNumber
+                UserName = userid.ToString(),
                 Password = wechatResult.phoneNumber
             }).Result;
 

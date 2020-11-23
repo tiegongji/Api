@@ -4,6 +4,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>b3847de1-ec17-40bc-95f3-a40eec3e3439</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+<<<<<<< HEAD
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>TGJ.Api.xml</DocumentationFile>
+    <OutputPath></OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+=======
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
   </PropertyGroup>
 
   <ItemGroup>

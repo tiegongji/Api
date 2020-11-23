@@ -36,7 +36,8 @@ namespace TGJ.NetworkFreight.OrderServices
             services.AddDataServices();
 
             // 添加服务注册
-            services.AddServiceRegistry(options => {
+            services.AddServiceRegistry(options =>
+            {
                 options.ServiceId = Guid.NewGuid().ToString();
                 options.ServiceName = "OrderServices";
                 options.ServiceAddress = Configuration["ServiceAddress"];
@@ -58,11 +59,12 @@ namespace TGJ.NetworkFreight.OrderServices
       
 
             // 添加Swagger
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
-            });
-            services.AddControllers();
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
+            //});
+
+            //services.AddHealthChecks();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -73,11 +75,11 @@ namespace TGJ.NetworkFreight.OrderServices
             }
             app.UseHttpsRedirection();
             // 添加Swagger有关中间件
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Demo v1");
-            });
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Demo v1");
+            //});
             app.UseRouting();
 
             app.UseAuthorization();
@@ -85,6 +87,7 @@ namespace TGJ.NetworkFreight.OrderServices
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //endpoints.MapHealthChecks("/health");
             });
         }
     }

@@ -26,12 +26,21 @@ namespace TGJ.NetworkFreight.CertificationServices
         public void ConfigureServices(IServiceCollection services)
         {
             // 添加服务注册
+<<<<<<< HEAD
+            services.AddServiceRegistry(options =>
+            {
+                options.ServiceId = Guid.NewGuid().ToString();
+                options.ServiceName = "CertificationServices";
+                options.ServiceAddress = Configuration["ServiceAddress"];
+                options.HealthCheckAddress = "/health";
+=======
             //services.AddServiceRegistry(options =>
             //{
             //    options.ServiceId = Guid.NewGuid().ToString();
             //    options.ServiceName = "CertificationServices";
             //    options.ServiceAddress = "https://localhost:5003";
             //    options.HealthCheckAddress = "/HealthCheck";
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
 
             //    options.RegistryAddress = "http://localhost:8500";
             //});
@@ -49,6 +58,8 @@ namespace TGJ.NetworkFreight.CertificationServices
                 // 防止将大写转换成小写
                 option.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
+
+            services.AddHealthChecks();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -65,6 +76,7 @@ namespace TGJ.NetworkFreight.CertificationServices
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
     }

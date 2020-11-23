@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
+using TGJ.NetworkFreight.Commons.Users;
+using TGJ.NetworkFreight.OrderServices.Models;
+=======
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService;
 

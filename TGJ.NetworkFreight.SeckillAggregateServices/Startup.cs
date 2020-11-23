@@ -92,6 +92,20 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 // 防止将大写转换成小写
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
+<<<<<<< HEAD
+
+            services.AddMemoryCacheSetup();
+
+            #region 配置Swagger
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
+            });
+
+            #endregion 配置Swagger
+=======
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -113,8 +127,22 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
             // 2、使用跨域
             app.UseCors("AllowSpecificOrigin");
 
+<<<<<<< HEAD
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "接口文档");
+                c.RoutePrefix = string.Empty;
+            });
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapDefaultControllerRoute();
+=======
+            app.UseEndpoints(endpoints =>
+            {
+>>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
                 endpoints.MapControllers();
             });
         }

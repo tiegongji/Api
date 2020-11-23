@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TGJ.NetworkFreight.CertificationServices.Controllers
 {
-    [Route("HealthCheck")]
+    [Route("Certifications/HealthCheck")]
     [ApiController]
     public class HealthCheckController : ControllerBase
     {

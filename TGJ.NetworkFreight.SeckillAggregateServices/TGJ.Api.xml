@@ -53,6 +53,73 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController">
+            <summary>
+            认证控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient)">
+            <summary>
+            
+            </summary>
+            <param name="certificationClient"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.RealNameCertification(System.String,System.String)">
+            <summary>
+            身份证实名接口
+            </summary>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRIdCard(System.String,System.String)">
+            <summary>
+            身份证OCR
+            </summary>
+            <param name="image">不包含图片头的，如data:image/jpg;base64,) </param>
+            <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRBank(System.String)">
+            <summary>
+            银行卡OCR
+            </summary>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.BankCertification(System.String,System.String,System.String)">
+            <summary>
+            银行卡认证
+            </summary>
+            <param name="backCard"></param>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRDriver(System.String,System.String)">
+            <summary>
+            驾驶证识别
+            </summary>
+            <param name="image"></param>
+            <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRVehicle(System.String,System.String)">
+            <summary>
+            行驶证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.OCRPermit(System.String,System.String)">
+            <summary>
+            道路经营许可证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController">
             <summary>
             订单聚合控制器
@@ -84,18 +151,39 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController">
+            <summary>
+            推送消息控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient,TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching)">
+            <summary>
+            
+            </summary>
+            <param name="sendClient"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController.SendSms(System.String,System.String)">
+            <summary>
+            发送短信
+            </summary>
+            <param name="phone"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController">
             <summary>
             用户控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient,TGJ.NetworkFreight.Cores.DynamicMiddleware.Urls.IDynamicMiddleUrl,System.Net.Http.IHttpClientFactory)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient,TGJ.NetworkFreight.Cores.DynamicMiddleware.Urls.IDynamicMiddleUrl,System.Net.Http.IHttpClientFactory,TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching)">
             <summary>
             
             </summary>
             <param name="userClient"></param>
             <param name="dynamicMiddleUrl"></param>
             <param name="httpClientFactory"></param>
+            <param name="cache"></param>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.GetUser">
             <summary>
@@ -107,6 +195,13 @@
             <summary>
             用户登录
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.ModifyPassword(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="passwordPo"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.GatherDto">
@@ -148,6 +243,22 @@
             <summary>
             用户登录成功返回的信息
             </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching">
+            <summary>
+            缓存接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.MemoryCaching">
+            <summary>
+            实例化缓存接口ICaching
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.MemoryCaching.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="cache"></param>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo">
             <summary>
@@ -244,6 +355,31 @@
             登录表单
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo">
+            <summary>
+            修改密码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.Password">
+            <summary>
+            新密码
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Program">
             <summary>
             
@@ -266,6 +402,80 @@
             <summary>
             用户地址微服务客户端
             </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient">
+            <summary>
+            认证客户端
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.RealNameCertification(System.String,System.String)">
+            <summary>
+            身份证实名
+            </summary>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRIdCard(System.String,System.String)">
+            <summary>
+            身份证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="side"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRBank(System.String)">
+            <summary>
+            银行卡OCR
+            </summary>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.BankCertification(System.String,System.String,System.String)">
+            <summary>
+            银行卡认证
+            </summary>
+            <param name="backCard"></param>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRDriver(System.String,System.String)">
+            <summary>
+            驾驶证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRVehicle(System.String,System.String)">
+            <summary>
+            行驶证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient.OCRPermit(System.String,System.String)">
+            <summary>
+            道路经营许可证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient">
+            <summary>
+            推送服务客户端
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient.SendSms(System.String,System.String)">
+            <summary>
+            发送验证码
+            </summary>
+            <param name="phone"></param>
+            <param name="code"></param>
+            <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient">
             <summary>
@@ -311,6 +521,13 @@
             <param name="openId"></param>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.ModifyPassword(System.String,System.String)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="phone"></param>
+            <param name="password"></param>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Startup">
             <summary>
             
@@ -339,6 +556,17 @@
             </summary>
             <param name="app"></param>
             <param name="env"></param>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Utils.Util">
+            <summary>
+            工具类
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Utils.Util.GetSmsCode">
+            <summary>
+            获取短信Code
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

@@ -1,41 +1,40 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\Api\\TGJ.NetworkFreight.CertificationServices\\TGJ.NetworkFreight.CertificationServices.csproj": {}
+    "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.CertificationServices\\TGJ.NetworkFreight.CertificationServices.csproj": {}
   },
   "projects": {
-    "D:\\Code\\Api\\TGJ.NetworkFreight.CertificationServices\\TGJ.NetworkFreight.CertificationServices.csproj": {
+    "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.CertificationServices\\TGJ.NetworkFreight.CertificationServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\Api\\TGJ.NetworkFreight.CertificationServices\\TGJ.NetworkFreight.CertificationServices.csproj",
+        "projectUniqueName": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.CertificationServices\\TGJ.NetworkFreight.CertificationServices.csproj",
         "projectName": "TGJ.NetworkFreight.CertificationServices",
-        "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.CertificationServices\\TGJ.NetworkFreight.CertificationServices.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\Api\\TGJ.NetworkFreight.CertificationServices\\obj\\",
+        "projectPath": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.CertificationServices\\TGJ.NetworkFreight.CertificationServices.csproj",
+        "packagesPath": "C:\\Users\\12017\\.nuget\\packages\\",
+        "outputPath": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.CertificationServices\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\12017\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
-                "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj"
+              "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
+                "projectPath": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj"
               },
-              "D:\\Code\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
-                "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj"
+              "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
+                "projectPath": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj"
               }
             }
           }
@@ -64,12 +63,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -78,33 +71,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
+    "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
+        "projectUniqueName": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
         "projectName": "TGJ.NetworkFreight.Commons",
-        "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Commons\\obj\\",
+        "projectPath": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Commons\\TGJ.NetworkFreight.Commons.csproj",
+        "packagesPath": "C:\\Users\\12017\\.nuget\\packages\\",
+        "outputPath": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Commons\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\12017\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -143,44 +135,37 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Code\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
+    "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
+        "projectUniqueName": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
         "projectName": "TGJ.NetworkFreight.Cores",
-        "projectPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\Api\\TGJ.NetworkFreight.Cores\\obj\\",
+        "projectPath": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Cores\\TGJ.NetworkFreight.Cores.csproj",
+        "packagesPath": "C:\\Users\\12017\\.nuget\\packages\\",
+        "outputPath": "D:\\git\\TMS\\Api\\TGJ.NetworkFreight.Cores\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\12017\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -239,18 +224,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

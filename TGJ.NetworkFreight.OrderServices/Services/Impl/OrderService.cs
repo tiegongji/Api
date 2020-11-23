@@ -32,7 +32,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             return IInitTruckRepository.GetList();
         }
 
-        public void Add(OrderDetail entity)
+        public void Add(OrderDetailDto entity)
         {
             IOrderRepository.Add(entity);
         }

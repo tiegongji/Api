@@ -8,6 +8,10 @@ namespace TGJ.NetworkFreight.OrderServices.Dto
     public class OrderDetailDto
     {
         /// <summary>
+        /// 用户
+        /// </summary>
+        public int UserID { set; get; }
+        /// <summary>
         /// 货物名称
         /// </summary>
         public string Name { set; get; }

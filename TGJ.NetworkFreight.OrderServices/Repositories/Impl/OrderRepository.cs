@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,14 +12,17 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 {
     public class OrderRepository : IOrderRepository
     {
+        private readonly IMapper mapper;
         public OrderContext context;
-        public OrderRepository(OrderContext _context)
+        public OrderRepository(OrderContext _context, IMapper _mapper)
         {
             this.context = _context;
+            this.mapper = _mapper;
         }
 
-        public void Add(OrderDetail entity)
+        public void Add(OrderDetailDto model)
         {
+            var entity = mapper.Map<OrderDetail>(model);
             var orderno = GetOrderNo();
             using (var tran = context.Database.BeginTransaction())
             {
@@ -29,6 +33,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     context.SaveChanges();
 
                     var order = new Order();
+                    order.UserID = model.UserID;
                     order.OrderNo = orderno;
                     order.TradeStatus = 1;
                     order.CreateTime = DateTime.Now;

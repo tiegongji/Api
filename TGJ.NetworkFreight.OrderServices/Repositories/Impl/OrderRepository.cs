@@ -30,7 +30,11 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             {
                 try
                 {
+                    var DepartureAddress = context.UserAddress.Where(a => a.ID == model.DepartureAddressID).FirstOrDefault();
+                    var ArrivalAddress = context.UserAddress.Where(a => a.ID == model.ArrivalAddressID).FirstOrDefault();
+
                     entity.OrderNo = orderno;
+                    entity.Distance = Tool.GetDistance(DepartureAddress.TencentLat, DepartureAddress.TencentLng, ArrivalAddress.TencentLat, ArrivalAddress.TencentLng).ToDecimal();
                     context.OrderDetail.Add(entity);
                     context.SaveChanges();
 
@@ -87,7 +91,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         truck.MaxWeight,
                         order.Weight,
                         Date = order.StartDate.ToDate(),
-                        Distance = (order.Distance == null || order.Distance == 0) ? Tool.GetDistance(DepartureAddress_New.TencentLat, DepartureAddress_New.TencentLng, ArrivalAddress_New.TencentLat, ArrivalAddress_New.TencentLng).ToDecimal(0) : order.Distance,
+                        order.Distance,
                         DepartureAddressName = DepartureAddress_New.Name,
                         DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
                         ArrivalAddressName = ArrivalAddress_New.Name,

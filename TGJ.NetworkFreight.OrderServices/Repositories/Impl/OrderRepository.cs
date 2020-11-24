@@ -33,6 +33,15 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     var DepartureAddress = context.UserAddress.Where(a => a.ID == model.DepartureAddressID).FirstOrDefault();
                     var ArrivalAddress = context.UserAddress.Where(a => a.ID == model.ArrivalAddressID).FirstOrDefault();
 
+                    if (DepartureAddress == null)
+                    {
+                        throw new Exception("装货地址不能为空");
+                    }
+                    if (ArrivalAddress == null)
+                    {
+                        throw new Exception("卸货地址不能为空");
+                    }
+
                     entity.OrderNo = orderno;
                     entity.Distance = Tool.GetDistance(DepartureAddress.TencentLat, DepartureAddress.TencentLng, ArrivalAddress.TencentLat, ArrivalAddress.TencentLng).ToDecimal();
                     context.OrderDetail.Add(entity);

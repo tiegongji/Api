@@ -23,6 +23,39 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         {
             this.addressClient = addressClient;
         }
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("Add/{userId}")]
+        public ActionResult<dynamic> Add(int userId, [FromQuery] UserAddress entity)
+        {
+            entity.UserID = userId;
+            return addressClient.Add(entity);
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("Delete/{userId}/{id}")]
+        public ActionResult<dynamic> Delete(int userId, int id)
+        {
+            return addressClient.Delete(id,userId);
+        }
+
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("GetList/{userId}")]
+        public ActionResult<IEnumerable<dynamic>> GetList(int userId)
+        {
+            return addressClient.GetList(userId);
+        }
+
 
         //[HttpPost]
         //public UserAddress Post([FromForm] UserAddressPo addressPo)

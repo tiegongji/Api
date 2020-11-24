@@ -18,12 +18,17 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
         }
         public void Add(UserAddress entity)
         {
-            throw new NotImplementedException();
+            IUserAddressRepository.Add(entity);
+        }
+
+        public void Delete(int id, int userid)
+        {
+            IUserAddressRepository.Delete(id,userid);
         }
 
         public IEnumerable<dynamic> GetList(int userid)
         {
-            throw new NotImplementedException();
+            return IUserAddressRepository.GetList(userid);
         }
     }
 }

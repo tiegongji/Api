@@ -24,6 +24,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             this.orderClient = orderClient;
         }
 
+        /// <summary>
+        /// 获取订单列表
+        /// </summary>
+        /// <param name="sysUser"></param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult GetOrder(SysUser sysUser)
         {

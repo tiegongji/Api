@@ -40,27 +40,25 @@ namespace TGJ.NetworkFreight.CertificationServices
                 //    options.ServiceName = "CertificationServices";
                 //    options.ServiceAddress = "https://localhost:5003";
                 //    options.HealthCheckAddress = "/HealthCheck";
-
-
                 //    options.RegistryAddress = "http://localhost:8500";
                 //});
-
-                // 认证service
-                services.AddScoped<ICertificationService, CertificationService>();
-
-                // 添加控制器
-                services.AddControllers(options =>
-                {
-                    options.Filters.Add<MiddlewareResultWapper>(1);
-                    options.Filters.Add<BizExceptionHandler>(2);
-                }).AddNewtonsoftJson(option =>
-                {
-                    // 防止将大写转换成小写
-                    option.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                });
-
-                services.AddHealthChecks();
             });
+
+            // 认证service
+            services.AddScoped<ICertificationService, CertificationService>();
+
+            // 添加控制器
+            services.AddControllers(options =>
+            {
+                options.Filters.Add<MiddlewareResultWapper>(1);
+                options.Filters.Add<BizExceptionHandler>(2);
+            }).AddNewtonsoftJson(option =>
+            {
+                // 防止将大写转换成小写
+                option.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
+
+            services.AddHealthChecks();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

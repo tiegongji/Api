@@ -11,7 +11,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
     /// <summary>
     /// 订单微服务客户端
     /// </summary>
-    [MicroClient("https", "OrderServices")]
+    [MicroClient("http", "OrderServices")]
     public interface IOrderClient
     {
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using TGJ.NetworkFreight.Commons.Users;
@@ -14,7 +15,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
      /// </summary>
     [Route("api/Order")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class OrderController : ControllerBase
     {
         private readonly IOrderClient orderClient;
@@ -24,23 +25,27 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetOrder()
+        public ActionResult GetOrder(SysUser sysUser)
         {
-            return new JsonResult(
-                from c in User.Claims select new { c.Type, c.Value });
-            //return orderClient.GetOrder();
+            return Ok(sysUser);
         }
-
-        [HttpGet("Gather/userId")]
-        public ActionResult<GatherDto> GetOrderGather(int userId)
+        /// <summary>
+        /// 订单类型统计
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("Gather")]
+        public ActionResult<GatherDto> GetOrderGather(SysUser sysUser)
         {
-            return orderClient.GetOrderGather(userId);
+            return orderClient.GetOrderGather(sysUser.UserId);
         }
-
-        [HttpGet("Turnover/userId")]
-        public ActionResult<TurnoverDto> GetOrderTurnover(int userId)
+        /// <summary>
+        /// 订单金额统计
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("Turnover")]
+        public ActionResult<TurnoverDto> GetOrderTurnover(SysUser sysUser)
         {
-            return orderClient.GetOrderTurnover(userId);
+            return orderClient.GetOrderTurnover(sysUser.UserId);
         }
 
         /// <summary>

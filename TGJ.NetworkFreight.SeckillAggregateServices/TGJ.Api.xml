@@ -4,6 +4,11 @@
         <name>TGJ.NetworkFreight.SeckillAggregateServices</name>
     </assembly>
     <members>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController">
             <summary>
             认证控制器
@@ -75,6 +80,18 @@
             <summary>
             订单聚合控制器
             </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetOrderGather(TGJ.NetworkFreight.Commons.Users.SysUser)">
+            <summary>
+            订单类型统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetOrderTurnover(TGJ.NetworkFreight.Commons.Users.SysUser)">
+            <summary>
+            订单金额统计
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetInitCategoryList">
             <summary>

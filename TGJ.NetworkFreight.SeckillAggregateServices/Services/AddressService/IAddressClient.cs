@@ -10,7 +10,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService
     /// <summary>
     /// 用户地址微服务客户端
     /// </summary>
-    [MicroClient("https", "UserServices")]
+    [MicroClient("http", "UserServices")]
     public interface IAddressClient
     {
         [GetPath("/Address/{userId}")]

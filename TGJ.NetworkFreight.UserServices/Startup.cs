@@ -142,7 +142,7 @@ namespace TGJ.NetworkFreight.UserServices
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<ConfigurationDbContext>();
-                context.Database.Migrate();
+                //context.Database.Migrate();
                 if (!context.Clients.Any())
                 {
                     foreach (var client in Config.GetClients())
@@ -164,7 +164,6 @@ namespace TGJ.NetworkFreight.UserServices
                 if (!context.ApiResources.Any())
                 {
                     foreach (var resource in Config.GetResource())
-
                     {
                         context.ApiResources.Add(resource.ToEntity());
                     }
@@ -180,7 +179,6 @@ namespace TGJ.NetworkFreight.UserServices
                     context.SaveChanges();
                 }
             }
-
         }
     }
 }

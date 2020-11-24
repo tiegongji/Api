@@ -12,7 +12,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
     /// <summary>
     /// 认证控制器
     /// </summary>
-    [Route("Certification")]
+    [Route("Certifications")]
     [ApiController]
     public class CertificationController : ControllerBase
     {

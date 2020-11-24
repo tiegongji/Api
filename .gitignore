@@ -338,3 +338,17 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/TGJ.NetworkFreight.CertificationServices/bin
+bin
+bin
+bin
+bin
+bin
+bin
+*.dll
+obj
+obj
+obj
+obj
+obj
+obj

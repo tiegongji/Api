@@ -117,7 +117,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             }
 
             // 1、获取IdentityServer接口文档
-            string userUrl = dynamicMiddleUrl.GetMiddleUrl("https", "UserServices");
+            string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
 
             DiscoveryDocumentResponse discoveryDocument = httpClient.GetDiscoveryDocumentAsync(userUrl).Result;
 
@@ -134,10 +134,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 ClientSecret = "secret",
                 GrantType = "password",
                 //Scope = "openid",
-                //UserName = wechatResult.openId,
-                //Password = wechatResult.phoneNumber
-                UserName = userid.ToString(),
+                UserName = wechatResult.openId,
                 Password = wechatResult.phoneNumber
+                //UserName = "12",
+                //Password = "13636572806"
             }).Result;
 
             // 3、返回AccessToken

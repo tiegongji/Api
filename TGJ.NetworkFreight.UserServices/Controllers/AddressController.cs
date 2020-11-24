@@ -38,7 +38,7 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         }
 
         [HttpGet("{userId}/{id}")]
-        public ActionResult<UserAddress> GetUsers(int userId, int id)
+        public ActionResult<UserAddress> GetUserAddressById(int userId, int id)
         {
             return UserAddressService.GetUserAddressById(userId, id);
         }
@@ -69,7 +69,6 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Orders/5
         [HttpDelete("{userId}/{id}")]
         public ActionResult<UserAddress> DeletUserAddress(int userId, int id)
         {

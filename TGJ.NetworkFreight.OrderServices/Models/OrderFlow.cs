@@ -25,6 +25,10 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// </summary>
         public int ActionStatus { get; set; }
         /// <summary>
+        /// 类型（1：TradeStatus,2：ActionStatus）
+        /// </summary>
+        public int Type { get; set; }
+        /// <summary>
         /// 创建时间
         /// </summary>
         public DateTime CreateTime { get; set; }

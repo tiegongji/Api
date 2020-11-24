@@ -31,9 +31,9 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// </summary>
         public int TradeStatus { set; get; }
         /// <summary>
-        /// 支付状态
+        /// 状态
         /// </summary>
-        public int PayStatus { set; get; }
+        public int ActionStatus { set; get; }
         /// <summary>
         /// 订单金额
         /// </summary>

@@ -72,5 +72,46 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         [GetPath("/Orders/GetDetail")]
 
         public dynamic GetDetail(int userId, string OrderNo);
+
+
+        /// <summary>
+        /// 取消订单
+        /// </summary>
+        [GetPath("/Orders/Cancel")]
+
+        public dynamic Cancel(Order entity);
+
+        /// <summary>
+        /// 指定司机
+        /// </summary>
+        [GetPath("/Orders/UpdateCarrierUser")]
+
+        public dynamic UpdateCarrierUser(Order entity);
+
+        /// <summary>
+        /// 物流端上传回单
+        /// </summary>
+        [GetPath("/Orders/UpdateUpload")]
+
+        public dynamic UpdateUpload(OrderDto model);
+
+        /// <summary>
+        /// 更新价格
+        /// </summary>
+        [GetPath("/Orders/UpdateMoney")]
+
+        public dynamic UpdateMoney(Order entity);
+        /// <summary>
+        /// 装货
+        /// </summary>
+        [GetPath("/Orders/UpdateLoading")]
+
+        public dynamic UpdateLoading(Order entity);
+        /// <summary>
+        /// 卸货
+        /// </summary>
+        [GetPath("/Orders/UpdateUnLoading")]
+
+        public dynamic UpdateUnLoading(OrderDto model);
     }
 }

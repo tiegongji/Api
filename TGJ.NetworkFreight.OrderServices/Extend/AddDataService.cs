@@ -52,10 +52,10 @@ namespace TGJ.NetworkFreight.OrderServices.Extend
             services.AddScoped<IOrderFlowRepository, OrderFlowRepository>();
             services.AddScoped<IOrderReceiptImageRepository, OrderReceiptImageRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
-
+            services.AddScoped<IUserAddressRepository, UserAddressRepository>();
 
             services.AddScoped<IOrderService, OrderService>();
-
+            services.AddScoped<IUserAddressService, UserAddressService>();
             return services;
           
         }

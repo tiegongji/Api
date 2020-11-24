@@ -18,7 +18,17 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
         public void Add(UserAddress entity)
         {
+            entity.CreateTime = DateTime.Now;
+            entity.LastUpdateTime = DateTime.Now;
             context.UserAddress.Add(entity);
+            context.SaveChanges();
+        }
+
+        public void Delete(int id,int userid)
+        {
+            var entity = context.UserAddress.Where(a => a.ID == id&&a.UserID== userid).FirstOrDefault();
+            entity.IsValid = false;
+            context.UserAddress.Update(entity);
             context.SaveChanges();
         }
 

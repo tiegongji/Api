@@ -33,6 +33,15 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     var DepartureAddress = context.UserAddress.Where(a => a.ID == model.DepartureAddressID).FirstOrDefault();
                     var ArrivalAddress = context.UserAddress.Where(a => a.ID == model.ArrivalAddressID).FirstOrDefault();
 
+                    if (DepartureAddress == null)
+                    {
+                        throw new Exception("装货地址不能为空");
+                    }
+                    if (ArrivalAddress == null)
+                    {
+                        throw new Exception("卸货地址不能为空");
+                    }
+
                     entity.OrderNo = orderno;
                     entity.Distance = Tool.GetDistance(DepartureAddress.TencentLat, DepartureAddress.TencentLng, ArrivalAddress.TencentLat, ArrivalAddress.TencentLng).ToDecimal();
                     context.OrderDetail.Add(entity);
@@ -67,10 +76,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         }
 
 
-        public IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize, int? status)
+        public IEnumerable<dynamic> GetList(int userId, int pageIndex, int pageSize, int? status)
         {
             return (from o in context.Order
-                    where o.UserID == userid && (status.HasValue ? (o.TradeStatus == status) : (1 == 1))
+                    where o.UserID == userId && (status.HasValue ? (o.TradeStatus == status) : (1 == 1))
                     join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
                      into _order
                     from order in _order.DefaultIfEmpty()
@@ -101,12 +110,12 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         }
 
 
-        public dynamic GetDetail(int userid, string OrderNo)
+        public dynamic GetDetail(int userId, string OrderNo)
         {
             try
             {
                 var res = (from o in context.Order
-                           where o.UserID == userid && o.OrderNo == OrderNo
+                           where o.UserID == userId && o.OrderNo == OrderNo
                            join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
                             into _order
                            from order in _order.DefaultIfEmpty()
@@ -116,13 +125,23 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                            join c in context.InitCategory on order.CategoryID equals c.ID
                            into _catetory
                            from catetory in _catetory.DefaultIfEmpty()
+                           join DepartureAddress in context.UserAddress on order.DepartureAddressID equals DepartureAddress.ID
+                           into _DepartureAddress
+                           from DepartureAddress_New in _DepartureAddress.DefaultIfEmpty()
+                           join ArrivalAddress in context.UserAddress on order.ArrivalAddressID equals ArrivalAddress.ID
+                           into _ArrivalAddress
+                           from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
                            select new
                            {
-                               Length = truck != null && float.IsNaN(truck.Length) ? 0 : truck.Length,
-                               Weight = order == null ? 0 : order.Weight,
-                               StartDate = order == null ? "" : order.StartDate.ToString("yyyy-MM-dd"),
-                               o.CarrierUserID,
-                               o.TradeStatus
+                               truck.MaxWeight,
+                               order.Weight,
+                               Date = order.StartDate.ToDate(),
+                               order.Distance,
+                               DepartureAddressName = DepartureAddress_New.Name,
+                               DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
+                               ArrivalAddressName = ArrivalAddress_New.Name,
+                               ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
+                               TradeStatus = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal()
                            });
                 if (res.Any())
                     return res.FirstOrDefault();
@@ -134,9 +153,273 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             }
         }
 
-        public IEnumerable<Order> GetListByUid(int userid)
+        public IEnumerable<Order> GetListByUid(int userId)
         {
-            return context.Order.Where(a => a.UserID == userid).ToList();
+            return context.Order.Where(a => a.UserID == userId).ToList();
         }
+
+
+        public Order Get(int id)
+        {
+            return context.Order.Where(a => a.ID == id).FirstOrDefault();
+        }
+
+
+        public void Update(Order entity)
+        {
+            context.Order.Update(entity);
+            context.SaveChanges();
+        }
+
+        #region 物流端状态更新
+        /// <summary>
+        /// 取消订单
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateCancel(Order entity)
+        {
+            using (var tran = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var model = Get(entity.ID);
+                    if (model.UserID == entity.UserID)
+                        throw new Exception("订单不存在");
+                    model.TradeStatus = (int)EnumOrderStatus.Cancel;
+                    model.LastUpdateTime = DateTime.Now;
+                    context.Order.Update(entity);
+                    context.SaveChanges();
+
+
+                    var orderFlow = new OrderFlow();
+                    orderFlow.ActionStatus = (int)EnumOrderStatus.Cancel;
+                    orderFlow.OrderNo = model.OrderNo;
+                    orderFlow.CreateTime = DateTime.Now;
+                    orderFlow.Type = (int)EnumType.Logistics;
+                    context.OrderFlow.Add(orderFlow);
+                    context.SaveChanges();
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
+        }
+        /// <summary>
+        /// 指定司机
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateCarrierUser(Order entity)
+        {
+            using (var tran = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var model = Get(entity.ID);
+                    if (model.UserID == entity.UserID)
+                        throw new Exception("订单不存在");
+                    model.CarrierUserID = entity.CarrierUserID;
+                    model.LastUpdateTime = DateTime.Now;
+                    context.Order.Update(entity);
+                    context.SaveChanges();
+
+
+                    var orderFlow = new OrderFlow();
+                    orderFlow.ActionStatus = (int)EnumOrderStatus.Received;
+                    orderFlow.OrderNo = model.OrderNo;
+                    orderFlow.CreateTime = DateTime.Now;
+                    orderFlow.Type = (int)EnumType.Logistics;
+                    context.OrderFlow.Add(orderFlow);
+                    context.SaveChanges();
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 上传回单
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="imgs"></param>
+        public void UpdateUpload(Order entity,List<OrderReceiptImage> imgs)
+        {
+            using (var tran = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var model = Get(entity.ID);
+                    if (model.UserID == entity.UserID)
+                        throw new Exception("订单不存在");
+                    model.TotalAmount = entity.TotalAmount;
+                    model.LastUpdateTime = DateTime.Now;
+                    context.Order.Update(entity);
+                    context.SaveChanges();
+
+
+                    var orderFlow = new OrderFlow();
+                    orderFlow.ActionStatus = (int)EnumOrderStatus.Finish;
+                    orderFlow.OrderNo = model.OrderNo;
+                    orderFlow.CreateTime = DateTime.Now;
+                    orderFlow.Type = (int)EnumType.Logistics;
+                    context.OrderFlow.Add(orderFlow);
+                    context.SaveChanges();
+
+                    foreach (var img in imgs)
+                    {
+                        img.Type = (int)EnumType.Logistics;
+                        img.OrderNo = model.OrderNo;
+                        img.CreateTime = DateTime.Now;
+                        context.OrderReceiptImage.Add(img);
+                        
+                    }
+                    context.SaveChanges();
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
+
+        }
+
+        #endregion
+
+        #region 司机端状态更新
+        /// <summary>
+        /// 修改金额
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateMoney(Order entity)
+        {
+            using (var tran = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var model = Get(entity.ID);
+                    if (model.UserID == entity.UserID)
+                        throw new Exception("订单不存在");
+                    model.TotalAmount = entity.TotalAmount;
+                    model.LastUpdateTime = DateTime.Now;
+                    context.Order.Update(entity);
+                    context.SaveChanges();
+
+
+                    var orderFlow = new OrderFlow();
+                    orderFlow.ActionStatus = (int)EnumActionStatus.Pay;
+                    orderFlow.OrderNo = model.OrderNo;
+                    orderFlow.CreateTime = DateTime.Now;
+                    orderFlow.Type = (int)EnumType.Driver;
+                    context.OrderFlow.Add(orderFlow);
+                    context.SaveChanges();
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
+            
+        }
+
+        /// <summary>
+        /// 装货
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateLoading(Order entity)
+        {
+            using (var tran = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var model = Get(entity.ID);
+                    if (model.UserID == entity.UserID)
+                        throw new Exception("订单不存在");
+                    model.ActionStatus = (int)EnumActionStatus.Loading;
+                    model.LastUpdateTime = DateTime.Now;
+                    context.Order.Update(entity);
+                    context.SaveChanges();
+
+
+                    var orderFlow = new OrderFlow();
+                    orderFlow.ActionStatus = (int)EnumActionStatus.Loading;
+                    orderFlow.OrderNo = model.OrderNo;
+                    orderFlow.CreateTime = DateTime.Now;
+                    orderFlow.Type = (int)EnumType.Driver;
+                    context.OrderFlow.Add(orderFlow);
+                    context.SaveChanges();
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// 卸货
+        /// </summary>
+        /// <param name="entity"></param>
+        public void UpdateUnLoading(Order entity, List<OrderReceiptImage> imgs)
+        {
+            using (var tran = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var model = Get(entity.ID);
+                    if (model.UserID == entity.UserID)
+                        throw new Exception("订单不存在");
+                    model.ActionStatus = (int)EnumActionStatus.Unloading;
+                    model.LastUpdateTime = DateTime.Now;
+                    context.Order.Update(entity);
+                    context.SaveChanges();
+
+
+                    var orderFlow = new OrderFlow();
+                    orderFlow.ActionStatus = (int)EnumActionStatus.Unloading;
+                    orderFlow.OrderNo = model.OrderNo;
+                    orderFlow.CreateTime = DateTime.Now;
+                    orderFlow.Type = (int)EnumType.Driver;
+                    context.OrderFlow.Add(orderFlow);
+                    context.SaveChanges();
+
+                    foreach (var img in imgs)
+                    {
+                        img.Type = (int)EnumType.Logistics;
+                        img.OrderNo = model.OrderNo;
+                        img.CreateTime = DateTime.Now;
+                        context.OrderReceiptImage.Add(img);
+                        
+                    }
+                    context.SaveChanges();
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
+
+        }
+        #endregion
     }
 }

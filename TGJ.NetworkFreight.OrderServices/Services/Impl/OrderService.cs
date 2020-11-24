@@ -73,5 +73,56 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
 
             return orderTurnover;
         }
+
+        public void UpdateCancel(Order entity)
+        {
+            IOrderRepository.UpdateCancel(entity);
+        }
+
+        public void UpdateCarrierUser(Order entity)
+        {
+            IOrderRepository.UpdateCarrierUser(entity);
+        }
+
+        public void UpdateUpload(Order entity, List<OrderReceiptImage> imgs)
+        {
+            IOrderRepository.UpdateUpload(entity,imgs);
+        }
+
+        public void UpdateMoney(Order entity)
+        {
+            IOrderRepository.UpdateMoney(entity);
+        }
+
+        public void UpdateLoading(Order entity)
+        {
+            IOrderRepository.UpdateLoading(entity);
+        }
+
+        public void UpdateUnLoading(Order entity, List<OrderReceiptImage> imgs)
+        {
+            IOrderRepository.UpdateUnLoading(entity,imgs);
+        }
+
+
+        //public void UpdateCarrierUser(Order entity)
+        //{
+        //    var model = IOrderRepository.Get(entity.ID);
+        //    if (model.UserID == entity.UserID)
+        //        throw new Exception("订单不存在");
+        //    model.CarrierUserID = entity.CarrierUserID;
+        //    model.LastUpdateTime = DateTime.Now;
+        //    IOrderRepository.Update(model);
+        //}
+
+        //public void UpdateMoney(Order entity)
+        //{
+        //    var model = IOrderRepository.Get(entity.ID);
+        //    if (model.UserID == entity.UserID)
+        //        throw new Exception("订单不存在");
+        //    model.TotalAmount = entity.TotalAmount;
+        //    model.LastUpdateTime = DateTime.Now;
+        //    IOrderRepository.Update(model);
+        //}
     }
 }

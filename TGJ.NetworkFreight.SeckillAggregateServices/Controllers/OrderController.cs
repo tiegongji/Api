@@ -108,5 +108,74 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         {
             return orderClient.GetDetail(userId, OrderNo);
         }
+
+        /// <summary>
+        /// 取消订单
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("Cancel/{userId}")]
+        public ActionResult<dynamic> Cancel(int userId, [FromQuery] Order entity)
+        {
+            entity.UserID = userId;
+            return orderClient.Cancel(entity);
+        }
+
+        /// <summary>
+        /// 指定司机
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("UpdateCarrierUser/{userId}")]
+        public ActionResult<dynamic> UpdateCarrierUser(int userId, [FromQuery] Order entity)
+        {
+            entity.UserID = userId;
+            return orderClient.UpdateCarrierUser(entity);
+        }
+
+        /// <summary>
+        /// 物流端上传回单
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("UpdateUpload/{userId}")]
+        public ActionResult<dynamic> UpdateUpload(int userId, [FromQuery] OrderDto entity)
+        {
+            entity.UserID = userId;
+            return orderClient.UpdateUpload(entity);
+        }
+        /// <summary>
+        /// 更新价格
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("UpdateMoney/{userId}")]
+        public ActionResult<dynamic> UpdateMoney(int userId, [FromQuery] Order entity)
+        {
+            entity.UserID = userId;
+            return orderClient.UpdateMoney(entity);
+        }
+        /// <summary>
+        /// 装货
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("UpdateLoading/{userId}")]
+        public ActionResult<dynamic> UpdateLoading(int userId, [FromQuery] Order entity)
+        {
+            entity.UserID = userId;
+            return orderClient.UpdateLoading(entity);
+        }
+        /// <summary>
+        /// 卸货
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost("Add/{userId}")]
+        public ActionResult<dynamic> UpdateUnLoading(int userId, [FromQuery] OrderDto entity)
+        {
+            entity.UserID = userId;
+            return orderClient.UpdateUnLoading(entity);
+        }
     }
 }

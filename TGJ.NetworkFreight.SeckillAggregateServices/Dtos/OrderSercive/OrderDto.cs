@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TGJ.NetworkFreight.OrderServices.Models;
 
-namespace TGJ.NetworkFreight.OrderServices.Dto
+namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive
 {
     public class OrderDto
     {
@@ -12,6 +12,8 @@ namespace TGJ.NetworkFreight.OrderServices.Dto
         /// 订单ID
         /// </summary>
         public int ID { set; get; }
+
+        public int UserID { set; get; }
 
         public List<OrderReceiptImage> imgs { set; get; }
     }

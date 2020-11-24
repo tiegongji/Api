@@ -12,7 +12,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
     /// <summary>
     /// 消息推送控制器
     /// </summary>
-    [Route("Send")]
+    [Route("Sends")]
     [ApiController]
     public class SendController : ControllerBase
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService;
@@ -11,8 +12,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     /// <summary>
     /// 认证控制器
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/Certification")]
     [ApiController]
+    [Authorize]
     public class CertificationController : ControllerBase
     {
         private readonly ICertificationClient certificationClient;

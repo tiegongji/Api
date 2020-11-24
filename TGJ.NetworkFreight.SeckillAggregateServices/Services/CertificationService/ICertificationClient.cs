@@ -35,7 +35,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// </summary>
         /// <param name="image"></param>
         /// <returns></returns>
-        [GetPath("/Bank/OCR")]
+        [GetPath("/Certifications/Bank/OCR")]
         public object OCRBank(string image);
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// <param name="idCard"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        [GetPath("/Bank/Certification")]
+        [GetPath("/Certifications/Bank/Certification")]
         public object BankCertification(string backCard, string idCard, string name);
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// <param name="image"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        [GetPath("/Driver/OCR")]
+        [GetPath("/Certifications/Driver/OCR")]
         public object OCRDriver(string image, string type);
 
 
@@ -64,7 +64,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// <param name="image"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        [GetPath("/Vehicle/OCR")]
+        [GetPath("/Certifications/Vehicle/OCR")]
         public object OCRVehicle(string image, string type);
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// <param name="image"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        [GetPath("/Permit/OCR")]
+        [GetPath("/Certifications/Permit/OCR")]
         public object OCRPermit(string image, string type);
     }
 }

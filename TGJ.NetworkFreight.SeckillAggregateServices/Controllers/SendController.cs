@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aliyun.Acs.Dysmsapi.Model.V20170525;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TGJ.NetworkFreight.Commons.Exceptions;
@@ -15,8 +16,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     /// <summary>
     /// 推送消息控制器
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/Send")]
     [ApiController]
+    [Authorize]
     public class SendController : ControllerBase
     {
         private readonly ISendClient sendClient;

@@ -19,7 +19,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// <param name="phone"></param>
         /// <param name="code"></param>
         /// <returns></returns>
-        [PostPath("/Send/Sms")]
+        [PostPath("/Sends/Sms")]
         public SendSmsResponse SendSms(string phone, string code);
     }
 }

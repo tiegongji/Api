@@ -81,6 +81,13 @@
             订单聚合控制器
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetOrder(TGJ.NetworkFreight.Commons.Users.SysUser)">
+            <summary>
+            获取订单列表
+            </summary>
+            <param name="sysUser"></param>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetOrderGather(TGJ.NetworkFreight.Commons.Users.SysUser)">
             <summary>
             订单类型统计

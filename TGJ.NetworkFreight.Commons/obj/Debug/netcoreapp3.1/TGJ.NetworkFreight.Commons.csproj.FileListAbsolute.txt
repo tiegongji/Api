@@ -184,7 +184,6 @@ D:\Back\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreigh
 D:\Back\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.pdb
 D:\Back\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.genruntimeconfig.cache
 =======
-<<<<<<< HEAD
 >>>>>>> 22ecafba1e7c75dff343bd9396f7aa440372f4ed
 D:\Code\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.exe
 D:\Code\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.deps.json
@@ -231,7 +230,6 @@ D:\Code\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreigh
 D:\Code\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.dll
 D:\Code\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.pdb
 D:\Code\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.genruntimeconfig.cache
-=======
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.exe
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.deps.json
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.runtimeconfig.json
@@ -277,3 +275,4 @@ D:\git\TMS\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFre
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.dll
 D:\git\TMS\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.pdb
 >>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
+D:\Code\Api\TGJ.NetworkFreight.Commons\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.csprojAssemblyReference.cache

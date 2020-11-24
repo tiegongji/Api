@@ -314,7 +314,6 @@ D:\Back\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.Network
 D:\Back\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.OrderServices.pdb
 D:\Back\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.OrderServices.genruntimeconfig.cache
 =======
-<<<<<<< HEAD
 >>>>>>> 22ecafba1e7c75dff343bd9396f7aa440372f4ed
 D:\Code\Api\TGJ.NetworkFreight.OrderServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.exe
 D:\Code\Api\TGJ.NetworkFreight.OrderServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.exe
@@ -404,7 +403,6 @@ D:\Code\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\staticwebas
 D:\Code\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.OrderServices.dll
 D:\Code\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.OrderServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.OrderServices.genruntimeconfig.cache
-=======
 D:\git\TMS\Api\TGJ.NetworkFreight.OrderServices\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\git\TMS\Api\TGJ.NetworkFreight.OrderServices\bin\Debug\netcoreapp3.1\appsettings.json
 D:\git\TMS\Api\TGJ.NetworkFreight.OrderServices\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -492,3 +490,4 @@ D:\git\TMS\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.Netw
 D:\git\TMS\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.OrderServices.dll
 D:\git\TMS\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.OrderServices.pdb
 >>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
+D:\Code\Api\TGJ.NetworkFreight.OrderServices\obj\Debug\netcoreapp3.1\scopedcss\bundle\TGJ.NetworkFreight.OrderServices.styles.css

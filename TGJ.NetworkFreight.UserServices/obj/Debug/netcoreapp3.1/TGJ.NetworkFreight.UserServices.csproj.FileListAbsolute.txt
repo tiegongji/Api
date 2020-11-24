@@ -708,7 +708,6 @@ D:\Back\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkF
 D:\Back\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.pdb
 D:\Back\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.genruntimeconfig.cache
 =======
-<<<<<<< HEAD
 >>>>>>> 22ecafba1e7c75dff343bd9396f7aa440372f4ed
 D:\Code\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.exe
 D:\Code\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.exe
@@ -871,7 +870,6 @@ D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\staticwebass
 D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.dll
 D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.genruntimeconfig.cache
-=======
 D:\git\TMS\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\git\TMS\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\appsettings.json
 D:\git\TMS\Api\TGJ.NetworkFreight.UserServices\bin\Debug\netcoreapp3.1\libman.json
@@ -1054,3 +1052,4 @@ D:\git\TMS\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.Netwo
 D:\git\TMS\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.dll
 D:\git\TMS\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.pdb
 >>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
+D:\Code\Api\TGJ.NetworkFreight.UserServices\obj\Debug\netcoreapp3.1\scopedcss\bundle\TGJ.NetworkFreight.UserServices.styles.css

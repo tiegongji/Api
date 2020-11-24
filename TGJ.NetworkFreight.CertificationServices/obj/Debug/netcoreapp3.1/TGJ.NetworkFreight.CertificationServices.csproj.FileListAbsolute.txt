@@ -210,7 +210,6 @@ D:\Back\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ
 D:\Back\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.pdb
 D:\Back\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.genruntimeconfig.cache
 =======
-<<<<<<< HEAD
 >>>>>>> 22ecafba1e7c75dff343bd9396f7aa440372f4ed
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.exe
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.exe
@@ -266,5 +265,5 @@ D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\sta
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.dll
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.CertificationServices.genruntimeconfig.cache
-=======
 >>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
+D:\Code\Api\TGJ.NetworkFreight.CertificationServices\obj\Debug\netcoreapp3.1\scopedcss\bundle\TGJ.NetworkFreight.CertificationServices.styles.css

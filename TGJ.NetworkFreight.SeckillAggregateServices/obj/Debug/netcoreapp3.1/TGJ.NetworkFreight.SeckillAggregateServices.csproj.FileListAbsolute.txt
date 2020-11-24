@@ -760,7 +760,6 @@ D:\Back\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\
 D:\Back\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.pdb
 D:\Back\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.genruntimeconfig.cache
 =======
-<<<<<<< HEAD
 >>>>>>> 22ecafba1e7c75dff343bd9396f7aa440372f4ed
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Commons.exe
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.Cores.exe
@@ -941,10 +940,7 @@ D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.dll
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.pdb
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.genruntimeconfig.cache
-<<<<<<< HEAD
 D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\bin\Debug\netcoreapp3.1\TGJ.NetworkFreight.UserServices.pdb
-=======
-=======
 D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.csprojAssemblyReference.cache
 D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\staticwebassets\TGJ.NetworkFreight.SeckillAggregateServices.StaticWebAssets.Manifest.cache
 D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\staticwebassets\TGJ.NetworkFreight.SeckillAggregateServices.StaticWebAssets.xml
@@ -955,4 +951,4 @@ D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3
 D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.dll
 D:\git\TMS\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\TGJ.NetworkFreight.SeckillAggregateServices.pdb
 >>>>>>> b8d3e7dc16a7780e24956a5edac3fcf40e0a84da
->>>>>>> 22ecafba1e7c75dff343bd9396f7aa440372f4ed
+D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\obj\Debug\netcoreapp3.1\scopedcss\bundle\TGJ.NetworkFreight.SeckillAggregateServices.styles.css

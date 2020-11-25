@@ -42,18 +42,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetUser()
         {
-        //    var model = new User()
-        //    {
-        //        CreateTime = DateTime.Now,
-        //        Phone = "ss",
-        //        wx_HeadImgUrl = "ss",
-        //        wx_NickName = "11111",
-        //        wx_OpenID = "eeeeeee",
-        //        wx_UnionID = "ss",
-        //        HasAuthenticated = false,
-        //        Name = "哇哇哇我哇",
-        //        Status = 1
-        //    };
+            //    var model = new User()
+            //    {
+            //        CreateTime = DateTime.Now,
+            //        Phone = "ss",
+            //        wx_HeadImgUrl = "ss",
+            //        wx_NickName = "11111",
+            //        wx_OpenID = "eeeeeee",
+            //        wx_UnionID = "ss",
+            //        HasAuthenticated = false,
+            //        Name = "哇哇哇我哇",
+            //        Status = 1
+            //    };
             var obj = userClient.GetUsers();
 
             return Ok(obj);
@@ -84,8 +84,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var userInfo = userClient.GetUserByOpenId(wechatResult.openId);
 
-            var userid = 0;
-
             if (null == userInfo || userInfo.Id <= 0)
             {
                 var model = new User()
@@ -94,10 +92,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                     Phone = wechatResult.phoneNumber,
                     wx_HeadImgUrl = wechatResult.avatarUrl,
                     wx_NickName = wechatResult.nickName,
+                    Name = wechatResult.phoneNumber,
                     wx_OpenID = wechatResult.openId,
                     wx_UnionID = wechatResult.unionId,
                     HasAuthenticated = false,
-                    RoleName = "1",
+                    RoleName = loginPo.RoleName,
                     Status = 1
                 };
                 var obj = userClient.PostUser(model);
@@ -108,12 +107,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 }
                 else
                 {
-                    userid = obj.Id;
+                    userInfo = obj;
                 }
-            }
-            else
-            {
-                userid = userInfo.Id;
             }
 
             // 1、获取IdentityServer接口文档
@@ -134,7 +129,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 ClientSecret = "secret",
                 GrantType = "password",
                 //Scope = "openid",
-                UserName = wechatResult.openId,
+                UserName = userInfo.Id.ToString(),
                 Password = wechatResult.phoneNumber
                 //UserName = "12",
                 //Password = "13636572806"
@@ -156,7 +151,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             // 5、返回UserDto信息
             UserDto userDto = new UserDto();
             userDto.UserId = userInfoResponse.Json.TryGetString("sub");
-            userDto.UserName = loginPo.UserName;
+            userDto.UserName = userInfo.Name;
             userDto.AccessToken = tokenResponse.AccessToken;
             userDto.ExpiresIn = tokenResponse.ExpiresIn;
 

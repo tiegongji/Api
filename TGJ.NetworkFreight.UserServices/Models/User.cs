@@ -78,9 +78,20 @@ namespace TGJ.NetworkFreight.UserServices.Models
         public string CarClass { get; set; }
 
         /// <summary>
+        /// 驾驶证开始时间
+        /// </summary>
+        public DateTime DriverBeginTime { get; set; }
+        /// <summary>
+
+        /// <summary>
+        /// 驾驶证结束时间
+        /// </summary>
+        public DateTime? DriverEndTime { get; set; }
+
+        /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         /// <summary>
         /// 最后修改时间

@@ -9,7 +9,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Interface
     public interface IUserAddressService
     {
         void Add(UserAddress entity);
-        void Delete(int userId, int id);
+        void Delete(int id, int userid);
         IEnumerable<dynamic> GetList(int userid);
     }
 }

@@ -26,5 +26,15 @@ namespace TGJ.NetworkFreight.UserServices.Context
         /// 用户地址集合
         /// </summary>
         public DbSet<UserAddress> UserAddresss { get; set; }
+
+        /// <summary>
+        /// 用户车辆集合
+        /// </summary>
+        public DbSet<UserTruck> UserTrucks { get; set; }
+
+        /// <summary>
+        /// 用户银行卡集合
+        /// </summary>
+        public DbSet<UserBankCard> UserBankCards { get; set; }
     }
 }

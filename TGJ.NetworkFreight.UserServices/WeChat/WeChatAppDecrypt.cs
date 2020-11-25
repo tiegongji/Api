@@ -13,15 +13,15 @@ namespace TGJ.NetworkFreight.UserServices.WeChat
     /// </summary>
     public class WeChatAppDecrypt
     {
-        public IConfiguration Configuration { get; }
+        //public IConfiguration Configuration { get; }
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="configuration"></param>
-        public WeChatAppDecrypt(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        //public WeChatAppDecrypt(IConfiguration configuration)
+        //{
+        //    Configuration = configuration;
+        //}
         public WeChatAppDecrypt()
         {
         }
@@ -40,12 +40,12 @@ namespace TGJ.NetworkFreight.UserServices.WeChat
             //    + "&grant_type=authorization_code";
 
             string temp = "https://api.weixin.qq.com/sns/jscode2session?" +
-                "appid=wx7fe349ddccdb80b3"
-                + "&secret=93d06c5b2556535713b0fa6608d8ff90"
+                "appid=wx2b5bab59a2900e7f"
+                + "&secret=547c99cbea7173a9e57c96e34b0f03c9"
                 + "&js_code=" + code
                 + "&grant_type=authorization_code";
 
-            return HttpService.Get(temp); 
+            return HttpService.Get(temp);
         }
 
         /// <summary>

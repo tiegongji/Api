@@ -372,6 +372,11 @@
             登录表单
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.LoginPo.RoleName">
+            <summary>
+            角色 1：物流端/2：司机端
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo">
             <summary>
             修改密码

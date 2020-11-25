@@ -26,4 +26,8 @@
     <ProjectReference Include="..\TGJ.NetworkFreight.Cores\TGJ.NetworkFreight.Cores.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

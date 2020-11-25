@@ -16,15 +16,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService
         /// <summary>
         /// 新增地址
         /// </summary>
-        [GetPath("/Orders/AddAddress")]
+        [PostPath("/Orders/Address/Add")]
 
-        public dynamic Add(UserAddress entity);
+        public dynamic AddAddress(UserAddress entity);
         /// <summary>
         /// 删除地址
         /// </summary>
-        [GetPath("/Orders/DelAddress")]
+        [DeletePath("/Orders/Address/{id}")]
 
-        public dynamic Delete(int id,int userId);
+        public dynamic DelAddress(int id, int userId);
 
         /// <summary>
         /// 获取地址列表

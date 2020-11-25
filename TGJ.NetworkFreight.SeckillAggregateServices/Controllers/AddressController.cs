@@ -12,9 +12,9 @@ using TGJ.NetworkFreight.UserServices.Models;
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 {
     /// <summary>
-    /// 
+    /// 地址控制器
     /// </summary>
-    [Route("api/[Address]")]
+    [Route("api/Address")]
     [ApiController]
     public class AddressController : ControllerBase
     {
@@ -27,22 +27,24 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// 新增
         /// </summary>
         /// <param name="userId"></param>
+        /// <param name="entity"></param>
         /// <returns></returns>
-        [HttpPost("Add/{userId}")]
-        public ActionResult<dynamic> Add(int userId, [FromQuery] UserAddress entity)
+        [HttpPost("Address/{userId}")]
+        public ActionResult<dynamic> AddAddress(int userId, [FromQuery] UserAddress entity)
         {
             entity.UserID = userId;
-            return addressClient.Add(entity);
+            return addressClient.AddAddress(entity);
         }
         /// <summary>
         /// 删除
         /// </summary>
         /// <param name="userId"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        [HttpPost("Delete/{userId}/{id}")]
+        [HttpDelete("Delete/{userId}/{id}")]
         public ActionResult<dynamic> Delete(int userId, int id)
         {
-            return addressClient.Delete(id,userId);
+            return addressClient.DelAddress(id, userId);
         }
 
         /// <summary>

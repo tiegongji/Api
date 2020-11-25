@@ -256,6 +256,11 @@
             完成
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto">
+            <summary>
+            订单发布
+            </summary>
+        </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.UserID">
             <summary>
             用户ID
@@ -269,11 +274,6 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.Weight">
             <summary>
             重量
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.Num">
-            <summary>
-            数量
             </summary>
         </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.CategoryID">

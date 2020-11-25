@@ -91,6 +91,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 options.Filters.Add<FrontResultWapper>(); // 1、通用结果
                 options.Filters.Add<BizExceptionHandler>();// 2、通用异常
                 options.ModelBinderProviders.Insert(0, new SysUserModelBinderProvider());// 3、自定义模型绑定
+                options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
             }).AddNewtonsoftJson(options =>
             {
                 // 防止将大写转换成小写

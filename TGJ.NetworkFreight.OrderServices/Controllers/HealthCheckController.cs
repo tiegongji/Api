@@ -2,7 +2,7 @@
 
 namespace TGJ.NetworkFreight.OrderServices.Controllers
 {
-    [Route("HealthCheck")]
+    [Route("Orders/HealthCheck")]
     [ApiController]
     public class HealthCheckController : ControllerBase
     {

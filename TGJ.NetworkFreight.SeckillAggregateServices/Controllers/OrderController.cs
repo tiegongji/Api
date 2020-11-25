@@ -32,8 +32,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpGet]
         public ActionResult GetOrder(SysUser sysUser)
         {
-            return Ok(sysUser);
+            return Ok(orderClient.GetOrder());
         }
+
         /// <summary>
         /// 订单类型统计
         /// </summary>

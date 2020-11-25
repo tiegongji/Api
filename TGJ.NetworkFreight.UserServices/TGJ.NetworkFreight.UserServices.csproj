@@ -9,7 +9,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>TGJ.NetworkFreight.User.xml</DocumentationFile>
-    <OutputPath>D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\</OutputPath>
+    <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

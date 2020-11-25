@@ -43,7 +43,7 @@ namespace TGJ.NetworkFreight.OrderServices.Dto
         /// <summary>
         /// 备注
         /// </summary>
-        [MaxLength(500)]
+        //[MaxLength(500)]
         public string Comment { set; get; }
     }
 }

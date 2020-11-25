@@ -52,7 +52,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [HttpPost("add")]
+        [HttpPost("Add")]
         public ActionResult Add(OrderDetailDto entity)
         {
             IOrderService.Add(entity);
@@ -68,7 +68,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         [HttpPost("GetList")]
         public ActionResult<IEnumerable<dynamic>> GetList(int userId, int pageIndex, int pageSize, int? status)
         {
-            return IOrderService.GetList(userId, pageIndex, pageSize,status).ToList();
+            return IOrderService.GetList(userId, pageIndex, pageSize, status).ToList();
         }
 
         /// <summary>
@@ -99,8 +99,8 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [HttpPost("AddAddress")]
-        public ActionResult AddAddress(UserAddress entity)
+        [HttpPost("Address/Add")]
+        public ActionResult AddAddress([FromQuery] UserAddress entity)
         {
             IUserAddressService.Add(entity);
             return Ok("添加成功");
@@ -110,10 +110,10 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [HttpPost("DelAddress/{id}")]
-        public ActionResult DelAddress(int id,int userid)
+        [HttpDelete("Address/{id}")]
+        public ActionResult DelAddress(int id, int userid)
         {
-            IUserAddressService.Delete(id,userid);
+            IUserAddressService.Delete(id, userid);
             return Ok("删除成功");
         }
 

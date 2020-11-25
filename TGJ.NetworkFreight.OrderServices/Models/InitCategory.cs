@@ -28,7 +28,7 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// <summary>
         /// 是否有效
         /// </summary>
-        public int IsValid { set; get; }
+        public bool IsValid { set; get; }
         /// <summary>
         /// 描述
         /// </summary>

@@ -10,26 +10,39 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService
     /// <summary>
     /// 用户地址微服务客户端
     /// </summary>
-    [MicroClient("http", "UserServices")]
+    [MicroClient("http", "OrderServices")]
     public interface IAddressClient
     {
-        [GetPath("/Address/{userId}")]
-        public IEnumerable<UserAddress> GetUserAddresss(int userId);
+        /// <summary>
+        /// 新增地址
+        /// </summary>
+        [GetPath("/Orders/AddAddress")]
+
+        public dynamic Add(UserAddress entity);
+        /// <summary>
+        /// 删除地址
+        /// </summary>
+        [GetPath("/Orders/DelAddress")]
+
+        public dynamic Delete(int id,int userId);
+
+        /// <summary>
+        /// 获取地址列表
+        /// </summary>
+        [GetPath("/Orders/GetAddressList")]
+
+        public dynamic GetList(int userId);
 
 
-        [GetPath("/Address/{userId}/{id}")]
-        public UserAddress GetUserAddressById(int userId, int id);
+        //[PostPath("/Address")]
+        //public UserAddress PostUserAddress(UserAddress UserAddress);
 
 
-        [PostPath("/Address")]
-        public UserAddress PostUserAddress(UserAddress UserAddress);
+        //[PutPath("/Address/{id}")]
+        //public void PutUserAddress(int id, UserAddress UserAddress);
 
 
-        [PutPath("/Address/{id}")]
-        public void PutUserAddress(int id, UserAddress UserAddress);
-
-
-        [DeletePath("/Address/{userId}/{id}")]
-        public UserAddress DeletUserAddress(int userId, int id);
+        //[DeletePath("/Address/{userId}/{id}")]
+        //public UserAddress DeletUserAddress(int userId, int id);
     }
 }

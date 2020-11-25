@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TGJ.NetworkFreight.OrderServices.Dto;
+using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.OrderServices.Services.Interface;
 
 namespace TGJ.NetworkFreight.OrderServices.Controllers
@@ -14,10 +15,12 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService IOrderService;
+        private readonly IUserAddressService IUserAddressService;
 
-        public OrderController(IOrderService _IOrderService)
+        public OrderController(IOrderService _IOrderService, IUserAddressService _IUserAddressService)
         {
             IOrderService = _IOrderService;
+            IUserAddressService = _IUserAddressService;
         }
 
         /// <summary>
@@ -86,6 +89,40 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         public ActionResult<OrderTurnoverDto> GetOrderTurnover(int userId)
         {
             return IOrderService.GetOrderTurnover(userId);
+        }
+
+        /// <summary>
+        /// 新增地址
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [HttpPost("AddAddress")]
+        public ActionResult AddAddress(UserAddress entity)
+        {
+            IUserAddressService.Add(entity);
+            return Ok("添加成功");
+        }
+        /// <summary>
+        /// 删除地址
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [HttpPost("DelAddress/{id}")]
+        public ActionResult DelAddress(int id,int userid)
+        {
+            IUserAddressService.Delete(id,userid);
+            return Ok("删除成功");
+        }
+
+        /// <summary>
+        /// 地址列表
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        [HttpPost("GetAddressList")]
+        public ActionResult<IEnumerable<dynamic>> GetAddressList(int userId)
+        {
+            return IUserAddressService.GetList(userId).ToList();
         }
     }
 }

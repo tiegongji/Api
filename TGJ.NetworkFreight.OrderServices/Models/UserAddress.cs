@@ -37,27 +37,27 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// <summary>
         /// 百度纬度
         /// </summary>
-        public Single BaiduLat { set; get; }
+        public double BaiduLat { set; get; }
         /// <summary>
         /// 百度经度
         /// </summary>
-        public Single BaiduLng { set; get; }
+        public double BaiduLng { set; get; }
         /// <summary>
         /// 高德纬度
         /// </summary>
-        public Single GaodeLat { set; get; }
+        public double GaodeLat { set; get; }
         /// <summary>
         /// 高德经度
         /// </summary>
-        public Single GaodeLng { set; get; }
+        public double GaodeLng { set; get; }
         /// <summary>
         /// 腾讯纬度
         /// </summary>
-        public Single TencentLat { set; get; }
+        public double TencentLat { set; get; }
         /// <summary>
         /// 腾讯经度
         /// </summary>
-        public Single TencentLng { set; get; }
+        public double TencentLng { set; get; }
         /// <summary>
         /// 地址
         /// </summary>
@@ -85,7 +85,7 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// <summary>
         /// 县ID
         /// </summary>
-        public string RegionID { set; get; }
+        public int RegionID { set; get; }
         /// <summary>
         /// 创建时间
         /// </summary>

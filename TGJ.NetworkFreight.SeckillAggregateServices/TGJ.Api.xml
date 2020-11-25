@@ -6,8 +6,31 @@
     <members>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController">
             <summary>
-            
+            地址控制器
             </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(System.Int32,TGJ.NetworkFreight.UserServices.Models.UserAddress)">
+            <summary>
+            新增
+            </summary>
+            <param name="userId"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.Delete(System.Int32,System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="userId"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.GetList(System.Int32)">
+            <summary>
+            列表
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController">
             <summary>
@@ -134,6 +157,48 @@
             <param name="OrderNo"></param>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Cancel(System.Int32,TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            取消订单
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateCarrierUser(System.Int32,TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            指定司机
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUpload(System.Int32,TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
+            <summary>
+            物流端上传回单
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateMoney(System.Int32,TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            更新价格
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(System.Int32,TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            装货
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(System.Int32,TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
+            <summary>
+            卸货
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController">
             <summary>
             推送消息控制器
@@ -239,6 +304,11 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.Comment">
             <summary>
             备注
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto.ID">
+            <summary>
+            订单ID
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto">
@@ -407,6 +477,21 @@
             用户地址微服务客户端
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient.AddAddress(TGJ.NetworkFreight.UserServices.Models.UserAddress)">
+            <summary>
+            新增地址
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient.DelAddress(System.Int32,System.Int32)">
+            <summary>
+            删除地址
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient.GetList(System.Int32)">
+            <summary>
+            获取地址列表
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient">
             <summary>
             认证客户端
@@ -524,6 +609,36 @@
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.GetDetail(System.Int32,System.String)">
             <summary>
             获取订单详情
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.Cancel(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            取消订单
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateCarrierUser(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            指定司机
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateUpload(TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
+            <summary>
+            物流端上传回单
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateMoney(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            更新价格
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateLoading(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            装货
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateUnLoading(TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
+            <summary>
+            卸货
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient">

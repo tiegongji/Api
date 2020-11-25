@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,10 +20,6 @@ namespace TGJ.NetworkFreight.OrderServices.Dto
         /// 重量
         /// </summary>
         public decimal Weight { set; get; }
-        /// <summary>
-        /// 数量
-        /// </summary>
-        public int Num { set; get; }
         /// <summary>
         /// 货物类型ID
         /// </summary>
@@ -46,6 +43,7 @@ namespace TGJ.NetworkFreight.OrderServices.Dto
         /// <summary>
         /// 备注
         /// </summary>
+        [MaxLength(500)]
         public string Comment { set; get; }
     }
 }

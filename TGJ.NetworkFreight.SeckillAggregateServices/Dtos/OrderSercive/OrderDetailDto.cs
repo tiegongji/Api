@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive
 {
+    /// <summary>
+    /// 订单发布
+    /// </summary>
     public class OrderDetailDto
     {
         /// <summary>
@@ -19,10 +22,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive
         /// 重量
         /// </summary>
         public decimal Weight { set; get; }
-        /// <summary>
-        /// 数量
-        /// </summary>
-        public int Num { set; get; }
         /// <summary>
         /// 货物类型ID
         /// </summary>

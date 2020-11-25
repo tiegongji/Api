@@ -73,8 +73,6 @@ namespace TGJ.NetworkFreight.UserServices
                     {
                         builder.UseSqlServer(Configuration.GetConnectionString("IdsConnection"),
                                             sql => sql.MigrationsAssembly(migrationsAssembly));
-
-                        //builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                     };
                 })
                 .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();// 2、自定义用户校验
@@ -142,7 +140,7 @@ namespace TGJ.NetworkFreight.UserServices
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<ConfigurationDbContext>();
-                //context.Database.Migrate();
+                context.Database.Migrate();
                 if (!context.Clients.Any())
                 {
                     foreach (var client in Config.GetClients())

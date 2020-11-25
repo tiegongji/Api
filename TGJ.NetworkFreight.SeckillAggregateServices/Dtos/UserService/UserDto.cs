@@ -10,9 +10,21 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService
     /// </summary>
     public class UserDto
     {
-        public string AccessToken { set; get; } // 执行token(用户身份)
-        public int ExpiresIn { set; get; }// AccessToken过期时间
-        public string UserName { set; get; }// 用户名
-        public string UserId { set; get; }//用户id
+        /// <summary>
+        /// Token
+        /// </summary>
+        public string AccessToken { set; get; }
+        /// <summary>
+        /// AccessToken过期时间
+        /// </summary>
+        public int ExpiresIn { set; get; }
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string UserName { set; get; }
+        /// <summary>
+        /// 用户id
+        /// </summary>
+        public string UserId { set; get; }
     }
 }

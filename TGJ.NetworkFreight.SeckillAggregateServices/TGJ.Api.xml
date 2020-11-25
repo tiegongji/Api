@@ -331,6 +331,26 @@
             用户登录成功返回的信息
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.AccessToken">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.ExpiresIn">
+            <summary>
+            AccessToken过期时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.UserId">
+            <summary>
+            用户id
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching">
             <summary>
             缓存接口

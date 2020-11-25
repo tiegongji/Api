@@ -106,7 +106,14 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "TGJ.Api.xml");
+                var xmlOrderPath = Path.Combine(basePath, "TGJ.NetworkFreight.Order.xml");
+                var xmlUserPath = Path.Combine(basePath, "TGJ.NetworkFreight.User.xml");
+                var xmlCertificationPath = Path.Combine(basePath, "TGJ.NetworkFreight.Certification.xml");
+
                 c.IncludeXmlComments(xmlPath);
+                c.IncludeXmlComments(xmlOrderPath);
+                c.IncludeXmlComments(xmlUserPath);
+                c.IncludeXmlComments(xmlCertificationPath);
             });
 
             #endregion ≈‰÷√Swagger

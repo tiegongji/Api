@@ -114,11 +114,14 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             // 1、获取IdentityServer接口文档
             string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
 
-            DiscoveryDocumentResponse discoveryDocument = httpClient.GetDiscoveryDocumentAsync(userUrl).Result;
+            DiscoveryDocumentResponse discoveryDocument = httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest { Address = userUrl, Policy = new DiscoveryPolicy { RequireHttps = false } }).Result;
+
+            //discoveryDocument.Policy.RequireHttps = false;
+
 
             if (discoveryDocument.IsError)
             {
-                Console.WriteLine($"[DiscoveryDocumentResponse Error]: {discoveryDocument.Error}");
+                throw new BizException($"[DiscoveryDocumentResponse Error]: {discoveryDocument.Error}");
             }
 
             // 2、根据用户名和密码建立token
@@ -128,7 +131,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 ClientId = "client-password",
                 ClientSecret = "secret",
                 GrantType = "password",
-                //Scope = "openid",
+                //Scope = "TGJService",
                 UserName = userInfo.Id.ToString(),
                 Password = wechatResult.phoneNumber
                 //UserName = "12",
@@ -138,7 +141,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             // 3、返回AccessToken
             if (tokenResponse.IsError)
             {
-                throw new BizException(tokenResponse.Error + "," + tokenResponse.Raw);
+                throw new BizException(discoveryDocument.TokenEndpoint + "/" + userInfo.Id.ToString() + "/" + wechatResult.phoneNumber + "/" + tokenResponse.Error + "," + tokenResponse.Raw);
             }
 
             // 4、获取用户信息

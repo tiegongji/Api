@@ -29,6 +29,7 @@ namespace TGJ.NetworkFreight.UserServices.IdentityServer
         {
             // 1、根据用户名获取用户
             //User user = userService.GetUser(context.UserName);
+
             User user = userService.GetUserById(Convert.ToInt32(context.UserName));
 
             // 2、判断User

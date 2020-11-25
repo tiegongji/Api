@@ -13,6 +13,10 @@ namespace TGJ.NetworkFreight.OrderServices.Dto
         /// </summary>
         public int ID { set; get; }
 
+        /// <summary>
+        /// 图片集合
+        /// </summary>
+
         public List<OrderReceiptImage> imgs { set; get; }
     }
 }

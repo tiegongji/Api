@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>83e2e53d-8b9c-46fa-86d3-94c4d434093c</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>TGJ.NetworkFreight.User.xml</DocumentationFile>
+    <OutputPath>D:\Code\Api\TGJ.NetworkFreight.SeckillAggregateServices\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

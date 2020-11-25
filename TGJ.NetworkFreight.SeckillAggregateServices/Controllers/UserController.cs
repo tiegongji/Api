@@ -96,7 +96,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                     wx_OpenID = wechatResult.openId,
                     wx_UnionID = wechatResult.unionId,
                     HasAuthenticated = false,
-                    RoleName = "1",
+                    RoleName = loginPo.RoleName,
                     Status = 1
                 };
                 var obj = userClient.PostUser(model);

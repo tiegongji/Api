@@ -10,7 +10,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService
     /// </summary>
     public class LoginPo
     {
-        public string UserPhone { set; get; } // 手机号
+        /// <summary>
+        /// 角色 1：物流端/2：司机端
+        /// </summary>
+        public string RoleName { set; get; }
         public string code { get; set; }
         public string encryptedData { get; set; }
         public string iv { get; set; }

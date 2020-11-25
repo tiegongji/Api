@@ -40,7 +40,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <returns></returns>
 
         [HttpGet]
-        public ActionResult<IEnumerable<User>> GetUser()
+        public ActionResult<User> GetUser()
         {
             //    var model = new User()
             //    {
@@ -60,6 +60,33 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         }
 
         /// <summary>
+        /// 获取微信信息
+        /// </summary>
+        /// <param name="wXLoginPo"></param>
+        /// <returns></returns>
+        [HttpPost("WXUserInfo")]
+        public WechatUserInfo GetWXUserInfo(WXLoginPo wXLoginPo)
+        {
+            var wli = new WechatLoginInfo();
+            wli.code = wXLoginPo.code;
+            wli.encryptedData = wXLoginPo.encryptedData;
+            wli.iv = wXLoginPo.iv;
+            wli.rawData = wXLoginPo.rawData;
+            wli.signature = wXLoginPo.signature;
+
+            WechatUserInfo wechatResult = new WeChatAppDecrypt().Decrypt(wli);
+
+            if (wechatResult == null || string.IsNullOrWhiteSpace(wechatResult.openId))
+            {
+                throw new BizException("用户信息获取失败");
+            }
+
+            wechatResult.nickName = HttpUtility.UrlEncode(wechatResult.nickName);
+
+            return wechatResult;
+        }
+
+        /// <summary>
         /// 用户登录
         /// </summary>
         /// <returns></returns>
@@ -75,12 +102,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             WechatUserInfo wechatResult = new WeChatAppDecrypt().Decrypt(wli);
 
-            if (wechatResult == null || string.IsNullOrWhiteSpace(wechatResult.openId))
+            if (wechatResult == null || string.IsNullOrWhiteSpace(wechatResult.phoneNumber))
             {
-                throw new BizException("授权失败");
+                throw new BizException("手机号获取失败");
             }
-
-            wechatResult.nickName = HttpUtility.UrlEncode(wechatResult.nickName);
 
             var userInfo = userClient.GetUserByOpenId(wechatResult.openId);
 
@@ -90,9 +115,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 {
                     CreateTime = DateTime.Now,
                     Phone = wechatResult.phoneNumber,
-                    wx_HeadImgUrl = wechatResult.avatarUrl,
-                    wx_NickName = wechatResult.nickName,
-                    Name = wechatResult.phoneNumber,
+                    wx_HeadImgUrl = loginPo.AvatarUrl,
+                    wx_NickName = loginPo.NickName,
+                    Name = loginPo.NickName,
                     wx_OpenID = wechatResult.openId,
                     wx_UnionID = wechatResult.unionId,
                     HasAuthenticated = false,
@@ -109,6 +134,14 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 {
                     userInfo = obj;
                 }
+            }
+            else
+            {
+                userInfo.wx_HeadImgUrl = loginPo.AvatarUrl;
+                userInfo.wx_NickName = loginPo.NickName;
+                userInfo.LastUpdateTime = DateTime.Now;
+
+                userClient.PutUser(userInfo.Id, userInfo);
             }
 
             // 1、获取IdentityServer接口文档

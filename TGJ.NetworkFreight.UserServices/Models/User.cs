@@ -15,7 +15,7 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// 主键
         /// </summary>
         [Key]
-        public int? Id { set; get; }
+        public int Id { set; get; }
 
         /// <summary>
         /// 用户手机号

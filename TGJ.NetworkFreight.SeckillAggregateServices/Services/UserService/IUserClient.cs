@@ -35,6 +35,13 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService
         public User PostUser(User User);
 
         /// <summary>
+        /// 用户更新
+        /// </summary>
+        /// <returns></returns>
+        [PostPath("/Users/{id}")]
+        public User PutUser(int id, User User);
+
+        /// <summary>
         /// 根据OpenId获取用户
         /// </summary>
         /// <param name="openId"></param>

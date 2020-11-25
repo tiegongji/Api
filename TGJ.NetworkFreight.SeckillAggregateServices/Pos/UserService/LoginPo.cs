@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TGJ.NetworkFreight.UserServices.WeChat.Lib;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService
 {
     /// <summary>
     /// 登录表单
     /// </summary>
-    public class LoginPo
+    public class LoginPo : WXLoginPo
     {
         /// <summary>
         /// 角色 1：物流端/2：司机端
         /// </summary>
         public string RoleName { set; get; }
-        public string code { get; set; }
-        public string encryptedData { get; set; }
-        public string iv { get; set; }
-        public string rawData { get; set; }
-        public string signature { get; set; }
+
+        public string NickName { get; set; }
+
+        public string AvatarUrl { get; set; }
     }
 }

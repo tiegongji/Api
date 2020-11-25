@@ -230,6 +230,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.GetWXUserInfo(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo)">
+            <summary>
+            获取微信信息
+            </summary>
+            <param name="wXLoginPo"></param>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.PostLogin(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.LoginPo)">
             <summary>
             用户登录
@@ -492,6 +499,11 @@
             新密码
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo">
+            <summary>
+            获取微信用户
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient">
             <summary>
             用户地址微服务客户端
@@ -675,6 +687,12 @@
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.PostUser(TGJ.NetworkFreight.UserServices.Models.User)">
             <summary>
             用户注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.PutUser(System.Int32,TGJ.NetworkFreight.UserServices.Models.User)">
+            <summary>
+            用户更新
             </summary>
             <returns></returns>
         </member>

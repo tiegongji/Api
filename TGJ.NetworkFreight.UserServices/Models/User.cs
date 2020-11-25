@@ -15,7 +15,7 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// 主键
         /// </summary>
         [Key]
-        public int Id { set; get; }
+        public int? Id { set; get; }
 
         /// <summary>
         /// 用户手机号
@@ -25,12 +25,12 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// <summary>
         /// z状态
         /// </summary>
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
         /// <summary>
         /// 认证
         /// </summary>
-        public bool HasAuthenticated { set; get; }
+        public bool? HasAuthenticated { set; get; }
 
         /// <summary>
         /// 名字
@@ -80,7 +80,7 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// <summary>
         /// 驾驶证开始时间
         /// </summary>
-        public DateTime DriverBeginTime { get; set; }
+        public DateTime? DriverBeginTime { get; set; }
         /// <summary>
 
         /// <summary>
@@ -96,6 +96,6 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// <summary>
         /// 最后修改时间
         /// </summary>
-        public DateTime LastUpdateTime { get; set; }
+        public DateTime? LastUpdateTime { get; set; }
     }
 }

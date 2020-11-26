@@ -19,11 +19,11 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// <summary>
         /// 车长长度
         /// </summary>
-        public float Length { set; get; }
+        public decimal Length { set; get; }
         /// <summary>
         /// 最大载重
         /// </summary>
-        public float MaxWeight { set; get; }
+        public decimal MaxWeight { set; get; }
         /// <summary>
         /// 是否有效
         /// </summary>

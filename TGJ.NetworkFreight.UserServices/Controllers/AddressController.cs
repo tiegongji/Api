@@ -24,62 +24,62 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             this.UserAddressService = UserAddressService;
         }
 
-        [HttpPost]
-        public ActionResult<UserAddress> PostAddress(UserAddress UserAddress)
-        {
-            UserAddressService.Create(UserAddress);
-            return CreatedAtAction("GeUserAddress", new { id = UserAddress.Id }, UserAddress);
-        }
+        //[HttpPost]
+        //public ActionResult<UserAddress> PostAddress(UserAddress UserAddress)
+        //{
+        //    UserAddressService.Create(UserAddress);
+        //    return CreatedAtAction("GeUserAddress", new { id = UserAddress.Id }, UserAddress);
+        //}
 
-        [HttpGet("{userId}")]
-        public ActionResult<IEnumerable<UserAddress>> GetUserAddresss(int userId)
-        {
-            return UserAddressService.GetUserAddresss(userId).ToList();
-        }
+        //[HttpGet("{userId}")]
+        //public ActionResult<IEnumerable<UserAddress>> GetUserAddresss(int userId)
+        //{
+        //    return UserAddressService.GetUserAddresss(userId).ToList();
+        //}
 
-        [HttpGet("{userId}/{id}")]
-        public ActionResult<UserAddress> GetUserAddressById(int userId, int id)
-        {
-            return UserAddressService.GetUserAddressById(userId, id);
-        }
+        //[HttpGet("{userId}/{id}")]
+        //public ActionResult<UserAddress> GetUserAddressById(int userId, int id)
+        //{
+        //    return UserAddressService.GetUserAddressById(userId, id);
+        //}
 
-        [HttpPut("{id}")]
-        public IActionResult PutUserAddress(int id, UserAddress UserAddress)
-        {
-            if (id != UserAddress.Id)
-            {
-                return BadRequest();
-            }
-            try
-            {
-                UserAddressService.Update(UserAddress);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserAddressService.UserAddressExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //[HttpPut("{id}")]
+        //public IActionResult PutUserAddress(int id, UserAddress UserAddress)
+        //{
+        //    if (id != UserAddress.Id)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    try
+        //    {
+        //        UserAddressService.Update(UserAddress);
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!UserAddressService.UserAddressExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        [HttpDelete("{userId}/{id}")]
-        public ActionResult<UserAddress> DeletUserAddress(int userId, int id)
-        {
-            var UserAddress = UserAddressService.GetUserAddressById(userId, id);
-            if (UserAddress == null)
-            {
-                return NotFound(UserAddress);
-            }
+        //[HttpDelete("{userId}/{id}")]
+        //public ActionResult<UserAddress> DeletUserAddress(int userId, int id)
+        //{
+        //    var UserAddress = UserAddressService.GetUserAddressById(userId, id);
+        //    if (UserAddress == null)
+        //    {
+        //        return NotFound(UserAddress);
+        //    }
 
-            UserAddressService.Delete(UserAddress);
-            return UserAddress;
-        }
+        //    UserAddressService.Delete(UserAddress);
+        //    return UserAddress;
+        //}
     }
 }

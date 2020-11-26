@@ -59,7 +59,7 @@ namespace TGJ.NetworkFreight.UserServices.IdentityServer
                 new Claim(JwtClaimTypes.Id, user.Id.ToString() ?? ""),
                 new Claim(JwtClaimTypes.Name, user.Name?? ""),
                 new Claim(JwtClaimTypes.PhoneNumber, user.Phone  ?? ""),
-                new Claim(JwtClaimTypes.Role, user.RoleName)
+                new Claim(JwtClaimTypes.Role, user.RoleName.ToString())
             };
         }
     }

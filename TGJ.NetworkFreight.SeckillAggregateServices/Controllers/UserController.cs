@@ -121,7 +121,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                     wx_OpenID = wechatResult.openId,
                     wx_UnionID = wechatResult.unionId,
                     HasAuthenticated = false,
-                    RoleName = loginPo.RoleName,
+                    RoleName =Convert.ToInt32(loginPo.RoleName),
                     Status = 1
                 };
                 var obj = userClient.PostUser(model);
@@ -141,7 +141,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 userInfo.wx_NickName = loginPo.NickName;
                 userInfo.LastUpdateTime = DateTime.Now;
 
-                userClient.PutUser(userInfo.Id, userInfo);
+                userClient.PutUser(userInfo);
             }
 
             // 1、获取IdentityServer接口文档

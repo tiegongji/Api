@@ -62,7 +62,7 @@
             用户服务控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.UserServices.Controllers.UsersController.PutUser(System.Int32,TGJ.NetworkFreight.UserServices.Models.User)">
+        <member name="M:TGJ.NetworkFreight.UserServices.Controllers.UsersController.PutUser(TGJ.NetworkFreight.UserServices.Models.User)">
             <summary>
             更新用户
             </summary>
@@ -395,6 +395,11 @@
         <member name="T:TGJ.NetworkFreight.UserServices.Repositories.IUserAddressRepository">
             <summary>
             用户地址仓储接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Repositories.IUserBankCardRepository">
+            <summary>
+            用户银行卡仓储接口
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.UserServices.Repositories.IUserRepository">

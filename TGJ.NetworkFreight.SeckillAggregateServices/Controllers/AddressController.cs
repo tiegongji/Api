@@ -55,7 +55,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [HttpGet("GetList")]
+        [HttpPost("GetList")]
         public ActionResult<IEnumerable<dynamic>> GetList(SysUser sysUser)
         {
             return addressClient.GetList(sysUser.UserId);

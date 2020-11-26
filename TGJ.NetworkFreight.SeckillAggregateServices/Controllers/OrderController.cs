@@ -92,7 +92,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [HttpGet("GetList")]
+        [HttpPost("GetList")]
         public ActionResult<IEnumerable<dynamic>> GetList(SysUser sysUser, int? status)
         {
             return orderClient.GetList(sysUser.UserId, status);
@@ -104,7 +104,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="userId"></param>
         /// <param name="OrderNo"></param>
         /// <returns></returns>
-        [HttpGet("GetDetail/{OrderNo}")]
+        [HttpPost("GetDetail/{OrderNo}")]
         public ActionResult<dynamic> GetDetail(SysUser sysUser, string OrderNo)
         {
             return orderClient.GetDetail(sysUser.UserId, OrderNo);

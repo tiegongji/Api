@@ -59,7 +59,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetInitCategoryList")]
-        public ActionResult<dynamic> GetInitCategoryList()
+        public ActionResult<object> GetInitCategoryList()
         {
             return orderClient.GetInitCategoryList();
         }

@@ -27,7 +27,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         }
 
         /// <summary>
-        /// 货物类型
+        /// 货物类型  
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetInitCategoryList")]

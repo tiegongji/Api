@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TGJ.NetworkFreight.CertificationServices</name>
+    </assembly>
+    <members>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController">
+            <summary>
+            认证控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.RealNameCertification(System.String,System.String)">
+            <summary>
+            身份证实名认证
+            </summary>
+            <param name="idCard">身份证号码</param>
+            <param name="name">姓名</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRIdCard(System.String,System.String)">
+            <summary>
+            身份证OCR
+            </summary>
+            <param name="image">不包含图片头的，如data:image/jpg;base64,) </param>
+            <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRBank(System.String)">
+            <summary>
+            银行卡OCR
+            </summary>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.BankCertification(System.String,System.String,System.String)">
+            <summary>
+            银行卡认证
+            </summary>
+            <param name="backCard"></param>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRDriver(System.String,System.String)">
+            <summary>
+            驾驶证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRVehicle(System.String,System.String)">
+            <summary>
+            行驶证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRPermit(System.String,System.String)">
+            <summary>
+            道路经营许可证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Controllers.SendController">
+            <summary>
+            消息推送控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.SendController.SendSms(System.String,System.String)">
+            <summary>
+            发送短信
+            </summary>
+            <param name="phone"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto">
+            <summary>
+            驾驶证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Msg">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Owner">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Number">
+            <summary>
+            证件号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Country">
+            <summary>
+            国家
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Birth">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Type">
+            <summary>
+            准驾车型
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Initialdate">
+            <summary>
+            初始日期
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Startdate">
+            <summary>
+            开始日期 
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Enddate">
+            <summary>
+            结束日期 
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDriverDto.Aarchiveno">
+            <summary>
+            档案编号
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto">
+            <summary>
+            OCRDto
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.Code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.Msg">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.Nation">
+            <summary>
+            民族
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.Address">
+            <summary>
+            住址
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.Birthday">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRDto.Ordersign">
+            <summary>
+            Ordersign
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto">
+            <summary>
+            OCRDto
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.Code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.Msg">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.Nation">
+            <summary>
+            民族
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.Address">
+            <summary>
+            住址
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.Birthday">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.OCRIdCardDto.Ordersign">
+            <summary>
+            Ordersign
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto">
+            <summary>
+            实名认证Dto
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.Status">
+            <summary>
+            状态码:详见状态码说明 01 通过，02不通过
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.Msg">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.Area">
+            <summary>
+            区域
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.Province">
+            <summary>
+            省份
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.City">
+            <summary>
+            城市
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.Prefecture">
+            <summary>
+            县
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.Birthday">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.AddrCode">
+            <summary>
+            AddrCode
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.LastCode">
+            <summary>
+            LastCode
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Services.CertificationService">
+            <summary>
+            认证服务实现
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Services.CertificationService.Configuration">
+            <summary>
+            配置文件
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Services.CertificationService.OCRIdCard(System.String,System.String)">
+            <summary>
+            身份证OCR
+            </summary>
+            <param name="image"></param>
+            <param name="side"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Services.CertificationService.RealNameCertification(System.String,System.String)">
+            <summary>
+            身份证实名
+            </summary>
+            <param name="idCard"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Services.CertificationService.BankCertification(System.String,System.String,System.String)">
+            <summary>
+            银行卡实名认证
+            </summary>
+            <param name="bankCard"></param>
+            <param name="idCard"></param>
+            <param name="realName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Services.CertificationService.OCRBank(System.String)">
+            <summary>
+            银行卡OCR
+            </summary>
+            <param name="pic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Services.CertificationService.OCRDriver(System.String,System.String)">
+            <summary>
+            驾驶证识别
+            </summary>
+            <param name="pic"></param>
+            <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Services.CertificationService.OCRVehicle(System.String,System.String)">
+            <summary>
+            行驶证识别
+            </summary>
+            <param name="pic"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Services.CertificationService.OCRPermit(System.String,System.String)">
+            <summary>
+            道路经营许可证识别
+            </summary>
+            <param name="pic"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Services.ICertificationService">
+            <summary>
+            认证服务接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Services.ISendService">
+            <summary>
+            消息推送服务接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Services.SendService">
+            <summary>
+            消息推送服务实现
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Services.SendService.Configuration">
+            <summary>
+            配置文件
+            </summary>
+        </member>
+    </members>
+</doc>

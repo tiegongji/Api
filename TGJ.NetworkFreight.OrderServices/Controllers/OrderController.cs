@@ -65,7 +65,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// </summary>
         /// <param name="status"></param>
         /// <returns></returns>
-        [HttpPost("GetList")]
+        [HttpGet("GetList")]
         public ActionResult<IEnumerable<dynamic>> GetList(int userId, int pageIndex, int pageSize, int? status)
         {
             return IOrderService.GetList(userId, pageIndex, pageSize, status).ToList();
@@ -152,7 +152,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// </summary>
         /// <param name="status"></param>
         /// <returns></returns>
-        [HttpPost("GetAddressList")]
+        [HttpGet("GetAddressList")]
         public ActionResult<IEnumerable<dynamic>> GetAddressList(int userId)
         {
             return IUserAddressService.GetList(userId).ToList();

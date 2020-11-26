@@ -29,7 +29,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService
         /// <summary>
         /// 获取地址列表
         /// </summary>
-        [PostPath("/Orders/GetAddressList")]
+        [GetPath("/Orders/GetAddressList")]
 
         public dynamic GetList(int userId);
 

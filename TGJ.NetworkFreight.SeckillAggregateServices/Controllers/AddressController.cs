@@ -36,6 +36,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         public ActionResult<dynamic> AddAddress(SysUser sysUser, [FromQuery] UserAddress entity)
         {
             entity.UserID = sysUser.UserId;
+            entity.CreateTime = DateTime.Now;
+            entity.LastUpdateTime = DateTime.Now;
             return addressClient.AddAddress(entity);
         }
         /// <summary>

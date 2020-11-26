@@ -64,7 +64,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         /// </summary>
         [PostPath("/Orders/GetList")]
 
-        public dynamic GetList(int userId, int? status);
+        public dynamic GetList(int userId, int pageIndex, int pageSize, int? status);
 
         /// <summary>
         /// 获取订单详情

@@ -30,7 +30,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// 货物类型
         /// </summary>
         /// <returns></returns>
-        [HttpPost("GetInitCategoryList")]
+        [HttpGet("GetInitCategoryList")]
         public ActionResult<IEnumerable<dynamic>> GetInitCategoryList()
         {
             return IOrderService.GetInitCategoryList().ToList();
@@ -40,7 +40,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// 卡车类型
         /// </summary>
         /// <returns></returns>
-        [HttpPost("GetInitTruckList")]
+        [HttpGet("GetInitTruckList")]
         public ActionResult<IEnumerable<dynamic>> GetInitTruckList()
         {
             return IOrderService.GetInitTruckList().ToList();

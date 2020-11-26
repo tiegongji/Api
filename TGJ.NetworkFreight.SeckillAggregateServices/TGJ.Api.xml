@@ -230,6 +230,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.GetWXUserInfo(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo)">
+            <summary>
+            获取微信信息
+            </summary>
+            <param name="wXLoginPo"></param>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.PostLogin(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.LoginPo)">
             <summary>
             用户登录
@@ -256,6 +263,11 @@
             完成
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto">
+            <summary>
+            订单发布
+            </summary>
+        </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.UserID">
             <summary>
             用户ID
@@ -269,11 +281,6 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.Weight">
             <summary>
             重量
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.Num">
-            <summary>
-            数量
             </summary>
         </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.CategoryID">
@@ -329,6 +336,26 @@
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto">
             <summary>
             用户登录成功返回的信息
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.AccessToken">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.ExpiresIn">
+            <summary>
+            AccessToken过期时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.UserId">
+            <summary>
+            用户id
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching">
@@ -470,6 +497,11 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.ModifyPasswordPo.Password">
             <summary>
             新密码
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo">
+            <summary>
+            获取微信用户
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient">
@@ -655,6 +687,12 @@
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.PostUser(TGJ.NetworkFreight.UserServices.Models.User)">
             <summary>
             用户注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.PutUser(System.Int32,TGJ.NetworkFreight.UserServices.Models.User)">
+            <summary>
+            用户更新
             </summary>
             <returns></returns>
         </member>

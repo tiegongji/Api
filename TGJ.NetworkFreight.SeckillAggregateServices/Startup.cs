@@ -91,6 +91,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 options.Filters.Add<FrontResultWapper>(); // 1、通用结果
                 options.Filters.Add<BizExceptionHandler>();// 2、通用异常
                 options.ModelBinderProviders.Insert(0, new SysUserModelBinderProvider());// 3、自定义模型绑定
+                options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
             }).AddNewtonsoftJson(options =>
             {
                 // 防止将大写转换成小写
@@ -106,7 +107,14 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "TGJ.Api.xml");
+                var xmlOrderPath = Path.Combine(basePath, "TGJ.NetworkFreight.Order.xml");
+                var xmlUserPath = Path.Combine(basePath, "TGJ.NetworkFreight.User.xml");
+                var xmlCertificationPath = Path.Combine(basePath, "TGJ.NetworkFreight.Certification.xml");
+
                 c.IncludeXmlComments(xmlPath);
+                c.IncludeXmlComments(xmlOrderPath);
+                c.IncludeXmlComments(xmlUserPath);
+                c.IncludeXmlComments(xmlCertificationPath);
             });
 
             #endregion 配置Swagger

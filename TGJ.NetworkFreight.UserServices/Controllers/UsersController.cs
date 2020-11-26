@@ -7,6 +7,7 @@ using System.Web;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TGJ.NetworkFreight.UserServices.Models;
 using TGJ.NetworkFreight.UserServices.Services;
 using TGJ.NetworkFreight.UserServices.WeChat;
@@ -72,6 +73,38 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             //}
             UserService.Create(User);
             return CreatedAtAction("GetUser", new { id = User.Id }, User);
+        }
+
+        /// <summary>
+        /// 更新用户
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [HttpPut("{id}")]
+        public IActionResult PutUser(int id, User user)
+        {
+            if (id != user.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                UserService.Update(user);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserService.UserExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
     }
 }

@@ -41,8 +41,7 @@ namespace TGJ.NetworkFreight.OrderServices
                 options.ServiceId = Guid.NewGuid().ToString();
                 options.ServiceName = "OrderServices";
                 options.ServiceAddress = Configuration["ServiceAddress"];
-                options.HealthCheckAddress = "/HealthCheck";
-
+                options.HealthCheckAddress = "/health";
                 options.RegistryAddress = Configuration["RegistryAddress"];
             });
 
@@ -56,7 +55,7 @@ namespace TGJ.NetworkFreight.OrderServices
                 // 防止将大写转换成小写
                 option.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
-      
+
 
             // 添加Swagger
             //services.AddSwaggerGen(c =>
@@ -64,7 +63,7 @@ namespace TGJ.NetworkFreight.OrderServices
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
             //});
 
-            //services.AddHealthChecks();
+            services.AddHealthChecks();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -87,7 +86,7 @@ namespace TGJ.NetworkFreight.OrderServices
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                //endpoints.MapHealthChecks("/health");
+                endpoints.MapHealthChecks("/health");
             });
         }
     }

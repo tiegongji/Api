@@ -79,19 +79,49 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         [HttpPost("GetDetail/{OrderNo}")]
         public ActionResult<dynamic> GetDetail(int userId, string OrderNo)
         {
-            return IOrderService.GetDetail(userId, OrderNo);
-        }
+            var result = IOrderService.GetDetail(userId, OrderNo);
 
-        [HttpGet("Gather/userId")]
-        public ActionResult<OrderGatherDto> GetOrderGather(int userId)
+            if (result == null)
+            {
+                return NotFound(result);
+            }
+
+            return result;
+        }
+        /// <summary>
+        /// 订单统计
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("Gather/{userId}")]
+        public ActionResult<dynamic> GetOrderGather(int userId)
         {
-            return IOrderService.GetOrderGather(userId);
+            var result = IOrderService.GetOrderGather(userId);
+
+            if (result == null)
+            {
+                return NotFound(result);
+            }
+
+            return result;
         }
 
-        [HttpGet("Turnover/userId")]
+        /// <summary>
+        /// 金额统计
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("Turnover/{userId}")]
         public ActionResult<OrderTurnoverDto> GetOrderTurnover(int userId)
         {
-            return IOrderService.GetOrderTurnover(userId);
+            var result = IOrderService.GetOrderTurnover(userId);
+
+            if (result == null)
+            {
+                return NotFound(result);
+            }
+
+            return result;
         }
 
         /// <summary>

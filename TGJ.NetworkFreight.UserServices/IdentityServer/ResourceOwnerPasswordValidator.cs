@@ -44,7 +44,7 @@ namespace TGJ.NetworkFreight.UserServices.IdentityServer
             }
 
             context.Result = new GrantValidationResult(
-                        subject: user.Id.ToString(),
+                        subject: user.ID.ToString(),
                         authenticationMethod: user.Name,
                         claims: GetUserClaims(user));
             await Task.CompletedTask;
@@ -55,11 +55,11 @@ namespace TGJ.NetworkFreight.UserServices.IdentityServer
         {
             return new Claim[]
             {
-                new Claim(JwtClaimTypes.Subject, user.Id.ToString() ?? ""),
-                new Claim(JwtClaimTypes.Id, user.Id.ToString() ?? ""),
+                new Claim(JwtClaimTypes.Subject, user.ID.ToString() ?? ""),
+                new Claim(JwtClaimTypes.Id, user.ID.ToString() ?? ""),
                 new Claim(JwtClaimTypes.Name, user.Name?? ""),
                 new Claim(JwtClaimTypes.PhoneNumber, user.Phone  ?? ""),
-                new Claim(JwtClaimTypes.Role, user.RoleName)
+                new Claim(JwtClaimTypes.Role, user.RoleName.ToString())
             };
         }
     }

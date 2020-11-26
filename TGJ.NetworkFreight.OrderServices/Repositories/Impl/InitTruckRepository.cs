@@ -17,7 +17,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
         public IEnumerable<dynamic> GetList()
         {
-            return context.InitTruck.Where(a => a.IsValid == 1).ToList().Select(a => new { a.Length });
+            return context.InitTruck.Where(a => a.IsValid == true).ToList().Select(a => new { a.ID, a.Length, a.MaxWeight });
         }
     }
 }

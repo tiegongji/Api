@@ -690,7 +690,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.PutUser(System.Int32,TGJ.NetworkFreight.UserServices.Models.User)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.PutUser(TGJ.NetworkFreight.UserServices.Models.User)">
             <summary>
             用户更新
             </summary>

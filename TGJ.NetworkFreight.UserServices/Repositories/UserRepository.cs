@@ -63,7 +63,7 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
         }
         public bool UserExists(int id)
         {
-            return UserContext.Users.Any(e => e.Id == id);
+            return UserContext.Users.Any(e => e.ID == id);
         }
 
         public bool UserNameExists(string UserName)

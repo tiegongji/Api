@@ -81,7 +81,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 throw new BizException("用户信息获取失败");
             }
 
-            wechatResult.nickName = HttpUtility.UrlEncode(wechatResult.nickName);
+            //wechatResult.nickName = HttpUtility.UrlEncode(wechatResult.nickName);
 
             return wechatResult;
         }
@@ -109,11 +109,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var userInfo = userClient.GetUserByOpenId(wechatResult.openId);
 
-            if (null == userInfo || userInfo.Id <= 0)
+            if (null == userInfo || userInfo.ID <= 0)
             {
                 var model = new User()
                 {
                     CreateTime = DateTime.Now,
+                    LastUpdateTime = DateTime.Now,
                     Phone = wechatResult.phoneNumber,
                     wx_HeadImgUrl = loginPo.AvatarUrl,
                     wx_NickName = loginPo.NickName,
@@ -121,12 +122,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                     wx_OpenID = wechatResult.openId,
                     wx_UnionID = wechatResult.unionId,
                     HasAuthenticated = false,
-                    RoleName = loginPo.RoleName,
-                    Status = 1
+                    RoleName = Convert.ToInt32(loginPo.RoleName),
+                    Status = 1,
                 };
                 var obj = userClient.PostUser(model);
 
-                if (obj == null || obj.Id <= 0)
+                if (obj == null || obj.ID <= 0)
                 {
                     throw new BizException("用户新增失败");
                 }
@@ -141,7 +142,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 userInfo.wx_NickName = loginPo.NickName;
                 userInfo.LastUpdateTime = DateTime.Now;
 
-                userClient.PutUser(userInfo.Id, userInfo);
+                userClient.PutUser(userInfo);
             }
 
             // 1、获取IdentityServer接口文档
@@ -165,7 +166,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 ClientSecret = "secret",
                 GrantType = "password",
                 //Scope = "TGJService",
-                UserName = userInfo.Id.ToString(),
+                UserName = userInfo.ID.ToString(),
                 Password = wechatResult.phoneNumber
                 //UserName = "12",
                 //Password = "13636572806"
@@ -174,7 +175,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             // 3、返回AccessToken
             if (tokenResponse.IsError)
             {
-                throw new BizException(discoveryDocument.TokenEndpoint + "/" + userInfo.Id.ToString() + "/" + wechatResult.phoneNumber + "/" + tokenResponse.Error + "," + tokenResponse.Raw);
+                throw new BizException(tokenResponse.Error + "," + tokenResponse.Raw);
             }
 
             // 4、获取用户信息
@@ -190,7 +191,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             userDto.UserName = userInfo.Name;
             userDto.AccessToken = tokenResponse.AccessToken;
             userDto.ExpiresIn = tokenResponse.ExpiresIn;
-
             return userDto;
         }
     }

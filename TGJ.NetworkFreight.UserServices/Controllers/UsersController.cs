@@ -72,7 +72,7 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             //    throw new BizException("用户名已经存在");
             //}
             UserService.Create(User);
-            return CreatedAtAction("GetUser", new { id = User.Id }, User);
+            return CreatedAtAction("GetUser", new { id = User.ID }, User);
         }
 
         /// <summary>
@@ -81,22 +81,22 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         /// <param name="id"></param>
         /// <param name="user"></param>
         /// <returns></returns>
-        [HttpPut("{id}")]
-        public IActionResult PutUser(int id, User user)
+        [HttpPost("Update")]
+        public IActionResult PutUser(User user)
         {
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
+            //if (id != user.ID)
+            //{
+            //    return NotFound("用户不存在");
+            //}
             try
             {
                 UserService.Update(user);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserService.UserExists(id))
+                if (!UserService.UserExists(user.ID))
                 {
-                    return NotFound();
+                    return NotFound("用户不存在");
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok("更新成功");
         }
     }
 }

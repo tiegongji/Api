@@ -81,8 +81,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 throw new BizException("用户信息获取失败");
             }
 
-            wechatResult.nickName = HttpUtility.UrlEncode(wechatResult.nickName);
-
             return wechatResult;
         }
 

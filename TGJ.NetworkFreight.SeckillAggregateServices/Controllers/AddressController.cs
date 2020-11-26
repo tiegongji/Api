@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService;
 using TGJ.NetworkFreight.UserServices.Models;
@@ -31,10 +32,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="userId"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [HttpPost("Address/{userId}")]
-        public ActionResult<dynamic> AddAddress(int userId, [FromQuery] UserAddress entity)
+        [HttpPost("Address")]
+        public ActionResult<dynamic> AddAddress(SysUser sysUser, [FromQuery] UserAddress entity)
         {
-            entity.UserID = userId;
+            entity.UserID = sysUser.UserId;
             return addressClient.AddAddress(entity);
         }
         /// <summary>
@@ -43,10 +44,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="userId"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("Delete/{userId}/{id}")]
-        public ActionResult<dynamic> Delete(int userId, int id)
+        [HttpDelete("Delete/{id}")]
+        public ActionResult<dynamic> Delete(SysUser sysUser, int id)
         {
-            return addressClient.DelAddress(id, userId);
+            return addressClient.DelAddress(id, sysUser.UserId);
         }
 
         /// <summary>
@@ -54,10 +55,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        [HttpGet("GetList/{userId}")]
-        public ActionResult<IEnumerable<dynamic>> GetList(int userId)
+        [HttpGet("GetList")]
+        public ActionResult<IEnumerable<dynamic>> GetList(SysUser sysUser)
         {
-            return addressClient.GetList(userId);
+            return addressClient.GetList(sysUser.UserId);
         }
 
 

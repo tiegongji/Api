@@ -81,22 +81,18 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         /// <param name="id"></param>
         /// <param name="user"></param>
         /// <returns></returns>
-        [HttpPut("{id}")]
-        public IActionResult PutUser(int id, User user)
+        [HttpPost("Update")]
+        public IActionResult PutUser(User user)
         {
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
             try
             {
                 UserService.Update(user);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserService.UserExists(id))
+                if (!UserService.UserExists(user.Id))
                 {
-                    return NotFound();
+                    return NotFound("更新成功");
                 }
                 else
                 {
@@ -104,7 +100,7 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok("更新成功");
         }
     }
 }

@@ -20,7 +20,7 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// <summary>
         /// 用户手机号
         /// </summary>
-        public string Phone { set; get; }
+        public string? Phone { set; get; }
 
         /// <summary>
         /// z状态
@@ -35,47 +35,47 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// <summary>
         /// 名字
         /// </summary>
-        public string Name { set; get; }
+        public string? Name { set; get; }
 
         /// <summary>
         /// 角色
         /// </summary>
-        public string RoleName { get; set; }
+        public int? RoleName { get; set; }
 
         /// <summary>
         /// 密码
         /// </summary>
-        public string LoginPassword { set; get; }
+        public string? LoginPassword { set; get; }
 
         /// <summary>
         /// 微信OpenId
         /// </summary>
-        public string wx_OpenID { get; set; }
+        public string? wx_OpenID { get; set; }
 
         /// <summary>
         /// 微信UnionId
         /// </summary>
-        public string wx_UnionID { get; set; }
+        public string? wx_UnionID { get; set; }
 
         /// <summary>
         /// 微信头像
         /// </summary>
-        public string wx_HeadImgUrl { set; get; }
+        public string? wx_HeadImgUrl { set; get; }
 
         /// <summary>
         /// 微信昵称
         /// </summary>
-        public string wx_NickName { set; get; }
+        public string? wx_NickName { set; get; }
 
         /// <summary>
         /// 身份证
         /// </summary>
-        public string IDCard { get; set; }
+        public string? IDCard { get; set; }
 
         /// <summary>
         /// 车辆
         /// </summary>
-        public string CarClass { get; set; }
+        public string? CarClass { get; set; }
 
         /// <summary>
         /// 驾驶证开始时间

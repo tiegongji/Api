@@ -130,7 +130,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Address/Add")]
-        public ActionResult AddAddress([FromQuery] UserAddress entity)
+        public ActionResult AddAddress(UserAddress entity)
         {
             IUserAddressService.Add(entity);
             return Ok("添加成功");

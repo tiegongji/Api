@@ -112,6 +112,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 var model = new User()
                 {
                     CreateTime = DateTime.Now,
+                    LastUpdateTime = DateTime.Now,
                     Phone = wechatResult.phoneNumber,
                     wx_HeadImgUrl = loginPo.AvatarUrl,
                     wx_NickName = loginPo.NickName,
@@ -119,7 +120,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                     wx_OpenID = wechatResult.openId,
                     wx_UnionID = wechatResult.unionId,
                     HasAuthenticated = false,
-                    RoleName =Convert.ToInt32(loginPo.RoleName),
+                    RoleName = Convert.ToInt32(loginPo.RoleName),
                     Status = 1
                 };
                 var obj = userClient.PostUser(model);

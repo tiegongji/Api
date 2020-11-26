@@ -13,8 +13,6 @@
             <summary>
             新增
             </summary>
-            <param name="userId"></param>
-            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.Delete(TGJ.NetworkFreight.Commons.Users.SysUser,System.Int32)">
@@ -502,6 +500,31 @@
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo">
             <summary>
             获取微信用户
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo.code">
+            <summary>
+            code
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo.encryptedData">
+            <summary>
+            encryptedData
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo.iv">
+            <summary>
+            iv
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo.rawData">
+            <summary>
+            rawData
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo.signature">
+            <summary>
+            signature
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient">

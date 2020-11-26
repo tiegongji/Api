@@ -29,8 +29,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 新增
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Address")]
         public ActionResult<dynamic> AddAddress(SysUser sysUser, [FromQuery] UserAddress entity)
@@ -38,6 +36,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             entity.UserID = sysUser.UserId;
             entity.CreateTime = DateTime.Now;
             entity.LastUpdateTime = DateTime.Now;
+            entity.IsValid = false;
+
             return addressClient.AddAddress(entity);
         }
         /// <summary>

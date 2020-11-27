@@ -15,7 +15,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Interface
         dynamic GetDetail(int userid, string OrderNo);
         Order Get(string id);
         void Update(Order entity);
-        void UpdateCancel(Order entity);
+        void UpdateCancel(OrderCancelDto entity);
         void UpdateCarrierUser(Order entity);
         void Confirm(Order entity);
         void UpdateMoney(Order entity);

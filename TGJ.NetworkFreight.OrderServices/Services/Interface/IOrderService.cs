@@ -16,7 +16,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Interface
         dynamic GetDetail(int userid, string OrderNo);
         OrderGatherDto GetOrderGather(int userid);
         OrderTurnoverDto GetOrderTurnover(int userid);
-        void UpdateCancel(Order entity);
+        void UpdateCancel(OrderCancelDto entity);
         void UpdateCarrierUser(Order entity);
         void Confirm(Order entity);
         void UpdateMoney(Order entity);

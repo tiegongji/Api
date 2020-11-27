@@ -191,7 +191,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         /// 取消订单
         /// </summary>
         /// <param name="entity"></param>
-        public void UpdateCancel(Order entity)
+        public void UpdateCancel(OrderCancelDto entity)
         {
             using (var tran = context.Database.BeginTransaction())
             {
@@ -211,6 +211,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
                     orderFlow.Type = (int)EnumType.Logistics;
+                    orderFlow.Reason = entity.Reason;
+                    orderFlow.Description = entity.Description;
                     context.OrderFlow.Add(orderFlow);
                     context.SaveChanges();
 

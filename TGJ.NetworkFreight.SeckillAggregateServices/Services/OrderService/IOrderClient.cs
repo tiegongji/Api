@@ -80,7 +80,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         /// </summary>
         [PostPath("/Orders/Cancel")]
 
-        public dynamic Cancel(Order entity);
+        public dynamic Cancel(OrderCancelDto entity);
 
         /// <summary>
         /// 指定司机

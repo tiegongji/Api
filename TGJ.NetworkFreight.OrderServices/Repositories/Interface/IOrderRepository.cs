@@ -13,13 +13,13 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Interface
         IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize, int? status);
         IEnumerable<Order> GetListByUid(int userid);
         dynamic GetDetail(int userid, string OrderNo);
-        Order Get(int id);
+        Order Get(string id);
         void Update(Order entity);
         void UpdateCancel(Order entity);
         void UpdateCarrierUser(Order entity);
-        void UpdateUpload(Order entity, List<OrderReceiptImage> imgs);
+        void Confirm(Order entity);
         void UpdateMoney(Order entity);
         void UpdateLoading(Order entity);
-        void UpdateUnLoading(Order entity, List<OrderReceiptImage> imgs);
+        void UpdateUnLoading(OrderDto entity);
     }
 }

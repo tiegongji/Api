@@ -14,6 +14,7 @@ namespace TGJ.NetworkFreight.OrderServices.AutoMapper
         public AutoMapperConfigs()
         {
             CreateMap<OrderDetailDto, OrderDetail>().ReverseMap();
+            CreateMap<OrderDto, Order>().ReverseMap();
         }
     }
 }

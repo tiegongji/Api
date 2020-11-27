@@ -11,7 +11,8 @@ namespace TGJ.NetworkFreight.OrderServices.Dto
         /// <summary>
         /// 订单ID
         /// </summary>
-        public int ID { set; get; }
+        public string OrderNo { set; get; }
+        public int UserID { set; get; }
 
         /// <summary>
         /// 图片集合

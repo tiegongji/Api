@@ -163,9 +163,9 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         }
 
 
-        public Order Get(int id)
+        public Order Get(string orderno)
         {
-            return context.Order.Where(a => a.ID == id).FirstOrDefault();
+            return context.Order.Where(a => a.OrderNo == orderno).FirstOrDefault();
         }
 
 
@@ -186,8 +186,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             {
                 try
                 {
-                    var model = Get(entity.ID);
-                    if (model.UserID == entity.UserID)
+                    var model = Get(entity.OrderNo);
+                    if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
                     model.TradeStatus = (int)EnumOrderStatus.Cancel;
                     model.LastUpdateTime = DateTime.Now;
@@ -222,12 +222,13 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             {
                 try
                 {
-                    var model = Get(entity.ID);
-                    if (model.UserID == entity.UserID)
+                    var model = Get(entity.OrderNo);
+                    if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
                     model.CarrierUserID = entity.CarrierUserID;
                     model.LastUpdateTime = DateTime.Now;
-                    context.Order.Update(entity);
+                    model.TradeStatus = (int)EnumOrderStatus.Received;
+                    context.Order.Update(model);
                     context.SaveChanges();
 
 
@@ -250,22 +251,27 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         }
 
         /// <summary>
-        /// 上传回单
+        /// 回单确认
         /// </summary>
         /// <param name="entity"></param>
         /// <param name="imgs"></param>
-        public void UpdateUpload(Order entity,List<OrderReceiptImage> imgs)
+        public void Confirm(Order entity)
         {
             using (var tran = context.Database.BeginTransaction())
             {
                 try
                 {
-                    var model = Get(entity.ID);
-                    if (model.UserID == entity.UserID)
+                    var model = Get(entity.OrderNo);
+                    if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
+                    if (model.ActionStatus != (int)EnumActionStatus.Unloading)
+                    {
+                        throw new Exception("司机未上传回单");
+                    }
                     model.TotalAmount = entity.TotalAmount;
                     model.LastUpdateTime = DateTime.Now;
-                    context.Order.Update(entity);
+                    model.TradeStatus = (int)EnumOrderStatus.Finish;
+                    context.Order.Update(model);
                     context.SaveChanges();
 
 
@@ -277,15 +283,15 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     context.OrderFlow.Add(orderFlow);
                     context.SaveChanges();
 
-                    foreach (var img in imgs)
-                    {
-                        img.Type = (int)EnumType.Logistics;
-                        img.OrderNo = model.OrderNo;
-                        img.CreateTime = DateTime.Now;
-                        context.OrderReceiptImage.Add(img);
-                        
-                    }
-                    context.SaveChanges();
+                    //foreach (var img in imgs)
+                    //{
+                    //    img.Type = (int)EnumType.Logistics;
+                    //    img.OrderNo = model.OrderNo;
+                    //    img.CreateTime = DateTime.Now;
+                    //    context.OrderReceiptImage.Add(img);
+
+                    //}
+                    //context.SaveChanges();
 
                     tran.Commit();
                 }
@@ -311,12 +317,17 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             {
                 try
                 {
-                    var model = Get(entity.ID);
-                    if (model.UserID == entity.UserID)
+                    var model = Get(entity.OrderNo);
+                    if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
+                    if (model.TradeStatus != (int)EnumOrderStatus.Received && model.ActionStatus < (int)EnumActionStatus.Loading)
+                    {
+                        throw new Exception("未指定司机");
+                    }
                     model.TotalAmount = entity.TotalAmount;
                     model.LastUpdateTime = DateTime.Now;
-                    context.Order.Update(entity);
+                    model.ActionStatus = (int)EnumActionStatus.Pay;
+                    context.Order.Update(model);
                     context.SaveChanges();
 
 
@@ -349,12 +360,16 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             {
                 try
                 {
-                    var model = Get(entity.ID);
-                    if (model.UserID == entity.UserID)
+                    var model = Get(entity.OrderNo);
+                    if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
+                    if (model.ActionStatus != (int)EnumActionStatus.Pay)
+                    {
+                        throw new Exception("订单价格不能为空");
+                    }
                     model.ActionStatus = (int)EnumActionStatus.Loading;
                     model.LastUpdateTime = DateTime.Now;
-                    context.Order.Update(entity);
+                    context.Order.Update(model);
                     context.SaveChanges();
 
 
@@ -381,18 +396,23 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         /// 卸货
         /// </summary>
         /// <param name="entity"></param>
-        public void UpdateUnLoading(Order entity, List<OrderReceiptImage> imgs)
+        public void UpdateUnLoading(OrderDto param)
         {
+            var entity = mapper.Map<Order>(param);
             using (var tran = context.Database.BeginTransaction())
             {
                 try
                 {
-                    var model = Get(entity.ID);
-                    if (model.UserID == entity.UserID)
+                    var model = Get(entity.OrderNo);
+                    if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
+                    if (model.ActionStatus != (int)EnumActionStatus.Loading)
+                    {
+                        throw new Exception("请先装货");
+                    }
                     model.ActionStatus = (int)EnumActionStatus.Unloading;
                     model.LastUpdateTime = DateTime.Now;
-                    context.Order.Update(entity);
+                    context.Order.Update(model);
                     context.SaveChanges();
 
 
@@ -404,16 +424,18 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     context.OrderFlow.Add(orderFlow);
                     context.SaveChanges();
 
-                    foreach (var img in imgs)
+                    if (param.imgs.Count > 0)
                     {
-                        img.Type = (int)EnumType.Logistics;
-                        img.OrderNo = model.OrderNo;
-                        img.CreateTime = DateTime.Now;
-                        context.OrderReceiptImage.Add(img);
-                        
-                    }
-                    context.SaveChanges();
+                        foreach (var img in param.imgs)
+                        {
+                            img.Type = (int)EnumType.Logistics;
+                            img.OrderNo = model.OrderNo;
+                            img.CreateTime = DateTime.Now;
+                            context.OrderReceiptImage.Add(img);
 
+                        }
+                        context.SaveChanges();
+                    }
                     tran.Commit();
                 }
                 catch (Exception)

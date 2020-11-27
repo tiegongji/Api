@@ -89,11 +89,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         public dynamic UpdateCarrierUser(Order entity);
 
         /// <summary>
-        /// 物流端上传回单
+        ///确认回单
         /// </summary>
-        [PostPath("/Orders/UpdateUpload")]
+        [PostPath("/Orders/Confirm")]
 
-        public dynamic UpdateUpload(OrderDto model);
+        public dynamic Confirm(Order model);
 
         /// <summary>
         /// 更新价格

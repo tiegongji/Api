@@ -312,7 +312,7 @@
             备注
             </summary>
         </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto.ID">
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto.OrderNo">
             <summary>
             订单ID
             </summary>

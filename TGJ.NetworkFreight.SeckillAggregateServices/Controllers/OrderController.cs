@@ -117,8 +117,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Cancel")]
-        public ActionResult<dynamic> Cancel(SysUser sysUser, [FromQuery] Order entity)
+        public ActionResult<dynamic> Cancel(SysUser sysUser, string OrderNo)
         {
+            var entity = new Order();
+            entity.OrderNo = OrderNo;
             entity.UserID = sysUser.UserId;
             return orderClient.Cancel(entity);
         }
@@ -129,20 +131,25 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateCarrierUser")]
-        public ActionResult<dynamic> UpdateCarrierUser(SysUser sysUser, [FromQuery] Order entity)
+        public ActionResult<dynamic> UpdateCarrierUser(SysUser sysUser, int CarrierUserID, string OrderNo)
         {
+            var entity = new Order();
+            entity.OrderNo = OrderNo;
             entity.UserID = sysUser.UserId;
+            entity.CarrierUserID = CarrierUserID;
             return orderClient.UpdateCarrierUser(entity);
         }
 
         /// <summary>
-        /// 物流端上传回单
+        /// 确认回单
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Confirm")]
-        public ActionResult<dynamic> Confirm(SysUser sysUser, [FromQuery] Order entity)
+        public ActionResult<dynamic> Confirm(SysUser sysUser, string OrderNo)
         {
+            var entity = new Order();
+            entity.OrderNo = OrderNo;
             entity.UserID = sysUser.UserId;
             return orderClient.Confirm(entity);
         }
@@ -152,9 +159,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateMoney")]
-        public ActionResult<dynamic> UpdateMoney(SysUser sysUser, [FromQuery] Order entity)
+        public ActionResult<dynamic> UpdateMoney(SysUser sysUser, string OrderNo,decimal TotalAmount)
         {
+            var entity = new Order();
+            entity.OrderNo = OrderNo;
             entity.UserID = sysUser.UserId;
+            entity.TotalAmount = TotalAmount;
             return orderClient.UpdateMoney(entity);
         }
         /// <summary>
@@ -163,8 +173,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateLoading")]
-        public ActionResult<dynamic> UpdateLoading(SysUser sysUser, [FromQuery] Order entity)
+        public ActionResult<dynamic> UpdateLoading(SysUser sysUser, string OrderNo)
         {
+            var entity = new Order();
+            entity.OrderNo = OrderNo;
             entity.UserID = sysUser.UserId;
             return orderClient.UpdateLoading(entity);
         }
@@ -174,9 +186,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
-        public ActionResult<dynamic> UpdateUnLoading(SysUser sysUser, [FromQuery] OrderDto entity)
+        public ActionResult<dynamic> UpdateUnLoading(int UserID, OrderDto entity)
         {
-            entity.UserID = sysUser.UserId;
+            entity.UserID = UserID;
             return orderClient.UpdateUnLoading(entity);
         }
     }

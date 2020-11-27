@@ -87,7 +87,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
                 wli.appid = Configuration["Sechat:WAPPID"];
                 wli.secret = Configuration["Sechat:WAPPSECRET"];
             }
-
             else
             {
                 throw new BizException("用户角色错误");

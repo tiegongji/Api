@@ -84,9 +84,9 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             IOrderRepository.UpdateCarrierUser(entity);
         }
 
-        public void UpdateUpload(Order entity, List<OrderReceiptImage> imgs)
+        public void Confirm(Order entity)
         {
-            IOrderRepository.UpdateUpload(entity,imgs);
+            IOrderRepository.Confirm(entity);
         }
 
         public void UpdateMoney(Order entity)
@@ -99,9 +99,9 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             IOrderRepository.UpdateLoading(entity);
         }
 
-        public void UpdateUnLoading(Order entity, List<OrderReceiptImage> imgs)
+        public void UpdateUnLoading(OrderDto entity)
         {
-            IOrderRepository.UpdateUnLoading(entity,imgs);
+            IOrderRepository.UpdateUnLoading(entity);
         }
 
 

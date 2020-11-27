@@ -13,7 +13,7 @@ namespace TGJ.NetworkFreight.OrderServices.Models.Enum
             [Description("已取消")]
             Cancel = -1,
             [Description("接单中")]
-            Publishing = 1,
+            Waiting = 1,
             [Description("已接单")]
             Received = 2,
             [Description("调度中")]

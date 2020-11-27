@@ -18,9 +18,9 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Interface
         OrderTurnoverDto GetOrderTurnover(int userid);
         void UpdateCancel(Order entity);
         void UpdateCarrierUser(Order entity);
-        void UpdateUpload(Order entity, List<OrderReceiptImage> imgs);
+        void Confirm(Order entity);
         void UpdateMoney(Order entity);
         void UpdateLoading(Order entity);
-        void UpdateUnLoading(Order entity, List<OrderReceiptImage> imgs);
+        void UpdateUnLoading(OrderDto entity);
     }
 }

@@ -187,15 +187,14 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         }
 
         /// <summary>
-        /// 物流端上传回单
+        /// 确认回单
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpPost("UpdateUpload")]
-        public ActionResult UpdateUpload(OrderDto model)
+        [HttpPost("Confirm")]
+        public ActionResult Confirm(Order entity)
         {
-            var entity = mapper.Map<Order>(model);
-            IOrderService.UpdateUpload(entity, model.imgs);
+            IOrderService.Confirm(entity);
             return Ok("上传成功");
         }
 
@@ -208,7 +207,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         public ActionResult UpdateMoney(Order entity)
         {
             IOrderService.UpdateMoney(entity);
-            return Ok("添加成功");
+            return Ok("更新成功");
         }
 
         /// <summary>
@@ -229,10 +228,10 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
-        public ActionResult UpdateUnLoading(OrderDto model)
+        public ActionResult UpdateUnLoading(OrderDto entity)
         {
-            var entity = mapper.Map<Order>(model);
-            IOrderService.UpdateUpload(entity, model.imgs);
+           // var entity = mapper.Map<Order>(model);
+            IOrderService.UpdateUnLoading(entity);
             return Ok("上传成功");
         }
     }

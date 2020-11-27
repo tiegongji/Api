@@ -140,11 +140,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        [HttpPost("UpdateUpload")]
-        public ActionResult<dynamic> UpdateUpload(SysUser sysUser, [FromQuery] OrderDto entity)
+        [HttpPost("Confirm")]
+        public ActionResult<dynamic> Confirm(SysUser sysUser, [FromQuery] Order entity)
         {
             entity.UserID = sysUser.UserId;
-            return orderClient.UpdateUpload(entity);
+            return orderClient.Confirm(entity);
         }
         /// <summary>
         /// 更新价格

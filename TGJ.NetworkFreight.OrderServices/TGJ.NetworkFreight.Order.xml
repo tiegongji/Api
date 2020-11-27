@@ -96,9 +96,9 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateUpload(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.Confirm(TGJ.NetworkFreight.OrderServices.Models.Order)">
             <summary>
-            物流端上传回单
+            确认回单
             </summary>
             <param name="model"></param>
             <returns></returns>
@@ -169,7 +169,7 @@
             备注
             </summary>
         </member>
-        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDto.ID">
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDto.OrderNo">
             <summary>
             订单ID
             </summary>
@@ -694,9 +694,9 @@
             </summary>
             <param name="entity"></param>
         </member>
-        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateUpload(TGJ.NetworkFreight.OrderServices.Models.Order,System.Collections.Generic.List{TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage})">
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.Confirm(TGJ.NetworkFreight.OrderServices.Models.Order)">
             <summary>
-            上传回单
+            回单确认
             </summary>
             <param name="entity"></param>
             <param name="imgs"></param>
@@ -713,7 +713,7 @@
             </summary>
             <param name="entity"></param>
         </member>
-        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateUnLoading(TGJ.NetworkFreight.OrderServices.Models.Order,System.Collections.Generic.List{TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage})">
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateUnLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
             <summary>
             卸货
             </summary>

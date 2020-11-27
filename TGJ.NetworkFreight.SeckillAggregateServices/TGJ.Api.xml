@@ -156,7 +156,7 @@
             <param name="OrderNo"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Cancel(TGJ.NetworkFreight.Commons.Users.SysUser,System.String)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Cancel(TGJ.NetworkFreight.Commons.Users.SysUser,System.String,System.String,System.String)">
             <summary>
             取消订单
             </summary>
@@ -191,7 +191,7 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(System.Int32,TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
             <summary>
             卸货
             </summary>
@@ -260,61 +260,6 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.GatherDto.Complete">
             <summary>
             完成
-            </summary>
-        </member>
-        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto">
-            <summary>
-            订单发布
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.UserID">
-            <summary>
-            用户ID
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.Name">
-            <summary>
-            货物名称
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.Weight">
-            <summary>
-            重量
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.CategoryID">
-            <summary>
-            货物类型ID
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.TruckID">
-            <summary>
-            车型ID
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.DepartureAddressID">
-            <summary>
-            装货地址ID
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.ArrivalAddressID">
-            <summary>
-            卸货地址ID
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.StartDate">
-            <summary>
-            装货日期
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto.Comment">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto.OrderNo">
-            <summary>
-            订单ID
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto">
@@ -521,6 +466,16 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.Comment">
             <summary>
             备注
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo.OrderNo">
+            <summary>
+            订单ID
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.LoginPo">
@@ -732,7 +687,7 @@
             获取订单详情
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.Cancel(TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.Cancel(TGJ.NetworkFreight.OrderServices.Models.OrderCancelDto)">
             <summary>
             取消订单
             </summary>
@@ -757,7 +712,7 @@
             装货
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateUnLoading(TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateUnLoading(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
             <summary>
             卸货
             </summary>

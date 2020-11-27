@@ -113,6 +113,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         /// </summary>
         [PostPath("/Orders/UpdateUnLoading")]
 
-        public dynamic UpdateUnLoading(OrderDto model);
+        public dynamic UpdateUnLoading(OrderPo model);
     }
 }

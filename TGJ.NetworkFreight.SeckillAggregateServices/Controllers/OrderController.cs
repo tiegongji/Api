@@ -188,9 +188,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
-        public ActionResult<dynamic> UpdateUnLoading(int UserID, OrderDto entity)
+        public ActionResult<dynamic> UpdateUnLoading(OrderPo entity)
         {
-            entity.UserID = UserID;
+            //entity.UserID = UserID;
             return orderClient.UpdateUnLoading(entity);
         }
     }

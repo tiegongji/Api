@@ -25,7 +25,8 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
 
         public void Delete(UserBankCard UserBankCard)
         {
-            UserContext.UserBankCards.Remove(UserBankCard);
+            UserBankCard.IsValid = false;
+            UserContext.UserBankCards.Update(UserBankCard);
             UserContext.SaveChanges();
         }
 

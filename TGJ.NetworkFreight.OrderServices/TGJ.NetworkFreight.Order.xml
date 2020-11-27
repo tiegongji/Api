@@ -82,7 +82,7 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.Cancel(TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.Cancel(TGJ.NetworkFreight.OrderServices.Models.OrderCancelDto)">
             <summary>
             取消订单
             </summary>
@@ -542,6 +542,16 @@
             创建时间
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.Reason">
+            <summary>
+            理由/原因
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage">
             <summary>
             订单回单表
@@ -682,7 +692,7 @@
             更新时间
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateCancel(TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateCancel(TGJ.NetworkFreight.OrderServices.Models.OrderCancelDto)">
             <summary>
             取消订单
             </summary>

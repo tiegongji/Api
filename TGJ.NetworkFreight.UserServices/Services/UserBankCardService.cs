@@ -12,7 +12,7 @@ namespace TGJ.NetworkFreight.UserServices.Services
     /// </summary>
     public class UserBankCardService : IUserBankCardService
     {
-        public readonly IUserBankCardRepository  UserBankCardRepository;
+        public readonly IUserBankCardRepository UserBankCardRepository;
 
         public UserBankCardService(IUserBankCardRepository UserBankCardRepository)
         {
@@ -29,9 +29,9 @@ namespace TGJ.NetworkFreight.UserServices.Services
             UserBankCardRepository.Delete(UserBankCard);
         }
 
-        public UserBankCard GetUserBankCardById(int id)
+        public UserBankCard GetUserBankCardById(int userId, int id)
         {
-            return UserBankCardRepository.GetUserBankCardById(id);
+            return UserBankCardRepository.GetUserBankCardById(userId, id);
         }
 
         public IEnumerable<UserBankCard> GetUserBankCards(int userId)

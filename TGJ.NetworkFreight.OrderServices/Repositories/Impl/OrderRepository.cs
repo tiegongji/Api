@@ -202,7 +202,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         throw new Exception("订单不存在");
                     model.TradeStatus = (int)EnumOrderStatus.Cancel;
                     model.LastUpdateTime = DateTime.Now;
-                    context.Order.Update(entity);
+                    context.Order.Update(model);
                     context.SaveChanges();
 
 
@@ -236,6 +236,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     var model = Get(entity.OrderNo);
                     if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
+                    if (model.TradeStatus != (int)EnumOrderStatus.Waiting)
+                    {
+                        throw new Exception("订单状态错误");
+                    }
                     model.CarrierUserID = entity.CarrierUserID;
                     model.LastUpdateTime = DateTime.Now;
                     model.TradeStatus = (int)EnumOrderStatus.Received;

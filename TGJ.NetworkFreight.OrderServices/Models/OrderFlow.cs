@@ -32,5 +32,13 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// 创建时间
         /// </summary>
         public DateTime CreateTime { get; set; }
+        /// <summary>
+        /// 理由/原因
+        /// </summary>
+        public string Reason { get; set; }
+        /// <summary>
+        /// 描述
+        /// </summary>
+        public string Description { get; set; }
     }
 }

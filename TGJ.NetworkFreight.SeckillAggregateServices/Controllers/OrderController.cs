@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.OrderServices.Models;
-
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService;
@@ -118,11 +117,13 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Cancel")]
-        public ActionResult<dynamic> Cancel(SysUser sysUser, string OrderNo)
+        public ActionResult<dynamic> Cancel(SysUser sysUser, string OrderNo, string Reason, string Description)
         {
-            var entity = new Order();
+            var entity = new OrderCancelDto();
             entity.OrderNo = OrderNo;
             entity.UserID = sysUser.UserId;
+            entity.Description = Description;
+            entity.Reason = Reason;
             return orderClient.Cancel(entity);
         }
 

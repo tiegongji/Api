@@ -169,7 +169,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Cancel")]
-        public ActionResult Cancel(Order entity)
+        public ActionResult Cancel(OrderCancelDto entity)
         {
             IOrderService.UpdateCancel(entity);
             return Ok("取消成功");

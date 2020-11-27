@@ -78,7 +78,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             return orderTurnover;
         }
 
-        public void UpdateCancel(Order entity)
+        public void UpdateCancel(OrderCancelDto entity)
         {
             IOrderRepository.UpdateCancel(entity);
         }

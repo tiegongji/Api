@@ -32,6 +32,9 @@
             <summary>
             订单列表
             </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
             <param name="status"></param>
             <returns></returns>
         </member>
@@ -39,6 +42,7 @@
             <summary>
             订单详情
             </summary>
+            <param name="userId"></param>
             <param name="OrderNo"></param>
             <returns></returns>
         </member>
@@ -67,14 +71,15 @@
             <summary>
             删除地址
             </summary>
-            <param name="entity"></param>
+            <param name="id"></param>
+            <param name="userid"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetAddressList(System.Int32)">
             <summary>
             地址列表
             </summary>
-            <param name="status"></param>
+            <param name="userId"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.Cancel(TGJ.NetworkFreight.OrderServices.Models.Order)">
@@ -95,7 +100,7 @@
             <summary>
             物流端上传回单
             </summary>
-            <param name="entity"></param>
+            <param name="model"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateMoney(TGJ.NetworkFreight.OrderServices.Models.Order)">
@@ -116,7 +121,7 @@
             <summary>
             卸货
             </summary>
-            <param name="entity"></param>
+            <param name="model"></param>
             <returns></returns>
         </member>
         <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.UserID">

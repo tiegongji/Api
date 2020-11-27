@@ -62,6 +62,9 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <summary>
         /// 订单列表
         /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
         /// <param name="status"></param>
         /// <returns></returns>
         [HttpGet("GetList")]
@@ -73,6 +76,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <summary>
         /// 订单详情
         /// </summary>
+        /// <param name="userId"></param>
         /// <param name="OrderNo"></param>
         /// <returns></returns>
         [HttpPost("GetDetail/{OrderNo}")]
@@ -137,7 +141,8 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <summary>
         /// 删除地址
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="id"></param>
+        /// <param name="userid"></param>
         /// <returns></returns>
         [HttpDelete("Address/{id}")]
         public ActionResult DelAddress(int id, int userid)
@@ -149,7 +154,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <summary>
         /// 地址列表
         /// </summary>
-        /// <param name="status"></param>
+        /// <param name="userId"></param>
         /// <returns></returns>
         [HttpGet("GetAddressList")]
         public ActionResult<IEnumerable<dynamic>> GetAddressList(int userId)
@@ -184,7 +189,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <summary>
         /// 物流端上传回单
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("UpdateUpload")]
         public ActionResult UpdateUpload(OrderDto model)
@@ -221,7 +226,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <summary>
         /// 卸货
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
         public ActionResult UpdateUnLoading(OrderDto model)

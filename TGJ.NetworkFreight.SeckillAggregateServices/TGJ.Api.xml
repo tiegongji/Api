@@ -9,7 +9,7 @@
             地址控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.UserServices.Models.UserAddress)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(TGJ.NetworkFreight.UserServices.Models.UserAddress)">
             <summary>
             新增
             </summary>
@@ -133,7 +133,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Add(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Add(TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto)">
             <summary>
             新增订单
             </summary>

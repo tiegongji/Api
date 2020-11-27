@@ -46,7 +46,6 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
             return IOrderService.GetInitTruckList().ToList();
         }
 
-
         /// <summary>
         /// 新增订单
         /// </summary>
@@ -218,7 +217,6 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
             IOrderService.UpdateLoading(entity);
             return Ok("装货成功");
         }
-
 
         /// <summary>
         /// 卸货

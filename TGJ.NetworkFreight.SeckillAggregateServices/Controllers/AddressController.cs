@@ -31,12 +31,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("Address")]
-        public ActionResult<dynamic> AddAddress(SysUser sysUser, [FromQuery] UserAddress entity)
+        public ActionResult<dynamic> AddAddress(UserAddress entity)
         {
-            entity.UserID = sysUser.UserId;
+            //entity.UserID = sysUser.UserId;
             entity.CreateTime = DateTime.Now;
             entity.LastUpdateTime = DateTime.Now;
-            entity.IsValid = false;
+            entity.IsValid = true;
 
             return addressClient.AddAddress(entity);
         }
@@ -46,7 +46,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="userId"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("Delete/{id}")]
+        [HttpPost("Delete/{id}")]
         public ActionResult<dynamic> Delete(SysUser sysUser, int id)
         {
             return addressClient.DelAddress(id, sysUser.UserId);

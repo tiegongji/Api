@@ -11,5 +11,6 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Interface
         void Add(UserAddress entity);
         void Delete(int id, int userid);
         IEnumerable<dynamic> GetList(int userid);
+        bool UserAddressExists(int id);
     }
 }

@@ -11,9 +11,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService
     public class UserAddressPo
     {
         /// <summary>
-        /// ID
+        /// 主键
         /// </summary>
-        public int Id { get; set; }
+        public int Id { set; get; }
+
+        /// <summary>
+        /// 用户Id 
+        /// </summary>
+        public int UserID { get; set; }
+
         /// <summary>
         /// 名称
         /// </summary>
@@ -93,5 +99,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService
         /// 区域Id
         /// </summary>
         public int RegionID { get; set; }
+
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime CreateTime { get; set; }
+
+        /// <summary>
+        ///  最后修改时间
+        /// </summary>
+        public DateTime LastUpdateTime { get; set; }
     }
 }

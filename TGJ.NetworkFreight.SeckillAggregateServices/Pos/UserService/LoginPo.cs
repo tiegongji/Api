@@ -14,7 +14,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService
         /// <summary>
         /// 角色 1：物流端/2：司机端
         /// </summary>
-        public string RoleName { set; get; }
+        public int RoleName { set; get; }
 
         public string NickName { get; set; }
 

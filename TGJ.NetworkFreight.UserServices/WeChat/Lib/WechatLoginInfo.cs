@@ -15,5 +15,7 @@ namespace TGJ.NetworkFreight.UserServices.WeChat.Lib
         public string iv { get; set; }
         public string rawData { get; set; }
         public string signature { get; set; }
+        public string appid { get; set; }
+        public string secret { get; set; }
     }
 }

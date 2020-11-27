@@ -7,6 +7,7 @@ using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.OrderServices.Models;
 
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
+using TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
@@ -81,7 +82,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Add")]
-        public ActionResult<dynamic> Add(OrderDetailDto entity)
+        public ActionResult<dynamic> Add(OrderDetailPo entity)
         {
             //entity.UserID = sysUser.UserId;
             return orderClient.Add(entity);

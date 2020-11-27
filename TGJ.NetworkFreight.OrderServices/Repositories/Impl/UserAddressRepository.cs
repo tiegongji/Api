@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.OrderServices.Context;
 using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.OrderServices.Repositories.Interface;
@@ -27,6 +28,11 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         public void Delete(int id,int userid)
         {
             var entity = context.UserAddress.Where(a => a.ID == id&&a.UserID== userid).FirstOrDefault();
+
+            if (entity==null )
+            {
+                throw new BizException("地址为空");
+            }
             entity.IsValid = false;
             context.UserAddress.Update(entity);
             context.SaveChanges();
@@ -36,6 +42,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         {
             return context.UserAddress.Where(a => a.UserID == userid && a.IsValid == true);
           
+        }
+        public bool UserAddressExists(int id)
+        {
+            return context.UserAddress.Any(e => e.ID == id);
         }
     }
 }

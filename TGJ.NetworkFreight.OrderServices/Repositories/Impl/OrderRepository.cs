@@ -97,7 +97,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
                     select new
                     {
-                        truck.MaxWeight,
+                        order.OrderNo,
+                        truck.Length,
                         order.Weight,
                         Date = order.StartDate.ToDate(),
                         order.Distance,
@@ -105,7 +106,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
                         ArrivalAddressName = ArrivalAddress_New.Name,
                         ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
-                        TradeStatus = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal()
+                        TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
+                        o.TradeStatus
                     }).Skip(pageSize * (pageIndex - 1)).Take(pageSize); ;
         }
 
@@ -133,7 +135,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                            from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
                            select new
                            {
-                               truck.MaxWeight,
+                               order.OrderNo,
+                               truck.Length,
                                order.Weight,
                                Date = order.StartDate.ToDate(),
                                order.Distance,
@@ -141,7 +144,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
                                ArrivalAddressName = ArrivalAddress_New.Name,
                                ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
-                               TradeStatus = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal()
+                               TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
+                               o.TradeStatus
                            });
                 if (res.Any())
                     return res.FirstOrDefault();

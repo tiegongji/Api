@@ -139,6 +139,9 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                            join ArrivalAddress in context.UserAddress on order.ArrivalAddressID equals ArrivalAddress.ID
                            into _ArrivalAddress
                            from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
+                           join user in context.Users on o.CarrierUserID equals user.Id
+                           into _user
+                           from user_new in _user.DefaultIfEmpty()
                            select new
                            {
                                order.Name,
@@ -156,6 +159,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                o.TradeStatus,
                                order.Comment,
+                               Driver = new { user_new.Name,user_new.Phone},
+                               o.TotalAmount,
                                imgs
                            });
                 if (res.Any())

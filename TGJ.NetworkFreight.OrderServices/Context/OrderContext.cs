@@ -20,5 +20,6 @@ namespace TGJ.NetworkFreight.OrderServices.Context
         public DbSet<OrderFlow> OrderFlow { get; set; }
         public DbSet<OrderReceiptImage> OrderReceiptImage { get; set; }
         public DbSet<UserAddress> UserAddress { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

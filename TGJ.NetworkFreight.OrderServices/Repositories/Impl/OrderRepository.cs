@@ -159,7 +159,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                o.TradeStatus,
                                order.Comment,
-                               Driver = new { user_new.Name,user_new.Phone},
+                               Driver = user_new,
                                o.TotalAmount,
                                imgs
                            });

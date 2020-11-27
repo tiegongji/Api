@@ -156,42 +156,42 @@
             <param name="OrderNo"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Cancel(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Cancel(TGJ.NetworkFreight.Commons.Users.SysUser,System.String)">
             <summary>
             取消订单
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateCarrierUser(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateCarrierUser(TGJ.NetworkFreight.Commons.Users.SysUser,System.Int32,System.String)">
             <summary>
             指定司机
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Confirm(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Confirm(TGJ.NetworkFreight.Commons.Users.SysUser,System.String)">
             <summary>
-            物流端上传回单
+            确认回单
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateMoney(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateMoney(TGJ.NetworkFreight.Commons.Users.SysUser,System.String,System.Decimal)">
             <summary>
             更新价格
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.Commons.Users.SysUser,System.String)">
             <summary>
             装货
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(System.Int32,TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
             <summary>
             卸货
             </summary>

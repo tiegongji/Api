@@ -141,17 +141,21 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                            from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
                            select new
                            {
+                               order.Name,
                                order.OrderNo,
                                truck.Length,
                                order.Weight,
                                Date = order.StartDate.ToDate(),
                                order.Distance,
-                               DepartureAddressName = DepartureAddress_New.Name,
-                               DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
-                               ArrivalAddressName = ArrivalAddress_New.Name,
-                               ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
+                               DepartureAddressObject = DepartureAddress_New,
+                               DArrivalAddressObject = ArrivalAddress_New,
+                               //DepartureAddressName = DepartureAddress_New.Name,
+                               //DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
+                               //ArrivalAddressName = ArrivalAddress_New.Name,
+                               //ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                o.TradeStatus,
+                               order.Comment,
                                imgs
                            });
                 if (res.Any())

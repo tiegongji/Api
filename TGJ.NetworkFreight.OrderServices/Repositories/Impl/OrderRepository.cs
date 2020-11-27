@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.OrderServices.Context;
 using TGJ.NetworkFreight.OrderServices.Dto;
 using TGJ.NetworkFreight.OrderServices.Extend;
@@ -159,7 +160,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             }
             catch (Exception ex)
             {
-                throw new Exception("订单不存在");
+                throw new BizException("订单不存在");
             }
         }
 

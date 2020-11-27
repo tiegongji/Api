@@ -7,6 +7,8 @@ using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.OrderServices.Repositories;
 using TGJ.NetworkFreight.OrderServices.Repositories.Interface;
 using TGJ.NetworkFreight.OrderServices.Services.Interface;
+using Microsoft.Extensions.Configuration;
+using TGJ.NetworkFreight.OrderServices.Extend;
 
 namespace TGJ.NetworkFreight.OrderServices.Services.Impl
 {
@@ -15,11 +17,13 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
         public readonly IInitCategoryRepository IInitCategoryRepository;
         public readonly IInitTruckRepository IInitTruckRepository;
         public readonly IOrderRepository IOrderRepository;
-        public OrderService(IInitCategoryRepository IInitCategoryRepository, IInitTruckRepository IInitTruckRepository, IOrderRepository IOrderRepository)
+        public IConfiguration IConfiguration { get; }
+        public OrderService(IInitCategoryRepository IInitCategoryRepository, IInitTruckRepository IInitTruckRepository, IOrderRepository IOrderRepository, IConfiguration IConfiguration)
         {
             this.IInitCategoryRepository = IInitCategoryRepository;
             this.IInitTruckRepository = IInitTruckRepository;
             this.IOrderRepository = IOrderRepository;
+            this.IConfiguration = IConfiguration;
         }
 
         public IEnumerable<dynamic> GetInitCategoryList()
@@ -101,6 +105,23 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
 
         public void UpdateUnLoading(OrderDto entity)
         {
+            string accessKeyId = IConfiguration["Ali:accessKeyId"];
+            string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
+            string EndPoint = IConfiguration["Ali:EndPoint"];
+            string bucketName = IConfiguration["Ali:bucketName"];
+            var list = new List<OrderReceiptImage>();
+            foreach (var item in entity.imgs)
+            {
+                var filename = "TMS/" + Guid.NewGuid().ToString() + ".jpg";
+                var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
+                var model = new OrderReceiptImage();
+                model.FileUrl = filename;
+                model.CreateTime = DateTime.Now;
+                model.Type = 1;
+                model.OrderNo = entity.OrderNo;
+                list.Add(model);
+            }
+            entity.imgs = list;
             IOrderRepository.UpdateUnLoading(entity);
         }
 

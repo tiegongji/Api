@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,12 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
     {
         private readonly IMapper mapper;
         public OrderContext context;
-        public OrderRepository(OrderContext _context, IMapper _mapper)
+        public IConfiguration IConfiguration { get; }
+        public OrderRepository(OrderContext _context, IMapper _mapper, IConfiguration IConfiguration)
         {
             this.context = _context;
             this.mapper = _mapper;
+            this.IConfiguration = IConfiguration;
         }
 
         public void Add(OrderDetailDto model)
@@ -116,6 +119,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         {
             try
             {
+                var url = IConfiguration["Ali:url"];
+                var imgs = context.OrderReceiptImage.Where(a => a.OrderNo == OrderNo).Select(b => url + b.FileUrl).ToList();
                 var res = (from o in context.Order
                            where o.UserID == userId && o.OrderNo == OrderNo
                            join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
@@ -145,13 +150,14 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                ArrivalAddressName = ArrivalAddress_New.Name,
                                ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
-                               o.TradeStatus
+                               o.TradeStatus,
+                               imgs
                            });
                 if (res.Any())
                     return res.FirstOrDefault();
                 return new { };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw new Exception("订单不存在");
             }

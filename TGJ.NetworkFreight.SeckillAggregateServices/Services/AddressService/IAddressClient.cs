@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TGJ.NetworkFreight.Cores.MicroClients.Attributes;
+using TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService;
 using TGJ.NetworkFreight.UserServices.Models;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService
@@ -18,12 +19,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService
         /// </summary>
         [PostPath("/Orders/Address/Add")]
 
-        public dynamic AddAddress(UserAddress entity);
+        public dynamic AddAddress(UserAddressPo entity);
+
         /// <summary>
         /// 删除地址
         /// </summary>
-        [DeletePath("/Orders/Address/{id}")]
-
+        [DeletePath("/Orders/Address/{id}/{userId}")]
         public dynamic DelAddress(int id, int userId);
 
         /// <summary>

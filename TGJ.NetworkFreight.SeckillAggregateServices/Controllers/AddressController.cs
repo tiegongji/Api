@@ -31,7 +31,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("Address")]
-        public ActionResult<dynamic> AddAddress(UserAddress entity)
+        public ActionResult<dynamic> AddAddress(UserAddressPo entity)
         {
             //entity.UserID = sysUser.UserId;
             entity.CreateTime = DateTime.Now;

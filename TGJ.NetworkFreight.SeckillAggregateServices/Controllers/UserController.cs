@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Web;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.Cores.DynamicMiddleware.Urls;
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService;
@@ -25,13 +26,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         private readonly IUserClient userClient;
         private readonly IDynamicMiddleUrl dynamicMiddleUrl; // 中台url
         private readonly HttpClient httpClient;
+        public IConfiguration Configuration { get; }
 
-        public UserController(IUserClient userClient, IDynamicMiddleUrl dynamicMiddleUrl
+        public UserController(IConfiguration configuration, IUserClient userClient, IDynamicMiddleUrl dynamicMiddleUrl
                                 , IHttpClientFactory httpClientFactory)
         {
             this.userClient = userClient;
             this.dynamicMiddleUrl = dynamicMiddleUrl;
             this.httpClient = httpClientFactory.CreateClient();
+            this.Configuration = configuration;
         }
 
         /// <summary>
@@ -74,6 +77,22 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             wli.rawData = wXLoginPo.rawData;
             wli.signature = wXLoginPo.signature;
 
+            if (wXLoginPo.RoleName == 1)
+            {
+                wli.appid = Configuration["Wechat:WAPPID"];
+                wli.secret = Configuration["Wechat:WAPPSECRET"];
+            }
+            else if (wXLoginPo.RoleName == 2)
+            {
+                wli.appid = Configuration["Sechat:WAPPID"];
+                wli.secret = Configuration["Sechat:WAPPSECRET"];
+            }
+
+            else
+            {
+                throw new BizException("用户角色错误");
+            }
+
             WechatUserInfo wechatResult = new WeChatAppDecrypt().Decrypt(wli);
 
             if (wechatResult == null || string.IsNullOrWhiteSpace(wechatResult.openId))
@@ -97,6 +116,21 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             wli.iv = loginPo.iv;
             wli.rawData = loginPo.rawData;
             wli.signature = loginPo.signature;
+
+            if (loginPo.RoleName == 1)
+            {
+                wli.appid = Configuration["Wechat:WAPPID"];
+                wli.secret = Configuration["Wechat:WAPPSECRET"];
+            }
+            else if (loginPo.RoleName == 2)
+            {
+                wli.appid = Configuration["Sechat:WAPPID"];
+                wli.secret = Configuration["Sechat:WAPPSECRET"];
+            }
+            else
+            {
+                throw new BizException("用户角色错误");
+            }
 
             WechatUserInfo wechatResult = new WeChatAppDecrypt().Decrypt(wli);
 

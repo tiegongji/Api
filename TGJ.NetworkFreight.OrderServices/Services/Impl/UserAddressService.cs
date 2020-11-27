@@ -30,5 +30,9 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
         {
             return IUserAddressRepository.GetList(userid);
         }
+        public bool UserAddressExists(int id)
+        {
+            return IUserAddressRepository.UserAddressExists(id);
+        }
     }
 }

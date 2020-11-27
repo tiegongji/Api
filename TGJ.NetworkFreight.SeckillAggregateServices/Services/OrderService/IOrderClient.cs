@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using TGJ.NetworkFreight.Cores.MicroClients.Attributes;
 using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
+using TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
 {
@@ -57,7 +58,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         /// </summary>
         [PostPath("/Orders/Add")]
 
-        public dynamic Add(OrderDetailDto entity);
+        public dynamic Add(OrderDetailPo entity);
 
         /// <summary>
         /// 获取订单列表
@@ -69,7 +70,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         /// <summary>
         /// 获取订单详情
         /// </summary>
-        [PostPath("/Orders/GetDetail")]
+        [PostPath("/Orders/GetDetail/{userId}/{OrderNo}")]
 
         public dynamic GetDetail(int userId, string OrderNo);
 

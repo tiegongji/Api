@@ -9,7 +9,7 @@
             地址控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(TGJ.NetworkFreight.UserServices.Models.UserAddress)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo)">
             <summary>
             新增
             </summary>
@@ -133,7 +133,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Add(TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Add(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo)">
             <summary>
             新增订单
             </summary>
@@ -170,7 +170,7 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUpload(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Confirm(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.OrderServices.Models.Order)">
             <summary>
             物流端上传回单
             </summary>
@@ -380,7 +380,12 @@
         </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo.Id">
             <summary>
-            ID
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo.UserID">
+            <summary>
+            用户Id 
             </summary>
         </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo.Name">
@@ -463,6 +468,61 @@
             区域Id
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo.LastUpdateTime">
+            <summary>
+             最后修改时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.Name">
+            <summary>
+            货物名称
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.Weight">
+            <summary>
+            重量
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.CategoryID">
+            <summary>
+            货物类型ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.TruckID">
+            <summary>
+            车型ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.DepartureAddressID">
+            <summary>
+            装货地址ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.ArrivalAddressID">
+            <summary>
+            卸货地址ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.StartDate">
+            <summary>
+            装货日期
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.Comment">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.LoginPo">
             <summary>
             登录表单
@@ -528,12 +588,17 @@
             signature
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.WXLoginPo.RoleName">
+            <summary>
+            1:物流端/2:司机端
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient">
             <summary>
             用户地址微服务客户端
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient.AddAddress(TGJ.NetworkFreight.UserServices.Models.UserAddress)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient.AddAddress(TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo)">
             <summary>
             新增地址
             </summary>
@@ -652,7 +717,7 @@
             获取卡车类型
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.Add(TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDetailDto)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.Add(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo)">
             <summary>
             新增订单
             </summary>
@@ -677,10 +742,10 @@
             指定司机
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateUpload(TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.OrderDto)">
-            <summary>
-            物流端上传回单
-            </summary>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.Confirm(TGJ.NetworkFreight.OrderServices.Models.Order)">
+             <summary>
+            确认回单
+             </summary>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateMoney(TGJ.NetworkFreight.OrderServices.Models.Order)">
             <summary>

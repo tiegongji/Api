@@ -31,7 +31,7 @@ namespace TGJ.NetworkFreight.UserServices.WeChat
         /// </summary>
         /// <param name="code">客户端发来的code</param>
         /// <returns>Json数据包</returns>
-        private string GetOpenIdAndSessionKeyString(string code)
+        private string GetOpenIdAndSessionKeyString(string code, string appid, string secret)
         {
             //string temp = "https://api.weixin.qq.com/sns/jscode2session?" +
             //    "appid=" + Configuration["Wechat:APPID"]
@@ -40,8 +40,8 @@ namespace TGJ.NetworkFreight.UserServices.WeChat
             //    + "&grant_type=authorization_code";
 
             string temp = "https://api.weixin.qq.com/sns/jscode2session?" +
-                "appid=wx2b5bab59a2900e7f"
-                + "&secret=547c99cbea7173a9e57c96e34b0f03c9"
+                "appid=" + appid
+                + "&secret=" + secret
                 + "&js_code=" + code
                 + "&grant_type=authorization_code";
 
@@ -55,7 +55,7 @@ namespace TGJ.NetworkFreight.UserServices.WeChat
         /// <returns>包含OpenId和SessionKey的类</returns>
         public OpenIdAndSessionKey DecodeOpenIdAndSessionKey(WechatLoginInfo loginInfo)
         {
-            var res = GetOpenIdAndSessionKeyString(loginInfo.code);
+            var res = GetOpenIdAndSessionKeyString(loginInfo.code, loginInfo.appid, loginInfo.secret);
             OpenIdAndSessionKey oiask = JsonConvert.DeserializeObject<OpenIdAndSessionKey>(res);
             if (!String.IsNullOrEmpty(oiask.errcode))
                 return null;

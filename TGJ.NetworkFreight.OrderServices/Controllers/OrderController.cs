@@ -79,7 +79,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <param name="userId"></param>
         /// <param name="OrderNo"></param>
         /// <returns></returns>
-        [HttpPost("GetDetail/{OrderNo}")]
+        [HttpPost("GetDetail/{userId}/{OrderNo}")]
         public ActionResult<dynamic> GetDetail(int userId, string OrderNo)
         {
             var result = IOrderService.GetDetail(userId, OrderNo);
@@ -144,10 +144,11 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <param name="id"></param>
         /// <param name="userid"></param>
         /// <returns></returns>
-        [HttpDelete("Address/{id}")]
+        [HttpDelete("Address/{id}/{userId}")]
         public ActionResult DelAddress(int id, int userid)
         {
             IUserAddressService.Delete(id, userid);
+
             return Ok("删除成功");
         }
 
@@ -230,7 +231,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         [HttpPost("UpdateUnLoading")]
         public ActionResult UpdateUnLoading(OrderDto entity)
         {
-           // var entity = mapper.Map<Order>(model);
+            // var entity = mapper.Map<Order>(model);
             IOrderService.UpdateUnLoading(entity);
             return Ok("上传成功");
         }

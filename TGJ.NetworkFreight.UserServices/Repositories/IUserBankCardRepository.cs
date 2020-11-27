@@ -12,7 +12,7 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
     public interface IUserBankCardRepository
     {
         IEnumerable<UserBankCard> GetUserBankCards(int userId);
-        UserBankCard GetUserBankCardById(int id);
+        UserBankCard GetUserBankCardById(int userId, int id);
         void Create(UserBankCard UserBankCard);
         void Delete(UserBankCard UserBankCard);
     }

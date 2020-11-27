@@ -29,14 +29,14 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
             UserContext.SaveChanges();
         }
 
-        public UserBankCard GetUserBankCardById(int id)
+        public UserBankCard GetUserBankCardById(int userId, int id)
         {
-            return UserContext.UserBankCards.FirstOrDefault(a => a.Id == id);
+            return UserContext.UserBankCards.FirstOrDefault(a => a.Id == id && a.UserID == userId && a.IsValid == true);
         }
 
         public IEnumerable<UserBankCard> GetUserBankCards(int userId)
         {
-            return UserContext.UserBankCards.Where(a => a.UserID == userId).ToList();
+            return UserContext.UserBankCards.Where(a => a.UserID == userId && a.IsValid == true).ToList();
         }
     }
 }

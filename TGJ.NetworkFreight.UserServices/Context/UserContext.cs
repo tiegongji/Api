@@ -35,6 +35,6 @@ namespace TGJ.NetworkFreight.UserServices.Context
         /// <summary>
         /// 用户银行卡集合
         /// </summary>
-        public DbSet<UserBankCard> UserBankCards { get; set; }
+        public DbSet<UserBankCard> UserBankCard { get; set; }
     }
 }

@@ -80,7 +80,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         {
             string host = Configuration["AliCertification:BankCardUrl"];
             string path = "/bankcard3";
-            string method = "GET";
+            string method = "POST";
             string appcode = Configuration["AliCertification:AppCode"];
 
             string querys = $"bankcard={bankCard}&idcard={idCard}&realname={realName}";

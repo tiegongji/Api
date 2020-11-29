@@ -63,6 +63,24 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             return User;
         }
 
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [HttpGet("Key/{key}")]
+        public ActionResult<User> GetUserByKey(string key)
+        {
+            var User = UserService.GetUserByKey(key);
+
+            if (User == null)
+            {
+                return NotFound(User);
+            }
+
+            return User;
+        }
+
         [HttpPost]
         public ActionResult<User> PostUser(User User)
         {

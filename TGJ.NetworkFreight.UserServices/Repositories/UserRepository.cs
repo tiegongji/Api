@@ -44,6 +44,13 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
             return user;
         }
 
+        public User GetUserByKey(string key)
+        {
+            User user = UserContext.Users.FirstOrDefault(a => a.RoleName == 2 && (a.Name.Contains(key) || a.Phone.Contains(key)));
+
+            return user;
+        }
+
         public User GetUserByOpenId(string openId)
         {
             User user = UserContext.Users.FirstOrDefault(a => a.wx_OpenID == openId);

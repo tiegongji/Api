@@ -30,6 +30,31 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController">
+            <summary>
+            用户银行卡控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController.AddBankCard(TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo)">
+            <summary>
+            新增
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController.Delete(TGJ.NetworkFreight.Commons.Users.SysUser,System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="sysUser"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController.GetList(TGJ.NetworkFreight.Commons.Users.SysUser)">
+            <summary>
+            列表
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController">
             <summary>
             认证控制器
@@ -107,6 +132,13 @@
             获取订单列表
             </summary>
             <param name="sysUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetDrivers(System.String)">
+            <summary>
+            司机搜索
+            </summary>
+            <param name="content"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetOrderGather(TGJ.NetworkFreight.Commons.Users.SysUser)">
@@ -423,6 +455,56 @@
              最后修改时间
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo">
+            <summary>
+            用户银行卡添加
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.UserID">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.CardNumber">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.BankName">
+            <summary>
+            银行
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.IsSelf">
+            <summary>
+            是否本人
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.IsValid">
+            <summary>
+            是否认证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.UserID">
             <summary>
             用户ID
@@ -566,6 +648,26 @@
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.AddressService.IAddressClient.GetList(System.Int32)">
             <summary>
             获取地址列表
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService.IBankCardClient">
+            <summary>
+            用户银行卡微服务客户端
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService.IBankCardClient.Add(TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo)">
+            <summary>
+            新增地址
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService.IBankCardClient.Delete(System.Int32,System.Int32)">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService.IBankCardClient.GetList(System.Int32)">
+            <summary>
+            获取列表
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient">
@@ -745,6 +847,13 @@
             根据OpenId获取用户
             </summary>
             <param name="openId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.GetUserByKey(System.String)">
+            <summary>
+            迷糊查询
+            </summary>
+            <param name="key"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Utils.Util">

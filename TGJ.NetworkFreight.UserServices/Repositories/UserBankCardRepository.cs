@@ -19,25 +19,25 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
         }
         public void Create(UserBankCard UserBankCard)
         {
-            UserContext.UserBankCards.Add(UserBankCard);
+            UserContext.UserBankCard.Add(UserBankCard);
             UserContext.SaveChanges();
         }
 
         public void Delete(UserBankCard UserBankCard)
         {
-            UserBankCard.IsValid = false;
-            UserContext.UserBankCards.Update(UserBankCard);
+            UserBankCard.IsDelete = true;
+            UserContext.UserBankCard.Update(UserBankCard);
             UserContext.SaveChanges();
         }
 
         public UserBankCard GetUserBankCardById(int userId, int id)
         {
-            return UserContext.UserBankCards.FirstOrDefault(a => a.Id == id && a.UserID == userId && a.IsValid == true);
+            return UserContext.UserBankCard.FirstOrDefault(a => a.Id == id && a.UserID == userId && a.IsDelete == false);
         }
 
         public IEnumerable<UserBankCard> GetUserBankCards(int userId)
         {
-            return UserContext.UserBankCards.Where(a => a.UserID == userId && a.IsValid == true).ToList();
+            return UserContext.UserBankCard.Where(a => a.UserID == userId && a.IsDelete == false).ToList();
         }
     }
 }

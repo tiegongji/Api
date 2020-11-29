@@ -48,5 +48,13 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService
         /// <returns></returns>
         [GetPath("/Users/{openId}")]
         public User GetUserByOpenId(string openId);
+
+        /// <summary>
+        /// 迷糊查询
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [GetPath("/Users/Key/{key}")]
+        public User GetUserByKey(string key);
     }
 }

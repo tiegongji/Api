@@ -77,7 +77,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="idCard"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpPost("Bank/Certification")]
+        [HttpGet("Bank/Certification")]
         public ActionResult<decimal> BankCertification(string backCard, string idCard, string name)
         {
             var dto = CertificationService.BankCertification(backCard, idCard, name);

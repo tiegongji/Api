@@ -9,6 +9,9 @@
     <DocumentationFile>TGJ.NetworkFreight.Certification.xml</DocumentationFile>
     <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Services\CertificationService.cs~RF1979d7ac.TMP" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9" />

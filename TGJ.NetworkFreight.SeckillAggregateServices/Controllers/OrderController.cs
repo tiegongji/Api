@@ -8,6 +8,7 @@ using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService;
+using TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 {    /// <summary>
@@ -19,9 +20,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderClient orderClient;
-        public OrderController(IOrderClient orderClient)
+        private readonly IUserClient userClient;
+        public OrderController(IOrderClient orderClient, IUserClient userClient)
         {
             this.orderClient = orderClient;
+            this.userClient = userClient;
         }
 
         /// <summary>
@@ -33,6 +36,22 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         public ActionResult GetOrder(SysUser sysUser)
         {
             return Ok(orderClient.GetOrder());
+        }
+
+        /// <summary>
+        /// 司机搜索
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        [HttpGet("Drivers")]
+        public ActionResult<decimal> GetDrivers(string content)
+        {
+            var user = userClient.GetUserByKey(content);
+
+            if (user == null)
+                return NotFound("未查到结果");
+
+            return Ok(user);
         }
 
         /// <summary>
@@ -59,7 +78,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetInitCategoryList")]
-        public ActionResult<object> GetInitCategoryList()
+        public ActionResult<dynamic> GetInitCategoryList()
         {
             return orderClient.GetInitCategoryList();
         }
@@ -161,7 +180,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateMoney")]
-        public ActionResult<dynamic> UpdateMoney(SysUser sysUser, string OrderNo,decimal TotalAmount)
+        public ActionResult<dynamic> UpdateMoney(SysUser sysUser, string OrderNo, decimal TotalAmount)
         {
             var entity = new Order();
             entity.OrderNo = OrderNo;

@@ -39,6 +39,11 @@ namespace TGJ.NetworkFreight.UserServices.Services
             return UserRepository.GetUserById(id);
         }
 
+        public User GetUserByKey(string key)
+        {
+            return UserRepository.GetUserByKey(key);
+        }
+
         public User GetUserByOpenId(string openId)
         {
             return UserRepository.GetUserByOpenId(openId);

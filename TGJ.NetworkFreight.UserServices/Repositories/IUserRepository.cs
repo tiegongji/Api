@@ -15,6 +15,7 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
         User GetUser(string UserName);
         User GetUserById(int id);
         User GetUserByOpenId(string openId);
+        User GetUserByKey(string key);
         void Create(User User);
         void Update(User User);
         void Delete(User User);

@@ -84,8 +84,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             }
             else if (wXLoginPo.RoleName == 2)
             {
-                wli.appid = Configuration["Sechat:WAPPID"];
-                wli.secret = Configuration["Sechat:WAPPSECRET"];
+                wli.appid = Configuration["Wechat:SAPPID"];
+                wli.secret = Configuration["Wechat:SAPPSECRET"];
             }
             else
             {
@@ -123,8 +123,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             }
             else if (loginPo.RoleName == 2)
             {
-                wli.appid = Configuration["Sechat:WAPPID"];
-                wli.secret = Configuration["Sechat:WAPPSECRET"];
+                wli.appid = Configuration["Wechat:SAPPID"];
+                wli.secret = Configuration["Wechat:SAPPSECRET"];
             }
             else
             {

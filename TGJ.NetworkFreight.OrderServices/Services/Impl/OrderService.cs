@@ -56,9 +56,9 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
         {
             var orders = IOrderRepository.GetListByUid(userid);
             var orderGather = new OrderGatherDto();
-            orderGather.Dispatch = orders.Count(a => a.TradeStatus == 1);
+            orderGather.Dispatch = orders.Count(a => a.TradeStatus == 3);
             orderGather.Confirm = orders.Count(a => a.TradeStatus == 2);
-            orderGather.Complete = orders.Count(a => a.TradeStatus == 3);
+            orderGather.Complete = orders.Count(a => a.TradeStatus == 4);
 
             return orderGather;
         }
@@ -77,6 +77,17 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             orderTurnover.TotalTurnover  = orders.Sum(a => a.TotalAmount);
 
             return orderTurnover;
+        }
+
+        public OrderStateTurnoverDto GetOrderStateTurnover(int userid)
+        {
+            var orders = IOrderRepository.GetListByUid(userid);
+
+            var orderDto = new OrderStateTurnoverDto();
+            orderDto.CompleteTurnover = orders.Count(a => a.TradeStatus == 4);
+            orderDto.DispatchTurnover = orders.Count(a => a.TradeStatus == 3);
+
+            return orderDto;
         }
 
         public void UpdateCancel(OrderCancelDto entity)

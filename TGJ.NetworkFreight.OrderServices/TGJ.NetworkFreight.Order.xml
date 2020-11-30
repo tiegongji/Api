@@ -312,6 +312,46 @@
             转换DateTime类型
             </summary>
         </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Cancel">
+            <summary>
+            已取消
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Waiting">
+            <summary>
+            接单中
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Received">
+            <summary>
+            已接单
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Start">
+            <summary>
+            调度中
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Finish">
+            <summary>
+            已完成
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus.Pay">
+            <summary>
+            已支付
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus.Loading">
+            <summary>
+            已装货
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus.Unloading">
+            <summary>
+            已卸货
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus_Driver">
             <summary>
             司机端列表状态描述

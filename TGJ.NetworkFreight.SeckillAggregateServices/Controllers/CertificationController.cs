@@ -144,7 +144,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpPost("UserDriver")]
         public ActionResult<decimal> UserDriverCertification(DriverCertificationDto certificationDto)
         {
-            certificationClient.RealNameCertification(certificationDto.IDCard, certificationDto.Name);
+            var res = certificationClient.RealNameCertification(certificationDto.IDCard, certificationDto.Name);
 
             string accessKeyId = Configuration["Ali:accessKeyId"];
             string accessKeySecret = Configuration["Ali:accessKeySecret"];
@@ -177,12 +177,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             }
 
             user.HasAuthenticated = true;
+            user.IDCard = certificationDto.IDCard;
+            user.CarClass = certificationDto.CarClass;
+            user.DriverBeginTime = certificationDto.DriverBeginTime;
+            user.DriverEndTime = certificationDto.DriverEndTime;
             user.LastUpdateTime = DateTime.Now;
 
             userClient.PutUser(user);
 
             return Ok("认证成功");
         }
-
     }
 }

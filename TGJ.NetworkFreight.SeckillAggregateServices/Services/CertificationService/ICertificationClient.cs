@@ -19,7 +19,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// <param name="name"></param>
         /// <returns></returns>
         [GetPath("/Certifications/IdCard/Certification")]
-        public decimal RealNameCertification(string idCard, string name);
+        public object RealNameCertification(string idCard, string name);
 
         /// <summary>
         /// 身份证OCR

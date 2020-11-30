@@ -32,9 +32,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         [HttpGet("IdCard/Certification")]
         public ActionResult<decimal> RealNameCertification(string idCard, string name)
         {
-            var dto = CertificationService.RealNameCertification(idCard, name);
-
-            return Ok(dto);
+            return CertificationService.RealNameCertification(idCard, name);
 
             //var json = "{\"status\":\"01\",\"msg\":\"实名认证通过！\",\"idCard\":\"61243019911018221X\",\"name\":\"汤龙\",\"sex\":\"男\",\"area\":\"陕西省安康地区白河县\",\"province\":\"陕西省\",\"city\":\"安康地区\",\"prefecture\":\"白河县\",\"birthday\":\"1991-10-18\",\"addrCode\":\"612430\",\"lastCode\":\"X\"}";
 
@@ -52,9 +50,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         [HttpPost("IdCard/OCR")]
         public ActionResult<decimal> OCRIdCard(string image, string side)
         {
-            var dto = CertificationService.OCRIdCard(image, side);
-
-            return Ok(dto);
+            return CertificationService.OCRIdCard(image, side);
         }
 
         /// <summary>
@@ -65,9 +61,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         [HttpPost("Bank/OCR")]
         public ActionResult<decimal> OCRBank(string image)
         {
-            var dto = CertificationService.OCRBank(image);
-
-            return Ok(dto);
+            return CertificationService.OCRBank(image);
         }
 
         /// <summary>
@@ -80,9 +74,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         [HttpGet("Bank/Certification")]
         public ActionResult<decimal> BankCertification(string backCard, string idCard, string name)
         {
-            var dto = CertificationService.BankCertification(backCard, idCard, name);
-
-            return Ok(dto);
+            return CertificationService.BankCertification(backCard, idCard, name);
         }
 
         /// <summary>
@@ -94,9 +86,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         [HttpPost("Driver/OCR")]
         public ActionResult<decimal> OCRDriver(string image, string type)
         {
-            var dto = CertificationService.OCRDriver(image, type);
-
-            return Ok(dto);
+            return CertificationService.OCRDriver(image, type);
         }
 
         /// <summary>
@@ -108,9 +98,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         [HttpPost("Vehicle/OCR")]
         public ActionResult<decimal> OCRVehicle(string image, string type)
         {
-            var dto = CertificationService.OCRVehicle(image, type);
-
-            return Ok(dto);
+            return CertificationService.OCRVehicle(image, type);
         }
 
         /// <summary>
@@ -122,9 +110,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         [HttpPost("Permit/OCR")]
         public ActionResult<decimal> OCRPermit(string image, string type)
         {
-            var dto = CertificationService.OCRPermit(image, type);
-
-            return Ok(dto);
+            return CertificationService.OCRPermit(image, type);
         }
     }
 }

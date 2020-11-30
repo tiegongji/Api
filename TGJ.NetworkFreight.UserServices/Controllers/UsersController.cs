@@ -110,7 +110,7 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             {
                 if (!UserService.UserExists(user.Id))
                 {
-                    return NotFound("更新成功");
+                    return NotFound("数据不存在");
                 }
                 else
                 {

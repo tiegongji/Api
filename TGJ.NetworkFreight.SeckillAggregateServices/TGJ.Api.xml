@@ -126,8 +126,7 @@
             <summary>
             司机实名认证
             </summary>
-            <param name="image"></param>
-            <param name="type"></param>
+            <param name="certificationDto"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController">

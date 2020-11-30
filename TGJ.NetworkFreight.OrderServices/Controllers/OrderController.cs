@@ -128,6 +128,24 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         }
 
         /// <summary>
+        /// 状态金额统计
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("StateTurnover/{userId}")]
+        public ActionResult<OrderStateTurnoverDto> GetOrderStateTurnover(int userId)
+        {
+            var result = IOrderService.GetOrderStateTurnover(userId);
+
+            if (result == null)
+            {
+                return NotFound(result);
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// 新增地址
         /// </summary>
         /// <param name="entity"></param>

@@ -9,6 +9,7 @@ using TGJ.NetworkFreight.OrderServices.Repositories.Interface;
 using TGJ.NetworkFreight.OrderServices.Services.Interface;
 using Microsoft.Extensions.Configuration;
 using TGJ.NetworkFreight.OrderServices.Extend;
+using static TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper;
 
 namespace TGJ.NetworkFreight.OrderServices.Services.Impl
 {
@@ -55,9 +56,9 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
         {
             var orders = IOrderRepository.GetListByUid(userid);
             var orderGather = new OrderGatherDto();
-            orderGather.Dispatch = orders.Count(a => a.TradeStatus == 1);
-            orderGather.Confirm = orders.Count(a => a.TradeStatus == 2);
-            orderGather.Complete = orders.Count(a => a.TradeStatus == 3);
+            orderGather.Dispatch = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Start);
+            orderGather.Confirm = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Start && a.ActionStatus == (int)EnumActionStatus.Unloading);
+            orderGather.Complete = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Finish);
 
             return orderGather;
         }

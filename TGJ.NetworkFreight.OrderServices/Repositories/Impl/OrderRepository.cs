@@ -111,7 +111,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         ArrivalAddressName = ArrivalAddress_New.Name,
                         ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
                         TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
-                        o.TradeStatus
+                        o.TradeStatus,
+                        o.ActionStatus
                     }).Skip(pageSize * (pageIndex - 1)).Take(pageSize); 
         }
 

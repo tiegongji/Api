@@ -125,6 +125,11 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             IOrderRepository.UpdateUnLoading(entity);
         }
 
+        public IEnumerable<dynamic> GetWayBillList(int userId, int pageIndex, int pageSize, int? status)
+        {
+            return IOrderRepository.GetWayBillList(userId, pageIndex, pageSize, status);
+        }
+
 
         //public void UpdateCarrierUser(Order entity)
         //{

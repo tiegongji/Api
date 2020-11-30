@@ -112,7 +112,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
                         TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                         o.TradeStatus
-                    }).Skip(pageSize * (pageIndex - 1)).Take(pageSize); ;
+                    }).Skip(pageSize * (pageIndex - 1)).Take(pageSize); 
         }
 
 
@@ -243,6 +243,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     var model = Get(entity.OrderNo);
                     if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
+                    if (model.CarrierUserID > 0)
+                    {
+                        throw new Exception("该订单已有指定司机");
+                    }
                     if (model.TradeStatus != (int)EnumOrderStatus.Waiting)
                     {
                         throw new Exception("订单状态错误");
@@ -328,6 +332,56 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
         #endregion
 
+
+
+
+        #region 司机端
+        /// <summary>
+        /// 运单列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="status">null：运单列表,2：货源列表</param>
+        /// <returns></returns>
+        public IEnumerable<dynamic> GetWayBillList(int userId, int pageIndex, int pageSize, int? status)
+        {
+            return (from o in context.Order
+                    where o.CarrierUserID == userId && (status.HasValue ? (o.ActionStatus == status) : (o.TotalAmount > 0))
+                    join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
+                     into _order
+                    from order in _order.DefaultIfEmpty()
+                    join t in context.InitTruck on order.TruckID equals t.ID
+                    into _truck
+                    from truck in _truck.DefaultIfEmpty()
+                    join c in context.InitCategory on order.CategoryID equals c.ID
+                    into _catetory
+                    from catetory in _catetory.DefaultIfEmpty()
+                    join DepartureAddress in context.UserAddress on order.DepartureAddressID equals DepartureAddress.ID
+                    into _DepartureAddress
+                    from DepartureAddress_New in _DepartureAddress.DefaultIfEmpty()
+                    join ArrivalAddress in context.UserAddress on order.ArrivalAddressID equals ArrivalAddress.ID
+                    into _ArrivalAddress
+                    from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
+                    select new
+                    {
+                        order.OrderNo,
+                        truck.Length,
+                        order.Weight,
+                        Date = order.StartDate.ToDate(),
+                        order.Distance,
+                        order.Name,
+                        DepartureAddressName = DepartureAddress_New.Name,
+                        DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province,
+                        ArrivalAddressName = ArrivalAddress_New.Name,
+                        ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province,
+                        TradeStatusText = ((EnumActionStatus_Driver)o.ActionStatus).GetDescriptionOriginal(),
+                        o.ActionStatus
+                    }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
+        }
+
+      
+
         #region 司机端状态更新
         /// <summary>
         /// 修改金额
@@ -369,7 +423,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     throw;
                 }
             }
-            
+
         }
 
         /// <summary>
@@ -468,6 +522,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             }
 
         }
+        #endregion
         #endregion
     }
 }

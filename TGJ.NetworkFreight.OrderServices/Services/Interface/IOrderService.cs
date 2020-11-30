@@ -22,5 +22,6 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Interface
         void UpdateMoney(Order entity);
         void UpdateLoading(Order entity);
         void UpdateUnLoading(OrderDto entity);
+        IEnumerable<dynamic> GetWayBillList(int userId, int pageIndex, int pageSize, int? status);
     }
 }

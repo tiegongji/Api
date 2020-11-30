@@ -31,6 +31,20 @@ namespace TGJ.NetworkFreight.OrderServices.Models.Enum
             [Description("已卸货")]
             Unloading = 3,
         }
+
+        /// <summary>
+        /// 司机端列表状态描述
+        /// </summary>
+        public enum EnumActionStatus_Driver
+        {
+            [Description("装货上报")]
+            Pay = 1,
+            [Description("卸货上报")]
+            Loading = 2,
+            [Description("已完成")]
+            Unloading = 3,
+        }
+
         public enum EnumType
         {
             [Description("物流端状态")]

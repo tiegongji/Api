@@ -212,5 +212,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             //entity.UserID = UserID;
             return orderClient.UpdateUnLoading(entity);
         }
+
+        /// <summary>
+        /// 司机订单列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="status">null：运单列表,2：货源列表</param>
+        [HttpPost("GetWayBillList")]
+        public ActionResult<IEnumerable<dynamic>> GetWayBillList(SysUser sysUser, int pageIndex, int pageSize, int? status)
+        {
+            return orderClient.GetWayBillList(sysUser.UserId, pageIndex, pageSize, status);
+        }
     }
 }

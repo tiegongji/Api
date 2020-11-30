@@ -37,7 +37,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         /// <param name="image"></param>
         /// <param name="side"></param>
         /// <returns></returns>
-        public decimal OCRIdCard(string image, string side)
+        public dynamic OCRIdCard(string image, string side)
         {
             string host = Configuration["AliCertification:OCRIdCarUrl"];
             string path = "/ocr/idcardocr";
@@ -56,7 +56,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         /// <param name="idCard"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public decimal RealNameCertification(string idCard, string name)
+        public dynamic RealNameCertification(string idCard, string name)
         {
             string host = Configuration["AliCertification:IdCardUrl"];
             string path = "/idcard";
@@ -76,7 +76,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         /// <param name="idCard"></param>
         /// <param name="realName"></param>
         /// <returns></returns>
-        public decimal BankCertification(string bankCard, string idCard, string realName)
+        public dynamic BankCertification(string bankCard, string idCard, string realName)
         {
             string host = Configuration["AliCertification:BankCardUrl"];
             string path = "/bankcard3";
@@ -94,7 +94,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         /// </summary>
         /// <param name="pic"></param>
         /// <returns></returns>
-        public decimal OCRBank(string pic)
+        public dynamic OCRBank(string pic)
         {
             string host = Configuration["AliCertification:OCRBankUrl"];
             string path = "/ocr/bank-card";
@@ -113,7 +113,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         /// <param name="pic"></param>
         /// <param name="type">1:正面/2:反面</param>
         /// <returns></returns>
-        public decimal OCRDriver(string pic, string type)
+        public dynamic OCRDriver(string pic, string type)
         {
             string host = Configuration["AliCertification:DriverCardUrl"];
             string path = "/ocr/driving-license";
@@ -132,7 +132,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         /// <param name="pic"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public decimal OCRVehicle(string pic, string type)
+        public dynamic OCRVehicle(string pic, string type)
         {
             string host = Configuration["AliCertification:VehicleUrl"];
             string path = "/ocr/vehicle-license";
@@ -151,7 +151,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         /// <param name="pic"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public decimal OCRPermit(string pic, string type)
+        public dynamic OCRPermit(string pic, string type)
         {
             string host = Configuration["AliCertification:PermitUrl"];
             string path = "/ai_market/ai_ocr_universal/dao_lu_jiao_tong/v1";
@@ -168,7 +168,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
             return true;
         }
 
-        public decimal Certification(string host, string path, string method, string appcode, string querys, string bodys)
+        public dynamic Certification(string host, string path, string method, string appcode, string querys, string bodys)
         {
             string url = host + path;
             HttpWebRequest httpRequest = null;
@@ -217,7 +217,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
             StreamReader reader = new StreamReader(st, Encoding.GetEncoding("utf-8"));
             var json = reader.ReadToEnd();
 
-            dynamic result = JsonConvert.DeserializeObject(json);
+            var result = JsonConvert.DeserializeObject(json);
 
             return result;
         }

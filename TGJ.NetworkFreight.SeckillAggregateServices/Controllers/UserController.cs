@@ -220,6 +220,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             UserDto userDto = new UserDto();
             userDto.UserId = userInfoResponse.Json.TryGetString("sub");
             userDto.UserName = userInfo.Name;
+            userDto.HasAuthenticated = userInfo.HasAuthenticated;
             userDto.AccessToken = tokenResponse.AccessToken;
             userDto.ExpiresIn = tokenResponse.ExpiresIn;
 

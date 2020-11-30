@@ -26,5 +26,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService
         /// 用户id
         /// </summary>
         public string UserId { set; get; }
+
+        /// <summary>
+        /// 是否认证
+        /// </summary>
+        public bool? HasAuthenticated { get; set; }
     }
 }

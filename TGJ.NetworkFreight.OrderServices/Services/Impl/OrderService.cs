@@ -9,6 +9,7 @@ using TGJ.NetworkFreight.OrderServices.Repositories.Interface;
 using TGJ.NetworkFreight.OrderServices.Services.Interface;
 using Microsoft.Extensions.Configuration;
 using TGJ.NetworkFreight.OrderServices.Extend;
+using TGJ.NetworkFreight.Commons.Extend;
 
 namespace TGJ.NetworkFreight.OrderServices.Services.Impl
 {
@@ -103,6 +104,10 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             IOrderRepository.UpdateLoading(entity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
         public void UpdateUnLoading(OrderDto entity)
         {
             string accessKeyId = IConfiguration["Ali:accessKeyId"];

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Aliyun.OSS;
+﻿using Aliyun.OSS;
+using System;
 
-namespace TGJ.NetworkFreight.OrderServices.Extend
+namespace TGJ.NetworkFreight.Commons.Extend
 {
     public class ALiOSSHelper
     {

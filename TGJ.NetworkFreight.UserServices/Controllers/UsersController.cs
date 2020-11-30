@@ -37,18 +37,18 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             return UserService.GetUsers().ToList();
         }
 
-        //[HttpGet("{id}")]
-        //public ActionResult<User> GetUser(int id)
-        //{
-        //    var User = UserService.GetUserById(id);
+        [HttpGet("Id/{id}")]
+        public ActionResult<User> GetUser(int id)
+        {
+            var User = UserService.GetUserById(id);
 
-        //    if (User == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (User == null)
+            {
+                return NotFound();
+            }
 
-        //    return User;
-        //}
+            return User;
+        }
 
         [HttpGet("{openId}")]
         public ActionResult<User> GetUserByOpenId(string openId)

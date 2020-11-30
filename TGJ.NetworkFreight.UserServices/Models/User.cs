@@ -23,7 +23,7 @@ namespace TGJ.NetworkFreight.UserServices.Models
         public string? Phone { set; get; }
 
         /// <summary>
-        /// z状态
+        /// 状态
         /// </summary>
         public int? Status { get; set; }
 
@@ -97,5 +97,18 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// 最后修改时间
         /// </summary>
         public DateTime? LastUpdateTime { get; set; }
+
+        /// <summary>
+        /// 身份证正面Url
+        /// </summary>
+        public string? IdCardFrontUrl { set; get; }
+        /// <summary>
+        /// 身份证反面Url
+        /// </summary>
+        public string? IdCardBackUrl { set; get; }
+        /// <summary>
+        /// 驾驶证Url
+        /// </summary>
+        public string? DriverLicenseUrl { set; get; }
     }
 }

@@ -60,7 +60,7 @@
             认证控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient,Microsoft.Extensions.Configuration.IConfiguration,TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient)">
             <summary>
             
             </summary>
@@ -120,6 +120,14 @@
             </summary>
             <param name="image"></param>
             <param name="type">1:正面/2:反面</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.UserDriverCertification(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto)">
+            <summary>
+            司机实名认证
+            </summary>
+            <param name="image"></param>
+            <param name="type"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController">
@@ -229,6 +237,15 @@
             </summary>
             <param name="entity"></param>
             <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetWayBillList(TGJ.NetworkFreight.Commons.Users.SysUser,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            司机订单列表
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="status">null：运单列表,2：货源列表</param>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController">
             <summary>
@@ -580,6 +597,52 @@
             订单ID
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto">
+            <summary>
+            司机认证Dto
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.IDCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.CarClass">
+            <summary>
+            准驾车型
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.DriverBeginTime">
+            <summary>
+            驾驶证开始时间
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.DriverEndTime" -->
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.IdCardFrontBase64">
+            <summary>
+            身份证正面Url
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.IdCardBackBase64">
+            <summary>
+            身份证反面Url
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.DriverLicenseBase64">
+            <summary>
+            驾驶证Url
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.LoginPo">
             <summary>
             登录表单
@@ -839,6 +902,11 @@
             卸货
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.GetWayBillList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            司机订单列表
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient">
             <summary>
             用户微服务客户端
@@ -865,6 +933,13 @@
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.GetUserByOpenId(System.String)">
             <summary>
             根据OpenId获取用户
+            </summary>
+            <param name="openId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.GetUserById(System.Int32)">
+            <summary>
+            根据Id获取用户
             </summary>
             <param name="openId"></param>
             <returns></returns>

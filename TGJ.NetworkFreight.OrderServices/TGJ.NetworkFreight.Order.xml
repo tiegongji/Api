@@ -124,6 +124,16 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetWayBillList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            司机订单列表
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="status">null：运单列表,2：货源列表</param>
+            <returns></returns>
+        </member>
         <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.UserID">
             <summary>
             用户
@@ -300,6 +310,11 @@
         <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToDate(System.Object)">
             <summary>
             转换DateTime类型
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus_Driver">
+            <summary>
+            司机端列表状态描述
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.OrderServices.Models.InitCategory">
@@ -711,6 +726,16 @@
             <param name="entity"></param>
             <param name="imgs"></param>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.GetWayBillList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            运单列表
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="status">null：运单列表,2：货源列表</param>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateMoney(TGJ.NetworkFreight.OrderServices.Models.Order)">
             <summary>
             修改金额
@@ -726,6 +751,12 @@
         <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateUnLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
             <summary>
             卸货
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Services.Impl.OrderService.UpdateUnLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+            <summary>
+            
             </summary>
             <param name="entity"></param>
         </member>

@@ -5,7 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using TGJ.NetworkFreight.Commons.Exceptions;
+using TGJ.NetworkFreight.Commons.Extend;
+using TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService;
+using TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService;
+using TGJ.NetworkFreight.UserServices.Models;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 {
@@ -18,13 +24,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     public class CertificationController : ControllerBase
     {
         private readonly ICertificationClient certificationClient;
+        private readonly IUserClient userClient;
+        public IConfiguration Configuration { get; }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="certificationClient"></param>
-        public CertificationController(ICertificationClient certificationClient)
+        public CertificationController(ICertificationClient certificationClient, IConfiguration Configuration, IUserClient userClient)
         {
             this.certificationClient = certificationClient;
+            this.userClient = userClient;
+            this.Configuration = Configuration;
         }
 
         /// <summary>
@@ -34,7 +45,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet("IdCard/Certification")]
-        public ActionResult RealNameCertification(string idCard, string name)
+        public ActionResult<decimal> RealNameCertification(string idCard, string name)
         {
             var dto = certificationClient.RealNameCertification(idCard, name);
 
@@ -48,7 +59,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
         /// <returns></returns>
         [HttpPost("IdCard/OCR")]
-        public ActionResult OCRIdCard(string image, string side)
+        public ActionResult<decimal> OCRIdCard(string image, string side)
         {
             var dto = certificationClient.OCRIdCard(image, side);
 
@@ -61,7 +72,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="image"></param>
         /// <returns></returns>
         [HttpPost("Bank/OCR")]
-        public ActionResult OCRBank(string image)
+        public ActionResult<decimal> OCRBank(string image)
         {
             var dto = certificationClient.OCRBank(image);
 
@@ -76,7 +87,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="name"></param>
         /// <returns></returns>
         [HttpPost("Bank/Certification")]
-        public ActionResult BankCertification(string backCard, string idCard, string name)
+        public ActionResult<decimal> BankCertification(string backCard, string idCard, string name)
         {
             var dto = certificationClient.BankCertification(backCard, idCard, name);
 
@@ -90,7 +101,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="type">1:正面/2:反面</param>
         /// <returns></returns>
         [HttpPost("Driver/OCR")]
-        public ActionResult OCRDriver(string image, string type)
+        public ActionResult<decimal> OCRDriver(string image, string type)
         {
             var dto = certificationClient.OCRDriver(image, type);
 
@@ -104,7 +115,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="type">1:正面/2:反面</param>
         /// <returns></returns>
         [HttpPost("Vehicle/OCR")]
-        public ActionResult OCRVehicle(string image, string type)
+        public ActionResult<decimal> OCRVehicle(string image, string type)
         {
             var dto = certificationClient.OCRVehicle(image, type);
 
@@ -118,11 +129,60 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="type">1:正面/2:反面</param>
         /// <returns></returns>
         [HttpPost("Permit/OCR")]
-        public ActionResult OCRPermit(string image, string type)
+        public ActionResult<decimal> OCRPermit(string image, string type)
         {
             var dto = certificationClient.OCRPermit(image, type);
 
             return Ok(dto);
         }
+
+        /// <summary>
+        /// 司机实名认证
+        /// </summary>
+        /// <param name="certificationDto"></param>
+        /// <returns></returns>
+        [HttpPost("UserDriver")]
+        public ActionResult<decimal> UserDriverCertification(DriverCertificationDto certificationDto)
+        {
+            certificationClient.RealNameCertification(certificationDto.IDCard, certificationDto.Name);
+
+            string accessKeyId = Configuration["Ali:accessKeyId"];
+            string accessKeySecret = Configuration["Ali:accessKeySecret"];
+            string EndPoint = Configuration["Ali:EndPoint"];
+            string bucketName = Configuration["Ali:bucketName"];
+
+            if (certificationDto.UserId <= 0)
+                throw new BizException("用户Id不正确");
+
+            var user = userClient.GetUserById(certificationDto.UserId);
+
+            if (user == null)
+                throw new BizException("用户不存在");
+
+            try
+            {
+                user.IdCardFrontUrl = "User/" + Guid.NewGuid().ToString() + ".jpg";
+                ALiOSSHelper.Upload(user.IdCardFrontUrl, certificationDto.IdCardFrontBase64, accessKeyId, accessKeySecret, EndPoint, bucketName);
+
+                user.IdCardBackUrl = "User/" + Guid.NewGuid().ToString() + ".jpg";
+                ALiOSSHelper.Upload(user.IdCardBackUrl, certificationDto.IdCardBackBase64, accessKeyId, accessKeySecret, EndPoint, bucketName);
+
+                user.DriverLicenseUrl = "User/" + Guid.NewGuid().ToString() + ".jpg";
+                ALiOSSHelper.Upload(user.DriverLicenseUrl, certificationDto.DriverLicenseBase64, accessKeyId, accessKeySecret, EndPoint, bucketName);
+
+            }
+            catch (Exception e)
+            {
+                throw new BizException("图片上传失败" + "/" + e.Message);
+            }
+
+            user.HasAuthenticated = true;
+            user.LastUpdateTime = DateTime.Now;
+
+            userClient.PutUser(user);
+
+            return Ok("认证成功");
+        }
+
     }
 }

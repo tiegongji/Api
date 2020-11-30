@@ -34,6 +34,8 @@ namespace TGJ.NetworkFreight.CertificationServices
                 options.ServiceAddress = Configuration["ServiceAddress"];
                 options.HealthCheckAddress = "/health";
 
+                options.RegistryAddress = Configuration["RegistryAddress"];
+
                 //services.AddServiceRegistry(options =>
                 //{
                 //    options.ServiceId = Guid.NewGuid().ToString();

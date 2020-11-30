@@ -401,6 +401,11 @@
             用户id
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.HasAuthenticated">
+            <summary>
+            是否认证
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching">
             <summary>
             缓存接口

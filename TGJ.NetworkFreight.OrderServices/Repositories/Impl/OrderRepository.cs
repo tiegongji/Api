@@ -132,7 +132,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                 var url = IConfiguration["Ali:url"];
                 var imgs = context.OrderReceiptImage.Where(a => a.OrderNo == OrderNo).Select(b => url + b.FileUrl).ToList();
                 var res = (from o in context.Order
-                           where o.UserID == userId && o.OrderNo == OrderNo
+                           where (o.UserID == userId || o.CarrierUserID == userId) && o.OrderNo == OrderNo
                            join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
                             into _order
                            from order in _order.DefaultIfEmpty()

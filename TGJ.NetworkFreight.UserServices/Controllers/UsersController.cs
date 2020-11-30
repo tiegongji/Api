@@ -69,9 +69,9 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         /// <param name="key"></param>
         /// <returns></returns>
         [HttpGet("Key/{key}")]
-        public ActionResult<User> GetUserByKey(string key)
+        public ActionResult<IEnumerable<User>> GetUserByKey(string key)
         {
-            var User = UserService.GetUserByKey(key);
+            var User = UserService.GetUserByKey(key).ToList();
 
             if (User == null)
             {

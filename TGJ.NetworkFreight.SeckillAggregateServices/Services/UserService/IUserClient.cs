@@ -55,6 +55,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService
         /// <param name="key"></param>
         /// <returns></returns>
         [GetPath("/Users/Key/{key}")]
-        public User GetUserByKey(string key);
+        public IEnumerable<User>  GetUserByKey(string key);
     }
 }

@@ -2,13 +2,14 @@
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using TGJ.NetworkFreight.Commons.AutoMappers;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.OrderServices.Models;
 using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService;
+using TGJ.NetworkFreight.UserServices.Models;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 {    /// <summary>
@@ -44,14 +45,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="content"></param>
         /// <returns></returns>
         [HttpGet("Drivers")]
-        public ActionResult<decimal> GetDrivers(string content)
+        public ActionResult<IEnumerable<dynamic>> GetDrivers(string content)
         {
             var user = userClient.GetUserByKey(content);
 
             if (user == null)
-                return NotFound("未查到结果");
+                return Ok("未查到结果");
 
-            return Ok(user);
+            var entity = AutoMapperHelper.AutoMapTo<User, DriversDto>(user);
+
+            return Ok(entity);
         }
 
         /// <summary>

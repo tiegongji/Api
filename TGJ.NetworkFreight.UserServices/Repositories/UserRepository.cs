@@ -44,9 +44,9 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
             return user;
         }
 
-        public User GetUserByKey(string key)
+        public IEnumerable<User> GetUserByKey(string key)
         {
-            User user = UserContext.Users.FirstOrDefault(a => a.RoleName == 2 && (a.Name.Contains(key) || a.Phone.Contains(key)));
+            var user = UserContext.Users.Where(a => a.RoleName == 2 && (a.Name.Contains(key) || a.Phone.Contains(key))).ToList();
 
             return user;
         }

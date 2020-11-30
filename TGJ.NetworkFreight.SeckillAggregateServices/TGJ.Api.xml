@@ -160,6 +160,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetOrderStateTurnover(TGJ.NetworkFreight.Commons.Users.SysUser)">
+            <summary>
+            司机端订单金额统计
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetInitCategoryList">
             <summary>
             货物类型列表
@@ -330,6 +336,26 @@
             完成
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.StateTurnoverDto">
+            <summary>
+            司机端订单金额统计
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.StateTurnoverDto.DispatchTurnover">
+            <summary>
+            调度中金额
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.StateTurnoverDto.CompleteTurnover">
+            <summary>
+            已完成金额
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.StateTurnoverDto.HasAuthenticated">
+            <summary>
+            是否认证
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto">
             <summary>
             订单成交额Dto
@@ -343,6 +369,11 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto.TotalTurnover">
             <summary>
             总成交额
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto.HasAuthenticated">
+            <summary>
+            是否认证
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto">
@@ -844,6 +875,11 @@
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.GetOrderTurnover(System.Int32)">
             <summary>
             获取订单成交额
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.GetOrderStateTurnover(System.Int32)">
+            <summary>
+            获取订单状态成交额
             </summary>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.GetInitCategoryList">

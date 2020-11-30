@@ -73,7 +73,29 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpGet("Turnover")]
         public ActionResult<TurnoverDto> GetOrderTurnover(SysUser sysUser)
         {
-            return orderClient.GetOrderTurnover(sysUser.UserId);
+            var order = orderClient.GetOrderTurnover(sysUser.UserId);
+
+            var user = userClient.GetUserById(sysUser.UserId);
+
+            order.HasAuthenticated = user?.HasAuthenticated;
+
+            return order;
+        }
+
+        /// <summary>
+        /// 司机端订单金额统计
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("StateTurnover")]
+        public ActionResult<StateTurnoverDto> GetOrderStateTurnover(SysUser sysUser)
+        {
+            var order = orderClient.GetOrderStateTurnover(sysUser.UserId);
+
+            var user = userClient.GetUserById(sysUser.UserId);
+
+            order.HasAuthenticated = user?.HasAuthenticated;
+
+            return order;
         }
 
         /// <summary>

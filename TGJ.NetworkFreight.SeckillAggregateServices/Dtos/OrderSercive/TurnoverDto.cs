@@ -19,5 +19,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive
         /// 总成交额
         /// </summary>
         public decimal TotalTurnover { get; set; }
+
+        /// <summary>
+        /// 是否认证
+        /// </summary>
+        public bool? HasAuthenticated { get; set; }
     }
 }

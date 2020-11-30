@@ -60,6 +60,13 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetOrderStateTurnover(System.Int32)">
+            <summary>
+            状态金额统计
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.AddAddress(TGJ.NetworkFreight.OrderServices.Models.UserAddress)">
             <summary>
             新增地址
@@ -207,6 +214,21 @@
         <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderGatherDto.Complete">
             <summary>
             完成
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Dto.OrderStateTurnoverDto">
+            <summary>
+            司机端我的Dto
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderStateTurnoverDto.DispatchTurnover">
+            <summary>
+            调度中金额
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderStateTurnoverDto.CompleteTurnover">
+            <summary>
+            已完成金额
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.OrderServices.Dto.OrderTurnoverDto">

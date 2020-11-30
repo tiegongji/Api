@@ -38,6 +38,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
 
         public TurnoverDto GetOrderTurnover(int userId);
 
+        /// <summary>
+        /// 获取订单状态成交额
+        /// </summary>
+        [GetPath("/Orders/StateTurnover/{userId}")]
+
+        public StateTurnoverDto GetOrderStateTurnover(int userId);
 
         /// <summary>
         /// 获取货物类型

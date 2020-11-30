@@ -254,13 +254,13 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     }
                     model.CarrierUserID = entity.CarrierUserID;
                     model.LastUpdateTime = DateTime.Now;
-                    model.TradeStatus = (int)EnumOrderStatus.Received;
+                    model.TradeStatus = (int)EnumOrderStatus.Start;
                     context.Order.Update(model);
                     context.SaveChanges();
 
 
                     var orderFlow = new OrderFlow();
-                    orderFlow.ActionStatus = (int)EnumOrderStatus.Received;
+                    orderFlow.ActionStatus = (int)EnumOrderStatus.Start;
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
                     orderFlow.Type = (int)EnumType.Logistics;
@@ -348,7 +348,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         public IEnumerable<dynamic> GetWayBillList(int userId, int pageIndex, int pageSize, int? status)
         {
             return (from o in context.Order
-                    where o.CarrierUserID == userId && (status.HasValue ? (o.ActionStatus == status) : (o.TotalAmount > 0))
+                    where o.CarrierUserID == userId && (status.HasValue ? status == (int)EnumOrderStatus.Start ? o.TradeStatus == status && o.ActionStatus == 0 : (o.TradeStatus == status) : (o.ActionStatus > 0))
                     join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
                      into _order
                     from order in _order.DefaultIfEmpty()
@@ -397,7 +397,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     var model = Get(entity.OrderNo);
                     if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
-                    if (model.TradeStatus != (int)EnumOrderStatus.Received && model.ActionStatus < (int)EnumActionStatus.Loading)
+                    if (model.TradeStatus != (int)EnumOrderStatus.Start && model.ActionStatus < (int)EnumActionStatus.Loading)
                     {
                         throw new Exception("未指定司机");
                     }

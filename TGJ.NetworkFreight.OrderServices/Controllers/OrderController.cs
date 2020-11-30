@@ -235,5 +235,19 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
             IOrderService.UpdateUnLoading(entity);
             return Ok("上传成功");
         }
+
+        /// <summary>
+        /// 司机订单列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="status">null：运单列表,2：货源列表</param>
+        /// <returns></returns>
+        [HttpGet("GetWayBillList")]
+        public ActionResult<IEnumerable<dynamic>> GetWayBillList(int userId, int pageIndex, int pageSize, int? status)
+        {
+            return IOrderService.GetWayBillList(userId, pageIndex, pageSize, status).ToList();
+        }
     }
 }

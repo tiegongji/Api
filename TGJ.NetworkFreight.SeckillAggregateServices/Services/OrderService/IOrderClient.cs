@@ -114,5 +114,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         [PostPath("/Orders/UpdateUnLoading")]
 
         public dynamic UpdateUnLoading(OrderPo model);
+        /// <summary>
+        /// 司机订单列表
+        /// </summary>
+        [GetPath("/Orders/GetWayBillList")]
+
+        public dynamic GetWayBillList(int userId, int pageIndex, int pageSize, int? status);
     }
 }

@@ -146,6 +146,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         {
             var res = certificationClient.RealNameCertification(certificationDto.IDCard, certificationDto.Name);
 
+            if (res == null || res.status != "01")
+                throw new BizException("认证失败");
+
             string accessKeyId = Configuration["Ali:accessKeyId"];
             string accessKeySecret = Configuration["Ali:accessKeySecret"];
             string EndPoint = Configuration["Ali:EndPoint"];

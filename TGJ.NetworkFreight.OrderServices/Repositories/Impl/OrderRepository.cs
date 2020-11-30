@@ -113,7 +113,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                         o.TradeStatus,
                         o.ActionStatus
-                    }).Skip(pageSize * (pageIndex - 1)).Take(pageSize); 
+                    }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
         }
 
 
@@ -381,7 +381,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
         }
 
-      
+
 
         #region 司机端状态更新
         /// <summary>

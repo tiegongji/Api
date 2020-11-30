@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TGJ.NetworkFreight.CertificationServices.Dtos;
 using TGJ.NetworkFreight.CertificationServices.Services;
 
@@ -30,15 +31,15 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="name">姓名</param>
         /// <returns></returns>
         [HttpGet("IdCard/Certification")]
-        public ActionResult<decimal> RealNameCertification(string idCard, string name)
+        public ActionResult<dynamic> RealNameCertification(string idCard, string name)
         {
-            return CertificationService.RealNameCertification(idCard, name);
+            //var result = CertificationService.RealNameCertification(idCard, name);
 
-            //var json = "{\"status\":\"01\",\"msg\":\"实名认证通过！\",\"idCard\":\"61243019911018221X\",\"name\":\"汤龙\",\"sex\":\"男\",\"area\":\"陕西省安康地区白河县\",\"province\":\"陕西省\",\"city\":\"安康地区\",\"prefecture\":\"白河县\",\"birthday\":\"1991-10-18\",\"addrCode\":\"612430\",\"lastCode\":\"X\"}";
+            var json = "{\"status\":\"01\",\"msg\":\"实名认证通过！\",\"idCard\":\"61243019911018221X\",\"name\":\"汤龙\",\"sex\":\"男\",\"area\":\"陕西省安康地区白河县\",\"province\":\"陕西省\",\"city\":\"安康地区\",\"prefecture\":\"白河县\",\"birthday\":\"1991-10-18\",\"addrCode\":\"612430\",\"lastCode\":\"X\"}";
 
-            //dynamic result = JsonConvert.DeserializeObject(json);
+            dynamic result = JsonConvert.DeserializeObject(json);
 
-            //return Ok(result);
+            return Ok(result);
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
         /// <returns></returns>
         [HttpPost("IdCard/OCR")]
-        public ActionResult<decimal> OCRIdCard(string image, string side)
+        public ActionResult<dynamic> OCRIdCard(string image, string side)
         {
             return CertificationService.OCRIdCard(image, side);
         }
@@ -59,7 +60,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="image"></param>
         /// <returns></returns>
         [HttpPost("Bank/OCR")]
-        public ActionResult<decimal> OCRBank(string image)
+        public ActionResult<dynamic> OCRBank(string image)
         {
             return CertificationService.OCRBank(image);
         }
@@ -72,7 +73,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet("Bank/Certification")]
-        public ActionResult<decimal> BankCertification(string backCard, string idCard, string name)
+        public ActionResult<dynamic> BankCertification(string backCard, string idCard, string name)
         {
             return CertificationService.BankCertification(backCard, idCard, name);
         }
@@ -84,7 +85,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="type">1:正面/2:反面</param>
         /// <returns></returns>
         [HttpPost("Driver/OCR")]
-        public ActionResult<decimal> OCRDriver(string image, string type)
+        public ActionResult<dynamic> OCRDriver(string image, string type)
         {
             return CertificationService.OCRDriver(image, type);
         }
@@ -96,7 +97,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="type"></param>
         /// <returns></returns>
         [HttpPost("Vehicle/OCR")]
-        public ActionResult<decimal> OCRVehicle(string image, string type)
+        public ActionResult<dynamic> OCRVehicle(string image, string type)
         {
             return CertificationService.OCRVehicle(image, type);
         }
@@ -108,7 +109,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <param name="type"></param>
         /// <returns></returns>
         [HttpPost("Permit/OCR")]
-        public ActionResult<decimal> OCRPermit(string image, string type)
+        public ActionResult<dynamic> OCRPermit(string image, string type)
         {
             return CertificationService.OCRPermit(image, type);
         }

@@ -80,10 +80,18 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="status">3：调度中，4：已完成，33：回单确认</param>
+        /// <returns></returns>
         public IEnumerable<dynamic> GetList(int userId, int pageIndex, int pageSize, int? status)
         {
             return (from o in context.Order
-                    where o.UserID == userId && (status.HasValue ? (o.TradeStatus == status) : (1 == 1))
+                    where o.UserID == userId && (status.HasValue ? (status == 33 ? o.TradeStatus == (int)EnumOrderStatus.Start && o.ActionStatus == (int)EnumActionStatus.Unloading : o.TradeStatus == status) : (1 == 1))
                     join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
                      into _order
                     from order in _order.DefaultIfEmpty()
@@ -107,9 +115,9 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         Date = order.StartDate.ToDate(),
                         order.Distance,
                         DepartureAddressName = DepartureAddress_New.Name,
-                        DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
+                        DepartureAddress = DepartureAddress_New.Address,
                         ArrivalAddressName = ArrivalAddress_New.Name,
-                        ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
+                        ArrivalAddress = ArrivalAddress_New.Address,
                         TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                         o.TradeStatus,
                         o.ActionStatus
@@ -124,7 +132,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                 var url = IConfiguration["Ali:url"];
                 var imgs = context.OrderReceiptImage.Where(a => a.OrderNo == OrderNo).Select(b => url + b.FileUrl).ToList();
                 var res = (from o in context.Order
-                           where o.UserID == userId && o.OrderNo == OrderNo
+                           where (o.UserID == userId || o.CarrierUserID == userId) && o.OrderNo == OrderNo
                            join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
                             into _order
                            from order in _order.DefaultIfEmpty()
@@ -153,10 +161,6 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                order.Distance,
                                DepartureAddressObject = DepartureAddress_New,
                                DArrivalAddressObject = ArrivalAddress_New,
-                               //DepartureAddressName = DepartureAddress_New.Name,
-                               //DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Address,
-                               //ArrivalAddressName = ArrivalAddress_New.Name,
-                               //ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Address,
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                o.TradeStatus,
                                order.Comment,
@@ -373,9 +377,11 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         order.Distance,
                         order.Name,
                         DepartureAddressName = DepartureAddress_New.Name,
-                        DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.Province + DepartureAddress_New.Province,
+                        // DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.City,
+                        DepartureAddress = ReturnAddress(DepartureAddress_New),
                         ArrivalAddressName = ArrivalAddress_New.Name,
-                        ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province + ArrivalAddress_New.Province,
+                        //ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province,
+                        ArrivalAddress = ReturnAddress(ArrivalAddress_New),
                         TradeStatusText = ((EnumActionStatus_Driver)o.ActionStatus).GetDescriptionOriginal(),
                         o.ActionStatus
                     }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
@@ -525,5 +531,15 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         }
         #endregion
         #endregion
+
+        string ReturnAddress(UserAddress addr)
+        {
+            var arr = new string[] { "北京市", "上海市", "天津市", "重庆市" };
+            if (arr.Contains(addr.Province))
+            {
+                return addr.Province + addr.County;
+            }
+            return addr.Province + addr.City;
+        }
     }
 }

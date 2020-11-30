@@ -39,7 +39,7 @@ namespace TGJ.NetworkFreight.UserServices.Services
             return UserRepository.GetUserById(id);
         }
 
-        public User GetUserByKey(string key)
+        public IEnumerable<User> GetUserByKey(string key)
         {
             return UserRepository.GetUserByKey(key);
         }

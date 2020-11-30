@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TGJ.NetworkFreight.OrderServices.Models;
+using TGJ.NetworkFreight.UserServices.Models;
+using UserAddress = TGJ.NetworkFreight.OrderServices.Models.UserAddress;
 
 namespace TGJ.NetworkFreight.OrderServices.Context
 {

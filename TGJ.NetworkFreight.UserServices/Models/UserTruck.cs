@@ -85,7 +85,7 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// <summary>
         /// 是否认证
         /// </summary>
-        public string? IsValid { get; set; }
+        public bool? IsValid { get; set; }
 
         /// <summary>
         /// 创建时间

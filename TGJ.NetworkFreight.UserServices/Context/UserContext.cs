@@ -30,7 +30,7 @@ namespace TGJ.NetworkFreight.UserServices.Context
         /// <summary>
         /// 用户车辆集合
         /// </summary>
-        public DbSet<UserTruck> UserTrucks { get; set; }
+        public DbSet<UserTruck> UserTruck { get; set; }
 
         /// <summary>
         /// 用户银行卡集合

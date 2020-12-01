@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TGJ.NetworkFreight.Cores.MicroClients.Attributes;
+using TGJ.NetworkFreight.SeckillAggregateServices.Pos.CertificationService;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService
 {
@@ -24,19 +25,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// <summary>
         /// 身份证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="side"></param>
+        /// <param name="cardOCRPo"></param>
         /// <returns></returns>
         [PostPath("/Certifications/IdCard/OCR")]
-        public dynamic OCRIdCard(string image, string side);
+        public dynamic OCRIdCard(CardOCRPo cardOCRPo);
 
         /// <summary>
         /// 银行卡OCR
         /// </summary>
-        /// <param name="image"></param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
         [PostPath("/Certifications/Bank/OCR")]
-        public dynamic OCRBank(string image);
+        public dynamic OCRBank(OCRBasePo oCR);
 
         /// <summary>
         /// 银行卡认证
@@ -51,29 +51,26 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationServ
         /// <summary>
         /// 驾驶证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type"></param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
         [PostPath("/Certifications/Driver/OCR")]
-        public dynamic OCRDriver(string image, string type);
+        public dynamic OCRDriver(OCRPo oCR);
 
 
         /// <summary>
         /// 行驶证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type"></param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
-        [GetPath("/Certifications/Vehicle/OCR")]
-        public dynamic OCRVehicle(string image, string type);
+        [PostPath("/Certifications/Vehicle/OCR")]
+        public dynamic OCRVehicle(OCRPo oCR);
 
         /// <summary>
         /// 道路经营许可证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type"></param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
-        [GetPath("/Certifications/Permit/OCR")]
-        public dynamic OCRPermit(string image, string type);
+        [PostPath("/Certifications/Permit/OCR")]
+        public dynamic OCRPermit(OCRPo oCR);
     }
 }

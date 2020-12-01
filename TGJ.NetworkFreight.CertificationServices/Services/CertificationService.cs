@@ -9,6 +9,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using TGJ.NetworkFreight.CertificationServices.Dtos;
 using TGJ.NetworkFreight.Commons.Exceptions;
 
@@ -98,7 +99,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
         {
             string host = Configuration["AliCertification:OCRBankUrl"];
             string path = "/ocr/bank-card";
-            string method = "GET";
+            string method = "POST";
             string appcode = Configuration["AliCertification:AppCode"];
 
             string querys = "";
@@ -191,6 +192,10 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
 
             httpRequest.Method = method;
             httpRequest.Headers.Add("Authorization", "APPCODE " + appcode);
+
+            //根据API的要求，定义相对应的Content-Type
+            httpRequest.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
+
             if (0 < bodys.Length)
             {
                 byte[] data = Encoding.UTF8.GetBytes(bodys);

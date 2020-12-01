@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using TGJ.NetworkFreight.CertificationServices.Dtos;
+using TGJ.NetworkFreight.CertificationServices.Pos;
 using TGJ.NetworkFreight.CertificationServices.Services;
 
 namespace TGJ.NetworkFreight.CertificationServices.Controllers
@@ -45,24 +46,23 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <summary>
         /// 身份证OCR
         /// </summary>
-        /// <param name="image">不包含图片头的，如data:image/jpg;base64,) </param>
-        /// <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
+        /// <param name="idCardOCRDto"> </param>
         /// <returns></returns>
         [HttpPost("IdCard/OCR")]
-        public ActionResult<dynamic> OCRIdCard(string image, string side)
+        public ActionResult<dynamic> OCRIdCard(IdCardOCRPo idCardOCRDto)
         {
-            return CertificationService.OCRIdCard(image, side);
+            return CertificationService.OCRIdCard(idCardOCRDto.Image, idCardOCRDto.Side);
         }
 
         /// <summary>
         /// 银行卡OCR
         /// </summary>
-        /// <param name="image"></param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Bank/OCR")]
-        public ActionResult<dynamic> OCRBank(string image)
+        public ActionResult<dynamic> OCRBank(OCRPo oCR)
         {
-            return CertificationService.OCRBank(image);
+            return CertificationService.OCRBank(oCR.Image);
         }
 
         /// <summary>
@@ -81,37 +81,34 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         /// <summary>
         /// 驾驶证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type">1:正面/2:反面</param>
+        /// <param name="driverOCRPo"></param>
         /// <returns></returns>
         [HttpPost("Driver/OCR")]
-        public ActionResult<dynamic> OCRDriver(string image, string type)
+        public ActionResult<dynamic> OCRDriver(DriverOCRPo driverOCRPo)
         {
-            return CertificationService.OCRDriver(image, type);
+            return CertificationService.OCRDriver(driverOCRPo.Image, driverOCRPo.Type);
         }
 
         /// <summary>
         /// 行驶证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type"></param>
+        /// <param name="driverOCRPo"></param>
         /// <returns></returns>
         [HttpPost("Vehicle/OCR")]
-        public ActionResult<dynamic> OCRVehicle(string image, string type)
+        public ActionResult<dynamic> OCRVehicle(DriverOCRPo driverOCRPo)
         {
-            return CertificationService.OCRVehicle(image, type);
+            return CertificationService.OCRVehicle(driverOCRPo.Image, driverOCRPo.Type);
         }
 
         /// <summary>
         /// 道路经营许可证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type"></param>
+        /// <param name="driverOCRPo"></param>
         /// <returns></returns>
         [HttpPost("Permit/OCR")]
-        public ActionResult<dynamic> OCRPermit(string image, string type)
+        public ActionResult<dynamic> OCRPermit(DriverOCRPo driverOCRPo)
         {
-            return CertificationService.OCRPermit(image, type);
+            return CertificationService.OCRPermit(driverOCRPo.Image, driverOCRPo.Type);
         }
     }
 }

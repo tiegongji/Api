@@ -57,6 +57,12 @@ namespace TGJ.NetworkFreight.UserServices
             // 注册银行卡仓储
             services.AddScoped<IUserBankCardRepository, UserBankCardRepository>();
 
+            // 注册用户车辆service
+            services.AddScoped<IUserTruckService, UserTruckService>();
+
+            // 注册车辆仓储
+            services.AddScoped<IUserTruckRepository, UserTruckRepository>();
+
             //添加服务注册
             services.AddServiceRegistry(options =>
             {

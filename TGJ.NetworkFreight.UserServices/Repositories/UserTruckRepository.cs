@@ -26,7 +26,7 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
 
         public void Delete(UserTruck UserTruck)
         {
-            UserContext.UserTruck.Remove(UserTruck);
+            UserContext.UserTruck.Update(UserTruck);
             UserContext.SaveChanges();
         }
 

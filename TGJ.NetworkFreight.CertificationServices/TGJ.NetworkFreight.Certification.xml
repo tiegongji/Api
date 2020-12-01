@@ -17,19 +17,18 @@
             <param name="name">姓名</param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRIdCard(System.String,System.String)">
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRIdCard(TGJ.NetworkFreight.CertificationServices.Pos.IdCardOCRPo)">
             <summary>
             身份证OCR
             </summary>
-            <param name="image">不包含图片头的，如data:image/jpg;base64,) </param>
-            <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
+            <param name="idCardOCRDto"> </param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRBank(System.String)">
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRBank(TGJ.NetworkFreight.CertificationServices.Pos.OCRPo)">
             <summary>
             银行卡OCR
             </summary>
-            <param name="image"></param>
+            <param name="oCR"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.BankCertification(System.String,System.String,System.String)">
@@ -41,28 +40,25 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRDriver(System.String,System.String)">
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRDriver(TGJ.NetworkFreight.CertificationServices.Pos.DriverOCRPo)">
             <summary>
             驾驶证OCR
             </summary>
-            <param name="image"></param>
-            <param name="type">1:正面/2:反面</param>
+            <param name="driverOCRPo"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRVehicle(System.String,System.String)">
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRVehicle(TGJ.NetworkFreight.CertificationServices.Pos.DriverOCRPo)">
             <summary>
             行驶证OCR
             </summary>
-            <param name="image"></param>
-            <param name="type"></param>
+            <param name="driverOCRPo"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRPermit(System.String,System.String)">
+        <member name="M:TGJ.NetworkFreight.CertificationServices.Controllers.CertificationController.OCRPermit(TGJ.NetworkFreight.CertificationServices.Pos.DriverOCRPo)">
             <summary>
             道路经营许可证OCR
             </summary>
-            <param name="image"></param>
-            <param name="type"></param>
+            <param name="driverOCRPo"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.CertificationServices.Controllers.SendController">
@@ -311,6 +307,36 @@
         <member name="P:TGJ.NetworkFreight.CertificationServices.Dtos.RealNameDto.LastCode">
             <summary>
             LastCode
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Pos.DriverOCRPo">
+            <summary>
+            DriverOCRPo
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Pos.DriverOCRPo.Type">
+            <summary>
+            1:正面/2:反面
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Pos.IdCardOCRPo">
+            <summary>
+            IdCardOCRDto
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Pos.IdCardOCRPo.Side">
+            <summary>
+            front：身份证带人脸一面，back：身份证带国徽片一面
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.CertificationServices.Pos.OCRPo">
+            <summary>
+            OCR
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.CertificationServices.Pos.OCRPo.Image">
+            <summary>
+            图片Base64
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.CertificationServices.Services.CertificationService">

@@ -24,6 +24,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         private readonly IBankCardClient bankCardClient;
         private readonly ICertificationClient certificationClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bankCardClient"></param>
+        /// <param name="certificationClient"></param>
         public BankCardController(IBankCardClient bankCardClient, ICertificationClient certificationClient)
         {
             this.bankCardClient = bankCardClient;

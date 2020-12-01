@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.Commons.Extend;
+using TGJ.NetworkFreight.SeckillAggregateServices.Pos.CertificationService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService;
@@ -45,7 +46,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet("IdCard/Certification")]
-        public ActionResult<decimal> RealNameCertification(string idCard, string name)
+        public ActionResult<dynamic> RealNameCertification(string idCard, string name)
         {
             var dto = certificationClient.RealNameCertification(idCard, name);
 
@@ -55,13 +56,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 身份证OCR
         /// </summary>
-        /// <param name="image">不包含图片头的，如data:image/jpg;base64,) </param>
-        /// <param name="side">front：身份证带人脸一面，back：身份证带国徽片一面</param>
+        /// <param name="cardOCRPo">不包含图片头的，如data:image/jpg;base64,) </param>
         /// <returns></returns>
         [HttpPost("IdCard/OCR")]
-        public ActionResult<decimal> OCRIdCard(string image, string side)
+        public ActionResult<dynamic> OCRIdCard(CardOCRPo cardOCRPo)
         {
-            var dto = certificationClient.OCRIdCard(image, side);
+            var dto = certificationClient.OCRIdCard(cardOCRPo);
 
             return Ok(dto);
         }
@@ -69,12 +69,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 银行卡OCR
         /// </summary>
-        /// <param name="image"></param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Bank/OCR")]
-        public ActionResult<decimal> OCRBank(string image)
+        public ActionResult<dynamic> OCRBank(OCRBasePo oCR)
         {
-            var dto = certificationClient.OCRBank(image);
+            var dto = certificationClient.OCRBank(oCR);
 
             return Ok(dto);
         }
@@ -87,7 +87,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="name"></param>
         /// <returns></returns>
         [HttpPost("Bank/Certification")]
-        public ActionResult<decimal> BankCertification(string backCard, string idCard, string name)
+        public ActionResult<dynamic> BankCertification(string backCard, string idCard, string name)
         {
             var dto = certificationClient.BankCertification(backCard, idCard, name);
 
@@ -97,13 +97,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 驾驶证识别
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type">1:正面/2:反面</param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Driver/OCR")]
-        public ActionResult<decimal> OCRDriver(string image, string type)
+        public ActionResult<dynamic> OCRDriver(OCRPo oCR)
         {
-            var dto = certificationClient.OCRDriver(image, type);
+            var dto = certificationClient.OCRDriver(oCR);
 
             return Ok(dto);
         }
@@ -111,13 +110,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 行驶证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type">1:正面/2:反面</param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Vehicle/OCR")]
-        public ActionResult<decimal> OCRVehicle(string image, string type)
+        public ActionResult<dynamic> OCRVehicle(OCRPo oCR)
         {
-            var dto = certificationClient.OCRVehicle(image, type);
+            var dto = certificationClient.OCRVehicle(oCR);
 
             return Ok(dto);
         }
@@ -125,13 +123,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 道路经营许可证OCR
         /// </summary>
-        /// <param name="image"></param>
-        /// <param name="type">1:正面/2:反面</param>
+        /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Permit/OCR")]
-        public ActionResult<decimal> OCRPermit(string image, string type)
+        public ActionResult<dynamic> OCRPermit(OCRPo oCR)
         {
-            var dto = certificationClient.OCRPermit(image, type);
+            var dto = certificationClient.OCRPermit(oCR);
 
             return Ok(dto);
         }
@@ -142,7 +139,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="certificationDto"></param>
         /// <returns></returns>
         [HttpPost("UserDriver")]
-        public ActionResult<decimal> UserDriverCertification(DriverCertificationDto certificationDto)
+        public ActionResult<dynamic> UserDriverCertification(DriverCertificationDto certificationDto)
         {
             var res = certificationClient.RealNameCertification(certificationDto.IDCard, certificationDto.Name);
 

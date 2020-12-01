@@ -351,6 +351,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         /// <returns></returns>
         public IEnumerable<dynamic> GetWayBillList(int userId, int pageIndex, int pageSize, int? status)
         {
+            var arr = new string[] { "北京市", "上海市", "天津市", "重庆市" };
             return (from o in context.Order
                     where o.CarrierUserID == userId && (status.HasValue ? status == (int)EnumOrderStatus.Start ? o.TradeStatus == status && o.ActionStatus == 0 : (o.TradeStatus == status) : (o.ActionStatus > 0))
                     join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
@@ -378,10 +379,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         order.Name,
                         DepartureAddressName = DepartureAddress_New.Name,
                         // DepartureAddress = DepartureAddress_New.Province + DepartureAddress_New.City,
-                        DepartureAddress = ReturnAddress(DepartureAddress_New),
+                        DepartureAddress = arr.Contains(DepartureAddress_New.Province) ? DepartureAddress_New.Province + DepartureAddress_New.County : DepartureAddress_New.Province + DepartureAddress_New.City,
                         ArrivalAddressName = ArrivalAddress_New.Name,
                         //ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province,
-                        ArrivalAddress = ReturnAddress(ArrivalAddress_New),
+                        ArrivalAddress = arr.Contains(ArrivalAddress_New.Province) ? ArrivalAddress_New.Province + ArrivalAddress_New.County : ArrivalAddress_New.Province + ArrivalAddress_New.City,
                         TradeStatusText = ((EnumActionStatus_Driver)o.ActionStatus).GetDescriptionOriginal(),
                         o.ActionStatus
                     }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
@@ -531,15 +532,5 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         }
         #endregion
         #endregion
-
-        string ReturnAddress(UserAddress addr)
-        {
-            var arr = new string[] { "北京市", "上海市", "天津市", "重庆市" };
-            if (arr.Contains(addr.Province))
-            {
-                return addr.Province + addr.County;
-            }
-            return addr.Province + addr.City;
-        }
     }
 }

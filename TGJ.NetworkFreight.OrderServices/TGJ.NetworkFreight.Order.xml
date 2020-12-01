@@ -769,6 +769,16 @@
             更新时间
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.GetList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="status">3：调度中，4：已完成，33：回单确认</param>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateCancel(TGJ.NetworkFreight.OrderServices.Models.OrderCancelDto)">
             <summary>
             取消订单

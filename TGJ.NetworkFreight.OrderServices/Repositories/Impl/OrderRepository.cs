@@ -163,6 +163,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                DArrivalAddressObject = ArrivalAddress_New,
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                o.TradeStatus,
+                               o.ActionStatus,
                                order.Comment,
                                Driver = user_new,
                                o.TotalAmount,
@@ -384,7 +385,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         //ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province,
                         ArrivalAddress = arr.Contains(ArrivalAddress_New.Province) ? ArrivalAddress_New.Province + ArrivalAddress_New.County : ArrivalAddress_New.Province + ArrivalAddress_New.City,
                         TradeStatusText = ((EnumActionStatus_Driver)o.ActionStatus).GetDescriptionOriginal(),
-                        o.ActionStatus
+                        o.ActionStatus,
+                        o.TotalAmount
                     }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
         }
 
@@ -402,7 +404,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                 try
                 {
                     var model = Get(entity.OrderNo);
-                    if (model == null || model.UserID != entity.UserID)
+                    if (model == null || model.CarrierUserID != entity.UserID)
                         throw new Exception("订单不存在");
                     if (model.TradeStatus != (int)EnumOrderStatus.Start && model.ActionStatus < (int)EnumActionStatus.Loading)
                     {
@@ -445,7 +447,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                 try
                 {
                     var model = Get(entity.OrderNo);
-                    if (model == null || model.UserID != entity.UserID)
+                    if (model == null || model.CarrierUserID != entity.UserID)
                         throw new Exception("订单不存在");
                     if (model.ActionStatus != (int)EnumActionStatus.Pay)
                     {
@@ -488,7 +490,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                 try
                 {
                     var model = Get(entity.OrderNo);
-                    if (model == null || model.UserID != entity.UserID)
+                    if (model == null || model.CarrierUserID != entity.UserID)
                         throw new Exception("订单不存在");
                     if (model.ActionStatus != (int)EnumActionStatus.Loading)
                     {

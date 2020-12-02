@@ -24,7 +24,7 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
             UserContext.SaveChanges();
         }
 
-        public void Delete(UserTruck UserTruck)
+        public void Update(UserTruck UserTruck)
         {
             UserContext.UserTruck.Update(UserTruck);
             UserContext.SaveChanges();
@@ -32,12 +32,12 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
 
         public UserTruck GetUserTruckById(int userId, int id)
         {
-            return UserContext.UserTruck.FirstOrDefault(a => a.Id == id && a.UserID == userId && a.IsValid == true);
+            return UserContext.UserTruck.FirstOrDefault(a => a.Id == id && a.UserID == userId);
         }
 
         public IEnumerable<UserTruck> GetUserTrucks(int userId)
         {
-            return UserContext.UserTruck.Where(a => a.UserID == userId && a.IsValid == false).ToList();
+            return UserContext.UserTruck.Where(a => a.UserID == userId).ToList();
         }
     }
 }

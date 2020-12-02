@@ -24,9 +24,9 @@ namespace TGJ.NetworkFreight.UserServices.Services
             UserTruckRepository.Create(UserTruck);
         }
 
-        public void Delete(UserTruck UserTruck)
+        public void Update(UserTruck UserTruck)
         {
-            UserTruckRepository.Delete(UserTruck);
+            UserTruckRepository.Update(UserTruck);
         }
 
         public UserTruck GetUserTruckById(int userId, int id)

@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TGJ.NetworkFreight.UserServices.Models
+namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService
 {
     /// <summary>
-    /// 用户车辆模型
+    /// 用户车辆请求参数
     /// </summary>
-    public class UserTruck
+    public class UserTruckPo
     {
-        /// <summary>
-        /// 主键
-        /// </summary>
-        [Key]
         public int? Id { set; get; }
 
         /// <summary>

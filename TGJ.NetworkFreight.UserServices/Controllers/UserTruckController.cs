@@ -75,7 +75,27 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
                 return NotFound(UserTruck);
             }
 
-            userTruckService.Delete(UserTruck);
+            UserTruck.Status = 0;
+            userTruckService.Update(UserTruck);
+
+            return UserTruck;
+        }
+
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="UserTruck"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public ActionResult<UserTruck> UpdateUserTruck(UserTruck UserTruck)
+        {
+            if (UserTruck == null)
+            {
+                return NotFound(UserTruck);
+            }
+
+            UserTruck.Status = 0;
+            userTruckService.Update(UserTruck);
 
             return UserTruck;
         }

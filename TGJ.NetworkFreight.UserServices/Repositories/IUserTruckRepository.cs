@@ -14,6 +14,6 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
         IEnumerable<UserTruck> GetUserTrucks(int userId);
         UserTruck GetUserTruckById(int userId, int id);
         void Create(UserTruck UserTruck);
-        void Delete(UserTruck UserTruck);
+        void Update(UserTruck UserTruck);
     }
 }

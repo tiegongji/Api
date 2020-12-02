@@ -21,17 +21,10 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "CertificationServices",
+      "applicationUrl": "http://localhost:5003",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:5003"
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/CertificationServices",
-      "publishAllPorts": true,
-      "useSSL": true
+      }
     }
   }
 }

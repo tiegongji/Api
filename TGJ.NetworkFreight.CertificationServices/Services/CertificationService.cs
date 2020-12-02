@@ -160,7 +160,7 @@ namespace TGJ.NetworkFreight.CertificationServices.Services
             string appcode = Configuration["AliCertification:AppCode"];
 
             string querys = "";
-            string bodys = $"IMAGE={pic}&type={type}";
+            string bodys = $"IMAGE={pic}&IMAGE_TYPE={type}";
 
             return Certification(host, path, method, appcode, querys, bodys);
         }

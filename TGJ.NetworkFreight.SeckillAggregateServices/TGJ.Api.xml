@@ -312,9 +312,15 @@
             <param name="certificationClient"></param>
             <param name="Configuration"></param>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.AddBankCard(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.UserTruckPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.AddUserTruck(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.UserTruckPo)">
             <summary>
             新增
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.UpdateBusinessLicense(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo)">
+            <summary>
+            更新
             </summary>
             <returns></returns>
         </member>
@@ -814,6 +820,41 @@
             1:物流端/2:司机端
             </summary>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo">
+            <summary>
+            许可证信息参数
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.Id">
+            <summary>
+            车辆id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.TransportLicenseUrl">
+            <summary>
+            道路运输证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.BusinessLicenseUrl">
+            <summary>
+            道路运输经营许可证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.RoadTransportCertificateNumber">
+            <summary>
+            道路运输证书编号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.RoadTransportManageNumber">
+            <summary>
+            道路运输管理编号
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.UserTruckPo">
             <summary>
             用户车辆请求参数
@@ -1163,9 +1204,19 @@
             删除
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService.IUserTruckClient.Update(TGJ.NetworkFreight.UserServices.Models.UserTruck)">
+            <summary>
+            更新
+            </summary>
+        </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService.IUserTruckClient.GetList(System.Int32)">
             <summary>
             获取列表
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService.IUserTruckClient.GetUserTruckById(System.Int32,System.Int32)">
+            <summary>
+            获取单个
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Utils.Util">

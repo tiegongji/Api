@@ -19,7 +19,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Interface
         void UpdateCarrierUser(Order entity);
         void Confirm(Order entity);
         void UpdateMoney(Order entity);
-        void UpdateLoading(Order entity);
+        void UpdateLoading(OrderDto entity);
         void UpdateUnLoading(OrderDto entity);
         IEnumerable<dynamic> GetWayBillList(int userId, int pageIndex, int pageSize, int? status);
     }

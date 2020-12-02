@@ -130,7 +130,9 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             try
             {
                 var url = IConfiguration["Ali:url"];
-                var imgs = context.OrderReceiptImage.Where(a => a.OrderNo == OrderNo).Select(b => url + b.FileUrl).ToList();
+                var arr = context.OrderReceiptImage.Where(a => a.OrderNo == OrderNo);
+                var imgs = arr.Where(a => a.Type == 2).Select(b => url + b.FileUrl).ToList();
+                var imgs2 = arr.Where(a => a.Type == 3).Select(b => url + b.FileUrl).ToList();
                 var res = (from o in context.Order
                            where (o.UserID == userId || o.CarrierUserID == userId) && o.OrderNo == OrderNo
                            join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
@@ -167,7 +169,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                order.Comment,
                                Driver = user_new,
                                o.TotalAmount,
-                               imgs
+                               imgs,
+                               imgs2
                            });
                 if (res.Any())
                     return res.FirstOrDefault();
@@ -440,8 +443,13 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         /// 装货
         /// </summary>
         /// <param name="entity"></param>
-        public void UpdateLoading(Order entity)
+        public void UpdateLoading(OrderDto param)
         {
+            if (param.imgs == null || param.imgs.Count == 0)
+            {
+                throw new Exception("请上传图片");
+            }
+            var entity = mapper.Map<Order>(param);
             using (var tran = context.Database.BeginTransaction())
             {
                 try
@@ -467,6 +475,20 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     context.OrderFlow.Add(orderFlow);
                     context.SaveChanges();
 
+
+                    if (param.imgs.Count > 0)
+                    {
+                        foreach (var img in param.imgs)
+                        {
+                            img.Type = (int)EnumActionStatus.Loading;
+                            img.OrderNo = model.OrderNo;
+                            img.CreateTime = DateTime.Now;
+                            context.OrderReceiptImage.Add(img);
+
+                        }
+                        context.SaveChanges();
+                    }
+
                     tran.Commit();
                 }
                 catch (Exception)
@@ -484,6 +506,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
         /// <param name="entity"></param>
         public void UpdateUnLoading(OrderDto param)
         {
+            if (param.imgs == null || param.imgs.Count == 0)
+            {
+                throw new Exception("请上传图片");
+            }
             var entity = mapper.Map<Order>(param);
             using (var tran = context.Database.BeginTransaction())
             {
@@ -514,7 +540,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     {
                         foreach (var img in param.imgs)
                         {
-                            img.Type = (int)EnumType.Logistics;
+                            img.Type = (int)EnumActionStatus.Unloading;
                             img.OrderNo = model.OrderNo;
                             img.CreateTime = DateTime.Now;
                             context.OrderReceiptImage.Add(img);

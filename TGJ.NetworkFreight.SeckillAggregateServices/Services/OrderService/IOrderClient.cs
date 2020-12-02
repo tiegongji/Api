@@ -113,7 +113,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         /// </summary>
         [PostPath("/Orders/UpdateLoading")]
 
-        public dynamic UpdateLoading(Order entity);
+        public dynamic UpdateLoading(OrderPo entity);
         /// <summary>
         /// 卸货
         /// </summary>

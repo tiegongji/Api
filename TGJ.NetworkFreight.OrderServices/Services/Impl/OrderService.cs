@@ -111,7 +111,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             IOrderRepository.UpdateMoney(entity);
         }
 
-        public void UpdateLoading(Order entity)
+        public void UpdateLoading(OrderDto entity)
         {
             IOrderRepository.UpdateLoading(entity);
         }

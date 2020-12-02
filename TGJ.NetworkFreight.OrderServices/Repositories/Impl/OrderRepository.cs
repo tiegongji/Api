@@ -163,6 +163,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                DArrivalAddressObject = ArrivalAddress_New,
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                o.TradeStatus,
+                               o.ActionStatus,
                                order.Comment,
                                Driver = user_new,
                                o.TotalAmount,
@@ -384,7 +385,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         //ArrivalAddress = ArrivalAddress_New.Province + ArrivalAddress_New.Province,
                         ArrivalAddress = arr.Contains(ArrivalAddress_New.Province) ? ArrivalAddress_New.Province + ArrivalAddress_New.County : ArrivalAddress_New.Province + ArrivalAddress_New.City,
                         TradeStatusText = ((EnumActionStatus_Driver)o.ActionStatus).GetDescriptionOriginal(),
-                        o.ActionStatus
+                        o.ActionStatus,
+                        o.TotalAmount
                     }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
         }
 

@@ -42,7 +42,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpPost]
         public ActionResult<dynamic> AddBankCard(BankCardPo entity)
         {
-            certificationClient.BankCertification(entity.CardNumber, entity.IdCard, entity.Name);
+            //var res = certificationClient.BankCertification(entity.CardNumber, entity.IdCard, entity.Name);
 
             entity.IsSelf = true;
             entity.IsValid = true;

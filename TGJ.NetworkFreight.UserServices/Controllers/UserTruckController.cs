@@ -12,7 +12,7 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
     /// <summary>
     /// 用户车辆控制器
     /// </summary>
-    [Route("api/UserTrucks")]
+    [Route("UserTrucks")]
     [ApiController]
     public class UserTruckController : ControllerBase
     {

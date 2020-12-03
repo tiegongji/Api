@@ -186,6 +186,23 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             return orderClient.UpdateCarrierUser(entity);
         }
 
+
+        /// <summary>
+        /// 绑定司机
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [HttpPost("BindCarrierUser")]
+        public ActionResult<dynamic> BindCarrierUser(int UserId, int CarrierUserID, string OrderNo)
+        {
+            var entity = new Order();
+            entity.OrderNo = OrderNo;
+            entity.UserID = UserId;
+            entity.CarrierUserID = CarrierUserID;
+            return orderClient.UpdateCarrierUser(entity);
+        }
+
+
         /// <summary>
         /// 确认回单
         /// </summary>

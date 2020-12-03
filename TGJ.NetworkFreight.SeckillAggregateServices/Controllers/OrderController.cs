@@ -219,11 +219,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateLoading")]
-        public ActionResult<dynamic> UpdateLoading(SysUser sysUser, string OrderNo)
+        public ActionResult<dynamic> UpdateLoading(OrderPo entity)
         {
-            var entity = new Order();
-            entity.OrderNo = OrderNo;
-            entity.UserID = sysUser.UserId;
+            //var entity = new Order();
+            //entity.OrderNo = OrderNo;
+            //entity.UserID = sysUser.UserId;
             return orderClient.UpdateLoading(entity);
         }
         /// <summary>

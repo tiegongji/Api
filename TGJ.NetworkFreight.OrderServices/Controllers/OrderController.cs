@@ -235,7 +235,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateLoading")]
-        public ActionResult UpdateLoading(Order entity)
+        public ActionResult UpdateLoading(OrderDto entity)
         {
             IOrderService.UpdateLoading(entity);
             return Ok("装货成功");

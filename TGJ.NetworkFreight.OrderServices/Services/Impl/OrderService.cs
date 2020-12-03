@@ -111,8 +111,22 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             IOrderRepository.UpdateMoney(entity);
         }
 
-        public void UpdateLoading(Order entity)
+        public void UpdateLoading(OrderDto entity)
         {
+            string accessKeyId = IConfiguration["Ali:accessKeyId"];
+            string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
+            string EndPoint = IConfiguration["Ali:EndPoint"];
+            string bucketName = IConfiguration["Ali:bucketName"];
+            var list = new List<OrderReceiptImage>();
+            foreach (var item in entity.imgs)
+            {
+                var filename = "TMS/" + Guid.NewGuid().ToString() + ".jpg";
+                var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
+                var model = new OrderReceiptImage();
+                model.FileUrl = filename;
+                list.Add(model);
+            }
+            entity.imgs = list;
             IOrderRepository.UpdateLoading(entity);
         }
 
@@ -133,9 +147,6 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
                 var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
                 var model = new OrderReceiptImage();
                 model.FileUrl = filename;
-                model.CreateTime = DateTime.Now;
-                model.Type = 1;
-                model.OrderNo = entity.OrderNo;
                 list.Add(model);
             }
             entity.imgs = list;

@@ -120,7 +120,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         ArrivalAddress = ArrivalAddress_New.Address,
                         TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                         o.TradeStatus,
-                        o.ActionStatus
+                        o.ActionStatus,
+                        o.TotalAmount
                     }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
         }
 
@@ -303,7 +304,6 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     {
                         throw new Exception("司机未上传回单");
                     }
-                    model.TotalAmount = entity.TotalAmount;
                     model.LastUpdateTime = DateTime.Now;
                     model.TradeStatus = (int)EnumOrderStatus.Finish;
                     context.Order.Update(model);

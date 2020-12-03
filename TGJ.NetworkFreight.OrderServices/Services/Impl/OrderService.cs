@@ -85,8 +85,8 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             var orders = IOrderRepository.GetListByUid(userid);
 
             var orderDto = new OrderStateTurnoverDto();
-            orderDto.CompleteTurnover = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Start);
-            orderDto.DispatchTurnover = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Finish);
+            orderDto.CompleteTurnover = orders.Where(a => a.TradeStatus == (int)EnumOrderStatus.Finish).Sum(a=>a.TotalAmount);
+            orderDto.DispatchTurnover = orders.Where(a => a.TradeStatus == (int)EnumOrderStatus.Start).Sum(a => a.TotalAmount);
 
             return orderDto;
         }

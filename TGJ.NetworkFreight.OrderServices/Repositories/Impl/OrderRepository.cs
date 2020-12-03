@@ -181,7 +181,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
         public IEnumerable<Order> GetListByUid(int userId)
         {
-            return context.Order.Where(a => a.UserID == userId).ToList();
+            return context.Order.Where(a => a.CarrierUserID == userId).ToList();
         }
 
 

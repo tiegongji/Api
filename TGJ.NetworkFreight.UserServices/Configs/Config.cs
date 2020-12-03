@@ -66,7 +66,7 @@ namespace TGJ.NetworkFreight.UserServices.Configs
                     ClientId = "client-password",
 	                // 使用用户名密码交互式验证
 	                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-
+                    AccessTokenLifetime = 3600,
 	                // 用于认证的密码
 	                ClientSecrets =
                     {

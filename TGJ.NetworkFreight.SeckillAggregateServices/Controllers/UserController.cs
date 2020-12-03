@@ -171,6 +171,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             {
                 userInfo.wx_HeadImgUrl = loginPo.AvatarUrl;
                 userInfo.wx_NickName = loginPo.NickName;
+                userInfo.wx_UnionID = wechatResult.unionId;
                 userInfo.LastUpdateTime = DateTime.Now;
 
                 userClient.PutUser(userInfo);

@@ -208,7 +208,7 @@ namespace TGJ.NetworkFreight.OrderServices
                 {
                     return "明天 " + oDateTime.ToString("t");
                 }
-                return oDateTime.ToString("MM月dd日 hh:ss");
+                return oDateTime.ToString("MM月dd日 HH:ss");
             }
             return "";
         }

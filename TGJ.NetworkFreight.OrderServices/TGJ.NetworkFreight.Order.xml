@@ -117,7 +117,7 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.OrderServices.Models.Order)">
             <summary>
             装货
             </summary>
@@ -814,7 +814,7 @@
             </summary>
             <param name="entity"></param>
         </member>
-        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateLoading(TGJ.NetworkFreight.OrderServices.Models.Order)">
             <summary>
             装货
             </summary>

@@ -11,7 +11,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Interface
     {
         void Add(OrderDetailDto entity);
         IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize, int? status);
-        IEnumerable<Order> GetListByUid(int userid);
+        IEnumerable<Order> GetListByUid(int userid,int roleName);
         dynamic GetDetail(int userid, string OrderNo);
         Order Get(string id);
         void Update(Order entity);

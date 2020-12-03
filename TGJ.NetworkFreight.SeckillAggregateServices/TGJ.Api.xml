@@ -232,7 +232,7 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.Commons.Users.SysUser,System.String)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
             <summary>
             装货
             </summary>
@@ -1130,7 +1130,7 @@
             更新价格
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateLoading(TGJ.NetworkFreight.OrderServices.Models.Order)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.UpdateLoading(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
             <summary>
             装货
             </summary>

@@ -43,9 +43,9 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             IOrderRepository.Add(entity);
         }
 
-        public IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize,  int? status)
+        public IEnumerable<dynamic> GetList(int userid, int pageIndex, int pageSize, int? status)
         {
-            return IOrderRepository.GetList(userid, pageIndex, pageSize,status);
+            return IOrderRepository.GetList(userid, pageIndex, pageSize, status);
         }
 
         public dynamic GetDetail(int userid, string OrderNo)
@@ -55,7 +55,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
 
         public OrderGatherDto GetOrderGather(int userid)
         {
-            var orders = IOrderRepository.GetListByUid(userid);
+            var orders = IOrderRepository.GetListByUid(userid, 1);
             var orderGather = new OrderGatherDto();
             orderGather.Dispatch = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Start);
             orderGather.Confirm = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Start && a.ActionStatus == (int)EnumActionStatus.Unloading);
@@ -66,7 +66,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
 
         public OrderTurnoverDto GetOrderTurnover(int userid)
         {
-            var orders = IOrderRepository.GetListByUid(userid);
+            var orders = IOrderRepository.GetListByUid(userid, 1);
             var orderTurnover = new OrderTurnoverDto();
 
             var now = DateTime.Now;
@@ -75,17 +75,17 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
 
             orderTurnover.MonthlyTurnover = orders.Where(a => a.CreateTime > startTime && a.CreateTime < endTime).Sum(a => a.TotalAmount);
 
-            orderTurnover.TotalTurnover  = orders.Sum(a => a.TotalAmount);
+            orderTurnover.TotalTurnover = orders.Sum(a => a.TotalAmount);
 
             return orderTurnover;
         }
 
         public OrderStateTurnoverDto GetOrderStateTurnover(int userid)
         {
-            var orders = IOrderRepository.GetListByUid(userid);
+            var orders = IOrderRepository.GetListByUid(userid, 2);
 
             var orderDto = new OrderStateTurnoverDto();
-            orderDto.CompleteTurnover = orders.Where(a => a.TradeStatus == (int)EnumOrderStatus.Finish).Sum(a=>a.TotalAmount);
+            orderDto.CompleteTurnover = orders.Where(a => a.TradeStatus == (int)EnumOrderStatus.Finish).Sum(a => a.TotalAmount);
             orderDto.DispatchTurnover = orders.Where(a => a.TradeStatus == (int)EnumOrderStatus.Start).Sum(a => a.TotalAmount);
 
             return orderDto;

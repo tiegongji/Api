@@ -107,6 +107,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     join ArrivalAddress in context.UserAddress on order.ArrivalAddressID equals ArrivalAddress.ID
                     into _ArrivalAddress
                     from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
+                    orderby o.CreateTime descending
                     select new
                     {
                         order.OrderNo,
@@ -376,6 +377,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     join ArrivalAddress in context.UserAddress on order.ArrivalAddressID equals ArrivalAddress.ID
                     into _ArrivalAddress
                     from ArrivalAddress_New in _ArrivalAddress.DefaultIfEmpty()
+                    orderby o.CreateTime descending
                     select new
                     {
                         order.OrderNo,

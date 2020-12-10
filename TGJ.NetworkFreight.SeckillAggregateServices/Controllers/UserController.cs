@@ -238,6 +238,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpPost("RefreshToken")]
         public UserDto RefreshToken([FromForm] string refreshToken)
         {
+            if (string.IsNullOrWhiteSpace(refreshToken))
+            {
+                throw new BizException("refreshToken 为空");
+            }
+
             // 1、获取IdentityServer接口文档
             string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
 

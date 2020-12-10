@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using static IdentityServer4.IdentityServerConstants;
 
 namespace TGJ.NetworkFreight.UserServices.Configs
 {
@@ -67,6 +68,7 @@ namespace TGJ.NetworkFreight.UserServices.Configs
 	                // 使用用户名密码交互式验证
 	                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     AccessTokenLifetime = 3600,
+                    AllowOfflineAccess = true,
 	                // 用于认证的密码
 	                ClientSecrets =
                     {
@@ -94,7 +96,8 @@ namespace TGJ.NetworkFreight.UserServices.Configs
                     AllowedScopes=new List<string>{
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
-                    "TGJService" // 启用服务授权支持
+                    "TGJService", // 启用服务授权支持
+                    StandardScopes.OfflineAccess,
                     },
 
                     // 增加授权访问

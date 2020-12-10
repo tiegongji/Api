@@ -225,6 +225,58 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             userDto.AccessToken = tokenResponse.AccessToken;
             userDto.ExpiresIn = tokenResponse.ExpiresIn;
 
+            userDto.RefreshToken = tokenResponse.RefreshToken;
+
+            return userDto;
+        }
+
+        /// <summary>
+        /// 刷新Token
+        /// </summary>
+        /// <param name="refreshToken"></param>
+        /// <returns></returns>
+        [HttpPost("RefreshToken")]
+        public UserDto RefreshToken([FromForm] string refreshToken)
+        {
+            // 1、获取IdentityServer接口文档
+            string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
+
+            DiscoveryDocumentResponse discoveryDocument = httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest { Address = userUrl, Policy = new DiscoveryPolicy { RequireHttps = false } }).Result;
+
+            if (discoveryDocument.IsError)
+            {
+                throw new BizException($"[DiscoveryDocumentResponse Error]: {discoveryDocument.Error}");
+            }
+
+            // 2、根据用户名和密码建立token
+            TokenResponse tokenResponse = httpClient.RequestRefreshTokenAsync(new RefreshTokenRequest()
+            {
+                Address = discoveryDocument.TokenEndpoint,
+                ClientId = "client-password",
+                ClientSecret = "secret",
+                GrantType = "refresh_token",
+                RefreshToken = refreshToken
+            }).Result;
+
+            // 3、返回AccessToken
+            if (tokenResponse.IsError)
+            {
+                throw new BizException(tokenResponse.Error + "," + tokenResponse.Raw);
+            }
+
+            // 4、获取用户信息
+            UserInfoResponse userInfoResponse = httpClient.GetUserInfoAsync(new UserInfoRequest()
+            {
+                Address = discoveryDocument.UserInfoEndpoint,
+                Token = tokenResponse.AccessToken
+            }).Result;
+
+            // 5、返回UserDto信息
+            UserDto userDto = new UserDto();
+            userDto.UserId = userInfoResponse.Json.TryGetString("sub");
+            userDto.AccessToken = tokenResponse.AccessToken;
+            userDto.ExpiresIn = tokenResponse.ExpiresIn;
+            userDto.RefreshToken = tokenResponse.RefreshToken;
             return userDto;
         }
     }

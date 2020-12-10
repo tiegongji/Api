@@ -1,18 +1,25 @@
+using IdentityModel.AspNetCore.OAuth2Introspection;
 using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using TGJ.NetworkFreight.Commons.Exceptions.Handlers;
 using TGJ.NetworkFreight.Commons.Filters;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.Cores.MicroClients.Extentions;
 using TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices
 {
@@ -59,31 +66,57 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                  builder => builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
             });
 
-            //4、添加身份认证
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-                    .AddIdentityServerAuthentication(options =>
-                    {
-                        options.Authority = Configuration["Authority"]; // 1、授权中心地址
-                        options.ApiName = "TGJService"; // 2、api名称(项目具体名称)
-                        options.RequireHttpsMetadata = false; // 3、https元数据，不需要
-                    });
+            ////4、添加身份认证
+            //services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+            //        .AddIdentityServerAuthentication(options =>
+            //        {
+            //            options.Authority = Configuration["Authority"]; // 1、授权中心地址
+            //            options.ApiName = "TGJService"; // 2、api名称(项目具体名称)
+            //            options.RequireHttpsMetadata = false; // 3、https元数据，不需要
+            //            options.JwtValidationClockSkew = TimeSpan.FromSeconds(0);
+            //             options.JwtBackChannelHandler
+
+            //            options.Events = new JwtBearerEvents
+            //            {
+            //                OnAuthenticationFailed = context =>
+            //                {
+            //                    if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+            //                    {
+            //                        context.Response.Headers.Add("Token-Expired", "true");
+            //                    }
+            //                    return Task.CompletedTask;
+            //                }
+
+            //            };
+            //        });
 
             ////将身份验证服务添加到DI并配置Bearer为默认方案。
-            //services.AddAuthentication("Bearer")
-            //    .AddJwtBearer("Bearer", options =>
-            //    {
-            //        //指定授权地址
-            //        options.Authority = "http://localhost:5005";
-            //        //获取或设置元数据地址或权限是否需要HTTPS。默认值为true。这应该只在开发环境中禁用。
-            //        options.RequireHttpsMetadata = false;
-            //        //获取或设置任何接收到的OpenIdConnect令牌的访问群体。
-            //        options.Audience = "TGJService";
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    //指定授权地址
+                    options.Authority = Configuration["Authority"]; // 1、授权中心地址
+                    options.RequireHttpsMetadata = false;
+                    //获取或设置任何接收到的OpenIdConnect令牌的访问群体。
+                    options.Audience = "TGJService";
 
-            //        ////设置验证时间时要应用的时钟偏移，即token多久验证一次，默认为5分钟
-            //        //options.TokenValidationParameters.ClockSkew = TimeSpan.FromMinutes(1);
-            //        ////指示令牌是否必须具有“过期”值
-            //        //options.TokenValidationParameters.RequireExpirationTime = true;
-            //    });
+                    ////设置验证时间时要应用的时钟偏移，即token多久验证一次，默认为5分钟
+                    options.TokenValidationParameters.ClockSkew = TimeSpan.FromMinutes(0);
+                    ////指示令牌是否必须具有“过期”值
+                    options.TokenValidationParameters.RequireExpirationTime = true;
+
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnAuthenticationFailed = context =>
+                        {
+                            if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                            {
+                                context.Response.Headers.Add("Token-Expired", "true");
+                            }
+                            return Task.CompletedTask;
+                        }
+                    };
+                });
 
             // 5、添加控制器
             services.AddControllers(options =>
@@ -145,13 +178,23 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            /*if (env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }*/
+            }
+            else
+            {
+                app.UseExceptionHandler(appBuilder =>
+                {
+                    appBuilder.Run(async context =>
+                    {
+                        context.Response.StatusCode = 500;
+                        await context.Response.WriteAsync("Unexpected Error!");
+                    });
+                });
+            }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
 
             // 1、开启身份认证

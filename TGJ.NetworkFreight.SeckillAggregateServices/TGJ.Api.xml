@@ -306,6 +306,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserController.RefreshToken(System.String)">
+            <summary>
+            刷新Token
+            </summary>
+            <param name="refreshToken"></param>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController">
             <summary>
             用户车辆控制器
@@ -435,6 +442,7 @@
             Token
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.RefreshToken" -->
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto.ExpiresIn">
             <summary>
             AccessToken过期时间

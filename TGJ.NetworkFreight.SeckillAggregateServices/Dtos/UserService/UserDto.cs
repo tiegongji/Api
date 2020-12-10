@@ -15,6 +15,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService
         /// </summary>
         public string AccessToken { set; get; }
         /// <summary>
+        /// <summary>
+        /// RefreshToken
+        /// </summary>
+        public string RefreshToken { set; get; }
+        /// <summary>
         /// AccessToken过期时间
         /// </summary>
         public int ExpiresIn { set; get; }

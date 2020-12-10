@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -22,7 +25,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             //host.Run();
 
-            CreateHostBuilder(args).Build().Run();
+            //CreateHostBuilder(args).Build().Run();
+            InitWebHost(args).Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -31,5 +35,14 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        public static IWebHost InitWebHost(string[] args)
+        {
+            var x509ca = new X509Certificate2(File.ReadAllBytes(@"/project/Aggreagte/aggregate/certs/123.pfx"), "HD3P0YE9");
+            return WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseKestrel(option => option.ListenAnyIP(443, config => config.UseHttps(x509ca)))
+                .Build();
+        }
     }
 }

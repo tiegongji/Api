@@ -118,6 +118,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                     };
                 });
 
+            //services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+            //       .AddIdentityServerAuthentication(options =>
+            //       {
+            //           options.Authority = Configuration["Authority"]; // 1、授权中心地址
+            //           options.ApiName = "TGJService"; // 2、api名称(项目具体名称)
+            //           options.RequireHttpsMetadata = false; // 3、https元数据，不需要
+            //           options.JwtValidationClockSkew = TimeSpan.FromMinutes(0);
+
+            //       });
+
             // 5、添加控制器
             services.AddControllers(options =>
             {

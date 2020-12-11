@@ -107,7 +107,7 @@
             <summary>
             确认回单
             </summary>
-            <param name="model"></param>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateMoney(TGJ.NetworkFreight.OrderServices.Models.Order)">
@@ -128,7 +128,7 @@
             <summary>
             卸货
             </summary>
-            <param name="model"></param>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetWayBillList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">

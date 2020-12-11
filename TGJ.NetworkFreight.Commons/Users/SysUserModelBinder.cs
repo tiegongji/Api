@@ -42,13 +42,13 @@ namespace TGJ.NetworkFreight.Commons.Users
                 foreach (var claim in claims)
                 {
                     // 1、获取用户Id
-                    if (claim.Type.Equals("sub"))
+                    if (claim.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"))
                     {
                         sysUser.UserId = Convert.ToInt32(claim.Value);
                     }
 
                     // 2、获取用户名
-                    if (claim.Type.Equals("amr"))
+                    if (claim.Type.Equals("http://schemas.microsoft.com/claims/authnmethodsreferences"))
                     {
                         sysUser.UserName = claim.Value;
                     }

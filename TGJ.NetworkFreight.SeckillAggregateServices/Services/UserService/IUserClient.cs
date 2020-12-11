@@ -52,7 +52,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService
         /// <summary>
         /// 根据Id获取用户
         /// </summary>
-        /// <param name="openId"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [GetPath("/Users/Id/{id}")]
         public User GetUserById(int id);

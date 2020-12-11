@@ -44,7 +44,7 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
 
             if (User == null)
             {
-                return NotFound();
+                return NotFound(User);
             }
 
             return User;

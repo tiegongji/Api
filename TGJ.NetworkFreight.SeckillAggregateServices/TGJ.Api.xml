@@ -132,6 +132,17 @@
             <param name="certificationDto"></param>
             <returns></returns>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.FeedBackController">
+            <summary>
+            地址控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.FeedBackController.Add(TGJ.NetworkFreight.SeckillAggregateServices.Pos.FeedBackService.FeedBakcPo)">
+            <summary>
+            新增
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController">
             <summary>
             订单聚合控制器
@@ -1075,6 +1086,16 @@
             <param name="code"></param>
             <returns></returns>
         </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.FeedBackService.IFeedBackClient">
+            <summary>
+            用户反馈微服务客户端
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.FeedBackService.IFeedBackClient.Add(TGJ.NetworkFreight.SeckillAggregateServices.Pos.FeedBackService.FeedBakcPo)">
+            <summary>
+            新增
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient">
             <summary>
             订单微服务客户端
@@ -1194,7 +1215,7 @@
             <summary>
             根据Id获取用户
             </summary>
-            <param name="openId"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient.GetUserByKey(System.String)">

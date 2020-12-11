@@ -208,7 +208,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <summary>
         /// 确认回单
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Confirm")]
         public ActionResult Confirm(Order entity)
@@ -244,7 +244,7 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         /// <summary>
         /// 卸货
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
         public ActionResult UpdateUnLoading(OrderDto entity)

@@ -63,6 +63,13 @@ namespace TGJ.NetworkFreight.UserServices
             // ×¢²á³µÁ¾²Ö´¢
             services.AddScoped<IUserTruckRepository, UserTruckRepository>();
 
+            // ×¢²á·´À¡Service
+            services.AddScoped<IFeedBackService, FeedBackService>();
+
+            // ×¢²á·´À¡²Ö´¢
+            services.AddScoped<IFeedBackRepository, FeedBackRepository>();
+
+
             //Ìí¼Ó·þÎñ×¢²á
             services.AddServiceRegistry(options =>
             {

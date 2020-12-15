@@ -143,6 +143,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             services.AddMemoryCacheSetup();
 
+            // 6¡¢Ê¹ÓÃÄÚ´æ»º´æ
+            services.AddMemoryCache();
+
             #region ÅäÖÃSwagger
 
             services.AddSwaggerGen(c =>

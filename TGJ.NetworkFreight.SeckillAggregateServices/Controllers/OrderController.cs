@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using TGJ.NetworkFreight.Commons.AutoMappers;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.OrderServices.Models;
@@ -22,10 +23,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     {
         private readonly IOrderClient orderClient;
         private readonly IUserClient userClient;
-        public OrderController(IOrderClient orderClient, IUserClient userClient)
+        private readonly IMemoryCache memoryCache;
+        public OrderController(IOrderClient orderClient, IUserClient userClient, IMemoryCache memoryCache)
         {
             this.orderClient = orderClient;
             this.userClient = userClient;
+            this.memoryCache = memoryCache;
         }
 
         /// <summary>

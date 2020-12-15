@@ -27,7 +27,7 @@ namespace TGJ.NetworkFreight.OrderServices
         public void ConfigureServices(IServiceCollection services)
         {
             // 1¡¢IOCÈÝÆ÷ÖÐ×¢Èëdbcontext
-            services.AddDbContext<OrderContext>(optionsBuilder =>
+            services.AddDbContextPool<OrderContext>(optionsBuilder =>
             {
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });

@@ -20,7 +20,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         /// </summary>
         [GetPath("/Orders")]
 
-        public Order GetOrder();
+        public dynamic GetOrder();
 
 
         /// <summary>

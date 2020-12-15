@@ -27,6 +27,16 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         }
 
         /// <summary>
+        /// 获取所有订单（测试）
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult<IEnumerable<dynamic>> GetOrders()
+        {
+            return IOrderService.GetList(17, 1, 100, 3).ToList();
+        }
+
+        /// <summary>
         /// 货物类型  
         /// </summary>
         /// <returns></returns>

@@ -9,6 +9,12 @@
             订单控制器
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetOrders">
+            <summary>
+            获取所有订单（测试）
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetInitCategoryList">
             <summary>
             货物类型  

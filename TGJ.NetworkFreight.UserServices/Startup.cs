@@ -34,7 +34,7 @@ namespace TGJ.NetworkFreight.UserServices
         public void ConfigureServices(IServiceCollection services)
         {
             // 1¡¢IOCÈÝÆ÷ÖÐ×¢Èëdbcontext
-            services.AddDbContext<UserContext>(optionsBuilder =>
+            services.AddDbContextPool<UserContext>(optionsBuilder =>
             {
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });

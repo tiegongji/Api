@@ -25,8 +25,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             //host.Run();
 
-            CreateHostBuilder(args).Build().Run();
-           // InitWebHost(args).Run();
+            //CreateHostBuilder(args).Build().Run();
+            InitWebHost(args).Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -38,7 +38,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
         public static IWebHost InitWebHost(string[] args)
         {
-            var x509ca = new X509Certificate2(File.ReadAllBytes(@"/project/Aggreagte/aggregate/certs/123.pfx"), "HD3P0YE9");
+            var x509ca = new X509Certificate2(File.ReadAllBytes(@"tmsapi.51tgj.com.pfx"), "HD3P0YE9");
             return WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseKestrel(option => option.ListenAnyIP(443, config => config.UseHttps(x509ca)))

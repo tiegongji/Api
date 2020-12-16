@@ -34,6 +34,9 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             {
                 try
                 {
+                    if (context.Users.Any(a => a.Id == model.UserID && a.HasAuthenticated == false))
+                        throw new Exception("请先认证");
+
                     var DepartureAddress = context.UserAddress.Where(a => a.ID == model.DepartureAddressID).FirstOrDefault();
                     var ArrivalAddress = context.UserAddress.Where(a => a.ID == model.ArrivalAddressID).FirstOrDefault();
 
@@ -133,8 +136,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             {
                 var url = IConfiguration["Ali:url"];
                 var arr = context.OrderReceiptImage.Where(a => a.OrderNo == OrderNo);
-                var imgs = arr.Where(a => a.Type == 2).Select(b => url + b.FileUrl).ToList();
-                var imgs2 = arr.Where(a => a.Type == 3).Select(b => url + b.FileUrl).ToList();
+                var imgs = arr.Where(a => a.Type == 2).Select(b =>  b.FileUrl).ToList();
+                var imgs2 = arr.Where(a => a.Type == 3).Select(b =>  b.FileUrl).ToList();
                 var res = (from o in context.Order
                            where (o.UserID == userId || o.CarrierUserID == userId) && o.OrderNo == OrderNo
                            join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
@@ -465,6 +468,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     }
                     model.ActionStatus = (int)EnumActionStatus.Loading;
                     model.LastUpdateTime = DateTime.Now;
+                    model.DepartureTime = DateTime.Now;
                     context.Order.Update(model);
                     context.SaveChanges();
 
@@ -526,6 +530,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     }
                     model.ActionStatus = (int)EnumActionStatus.Unloading;
                     model.LastUpdateTime = DateTime.Now;
+                    model.ArrivalTime = DateTime.Now;
                     context.Order.Update(model);
                     context.SaveChanges();
 

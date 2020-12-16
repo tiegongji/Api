@@ -117,9 +117,10 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
             string EndPoint = IConfiguration["Ali:EndPoint"];
             string bucketName = IConfiguration["Ali:bucketName"];
+            string url = IConfiguration["Ali:url"];
             var list = new List<OrderReceiptImage>();
             var now = DateTime.Now;
-            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
+            var filepath = url + now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in entity.imgs)
             {
                 var filename = "TMS/" + filepath + Guid.NewGuid().ToString() + ".jpg";
@@ -142,9 +143,10 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
             string EndPoint = IConfiguration["Ali:EndPoint"];
             string bucketName = IConfiguration["Ali:bucketName"];
+            string url = IConfiguration["Ali:url"];
             var list = new List<OrderReceiptImage>();
             var now = DateTime.Now;
-            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
+            var filepath = url + now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in entity.imgs)
             {
                 var filename = "TMS/"+ filepath + Guid.NewGuid().ToString() + ".jpg";

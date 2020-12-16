@@ -118,9 +118,11 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             string EndPoint = IConfiguration["Ali:EndPoint"];
             string bucketName = IConfiguration["Ali:bucketName"];
             var list = new List<OrderReceiptImage>();
+            var now = DateTime.Now;
+            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in entity.imgs)
             {
-                var filename = "TMS/" + Guid.NewGuid().ToString() + ".jpg";
+                var filename = "TMS/" + filepath + Guid.NewGuid().ToString() + ".jpg";
                 var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
                 var model = new OrderReceiptImage();
                 model.FileUrl = filename;
@@ -141,9 +143,11 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             string EndPoint = IConfiguration["Ali:EndPoint"];
             string bucketName = IConfiguration["Ali:bucketName"];
             var list = new List<OrderReceiptImage>();
+            var now = DateTime.Now;
+            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in entity.imgs)
             {
-                var filename = "TMS/" + Guid.NewGuid().ToString() + ".jpg";
+                var filename = "TMS/"+ filepath + Guid.NewGuid().ToString() + ".jpg";
                 var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
                 var model = new OrderReceiptImage();
                 model.FileUrl = filename;

@@ -38,9 +38,11 @@ namespace TGJ.NetworkFreight.UserServices.Services
             string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
             string EndPoint = IConfiguration["Ali:EndPoint"];
             string bucketName = IConfiguration["Ali:bucketName"];
+            var now = DateTime.Now;
+            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in list)
             {
-                var filename = "FB/" + Guid.NewGuid().ToString() + ".jpg";
+                var filename = "FB/" + filepath + Guid.NewGuid().ToString() + ".jpg";
                 var res = ALiOSSHelper.Upload(filename, item.FilePath, accessKeyId, accessKeySecret, EndPoint, bucketName);
                 item.FilePath =  filename;
             }

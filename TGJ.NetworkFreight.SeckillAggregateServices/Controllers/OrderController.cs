@@ -37,7 +37,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="sysUser"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult GetOrder(SysUser sysUser)
+        public ActionResult GetOrder()
         {
             return Ok(orderClient.GetOrder());
         }

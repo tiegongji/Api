@@ -42,7 +42,7 @@
             <param name="bankCardClient"></param>
             <param name="certificationClient"></param>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController.AddBankCard(TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController.AddBankCard(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo)">
             <summary>
             新增
             </summary>
@@ -148,7 +148,7 @@
             订单聚合控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetOrder(TGJ.NetworkFreight.Commons.Users.SysUser)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetOrder">
             <summary>
             获取订单列表
             </summary>

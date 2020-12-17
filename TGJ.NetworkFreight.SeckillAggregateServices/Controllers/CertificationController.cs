@@ -21,7 +21,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     /// </summary>
     [Route("api/Certification")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CertificationController : ControllerBase
     {
         private readonly ICertificationClient certificationClient;

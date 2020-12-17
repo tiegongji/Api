@@ -34,6 +34,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    //.UseKestrel(option =>
+                    //{
+                    //    option.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(8);
+                    //    option.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(8);
+                    //});
                 });
 
         public static IWebHost InitWebHost(string[] args)
@@ -41,7 +46,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
             var x509ca = new X509Certificate2(File.ReadAllBytes(@"tmsapi.51tgj.com.pfx"), "HD3P0YE9");
             return WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseKestrel(option => option.ListenAnyIP(443, config => config.UseHttps(x509ca)))
+                .UseKestrel(option =>
+                {
+                    option.ListenAnyIP(443, config => config.UseHttps(x509ca));
+                    option.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(8);
+                    option.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(8);
+                })
                 .Build();
         }
     }

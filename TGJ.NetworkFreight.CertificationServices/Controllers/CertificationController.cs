@@ -34,11 +34,11 @@ namespace TGJ.NetworkFreight.CertificationServices.Controllers
         [HttpGet("IdCard/Certification")]
         public ActionResult<dynamic> RealNameCertification(string idCard, string name)
         {
-            //var result = CertificationService.RealNameCertification(idCard, name);
+            var result = CertificationService.RealNameCertification(idCard, name);
 
-            var json = "{\"status\":\"01\",\"msg\":\"实名认证通过！\",\"idCard\":\"61243019911018221X\",\"name\":\"汤龙\",\"sex\":\"男\",\"area\":\"陕西省安康地区白河县\",\"province\":\"陕西省\",\"city\":\"安康地区\",\"prefecture\":\"白河县\",\"birthday\":\"1991-10-18\",\"addrCode\":\"612430\",\"lastCode\":\"X\"}";
+            //var json = "{\"status\":\"01\",\"msg\":\"实名认证通过！\",\"idCard\":\"61243019911018221X\",\"name\":\"汤龙\",\"sex\":\"男\",\"area\":\"陕西省安康地区白河县\",\"province\":\"陕西省\",\"city\":\"安康地区\",\"prefecture\":\"白河县\",\"birthday\":\"1991-10-18\",\"addrCode\":\"612430\",\"lastCode\":\"X\"}";
 
-            dynamic result = JsonConvert.DeserializeObject(json);
+            //dynamic result = JsonConvert.DeserializeObject(json);
 
             return Ok(result);
         }

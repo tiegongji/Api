@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,10 +41,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<dynamic> AddBankCard(BankCardPo entity)
+        public ActionResult<dynamic> AddBankCard(SysUser sysUser, [FromForm] BankCardPo entity)
         {
-            //var res = certificationClient.BankCertification(entity.CardNumber, entity.IdCard, entity.Name);
+            var res = certificationClient.BankCertification(entity.CardNumber, entity.IdCard, entity.Name);
 
+            JObject obj = Newtonsoft.Json.Linq.JObject.Parse(res.ToString());
+
+            var result = obj["errcode"].ToString();
+
+            if (result != "00000")
+                throw new BizException("认证失败");
+
+            entity.UserID = sysUser.UserId;
             entity.IsSelf = true;
             entity.IsValid = true;
             entity.IsDelete = false;

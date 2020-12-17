@@ -412,7 +412,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                 try
                 {
                     var model = Get(entity.OrderNo);
-                    if (model == null || model.CarrierUserID != entity.UserID)
+                    if (model == null || !(model.CarrierUserID == entity.UserID || model.UserID == entity.UserID))
                         throw new Exception("订单不存在");
                     if (model.TradeStatus != (int)EnumOrderStatus.Start && model.ActionStatus < (int)EnumActionStatus.Loading)
                     {
@@ -430,6 +430,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
                     orderFlow.Type = (int)EnumType.Driver;
+                    orderFlow.Description = entity.UserID.ToString();
                     context.OrderFlow.Add(orderFlow);
                     context.SaveChanges();
 

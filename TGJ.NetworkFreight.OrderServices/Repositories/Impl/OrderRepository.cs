@@ -383,7 +383,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         order.OrderNo,
                         truck.Length,
                         order.Weight,
-                        Date = order.StartDate.ToDate(),
+                        Date = order.StartDate.ToDateForList(),
                         order.Distance,
                         order.Name,
                         DepartureAddressName = DepartureAddress_New.Name,

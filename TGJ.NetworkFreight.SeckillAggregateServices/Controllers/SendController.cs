@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TGJ.NetworkFreight.Commons.Exceptions;
-using TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches;
+using TGJ.NetworkFreight.Commons.MemoryCaches;
+using TGJ.NetworkFreight.Commons.Utils;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService;
-using TGJ.NetworkFreight.SeckillAggregateServices.Utils;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 {

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,21 +26,30 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             //host.Run();
 
-            //CreateHostBuilder(args).Build().Run();
-            InitWebHost(args).Run();
+            CreateHostBuilder(args).Build().Run();
+            //InitWebHost(args).Run();
         }
 
+        //public static IHostBuilder CreateHostBuilder(string[] args) =>
+        //    Host.CreateDefaultBuilder(args)
+        //    .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+        //        .ConfigureWebHostDefaults(webBuilder =>
+        //        {
+        //            webBuilder.UseStartup<Startup>();
+        //            //.UseKestrel(option =>
+        //            //{
+        //            //    option.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(8);
+        //            //    option.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(8);
+        //            //});
+        //        });
+
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                    //.UseKestrel(option =>
-                    //{
-                    //    option.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(8);
-                    //    option.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(8);
-                    //});
-                });
+           Host.CreateDefaultBuilder(args)
+           //.UseServiceProviderFactory(new AutofacServiceProviderFactory()) //<--NOTE THIS
+           .ConfigureWebHostDefaults(webBuilder =>
+           {
+               webBuilder.UseStartup<Startup>();
+           });
 
         public static IWebHost InitWebHost(string[] args)
         {

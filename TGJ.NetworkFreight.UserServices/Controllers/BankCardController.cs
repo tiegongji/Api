@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TGJ.NetworkFreight.Commons.Utils;
 using TGJ.NetworkFreight.UserServices.Models;
 using TGJ.NetworkFreight.UserServices.Services;
 
@@ -43,7 +46,14 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         [HttpGet("{userId}")]
         public ActionResult<IEnumerable<UserBankCard>> GetUserBankCards(int userId)
         {
-            return UserBankCardService.GetUserBankCards(userId).ToList();
+            var models = UserBankCardService.GetUserBankCards(userId).ToList();
+
+            models.ForEach(x =>
+            {
+                x.CardNumber = Util.ReplaceWithSpecialChar(x.CardNumber);
+            });
+
+            return models;
         }
 
         /// <summary>

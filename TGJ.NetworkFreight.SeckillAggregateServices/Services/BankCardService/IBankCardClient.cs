@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TGJ.NetworkFreight.Commons;
 using TGJ.NetworkFreight.Cores.MicroClients.Attributes;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService;
+using TGJ.NetworkFreight.UserServices.Models;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService
 {
@@ -29,7 +31,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService
         /// 获取列表
         /// </summary>
         [GetPath("/BankCards/{userId}")]
-
         public dynamic GetList(int userId);
     }
 }

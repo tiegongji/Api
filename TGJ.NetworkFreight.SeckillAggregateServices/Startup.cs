@@ -1,5 +1,4 @@
-using IdentityModel.AspNetCore.OAuth2Introspection;
-using IdentityServer4.AccessTokenValidation;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -17,9 +16,18 @@ using TGJ.NetworkFreight.Commons.Exceptions.Handlers;
 using TGJ.NetworkFreight.Commons.Filters;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.Cores.MicroClients.Extentions;
-using TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
+using TGJ.NetworkFreight.Commons.MemoryCaches;
+using System.Collections.Generic;
+using System.Reflection;
+using Autofac;
+using Autofac.Extras.DynamicProxy;
+using TGJ.NetworkFreight.Commons;
+using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.Test;
+using TGJ.NetworkFreight.SeckillAggregateServices.Aop;
+using Microsoft.AspNetCore.Mvc;
+using TGJ.NetworkFreight.SeckillAggregateServices.Controllers;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices
 {
@@ -66,31 +74,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                  builder => builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
             });
 
-            ////4、添加身份认证
-            //services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-            //        .AddIdentityServerAuthentication(options =>
-            //        {
-            //            options.Authority = Configuration["Authority"]; // 1、授权中心地址
-            //            options.ApiName = "TGJService"; // 2、api名称(项目具体名称)
-            //            options.RequireHttpsMetadata = false; // 3、https元数据，不需要
-            //            options.JwtValidationClockSkew = TimeSpan.FromSeconds(0);
-            //             options.JwtBackChannelHandler
-
-            //            options.Events = new JwtBearerEvents
-            //            {
-            //                OnAuthenticationFailed = context =>
-            //                {
-            //                    if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
-            //                    {
-            //                        context.Response.Headers.Add("Token-Expired", "true");
-            //                    }
-            //                    return Task.CompletedTask;
-            //                }
-
-            //            };
-            //        });
-
-            ////将身份验证服务添加到DI并配置Bearer为默认方案。
+            //5，将身份验证服务添加到DI并配置Bearer为默认方案。
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
@@ -125,7 +109,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
             //           options.ApiName = "TGJService"; // 2、api名称(项目具体名称)
             //           options.RequireHttpsMetadata = false; // 3、https元数据，不需要
             //           options.JwtValidationClockSkew = TimeSpan.FromMinutes(0);
-
             //       });
 
             // 5、添加控制器
@@ -187,6 +170,25 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             #endregion 配置Swagger
         }
+
+
+        //public void ConfigureContainer(ContainerBuilder builder)
+        //{
+        //    var basePath = AppContext.BaseDirectory;
+        //    var servicesDllFile = Path.Combine(basePath, "TGJ.NetworkFreight.SeckillAggregateServices.dll");
+
+        //    var cacheType = new List<Type>();
+        //    builder.RegisterType<CacheAOP>();
+        //    cacheType.Add(typeof(CacheAOP));
+        //    // 获取 Service.dll 程序集服务，并注册
+        //    var assemblysServices = Assembly.LoadFrom(servicesDllFile);
+        //    builder.RegisterAssemblyTypes(assemblysServices)
+        //                .AsImplementedInterfaces()
+        //                .InstancePerDependency()
+        //                .EnableInterfaceInterceptors()//引用Autofac.Extras.DynamicProxy;
+        //                .InterceptedBy(cacheType.ToArray());//允许将拦截器服务的列表分配给注册。
+
+        //}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

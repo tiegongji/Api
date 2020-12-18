@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches
+namespace TGJ.NetworkFreight.Commons.MemoryCaches
 {
     /// <summary>
     /// 缓存接口
@@ -13,5 +13,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches
         object Get(string cacheKey);
 
         void Set(string cacheKey, object cacheValue);
+
+        void Update(string cacheKey, object cacheValue);
     }
 }

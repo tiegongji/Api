@@ -6,11 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TGJ.NetworkFreight.Commons;
+using TGJ.NetworkFreight.Commons.AutoMappers;
 using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.Commons.Users;
+using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService;
+using TGJ.NetworkFreight.UserServices.Models;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 {
@@ -45,7 +49,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         {
             var res = certificationClient.BankCertification(entity.CardNumber, entity.IdCard, entity.Name);
 
-            JObject obj = Newtonsoft.Json.Linq.JObject.Parse(res.ToString());
+            JObject obj = JObject.Parse(res.ToString());
 
             var result = obj["errcode"].ToString();
 

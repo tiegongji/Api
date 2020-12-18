@@ -80,7 +80,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var user = userClient.GetUserById(sysUser.UserId);
 
-            order.HasAuthenticated = user?.HasAuthenticated;
+            if (user != null)
+            {
+                order.HasAuthenticated = user.HasAuthenticated;
+
+                if (order.HasAuthenticated == true)
+                {
+                    order.Name = user.Name;
+                    order.IdCard = user.IDCard;
+                }
+            }
 
             return order;
         }
@@ -96,7 +105,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var user = userClient.GetUserById(sysUser.UserId);
 
-            order.HasAuthenticated = user?.HasAuthenticated;
+            if (user != null)
+            {
+                order.HasAuthenticated = user.HasAuthenticated;
+
+                if (order.HasAuthenticated == true)
+                {
+                    order.Name = user.Name;
+                    order.IdCard = user.IDCard;
+                }
+            }
 
             return order;
         }

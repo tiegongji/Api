@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using TGJ.NetworkFreight.Commons.MemoryCaches;
 
-namespace TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches
+namespace TGJ.NetworkFreight.SeckillAggregateServices.Extensions
 {
     public static class MemoryCacheSetup
     {

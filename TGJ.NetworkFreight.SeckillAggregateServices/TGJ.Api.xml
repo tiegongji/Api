@@ -51,7 +51,7 @@
             地址控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo)">
             <summary>
             新增
             </summary>
@@ -379,7 +379,7 @@
             <param name="certificationClient"></param>
             <param name="Configuration"></param>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.AddUserTruck(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.UserTruckPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.AddUserTruck(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.UserTruckPo)">
             <summary>
             新增
             </summary>

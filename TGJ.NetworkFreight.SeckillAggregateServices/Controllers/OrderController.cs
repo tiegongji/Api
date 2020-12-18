@@ -146,9 +146,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Add")]
-        public ActionResult<dynamic> Add(OrderDetailPo entity)
+        public ActionResult<dynamic> Add(SysUser sysUser, OrderDetailPo entity)
         {
-            //entity.UserID = sysUser.UserId;
+            entity.UserID = sysUser.UserId;
             return orderClient.Add(entity);
         }
 

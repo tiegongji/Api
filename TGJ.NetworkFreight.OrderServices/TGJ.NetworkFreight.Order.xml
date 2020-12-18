@@ -495,24 +495,9 @@
             承运人车辆ID
             </summary>
         </member>
-        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.HasDepartureImg">
-            <summary>
-            是否已上传装货回单
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.HasArrivalImg">
-            <summary>
-            是否已上传卸货回单
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.StartTime">
-            <summary>
-            装货时间
-            </summary>
-        </member>
         <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.DepartureTime">
             <summary>
-            起运时间
+            装货时间
             </summary>
         </member>
         <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.ArrivalTime">

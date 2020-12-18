@@ -43,9 +43,9 @@ namespace TGJ.NetworkFreight.UserServices.Services
             var filepath = url + now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in list)
             {
-                var filename = "FB/" + filepath + Guid.NewGuid().ToString() + ".jpg";
+                var filename = url + "FB/" + filepath + Guid.NewGuid().ToString() + ".jpg";
                 var res = ALiOSSHelper.Upload(filename, item.FilePath, accessKeyId, accessKeySecret, EndPoint, bucketName);
-                item.FilePath =  filename;
+                item.FilePath = filename;
             }
             return list;
         }

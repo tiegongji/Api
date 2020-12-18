@@ -120,10 +120,10 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             string url = IConfiguration["Ali:url"];
             var list = new List<OrderReceiptImage>();
             var now = DateTime.Now;
-            var filepath = url + now.Year + "/" + now.Month + "/" + now.Day + "/";
+            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in entity.imgs)
             {
-                var filename = "TMS/" + filepath + Guid.NewGuid().ToString() + ".jpg";
+                var filename = url + "TMS/" + filepath + Guid.NewGuid().ToString() + ".jpg";
                 var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
                 var model = new OrderReceiptImage();
                 model.FileUrl = filename;
@@ -146,10 +146,10 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             string url = IConfiguration["Ali:url"];
             var list = new List<OrderReceiptImage>();
             var now = DateTime.Now;
-            var filepath = url + now.Year + "/" + now.Month + "/" + now.Day + "/";
+            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in entity.imgs)
             {
-                var filename = "TMS/"+ filepath + Guid.NewGuid().ToString() + ".jpg";
+                var filename = url + "TMS/" + filepath + Guid.NewGuid().ToString() + ".jpg";
                 var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
                 var model = new OrderReceiptImage();
                 model.FileUrl = filename;

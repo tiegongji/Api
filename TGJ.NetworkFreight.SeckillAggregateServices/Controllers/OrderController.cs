@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json;
 using TGJ.NetworkFreight.Commons.AutoMappers;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.OrderServices.Models;
@@ -257,11 +258,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateLoading")]
-        public ActionResult<dynamic> UpdateLoading(SysUser sysUser, [FromForm] OrderPo entity)
+        public ActionResult<dynamic> UpdateLoading(SysUser sysUser, [FromForm] OrderImgFormDto model)
         {
-            //var entity = new Order();
-            //entity.OrderNo = OrderNo;
+            var entity = new OrderPo();
+            entity.OrderNo = model.OrderNo;
             entity.UserID = sysUser.UserId;
+            entity.imgs = JsonConvert.DeserializeObject<List<OrderReceiptImage>>(model.imgs);
             return orderClient.UpdateLoading(entity);
         }
         /// <summary>
@@ -270,9 +272,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
-        public ActionResult<dynamic> UpdateUnLoading(SysUser sysUser, [FromForm] OrderPo entity)
+        public ActionResult<dynamic> UpdateUnLoading(SysUser sysUser, [FromForm] OrderImgFormDto model)
         {
+            var entity = new OrderPo();
+            entity.OrderNo = model.OrderNo;
             entity.UserID = sysUser.UserId;
+            entity.imgs = JsonConvert.DeserializeObject<List<OrderReceiptImage>>(model.imgs);
             return orderClient.UpdateUnLoading(entity);
         }
 

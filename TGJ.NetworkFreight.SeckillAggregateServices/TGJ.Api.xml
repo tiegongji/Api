@@ -292,14 +292,14 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderImgFormDto)">
             <summary>
             装货
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderImgFormDto)">
             <summary>
             卸货
             </summary>
@@ -804,6 +804,11 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo.Comment">
             <summary>
             备注
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderImgFormDto.OrderNo">
+            <summary>
+            订单ID
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo">

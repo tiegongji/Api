@@ -80,7 +80,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var user = userClient.GetUserById(sysUser.UserId);
 
-            order.HasAuthenticated = user?.HasAuthenticated;
+            if (user != null)
+            {
+                order.HasAuthenticated = user.HasAuthenticated;
+
+                if (order.HasAuthenticated == true)
+                {
+                    order.Name = user.Name;
+                    order.IdCard = user.IDCard;
+                }
+            }
 
             return order;
         }
@@ -96,7 +105,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             var user = userClient.GetUserById(sysUser.UserId);
 
-            order.HasAuthenticated = user?.HasAuthenticated;
+            if (user != null)
+            {
+                order.HasAuthenticated = user.HasAuthenticated;
+
+                if (order.HasAuthenticated == true)
+                {
+                    order.Name = user.Name;
+                    order.IdCard = user.IDCard;
+                }
+            }
 
             return order;
         }
@@ -128,7 +146,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Add")]
-        public ActionResult<dynamic> Add(SysUser sysUser, [FromForm] OrderDetailPo entity)
+        public ActionResult<dynamic> Add(SysUser sysUser, OrderDetailPo entity)
         {
             entity.UserID = sysUser.UserId;
             return orderClient.Add(entity);
@@ -196,12 +214,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("BindCarrierUser")]
-        public ActionResult<dynamic> BindCarrierUser(SysUser sysUser, int UserId, string OrderNo)
+        public ActionResult<dynamic> BindCarrierUser(int UserId, int CarrierUserID, string OrderNo)
         {
             var entity = new Order();
             entity.OrderNo = OrderNo;
             entity.UserID = UserId;
-            entity.CarrierUserID = sysUser.UserId;
+            entity.CarrierUserID = CarrierUserID;
             return orderClient.UpdateCarrierUser(entity);
         }
 
@@ -239,11 +257,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateLoading")]
-        public ActionResult<dynamic> UpdateLoading(SysUser sysUser,[FromForm] OrderPo entity)
+        public ActionResult<dynamic> UpdateLoading(OrderPo entity)
         {
             //var entity = new Order();
             //entity.OrderNo = OrderNo;
-            entity.UserID = sysUser.UserId;
+            //entity.UserID = sysUser.UserId;
             return orderClient.UpdateLoading(entity);
         }
         /// <summary>
@@ -252,9 +270,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
-        public ActionResult<dynamic> UpdateUnLoading(SysUser sysUser, [FromForm] OrderPo entity)
+        public ActionResult<dynamic> UpdateUnLoading(OrderPo entity)
         {
-            entity.UserID = sysUser.UserId;
+            //entity.UserID = UserID;
             return orderClient.UpdateUnLoading(entity);
         }
 

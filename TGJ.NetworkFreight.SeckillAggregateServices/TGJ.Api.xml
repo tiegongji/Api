@@ -4,12 +4,54 @@
         <name>TGJ.NetworkFreight.SeckillAggregateServices</name>
     </assembly>
     <members>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Aop.CacheAOP">
+            <summary>
+            面向切面的缓存使用
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Aop.CacheAOP.#ctor(TGJ.NetworkFreight.Commons.MemoryCaches.ICaching)">
+            <summary>
+            
+            </summary>
+            <param name="cache"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Aop.CacheAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+             <summary>
+            AbsoluteExpiration
+             </summary>
+             <param name="invocation"></param>
+        </member>
+        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Aop.CacheAOPbase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Aop.CacheAOPbase.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            AOP的拦截方法
+            </summary>
+            <param name="invocation"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Aop.CacheAOPbase.CustomCacheKey(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            自定义缓存的key
+            </summary>
+            <param name="invocation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Aop.CacheAOPbase.GetArgumentValue(System.Object)">
+            <summary>
+            object 转 string
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController">
             <summary>
             地址控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.AddressController.AddAddress(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo)">
             <summary>
             新增
             </summary>
@@ -278,7 +320,7 @@
             推送消息控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient,TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ISendClient,TGJ.NetworkFreight.Commons.MemoryCaches.ICaching)">
             <summary>
             
             </summary>
@@ -337,7 +379,7 @@
             <param name="certificationClient"></param>
             <param name="Configuration"></param>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.AddUserTruck(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.UserTruckPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.AddUserTruck(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.UserTruckPo)">
             <summary>
             新增
             </summary>
@@ -362,6 +404,31 @@
             列表
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.UserID">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.CardNumber">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.BankName">
+            <summary>
+            银行
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.Name">
+            <summary>
+            预留姓名
+            </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.DriversDto">
             <summary>
@@ -423,6 +490,16 @@
             是否认证
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.StateTurnoverDto.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.StateTurnoverDto.IdCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto">
             <summary>
             订单成交额Dto
@@ -441,6 +518,31 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto.HasAuthenticated">
             <summary>
             是否认证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.TurnoverDto.IdCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.Test.TestModelDto.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.Test.TestModelDto.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.Test.TestModelDto.Age">
+            <summary>
+            年龄
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.UserService.UserDto">
@@ -473,22 +575,6 @@
             <summary>
             是否认证
             </summary>
-        </member>
-        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.ICaching">
-            <summary>
-            缓存接口
-            </summary>
-        </member>
-        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.MemoryCaching">
-            <summary>
-            实例化缓存接口ICaching
-            </summary>
-        </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.MemoryCaches.MemoryCaching.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="cache"></param>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService.UserAddressPo">
             <summary>
@@ -1254,17 +1340,6 @@
             <summary>
             获取单个
             </summary>
-        </member>
-        <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Utils.Util">
-            <summary>
-            工具类
-            </summary>
-        </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Utils.Util.GetSmsCode">
-            <summary>
-            获取短信Code
-            </summary>
-            <returns></returns>
         </member>
     </members>
 </doc>

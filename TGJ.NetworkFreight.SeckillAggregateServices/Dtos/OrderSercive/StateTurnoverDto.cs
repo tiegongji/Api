@@ -24,5 +24,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive
         /// 是否认证
         /// </summary>
         public bool? HasAuthenticated { get; set; }
+
+        /// <summary>
+        /// 姓名
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 身份证
+        /// </summary>
+        public string IdCard { get; set; }
     }
 }

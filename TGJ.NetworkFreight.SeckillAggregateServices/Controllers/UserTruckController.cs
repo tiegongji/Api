@@ -45,7 +45,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<dynamic> AddUserTruck(UserTruckPo entity)
+        public ActionResult<dynamic> AddUserTruck(SysUser sysUser,UserTruckPo entity)
         {
             string accessKeyId = Configuration["Ali:accessKeyId"];
             string accessKeySecret = Configuration["Ali:accessKeySecret"];
@@ -84,6 +84,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
 
             entity.IsValid = true;
+            entity.UserID = sysUser.UserId;
             entity.CreateTime = DateTime.Now;
 
             var truck = userTruckClient.Add(entity);

@@ -31,9 +31,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("Address")]
-        public ActionResult<dynamic> AddAddress(UserAddressPo entity)
+        public ActionResult<dynamic> AddAddress(SysUser sysUser, [FromForm] UserAddressPo entity)
         {
-            //entity.UserID = sysUser.UserId;
+            entity.UserID = sysUser.UserId;
             entity.CreateTime = DateTime.Now;
             entity.LastUpdateTime = DateTime.Now;
             entity.IsValid = true;

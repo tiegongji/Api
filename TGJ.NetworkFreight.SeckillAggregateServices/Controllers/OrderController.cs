@@ -146,7 +146,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Add")]
-        public ActionResult<dynamic> Add(SysUser sysUser, OrderDetailPo entity)
+        public ActionResult<dynamic> Add(SysUser sysUser, [FromForm] OrderDetailPo entity)
         {
             entity.UserID = sysUser.UserId;
             return orderClient.Add(entity);
@@ -214,12 +214,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("BindCarrierUser")]
-        public ActionResult<dynamic> BindCarrierUser(int UserId, int CarrierUserID, string OrderNo)
+        public ActionResult<dynamic> BindCarrierUser(SysUser sysUser, int UserId, string OrderNo)
         {
             var entity = new Order();
             entity.OrderNo = OrderNo;
             entity.UserID = UserId;
-            entity.CarrierUserID = CarrierUserID;
+            entity.CarrierUserID = sysUser.UserId;
             return orderClient.UpdateCarrierUser(entity);
         }
 
@@ -257,11 +257,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateLoading")]
-        public ActionResult<dynamic> UpdateLoading(OrderPo entity)
+        public ActionResult<dynamic> UpdateLoading(SysUser sysUser, [FromForm] OrderPo entity)
         {
             //var entity = new Order();
             //entity.OrderNo = OrderNo;
-            //entity.UserID = sysUser.UserId;
+            entity.UserID = sysUser.UserId;
             return orderClient.UpdateLoading(entity);
         }
         /// <summary>
@@ -270,9 +270,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
-        public ActionResult<dynamic> UpdateUnLoading(OrderPo entity)
+        public ActionResult<dynamic> UpdateUnLoading(SysUser sysUser, [FromForm] OrderPo entity)
         {
-            //entity.UserID = UserID;
+            entity.UserID = sysUser.UserId;
             return orderClient.UpdateUnLoading(entity);
         }
 

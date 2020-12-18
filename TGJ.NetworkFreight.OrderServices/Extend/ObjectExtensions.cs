@@ -212,5 +212,25 @@ namespace TGJ.NetworkFreight.OrderServices
             }
             return "";
         }
+
+        public static string ToDateForList(this object o)
+        {
+            if (null == o)
+                return "";
+            DateTime oDateTime;
+            if (DateTime.TryParse(o.ToString(), out oDateTime))
+            {
+                //if (DateTime.Now.ToString("d") == oDateTime.ToString("d"))
+                //{
+                //    return "今天 " + oDateTime.ToString("t");
+                //}
+                //else if (DateTime.Now.AddDays(1).ToString("d") == oDateTime.ToString("d"))
+                //{
+                //    return "明天 " + oDateTime.ToString("t");
+                //}
+                return oDateTime.ToString("MM-dd HH:mm");
+            }
+            return "";
+        }
     }
 }

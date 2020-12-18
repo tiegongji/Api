@@ -47,19 +47,7 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// </summary>
         public int CarrierTruckID { set; get; }
         /// <summary>
-        /// 是否已上传装货回单
-        /// </summary>
-        public bool HasDepartureImg { set; get; }
-        /// <summary>
-        /// 是否已上传卸货回单
-        /// </summary>
-        public bool HasArrivalImg { set; get; }
-        /// <summary>
         /// 装货时间
-        /// </summary>
-        public DateTime? StartTime { set; get; }
-        /// <summary>
-        /// 起运时间
         /// </summary>
         public DateTime? DepartureTime { set; get; }
         /// <summary>

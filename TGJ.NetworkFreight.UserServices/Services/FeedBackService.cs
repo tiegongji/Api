@@ -38,8 +38,9 @@ namespace TGJ.NetworkFreight.UserServices.Services
             string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
             string EndPoint = IConfiguration["Ali:EndPoint"];
             string bucketName = IConfiguration["Ali:bucketName"];
+            string url = IConfiguration["Ali:url"];
             var now = DateTime.Now;
-            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
+            var filepath = url + now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in list)
             {
                 var filename = "FB/" + filepath + Guid.NewGuid().ToString() + ".jpg";

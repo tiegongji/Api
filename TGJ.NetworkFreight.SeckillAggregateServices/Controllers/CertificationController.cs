@@ -177,6 +177,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             }
 
             user.HasAuthenticated = true;
+            user.Name = certificationDto.Name;
             user.IDCard = certificationDto.IDCard;
             user.CarClass = certificationDto.CarClass;
             user.DriverBeginTime = certificationDto.DriverBeginTime;

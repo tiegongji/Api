@@ -40,7 +40,7 @@ namespace TGJ.NetworkFreight.UserServices.Services
             string bucketName = IConfiguration["Ali:bucketName"];
             string url = IConfiguration["Ali:url"];
             var now = DateTime.Now;
-            var filepath = url + now.Year + "/" + now.Month + "/" + now.Day + "/";
+            var filepath = now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in list)
             {
                 var filename = url + "FB/" + filepath + Guid.NewGuid().ToString() + ".jpg";

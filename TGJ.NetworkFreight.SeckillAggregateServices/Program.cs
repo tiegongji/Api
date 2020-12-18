@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,8 +24,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
 
             //host.Run();
 
-            CreateHostBuilder(args).Build().Run();
-            //InitWebHost(args).Run();
+            //CreateHostBuilder(args).Build().Run();
+           InitWebHost(args).Run();
         }
 
         //public static IHostBuilder CreateHostBuilder(string[] args) =>

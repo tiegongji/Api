@@ -19,15 +19,6 @@ using TGJ.NetworkFreight.Cores.MicroClients.Extentions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using TGJ.NetworkFreight.Commons.MemoryCaches;
-using System.Collections.Generic;
-using System.Reflection;
-using Autofac;
-using Autofac.Extras.DynamicProxy;
-using TGJ.NetworkFreight.Commons;
-using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.Test;
-using TGJ.NetworkFreight.SeckillAggregateServices.Aop;
-using Microsoft.AspNetCore.Mvc;
-using TGJ.NetworkFreight.SeckillAggregateServices.Controllers;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices
 {

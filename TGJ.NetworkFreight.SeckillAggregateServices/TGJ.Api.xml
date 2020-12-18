@@ -234,7 +234,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Add(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Add(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderDetailPo)">
             <summary>
             新增订单
             </summary>
@@ -271,7 +271,7 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.BindCarrierUser(System.Int32,System.Int32,System.String)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.BindCarrierUser(TGJ.NetworkFreight.Commons.Users.SysUser,System.Int32,System.String)">
             <summary>
             绑定司机
             </summary>
@@ -292,14 +292,14 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
             <summary>
             装货
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderPo)">
             <summary>
             卸货
             </summary>

@@ -15,10 +15,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.1.0" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
-    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
-    <PackageReference Include="Castle.Core" Version="4.4.1" />
     <PackageReference Include="IdentityModel" Version="4.4.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OAuth" Version="2.2.0" />

@@ -45,7 +45,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<dynamic> AddUserTruck(SysUser sysUser,UserTruckPo entity)
+        public ActionResult<dynamic> AddUserTruck(SysUser sysUser, [FromForm] UserTruckPo entity)
         {
             string accessKeyId = Configuration["Ali:accessKeyId"];
             string accessKeySecret = Configuration["Ali:accessKeySecret"];

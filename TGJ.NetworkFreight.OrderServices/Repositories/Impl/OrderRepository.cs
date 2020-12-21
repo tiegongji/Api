@@ -136,8 +136,8 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             {
                 var url = IConfiguration["Ali:url"];
                 var arr = context.OrderReceiptImage.Where(a => a.OrderNo == OrderNo);
-                var imgs = arr.Where(a => a.Type == 2).Select(b =>  b.FileUrl).ToList();
-                var imgs2 = arr.Where(a => a.Type == 3).Select(b =>  b.FileUrl).ToList();
+                var imgs = arr.Where(a => a.Type == 2).Select(b => b.FileUrl).ToList();
+                var imgs2 = arr.Where(a => a.Type == 3).Select(b => b.FileUrl).ToList();
                 var res = (from o in context.Order
                            where (o.UserID == userId || o.CarrierUserID == userId) && o.OrderNo == OrderNo
                            join detail in context.OrderDetail on o.OrderNo equals detail.OrderNo
@@ -166,13 +166,29 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                order.Weight,
                                Date = order.StartDate.ToDate(),
                                order.Distance,
-                               DepartureAddressObject = DepartureAddress_New,
-                               DArrivalAddressObject = ArrivalAddress_New,
+                               DepartureAddressObject = new
+                               {
+                                   DepartureAddress_New.Name,
+                                   DepartureAddress_New.ContactPhone,
+                                   DepartureAddress_New.ContactPerson,
+                                   DepartureAddress_New.Address
+                               },
+                               DArrivalAddressObject = new
+                               {
+                                   DepartureAddress_New.Name,
+                                   DepartureAddress_New.ContactPhone,
+                                   DepartureAddress_New.ContactPerson,
+                                   DepartureAddress_New.Address
+                               },
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                o.TradeStatus,
                                o.ActionStatus,
                                order.Comment,
-                               Driver = user_new,
+                               Driver = user_new == null ? null : new
+                               {
+                                   user_new.Name,
+                                   user_new.Phone
+                               },
                                o.TotalAmount,
                                imgs,
                                imgs2
@@ -189,7 +205,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
         public IEnumerable<Order> GetListByUid(int userId, int roleName)
         {
-            if (roleName==1)
+            if (roleName == 1)
                 return context.Order.Where(a => a.UserID == userId).ToList();
             else
                 return context.Order.Where(a => a.CarrierUserID == userId).ToList();

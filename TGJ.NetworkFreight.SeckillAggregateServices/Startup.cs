@@ -19,6 +19,7 @@ using TGJ.NetworkFreight.Cores.MicroClients.Extentions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using TGJ.NetworkFreight.Commons.MemoryCaches;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices
 {
@@ -120,6 +121,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
             // 6¡¢Ê¹ÓÃÄÚ´æ»º´æ
             services.AddMemoryCache();
 
+            services.Configure<FormOptions>(options =>
+            {
+                options.ValueCountLimit = 5000; // 5000 items max
+                options.ValueLengthLimit = 1024 * 1024 * 50; // 10MB max len form data
+                options.KeyLengthLimit = 1024 * 1024 * 50;
+            });
             #region ÅäÖÃSwagger
 
             services.AddSwaggerGen(c =>

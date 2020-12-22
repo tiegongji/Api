@@ -29,6 +29,20 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         {
             this.IFeedBackClient = IFeedBackClient;
         }
+
+        /// <summary>
+        /// 上传图片
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("UpLoadFile")]
+        public ActionResult<dynamic> UpLoadFile(SysUser sysUser, [FromForm] FeedBakcFromDto model)
+        {
+            var entity = new UpLoadFile();
+            entity.UserID = sysUser.UserId;
+            entity.FilePath = model.imgs;
+            return IFeedBackClient.UpLoadFile(entity);
+        }
+
         /// <summary>
         /// 新增
         /// </summary>

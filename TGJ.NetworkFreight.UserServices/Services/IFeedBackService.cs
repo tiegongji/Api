@@ -9,5 +9,6 @@ namespace TGJ.NetworkFreight.UserServices.Services
     public interface IFeedBackService
     {
         void Add(FeedBackDto entity);
+        void UpLoadFile(UpLoadFile entity);
     }
 }

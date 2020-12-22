@@ -36,5 +36,18 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
             IFeedBackService.Add(entity);
             return Ok("添加成功");
         }
+
+
+        /// <summary>
+        /// 上传图片
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [HttpPost("UpLoadFile")]
+        public ActionResult<UpLoadFile> AddOrderReceiptImage(UpLoadFile entity)
+        {
+            IFeedBackService.UpLoadFile(entity);
+            return Ok(entity);
+        }
     }
 }

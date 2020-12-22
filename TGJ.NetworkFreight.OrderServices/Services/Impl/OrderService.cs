@@ -19,13 +19,15 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
         public readonly IInitCategoryRepository IInitCategoryRepository;
         public readonly IInitTruckRepository IInitTruckRepository;
         public readonly IOrderRepository IOrderRepository;
+        public readonly IOrderReceiptImageRepository IOrderReceiptImageRepository;
         public IConfiguration IConfiguration { get; }
-        public OrderService(IInitCategoryRepository IInitCategoryRepository, IInitTruckRepository IInitTruckRepository, IOrderRepository IOrderRepository, IConfiguration IConfiguration)
+        public OrderService(IInitCategoryRepository IInitCategoryRepository, IInitTruckRepository IInitTruckRepository, IOrderRepository IOrderRepository, IConfiguration IConfiguration, IOrderReceiptImageRepository IOrderReceiptImageRepository)
         {
             this.IInitCategoryRepository = IInitCategoryRepository;
             this.IInitTruckRepository = IInitTruckRepository;
             this.IOrderRepository = IOrderRepository;
             this.IConfiguration = IConfiguration;
+            this.IOrderReceiptImageRepository = IOrderReceiptImageRepository;
         }
 
         public IEnumerable<dynamic> GetInitCategoryList()
@@ -111,49 +113,53 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
             IOrderRepository.UpdateMoney(entity);
         }
 
+        /// <summary>
+        /// 装货
+        /// </summary>
+        /// <param name="entity"></param>
         public void UpdateLoading(OrderDto entity)
         {
-            string accessKeyId = IConfiguration["Ali:accessKeyId"];
-            string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
-            string EndPoint = IConfiguration["Ali:EndPoint"];
-            string bucketName = IConfiguration["Ali:bucketName"];
-            string url = IConfiguration["Ali:url"];
-            var list = new List<OrderReceiptImage>();
-            var now = DateTime.Now;
-            foreach (var item in entity.imgs)
-            {
-                var filename = "TMS/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
-                var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
-                var model = new OrderReceiptImage();
-                model.FileUrl = url + filename;
-                list.Add(model);
-            }
-            entity.imgs = list;
+            //string accessKeyId = IConfiguration["Ali:accessKeyId"];
+            //string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
+            //string EndPoint = IConfiguration["Ali:EndPoint"];
+            //string bucketName = IConfiguration["Ali:bucketName"];
+            //string url = IConfiguration["Ali:url"];
+            //var list = new List<OrderReceiptImage>();
+            //var now = DateTime.Now;
+            //foreach (var item in entity.imgs)
+            //{
+            //    var filename = "TMS/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
+            //    var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
+            //    var model = new OrderReceiptImage();
+            //    model.FileUrl = url + filename;
+            //    list.Add(model);
+            //}
+            //entity.imgs = list;
             IOrderRepository.UpdateLoading(entity);
         }
 
         /// <summary>
-        /// 
+        /// 卸货
         /// </summary>
         /// <param name="entity"></param>
         public void UpdateUnLoading(OrderDto entity)
         {
-            string accessKeyId = IConfiguration["Ali:accessKeyId"];
-            string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
-            string EndPoint = IConfiguration["Ali:EndPoint"];
-            string bucketName = IConfiguration["Ali:bucketName"];
-            string url = IConfiguration["Ali:url"];
-            var list = new List<OrderReceiptImage>();
-            var now = DateTime.Now;
-            foreach (var item in entity.imgs)
-            {
-                var filename = "TMS/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
-                var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
-                var model = new OrderReceiptImage();
-                model.FileUrl = url + filename;
-                list.Add(model);
-            }
-            entity.imgs = list;
+            //string accessKeyId = IConfiguration["Ali:accessKeyId"];
+            //string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
+            //string EndPoint = IConfiguration["Ali:EndPoint"];
+            //string bucketName = IConfiguration["Ali:bucketName"];
+            //string url = IConfiguration["Ali:url"];
+            //var list = new List<OrderReceiptImage>();
+            //var now = DateTime.Now;
+            //foreach (var item in entity.imgs)
+            //{
+            //    var filename = "TMS/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
+            //    var res = ALiOSSHelper.Upload(filename, item.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
+            //    var model = new OrderReceiptImage();
+            //    model.FileUrl = url + filename;
+            //    list.Add(model);
+            //}
+            //entity.imgs = list;
             IOrderRepository.UpdateUnLoading(entity);
         }
 
@@ -163,15 +169,22 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
         }
 
 
-        //public void UpdateCarrierUser(Order entity)
-        //{
-        //    var model = IOrderRepository.Get(entity.ID);
-        //    if (model.UserID == entity.UserID)
-        //        throw new Exception("订单不存在");
-        //    model.CarrierUserID = entity.CarrierUserID;
-        //    model.LastUpdateTime = DateTime.Now;
-        //    IOrderRepository.Update(model);
-        //}
+        public void AddOrderReceiptImage(OrderReceiptImage entity)
+        {
+            string accessKeyId = IConfiguration["Ali:accessKeyId"];
+            string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
+            string EndPoint = IConfiguration["Ali:EndPoint"];
+            string bucketName = IConfiguration["Ali:bucketName"];
+            string url = IConfiguration["Ali:url"];
+            var now = DateTime.Now;
+            var filename = "Order/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
+            var res = ALiOSSHelper.Upload(filename, entity.FileUrl, accessKeyId, accessKeySecret, EndPoint, bucketName);
+ 
+            entity.FileUrl = url + filename;
+            entity.Type = -1;
+            entity.CreateTime = DateTime.Now;
+            IOrderReceiptImageRepository.Add(entity);
+        }
 
         //public void UpdateMoney(Order entity)
         //{

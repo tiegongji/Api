@@ -16,6 +16,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.FeedBackService
     public interface IFeedBackClient
     {
         /// <summary>
+        /// 上传图片
+        /// </summary>
+        [PostPath("/FeedBack/UpLoadFile")]
+        public dynamic UpLoadFile(UpLoadFile entity);
+
+        /// <summary>
         /// 新增
         /// </summary>
         [PostPath("/FeedBack/Add")]

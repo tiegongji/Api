@@ -147,6 +147,13 @@
             <param name="status">null：运单列表,2：货源列表</param>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.AddOrderReceiptImage(TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage)">
+            <summary>
+            上传订单图片
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.UserID">
             <summary>
             用户
@@ -645,6 +652,11 @@
             文件类型
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
         <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage.CreateTime">
             <summary>
             创建时间
@@ -817,9 +829,15 @@
             </summary>
             <param name="entity"></param>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Services.Impl.OrderService.UpdateLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+            <summary>
+            装货
+            </summary>
+            <param name="entity"></param>
+        </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Services.Impl.OrderService.UpdateUnLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
             <summary>
-            
+            卸货
             </summary>
             <param name="entity"></param>
         </member>

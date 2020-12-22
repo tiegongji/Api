@@ -8,6 +8,7 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
 {
     public interface IFeedBackRepository
     {
+        void AddUpLoadFile(UpLoadFile entity);
         void Add(FeedBack entity, List<UpLoadFile> list = null);
     }
 }

@@ -40,15 +40,13 @@ namespace TGJ.NetworkFreight.UserServices.Services
             string bucketName = IConfiguration["Ali:bucketName"];
             string url = IConfiguration["Ali:url"];
             var now = DateTime.Now;
-            var filepath = url + now.Year + "/" + now.Month + "/" + now.Day + "/";
             foreach (var item in list)
             {
-                var filename = "FB/" + filepath + Guid.NewGuid().ToString() + ".jpg";
+                var filename = "FB/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
                 var res = ALiOSSHelper.Upload(filename, item.FilePath, accessKeyId, accessKeySecret, EndPoint, bucketName);
-                item.FilePath =  filename;
+                item.FilePath = url + filename;
             }
             return list;
         }
-
     }
 }

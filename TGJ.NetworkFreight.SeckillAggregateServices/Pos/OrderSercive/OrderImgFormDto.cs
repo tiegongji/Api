@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TGJ.NetworkFreight.OrderServices.Models;
 
 namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class OrderPo
+    public class OrderImgFormDto
     {
         /// <summary>
         /// 订单ID
@@ -18,6 +14,6 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive
 
         public int UserID { set; get; }
 
-        public List<OrderReceiptImage> imgs { set; get; }
+        public string imgs { set; get; }
     }
 }

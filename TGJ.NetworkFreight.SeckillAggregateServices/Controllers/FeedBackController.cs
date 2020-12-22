@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.AddressService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.FeedBackService;
@@ -33,8 +34,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("Add")]
-        public ActionResult<dynamic> Add(FeedBakcPo entity)
+        public ActionResult<dynamic> Add(SysUser sysUser, [FromForm] FeedBakcFromDto model)
         {
+            var entity = new FeedBakcPo();
+            entity.UserID = sysUser.UserId;
+            entity.Remark = model.Remark;
+            entity.imgs = JsonConvert.DeserializeObject<List<UpLoadFile>>(model.imgs);
             return IFeedBackClient.Add(entity);
         }
     }

@@ -10,7 +10,6 @@ using TGJ.NetworkFreight.Commons;
 using TGJ.NetworkFreight.Commons.AutoMappers;
 using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.Commons.Users;
-using TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService;

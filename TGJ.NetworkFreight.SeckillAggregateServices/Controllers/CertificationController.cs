@@ -59,7 +59,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="cardOCRPo">不包含图片头的，如data:image/jpg;base64,) </param>
         /// <returns></returns>
         [HttpPost("IdCard/OCR")]
-        public ActionResult<dynamic> OCRIdCard(CardOCRPo cardOCRPo)
+        public ActionResult<dynamic> OCRIdCard([FromForm] CardOCRPo cardOCRPo)
         {
             var dto = certificationClient.OCRIdCard(cardOCRPo);
 
@@ -72,7 +72,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Bank/OCR")]
-        public ActionResult<dynamic> OCRBank(OCRBasePo oCR)
+        public ActionResult<dynamic> OCRBank([FromForm] OCRBasePo oCR)
         {
             var dto = certificationClient.OCRBank(oCR);
 
@@ -100,7 +100,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Driver/OCR")]
-        public ActionResult<dynamic> OCRDriver(OCRPo oCR)
+        public ActionResult<dynamic> OCRDriver([FromForm] OCRPo oCR)
         {
             var dto = certificationClient.OCRDriver(oCR);
 
@@ -113,7 +113,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Vehicle/OCR")]
-        public ActionResult<dynamic> OCRVehicle(OCRPo oCR)
+        public ActionResult<dynamic> OCRVehicle([FromForm] OCRPo oCR)
         {
             var dto = certificationClient.OCRVehicle(oCR);
 
@@ -126,7 +126,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="oCR"></param>
         /// <returns></returns>
         [HttpPost("Permit/OCR")]
-        public ActionResult<dynamic> OCRPermit(OCRPo oCR)
+        public ActionResult<dynamic> OCRPermit([FromForm] OCRPo oCR)
         {
             var dto = certificationClient.OCRPermit(oCR);
 
@@ -139,7 +139,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="certificationDto"></param>
         /// <returns></returns>
         [HttpPost("UserDriver")]
-        public ActionResult<dynamic> UserDriverCertification(DriverCertificationDto certificationDto)
+        public ActionResult<dynamic> UserDriverCertification([FromForm] DriverCertificationDto certificationDto)
         {
             var res = certificationClient.RealNameCertification(certificationDto.IDCard, certificationDto.Name);
 

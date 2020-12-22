@@ -101,7 +101,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        public ActionResult<dynamic> UpdateBusinessLicense(BusinessLicensePo entity)
+        public ActionResult<dynamic> UpdateBusinessLicense([FromForm] BusinessLicensePo entity)
         {
             var userTruck = userTruckClient.GetUserTruckById(entity.UserId, entity.Id);
 

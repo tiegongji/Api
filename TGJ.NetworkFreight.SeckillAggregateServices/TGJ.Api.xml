@@ -406,31 +406,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.Id">
-            <summary>
-            主键
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.UserID">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.CardNumber">
-            <summary>
-            卡号
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.BankName">
-            <summary>
-            银行
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService.BankCardDto.Name">
-            <summary>
-            预留姓名
-            </summary>
-        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Dtos.OrderSercive.DriversDto">
             <summary>
             司机查询Dto

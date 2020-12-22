@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TGJ.NetworkFreight.SeckillAggregateServices.Dtos.BankCardService
+namespace TGJ.NetworkFreight.UserServices.Dtos.BankCardService
 {
     public class BankCardDto
-    {  /// <summary>
+    { 
+        /// <summary>
         /// 主键
         /// </summary>
         public int Id { set; get; }
-
-        /// <summary>
-        /// 用户Id
-        /// </summary>
-        public int? UserID { get; set; }
 
         /// <summary>
         /// 卡号

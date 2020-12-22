@@ -5,7 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TGJ.NetworkFreight.Commons.AutoMappers;
 using TGJ.NetworkFreight.Commons.Utils;
+using TGJ.NetworkFreight.UserServices.Dtos.UserTruckService;
 using TGJ.NetworkFreight.UserServices.Models;
 using TGJ.NetworkFreight.UserServices.Services;
 
@@ -44,16 +46,21 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         /// <param name="userId"></param>
         /// <returns></returns>
         [HttpGet("{userId}")]
-        public ActionResult<IEnumerable<UserTruck>> GetUserTrucks(int userId)
+        public ActionResult<IEnumerable<UserTruckDto>> GetUserTrucks(int userId)
         {
             var models = userTruckService.GetUserTrucks(userId).ToList();
+
+            if (models == null)
+                return Ok("未查到结果");
 
             models.ForEach(x =>
             {
                 x.Color = Util.GetColorValue(x.Color);
             });
 
-            return models;
+            var entity = AutoMapperHelper.AutoMapTo<UserTruck, UserTruckDto>(models).ToList();
+
+            return entity;
         }
 
         /// <summary>

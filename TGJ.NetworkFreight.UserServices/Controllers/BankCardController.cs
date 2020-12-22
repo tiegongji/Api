@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TGJ.NetworkFreight.Commons.AutoMappers;
 using TGJ.NetworkFreight.Commons.Utils;
+using TGJ.NetworkFreight.UserServices.Dtos.BankCardService;
 using TGJ.NetworkFreight.UserServices.Models;
 using TGJ.NetworkFreight.UserServices.Services;
 
@@ -44,16 +46,21 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         /// <param name="userId"></param>
         /// <returns></returns>
         [HttpGet("{userId}")]
-        public ActionResult<IEnumerable<UserBankCard>> GetUserBankCards(int userId)
+        public ActionResult<IEnumerable<BankCardDto>> GetUserBankCards(int userId)
         {
             var models = UserBankCardService.GetUserBankCards(userId).ToList();
+
+            if (models == null)
+                return Ok("未查到结果");
 
             models.ForEach(x =>
             {
                 x.CardNumber = Util.ReplaceWithSpecialChar(x.CardNumber);
             });
 
-            return models;
+            var entity = AutoMapperHelper.AutoMapTo<UserBankCard, BankCardDto>(models).ToList();
+
+            return entity;
         }
 
         /// <summary>

@@ -101,9 +101,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        public ActionResult<dynamic> UpdateBusinessLicense([FromForm] BusinessLicensePo entity)
+        public ActionResult<dynamic> UpdateBusinessLicense(SysUser sysUser, [FromForm] BusinessLicensePo entity)
         {
-            var userTruck = userTruckClient.GetUserTruckById(entity.UserId, entity.Id);
+            var userTruck = userTruckClient.GetUserTruckById(sysUser.UserId, entity.Id);
 
             if (userTruck==null)
                 throw new BizException("车辆信息不存在");

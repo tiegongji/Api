@@ -18,7 +18,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService
         /// <summary>
         /// 用户ID
         /// </summary>
-        public int UserId { get; set; }
+        //public int UserId { get; set; }
 
         /// <summary>
         /// 道路运输证

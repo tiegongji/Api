@@ -167,10 +167,11 @@
             <param name="oCR"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.UserDriverCertification(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.CertificationController.UserDriverCertification(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto)">
             <summary>
             司机实名认证
             </summary>
+            <param name="sysUser"></param>
             <param name="certificationDto"></param>
             <returns></returns>
         </member>
@@ -179,7 +180,7 @@
             地址控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.FeedBackController.Add(TGJ.NetworkFreight.SeckillAggregateServices.Pos.FeedBackService.FeedBakcPo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.FeedBackController.Add(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.FeedBackService.FeedBakcFromDto)">
             <summary>
             新增
             </summary>
@@ -385,7 +386,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.UpdateBusinessLicense(TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.UpdateBusinessLicense(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo)">
             <summary>
             更新
             </summary>
@@ -826,11 +827,6 @@
             司机认证Dto
             </summary>
         </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService.DriverCertificationDto.Name">
             <summary>
             名字
@@ -945,11 +941,6 @@
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.Id">
             <summary>
             车辆id
-            </summary>
-        </member>
-        <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.UserId">
-            <summary>
-            用户ID
             </summary>
         </member>
         <member name="P:TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService.BusinessLicensePo.TransportLicenseUrl">

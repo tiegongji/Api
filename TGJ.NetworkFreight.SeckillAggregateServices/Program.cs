@@ -25,7 +25,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
             //host.Run();
 
             //CreateHostBuilder(args).Build().Run();
-            InitWebHost(args).Run();
+           InitWebHost(args).Run();
         }
 
         //public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.Commons.Extend;
+using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.CertificationService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService;
@@ -21,7 +22,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     /// </summary>
     [Route("api/Certification")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class CertificationController : ControllerBase
     {
         private readonly ICertificationClient certificationClient;
@@ -136,10 +137,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 司机实名认证
         /// </summary>
+        /// <param name="sysUser"></param>
         /// <param name="certificationDto"></param>
         /// <returns></returns>
         [HttpPost("UserDriver")]
-        public ActionResult<dynamic> UserDriverCertification([FromForm] DriverCertificationDto certificationDto)
+        public ActionResult<dynamic> UserDriverCertification(SysUser sysUser, [FromForm] DriverCertificationDto certificationDto)
         {
             var res = certificationClient.RealNameCertification(certificationDto.IDCard, certificationDto.Name);
 
@@ -151,10 +153,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             string EndPoint = Configuration["Ali:EndPoint"];
             string bucketName = Configuration["Ali:bucketName"];
 
-            if (certificationDto.UserId <= 0)
+            if (sysUser.UserId <= 0)
                 throw new BizException("用户Id不正确");
 
-            var user = userClient.GetUserById(certificationDto.UserId);
+            var user = userClient.GetUserById(sysUser.UserId);
 
             if (user == null)
                 throw new BizException("用户不存在");

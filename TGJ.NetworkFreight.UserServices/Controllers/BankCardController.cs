@@ -76,6 +76,18 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         }
 
         /// <summary>
+        /// 判断卡号是否存在
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="cardNumber"></param>
+        /// <returns></returns>
+        [HttpGet("Exists/{userId}/{cardNumber}")]
+        public ActionResult<bool> Exists(int userId, string cardNumber)
+        {
+            return UserBankCardService.Exists(userId, cardNumber);
+        }
+
+        /// <summary>
         /// 逻辑删除
         /// </summary>
         /// <param name="userId"></param>

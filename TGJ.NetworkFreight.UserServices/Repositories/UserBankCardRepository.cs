@@ -30,6 +30,11 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
             UserContext.SaveChanges();
         }
 
+        public bool Exists(int userId, string bankCard)
+        {
+            return UserContext.UserBankCard.Any(e => e.CardNumber == bankCard && e.UserID == userId);
+        }
+
         public UserBankCard GetUserBankCardById(int userId, int id)
         {
             return UserContext.UserBankCard.FirstOrDefault(a => a.Id == id && a.UserID == userId && a.IsDelete == false);

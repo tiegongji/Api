@@ -31,12 +31,12 @@ namespace TGJ.NetworkFreight.Commons.MemoryCaches
         {
             _cache.Remove(cacheKey);
 
-            _cache.Set(cacheKey, cacheValue, TimeSpan.FromSeconds(300));
+            _cache.Set(cacheKey, cacheValue, TimeSpan.FromSeconds(3600));
         }
 
         public void Set(string cacheKey, object cacheValue)
         {
-            _cache.Set(cacheKey, cacheValue, TimeSpan.FromSeconds(300));
+            _cache.Set(cacheKey, cacheValue, TimeSpan.FromSeconds(3600));
         }
     }
 }

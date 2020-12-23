@@ -116,10 +116,13 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
 
-            services.AddMemoryCacheSetup();
-
             // 6¡¢Ê¹ÓÃÄÚ´æ»º´æ
             services.AddMemoryCache();
+
+            services.AddScoped<ICaching, MemoryCaching>();
+
+            //services.AddMemoryCacheSetup();
+
 
             services.Configure<FormOptions>(options =>
             {

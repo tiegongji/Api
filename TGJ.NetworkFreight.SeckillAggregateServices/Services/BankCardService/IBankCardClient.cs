@@ -28,6 +28,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService
         public dynamic Delete(int userId, int id);
 
         /// <summary>
+        /// 判断是否存在
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="cardNumber"></param>
+        /// <returns></returns>
+        [GetPath("/BankCards/Exists/{userId}/{cardNumber}")]
+        public bool Exists(int userId, string cardNumber);
+
+        /// <summary>
         /// 获取列表
         /// </summary>
         [GetPath("/BankCards/{userId}")]

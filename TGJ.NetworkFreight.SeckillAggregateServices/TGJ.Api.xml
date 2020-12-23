@@ -77,7 +77,7 @@
             用户银行卡控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService.IBankCardClient,TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService.IBankCardClient,TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient,TGJ.NetworkFreight.Commons.MemoryCaches.ICaching)">
             <summary>
             
             </summary>
@@ -372,7 +372,7 @@
             用户车辆控制器
             </summary>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService.IUserTruckClient,TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.#ctor(TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService.IUserTruckClient,TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService.ICertificationClient,Microsoft.Extensions.Configuration.IConfiguration,TGJ.NetworkFreight.Commons.MemoryCaches.ICaching)">
             <summary>
             
             </summary>
@@ -1068,6 +1068,14 @@
             删除
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService.IBankCardClient.Exists(System.Int32,System.String)">
+            <summary>
+            判断是否存在
+            </summary>
+            <param name="userId"></param>
+            <param name="cardNumber"></param>
+            <returns></returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService.IBankCardClient.GetList(System.Int32)">
             <summary>
             获取列表
@@ -1306,6 +1314,14 @@
             <summary>
             获取列表
             </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService.IUserTruckClient.Exists(System.Int32,System.String)">
+            <summary>
+            判断是否存在
+            </summary>
+            <param name="userId"></param>
+            <param name="vehicleNumber"></param>
+            <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService.IUserTruckClient.GetUserTruckById(System.Int32,System.Int32)">
             <summary>

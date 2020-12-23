@@ -39,5 +39,10 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
         {
             return UserContext.UserTruck.Where(a => a.UserID == userId).ToList();
         }
+
+        public bool Exists(int userId, string vehicleNumber)
+        {
+            return UserContext.UserTruck.Any(e => e.VehicleNumber == vehicleNumber && e.UserID == userId);
+        }
     }
 }

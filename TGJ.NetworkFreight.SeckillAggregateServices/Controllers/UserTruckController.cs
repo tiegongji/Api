@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.Commons.Extend;
+using TGJ.NetworkFreight.Commons.MemoryCaches;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.UserTruckService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.CertificationService;
@@ -25,6 +26,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     {
         private readonly IUserTruckClient userTruckClient;
         private readonly ICertificationClient certificationClient;
+        private readonly ICaching caching;
         public IConfiguration Configuration { get; }
 
         /// <summary>
@@ -33,11 +35,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="userTruckClient"></param>
         /// <param name="certificationClient"></param>
         /// <param name="Configuration"></param>
-        public UserTruckController(IUserTruckClient userTruckClient, ICertificationClient certificationClient, IConfiguration Configuration)
+        public UserTruckController(IUserTruckClient userTruckClient, ICertificationClient certificationClient, IConfiguration Configuration, ICaching caching)
         {
             this.userTruckClient = userTruckClient;
             this.certificationClient = certificationClient;
             this.Configuration = Configuration;
+            this.caching = caching;
         }
 
         /// <summary>
@@ -47,6 +50,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpPost]
         public ActionResult<dynamic> AddUserTruck(SysUser sysUser, [FromForm] UserTruckPo entity)
         {
+            var flag = userTruckClient.Exists(sysUser.UserId, entity.VehicleNumber);
+
+            if (flag)
+                throw new BizException("车辆已存在");
+
             string accessKeyId = Configuration["Ali:accessKeyId"];
             string accessKeySecret = Configuration["Ali:accessKeySecret"];
             string EndPoint = Configuration["Ali:EndPoint"];
@@ -92,6 +100,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             if (truck == null)
                 return NotFound("添加失败");
 
+            Task.Run(() =>
+            {
+                var trucks = userTruckClient.GetList(sysUser.UserId);
+                caching.Update($"UserTruck{sysUser.UserId}", trucks);
+            });
+
             return Ok(truck);
         }
 
@@ -105,7 +119,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         {
             var userTruck = userTruckClient.GetUserTruckById(sysUser.UserId, entity.Id);
 
-            if (userTruck==null)
+            if (userTruck == null)
                 throw new BizException("车辆信息不存在");
 
             string accessKeyId = Configuration["Ali:accessKeyId"];
@@ -172,10 +186,21 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<dynamic>> GetList(SysUser sysUser)
         {
-            var truck = userTruckClient.GetList(sysUser.UserId);
+            var cacheKey = $"UserTruck{sysUser.UserId}";
+            var truck = caching.Get(cacheKey);
 
             if (truck == null)
-                return Ok("未查到结果");
+            {
+                truck = userTruckClient.GetList(sysUser.UserId);
+
+                if (truck == null)
+                    return NotFound("未查到结果");
+
+                Task.Run(() =>
+                {
+                    caching.Set(cacheKey, truck);
+                });
+            }
 
             return Ok(truck);
         }

@@ -29,6 +29,11 @@ namespace TGJ.NetworkFreight.UserServices.Services
             UserBankCardRepository.Delete(UserBankCard);
         }
 
+        public bool Exists(int userId, string bankCard)
+        {
+            return UserBankCardRepository.Exists(userId, bankCard);
+        }
+
         public UserBankCard GetUserBankCardById(int userId, int id)
         {
             return UserBankCardRepository.GetUserBankCardById(userId, id);

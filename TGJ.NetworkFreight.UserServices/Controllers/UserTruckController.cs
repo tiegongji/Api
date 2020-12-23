@@ -76,6 +76,18 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
         }
 
         /// <summary>
+        /// 判断是否存在
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="vehicleNumber"></param>
+        /// <returns></returns>
+        [HttpGet("Exists/{userId}/{vehicleNumber}")]
+        public ActionResult<bool> Exists(int userId, string vehicleNumber)
+        {
+            return userTruckService.Exists(userId, vehicleNumber);
+        }
+
+        /// <summary>
         /// 逻辑删除
         /// </summary>
         /// <param name="userId"></param>

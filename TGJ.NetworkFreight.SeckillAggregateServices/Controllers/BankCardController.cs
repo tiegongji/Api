@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using TGJ.NetworkFreight.Commons;
 using TGJ.NetworkFreight.Commons.AutoMappers;
 using TGJ.NetworkFreight.Commons.Exceptions;
+using TGJ.NetworkFreight.Commons.MemoryCaches;
 using TGJ.NetworkFreight.Commons.Users;
 using TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService;
 using TGJ.NetworkFreight.SeckillAggregateServices.Services.BankCardService;
@@ -27,16 +28,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
     {
         private readonly IBankCardClient bankCardClient;
         private readonly ICertificationClient certificationClient;
+        private readonly ICaching caching;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="bankCardClient"></param>
         /// <param name="certificationClient"></param>
-        public BankCardController(IBankCardClient bankCardClient, ICertificationClient certificationClient)
+        public BankCardController(IBankCardClient bankCardClient, ICertificationClient certificationClient, ICaching caching)
         {
             this.bankCardClient = bankCardClient;
             this.certificationClient = certificationClient;
+            this.caching = caching;
         }
 
         /// <summary>
@@ -46,6 +49,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpPost]
         public ActionResult<dynamic> AddBankCard(SysUser sysUser, [FromForm] BankCardPo entity)
         {
+            var flag = bankCardClient.Exists(sysUser.UserId, entity.CardNumber);
+
+            if (flag)
+                throw new BizException("银行卡已存在");
+
             var res = certificationClient.BankCertification(entity.CardNumber, entity.IdCard, entity.Name);
 
             JObject obj = JObject.Parse(res.ToString());
@@ -65,6 +73,12 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             if (bankCard == null)
                 return NotFound("添加失败");
+
+            Task.Run(() =>
+            {
+                var bankCards = bankCardClient.GetList(sysUser.UserId);
+                caching.Update($"BankCard{sysUser.UserId}", bankCards);
+            });
 
             return Ok(bankCard);
         }
@@ -92,10 +106,21 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<dynamic>> GetList(SysUser sysUser)
         {
-            var bankCard = bankCardClient.GetList(sysUser.UserId);
+            var cacheKey = $"BankCard{sysUser.UserId}";
+            var bankCard = caching.Get(cacheKey);
 
             if (bankCard == null)
-                return NotFound("未查到结果");
+            {
+                bankCard = bankCardClient.GetList(sysUser.UserId);
+
+                if (bankCard == null)
+                    return NotFound("未查到结果");
+
+                Task.Run(() =>
+                {
+                    caching.Set(cacheKey, bankCard);
+                });
+            }
 
             return Ok(bankCard);
         }

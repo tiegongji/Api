@@ -40,6 +40,15 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService
         public dynamic GetList(int userId);
 
         /// <summary>
+        /// 判断是否存在
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="vehicleNumber"></param>
+        /// <returns></returns>
+        [GetPath("/UserTrucks/Exists/{userId}/{vehicleNumber}")]
+        public bool Exists(int userId, string vehicleNumber);
+
+        /// <summary>
         /// 获取单个
         /// </summary>
         [GetPath("/UserTrucks/{userId}/{id}")]

@@ -38,5 +38,10 @@ namespace TGJ.NetworkFreight.UserServices.Services
         {
             return UserTruckRepository.GetUserTrucks(userId);
         }
+
+        public bool Exists(int userId, string vehicleNumber)
+        {
+            return UserTruckRepository.Exists(userId, vehicleNumber);
+        }
     }
 }

@@ -30,6 +30,10 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         /// </summary>
         public int Type { get; set; }
         /// <summary>
+        /// 状态
+        /// </summary>
+        public int? Status { get; set; }
+        /// <summary>
         /// 创建时间
         /// </summary>
         public DateTime CreateTime { get; set; }

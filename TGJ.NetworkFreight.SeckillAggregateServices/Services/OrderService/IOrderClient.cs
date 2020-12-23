@@ -126,5 +126,11 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         [GetPath("/Orders/GetWayBillList")]
 
         public dynamic GetWayBillList(int userId, int pageIndex, int pageSize, int? status);
+        /// <summary>
+        /// 上传图片
+        /// </summary>
+        [PostPath("/Orders/AddOrderReceiptImage")]
+
+        public dynamic AddOrderReceiptImage(OrderReceiptImage model);
     }
 }

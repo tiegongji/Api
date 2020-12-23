@@ -293,5 +293,19 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         {
             return orderClient.GetWayBillList(sysUser.UserId, pageIndex, pageSize, status);
         }
+
+        /// <summary>
+        /// 上传订单图片
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [HttpPost("AddOrderReceiptImage")]
+        public ActionResult<dynamic> AddOrderReceiptImage(SysUser sysUser, [FromForm] OrderImgFormDto model)
+        {
+            var entity = new OrderReceiptImage();
+            entity.OrderNo = model.OrderNo;
+            entity.FileUrl = model.imgs;
+            return orderClient.AddOrderReceiptImage(entity);
+        }
     }
 }

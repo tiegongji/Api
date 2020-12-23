@@ -28,6 +28,7 @@ namespace TGJ.NetworkFreight.UserServices.Models
         /// 关联ID
         /// </summary>
         public int TypeID { set; get; }
+        public int Status { set; get; }
         /// <summary>
         ///  文件路径
         /// </summary>

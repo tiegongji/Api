@@ -277,5 +277,18 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
         {
             return IOrderService.GetWayBillList(userId, pageIndex, pageSize, status).ToList();
         }
+
+
+        /// <summary>
+        /// 上传订单图片
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [HttpPost("AddOrderReceiptImage")]
+        public ActionResult<OrderReceiptImage> AddOrderReceiptImage(OrderReceiptImage entity)
+        {
+            IOrderService.AddOrderReceiptImage(entity);
+            return Ok(entity);
+        }
     }
 }

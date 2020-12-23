@@ -14,6 +14,13 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
         {
             this.UserContext = UserContext;
         }
+
+        public void AddUpLoadFile(UpLoadFile entity)
+        {
+            UserContext.UpLoadFile.Add(entity);
+            UserContext.SaveChanges();
+        }
+
         public void Add(FeedBack entity,List<UpLoadFile> list = null)
         {
             using (var tran = UserContext.Database.BeginTransaction())
@@ -28,9 +35,10 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
                         foreach (var item in list)
                         {
                             item.Type = 0;
+                            item.Status = 1;
                             item.TypeID = model.Entity.ID;
                             item.CreateTime = entity.CreateTime;
-                            UserContext.UpLoadFile.Add(item);
+                            UserContext.UpLoadFile.Update(item);
                         }
                         UserContext.SaveChanges();
                     }

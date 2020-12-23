@@ -27,12 +27,30 @@ namespace TGJ.NetworkFreight.UserServices.Services
             model.UserID = entity.UserID;
             model.Remark = entity.Remark;
             model.CreateTime = DateTime.Now;
-            if (entity.imgs != null && entity.imgs.Count > 0)
-                entity.imgs = UpLoadImage(entity.imgs);
+            //if (entity.imgs != null && entity.imgs.Count > 0)
+            //    entity.imgs = UpLoadImage(entity.imgs);
             IFeedBackRepository.Add(model, entity.imgs);
         }
 
-        public List<UpLoadFile> UpLoadImage(List<UpLoadFile> list)
+        //public List<UpLoadFile> UpLoadImage(List<UpLoadFile> list)
+        //{
+        //    string accessKeyId = IConfiguration["Ali:accessKeyId"];
+        //    string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
+        //    string EndPoint = IConfiguration["Ali:EndPoint"];
+        //    string bucketName = IConfiguration["Ali:bucketName"];
+        //    string url = IConfiguration["Ali:url"];
+        //    var now = DateTime.Now;
+        //    foreach (var item in list)
+        //    {
+        //        var filename = "FB/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
+        //        var res = ALiOSSHelper.Upload(filename, item.FilePath, accessKeyId, accessKeySecret, EndPoint, bucketName);
+        //        item.FilePath = url + filename;
+        //    }
+        //    return list;
+        //}
+
+
+        public void UpLoadFile(UpLoadFile entity)
         {
             string accessKeyId = IConfiguration["Ali:accessKeyId"];
             string accessKeySecret = IConfiguration["Ali:accessKeySecret"];
@@ -40,13 +58,13 @@ namespace TGJ.NetworkFreight.UserServices.Services
             string bucketName = IConfiguration["Ali:bucketName"];
             string url = IConfiguration["Ali:url"];
             var now = DateTime.Now;
-            foreach (var item in list)
-            {
-                var filename = "FB/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
-                var res = ALiOSSHelper.Upload(filename, item.FilePath, accessKeyId, accessKeySecret, EndPoint, bucketName);
-                item.FilePath = url + filename;
-            }
-            return list;
+            var filename = "FB/" + now.Year + "/" + now.Month + "/" + now.Day + "/" + Guid.NewGuid().ToString() + ".jpg";
+            var res = ALiOSSHelper.Upload(filename, entity.FilePath, accessKeyId, accessKeySecret, EndPoint, bucketName);
+
+            entity.FilePath = url + filename;
+            //entity.Type = -1;
+            entity.CreateTime = DateTime.Now;
+            IFeedBackRepository.AddUpLoadFile(entity);
         }
     }
 }

@@ -481,7 +481,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         throw new Exception("订单不存在");
                     if (model.ActionStatus != (int)EnumActionStatus.Pay)
                     {
-                        throw new Exception("订单价格不能为空");
+                        throw new Exception("该订单已装货");
                     }
                     model.ActionStatus = (int)EnumActionStatus.Loading;
                     model.LastUpdateTime = DateTime.Now;
@@ -504,10 +504,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         foreach (var img in param.imgs)
                         {
                             img.Type = (int)EnumActionStatus.Loading;
-                            img.OrderNo = model.OrderNo;
+                            //img.OrderNo = model.OrderNo;
                             img.CreateTime = DateTime.Now;
-                            context.OrderReceiptImage.Add(img);
-
+                            img.Status = 1;
+                            context.OrderReceiptImage.Update(img);
                         }
                         context.SaveChanges();
                     }
@@ -565,9 +565,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         foreach (var img in param.imgs)
                         {
                             img.Type = (int)EnumActionStatus.Unloading;
-                            img.OrderNo = model.OrderNo;
+                            //img.OrderNo = model.OrderNo;
                             img.CreateTime = DateTime.Now;
-                            context.OrderReceiptImage.Add(img);
+                            img.Status = 1;
+                            context.OrderReceiptImage.Update(img);
 
                         }
                         context.SaveChanges();

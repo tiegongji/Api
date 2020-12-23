@@ -159,6 +159,13 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             if (truck == null)
                 return NotFound("更新失败");
 
+            Task.Run(() =>
+            {
+                var trucks = userTruckClient.GetList(sysUser.UserId);
+                caching.Update($"UserTruck{sysUser.UserId}", trucks);
+            });
+
+
             return Ok(truck);
         }
 

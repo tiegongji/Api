@@ -35,6 +35,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// </summary>
         /// <param name="bankCardClient"></param>
         /// <param name="certificationClient"></param>
+        /// <param name="caching"></param>
         public BankCardController(IBankCardClient bankCardClient, ICertificationClient certificationClient, ICaching caching)
         {
             this.bankCardClient = bankCardClient;

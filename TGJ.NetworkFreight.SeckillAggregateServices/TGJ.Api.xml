@@ -83,6 +83,7 @@
             </summary>
             <param name="bankCardClient"></param>
             <param name="certificationClient"></param>
+            <param name="caching"></param>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.BankCardController.AddBankCard(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.BankCardService.BankCardPo)">
             <summary>
@@ -179,6 +180,12 @@
             <summary>
             地址控制器
             </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.FeedBackController.UpLoadFile(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.FeedBackService.FeedBakcFromDto)">
+            <summary>
+            上传图片
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.FeedBackController.Add(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.FeedBackService.FeedBakcFromDto)">
             <summary>
@@ -315,6 +322,13 @@
             <param name="pageIndex"></param>
             <param name="pageSize"></param>
             <param name="status">null：运单列表,2：货源列表</param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.AddOrderReceiptImage(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderImgFormDto)">
+            <summary>
+            上传订单图片
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController">
             <summary>
@@ -1156,6 +1170,11 @@
             用户反馈微服务客户端
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.FeedBackService.IFeedBackClient.UpLoadFile(TGJ.NetworkFreight.UserServices.Models.UpLoadFile)">
+            <summary>
+            上传图片
+            </summary>
+        </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.FeedBackService.IFeedBackClient.Add(TGJ.NetworkFreight.SeckillAggregateServices.Pos.FeedBackService.FeedBakcPo)">
             <summary>
             新增
@@ -1244,6 +1263,11 @@
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.GetWayBillList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
             <summary>
             司机订单列表
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.AddOrderReceiptImage(TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage)">
+            <summary>
+            上传图片
             </summary>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient">

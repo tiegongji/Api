@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TGJ.NetworkFreight.Commons.Exceptions;
 using TGJ.NetworkFreight.Cores.Cluster;
 using TGJ.NetworkFreight.Cores.Registry;
 
@@ -27,6 +28,9 @@ namespace TGJ.NetworkFreight.Cores.DynamicMiddleware.Urls
 
             // 2、url负载均衡
             ServiceNode serviceUrl = loadBalance.Select(serviceUrls);
+
+            if (serviceUrl == null)
+                throw new BizException("未发现服务");
 
             // 3、创建url
             StringBuilder stringBuilder = new StringBuilder();

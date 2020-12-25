@@ -144,6 +144,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 新增订单
         /// </summary>
+        /// <param name="sysUser"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("Add")]
@@ -156,6 +157,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 订单列表
         /// </summary>
+        /// <param name="sysUser"></param>
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <param name="status"></param>
@@ -169,6 +171,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 订单详情
         /// </summary>
+        /// <param name="sysUser"></param>
         /// <param name="OrderNo"></param>
         /// <returns></returns>
         [HttpPost("GetDetail/{OrderNo}")]
@@ -180,7 +183,10 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 取消订单
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="sysUser"></param>
+        /// <param name="OrderNo"></param>
+        /// <param name="Reason"></param>
+        /// <param name="Description"></param>
         /// <returns></returns>
         [HttpPost("Cancel")]
         public ActionResult<dynamic> Cancel(SysUser sysUser, string OrderNo, string Reason, string Description)
@@ -196,6 +202,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 指定司机
         /// </summary>
+        /// <param name="sysUser"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost("UpdateCarrierUser")]
@@ -212,7 +219,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 绑定司机
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="sysUser"></param>
+        /// <param name="UserId"></param>
+        /// <param name="OrderNo"></param>
         /// <returns></returns>
         [HttpPost("BindCarrierUser")]
         public ActionResult<dynamic> BindCarrierUser(SysUser sysUser, int UserId, string OrderNo)
@@ -228,7 +237,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 确认回单
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="sysUser"></param>
+        /// <param name="OrderNo"></param>
         /// <returns></returns>
         [HttpPost("Confirm")]
         public ActionResult<dynamic> Confirm(SysUser sysUser, string OrderNo)
@@ -241,7 +251,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 更新价格
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="sysUser"></param>
+        /// <param name="OrderNo"></param>
+        /// <param name="TotalAmount"></param>
         /// <returns></returns>
         [HttpPost("UpdateMoney")]
         public ActionResult<dynamic> UpdateMoney(SysUser sysUser, string OrderNo, decimal TotalAmount)
@@ -255,7 +267,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 装货
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="sysUser"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("UpdateLoading")]
         public ActionResult<dynamic> UpdateLoading(SysUser sysUser, [FromForm] OrderImgFormDto model)
@@ -269,7 +282,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 卸货
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="sysUser"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("UpdateUnLoading")]
         public ActionResult<dynamic> UpdateUnLoading(SysUser sysUser, [FromForm] OrderImgFormDto model)
@@ -284,7 +298,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 司机订单列表
         /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="sysUser"></param>
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <param name="status">null：运单列表,2：货源列表</param>
@@ -297,7 +311,8 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <summary>
         /// 上传订单图片
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="sysUser"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("AddOrderReceiptImage")]
         public ActionResult<dynamic> AddOrderReceiptImage(SysUser sysUser, [FromForm] OrderImgFormDto model)

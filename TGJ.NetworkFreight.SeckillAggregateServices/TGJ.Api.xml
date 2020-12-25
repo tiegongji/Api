@@ -246,6 +246,7 @@
             <summary>
             新增订单
             </summary>
+            <param name="sysUser"></param>
             <param name="entity"></param>
             <returns></returns>
         </member>
@@ -253,6 +254,7 @@
             <summary>
             订单列表
             </summary>
+            <param name="sysUser"></param>
             <param name="pageIndex"></param>
             <param name="pageSize"></param>
             <param name="status"></param>
@@ -262,6 +264,7 @@
             <summary>
             订单详情
             </summary>
+            <param name="sysUser"></param>
             <param name="OrderNo"></param>
             <returns></returns>
         </member>
@@ -269,13 +272,17 @@
             <summary>
             取消订单
             </summary>
-            <param name="entity"></param>
+            <param name="sysUser"></param>
+            <param name="OrderNo"></param>
+            <param name="Reason"></param>
+            <param name="Description"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateCarrierUser(TGJ.NetworkFreight.Commons.Users.SysUser,System.Int32,System.String)">
             <summary>
             指定司机
             </summary>
+            <param name="sysUser"></param>
             <param name="entity"></param>
             <returns></returns>
         </member>
@@ -283,42 +290,49 @@
             <summary>
             绑定司机
             </summary>
-            <param name="entity"></param>
+            <param name="sysUser"></param>
+            <param name="UserId"></param>
+            <param name="OrderNo"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.Confirm(TGJ.NetworkFreight.Commons.Users.SysUser,System.String)">
             <summary>
             确认回单
             </summary>
-            <param name="entity"></param>
+            <param name="sysUser"></param>
+            <param name="OrderNo"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateMoney(TGJ.NetworkFreight.Commons.Users.SysUser,System.String,System.Decimal)">
             <summary>
             更新价格
             </summary>
-            <param name="entity"></param>
+            <param name="sysUser"></param>
+            <param name="OrderNo"></param>
+            <param name="TotalAmount"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderImgFormDto)">
             <summary>
             装货
             </summary>
-            <param name="entity"></param>
+            <param name="sysUser"></param>
+            <param name="model"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateUnLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderImgFormDto)">
             <summary>
             卸货
             </summary>
-            <param name="entity"></param>
+            <param name="sysUser"></param>
+            <param name="model"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetWayBillList(TGJ.NetworkFreight.Commons.Users.SysUser,System.Int32,System.Int32,System.Nullable{System.Int32})">
             <summary>
             司机订单列表
             </summary>
-            <param name="userId"></param>
+            <param name="sysUser"></param>
             <param name="pageIndex"></param>
             <param name="pageSize"></param>
             <param name="status">null：运单列表,2：货源列表</param>
@@ -327,7 +341,8 @@
             <summary>
             上传订单图片
             </summary>
-            <param name="entity"></param>
+            <param name="sysUser"></param>
+            <param name="model"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController">

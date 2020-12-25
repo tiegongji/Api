@@ -356,3 +356,5 @@ TGJ.NetworkFreight.User.xml
 TGJ.NetworkFreight.sln
 .vs
 .gitignore
+TGJ.NetworkFreight.Order.xml
+TGJ.NetworkFreight.Certification.xml

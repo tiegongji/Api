@@ -307,5 +307,29 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             entity.FileUrl = model.imgs;
             return orderClient.AddOrderReceiptImage(entity);
         }
+
+        [HttpPost("AddOrderReceiptImageFile")]
+        public ActionResult<dynamic> AddOrderReceiptImageFile()
+        {
+            var file = HttpContext.Request.Form.Files[0];
+            System.IO.Stream fs = file.OpenReadStream();
+            string strRet = null;
+            try
+            {
+                if (fs == null) return null;
+                byte[] bt = new byte[fs.Length];
+                fs.Read(bt, 0, bt.Length);
+                strRet = System.Convert.ToBase64String(bt);
+                fs.Close();
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+            var entity = new OrderReceiptImage();
+            entity.OrderNo = "";
+            entity.FileUrl = strRet;
+            return orderClient.AddOrderReceiptImage(entity);
+        }
     }
 }

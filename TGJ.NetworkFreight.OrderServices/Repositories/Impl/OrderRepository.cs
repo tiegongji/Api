@@ -175,10 +175,10 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                                },
                                DArrivalAddressObject = new
                                {
-                                   DepartureAddress_New.Name,
-                                   DepartureAddress_New.ContactPhone,
-                                   DepartureAddress_New.ContactPerson,
-                                   DepartureAddress_New.Address
+                                   ArrivalAddress_New.Name,
+                                   ArrivalAddress_New.ContactPhone,
+                                   ArrivalAddress_New.ContactPerson,
+                                   ArrivalAddress_New.Address
                                },
                                TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                o.TradeStatus,

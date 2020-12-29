@@ -59,7 +59,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Impl
         {
             var orders = IOrderRepository.GetListByUid(userid, 1);
             var orderGather = new OrderGatherDto();
-            orderGather.Dispatch = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Start);
+            orderGather.Dispatch = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Start && a.ActionStatus != (int)EnumActionStatus.Unloading);
             orderGather.Confirm = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Start && a.ActionStatus == (int)EnumActionStatus.Unloading);
             orderGather.Complete = orders.Count(a => a.TradeStatus == (int)EnumOrderStatus.Finish);
 

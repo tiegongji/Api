@@ -178,7 +178,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             }
 
             // 1、获取IdentityServer接口文档
-            string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
+            //string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
+
+            string userUrl = Configuration["Authority"];
 
             DiscoveryDocumentResponse discoveryDocument = httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest { Address = userUrl, Policy = new DiscoveryPolicy { RequireHttps = false } }).Result;
 
@@ -244,7 +246,9 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             }
 
             // 1、获取IdentityServer接口文档
-            string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
+            //string userUrl = dynamicMiddleUrl.GetMiddleUrl("http", "UserServices");
+
+            string userUrl = Configuration["Authority"];
 
             DiscoveryDocumentResponse discoveryDocument = httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest { Address = userUrl, Policy = new DiscoveryPolicy { RequireHttps = false } }).Result;
 

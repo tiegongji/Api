@@ -132,5 +132,18 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService
         [PostPath("/Orders/AddOrderReceiptImage")]
 
         public dynamic AddOrderReceiptImage(OrderReceiptImage model);
+        /// <summary>
+        /// 第三方订单
+        /// </summary>
+        [GetPath("/Orders/GetThirdList")]
+
+        public dynamic GetThirdList(int userId, int pageIndex, int pageSize, int type,string orderNo);
+
+        /// <summary>
+        /// 关联第三方订单
+        /// </summary>
+        [PostPath("/Orders/AddAreaRelation")]
+
+        public dynamic AddAreaRelation(AreaRelation entity);
     }
 }

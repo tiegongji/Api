@@ -53,6 +53,9 @@ namespace TGJ.NetworkFreight.OrderServices.Extend
             services.AddScoped<IOrderReceiptImageRepository, OrderReceiptImageRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IUserAddressRepository, UserAddressRepository>();
+            services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddScoped<IWxTokenRepository, WxTokenRepository>();
+            services.AddScoped<IAreaRelationRepository, AreaRelationRepository>();
 
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IUserAddressService, UserAddressService>();

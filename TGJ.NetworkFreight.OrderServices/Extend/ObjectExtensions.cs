@@ -232,5 +232,20 @@ namespace TGJ.NetworkFreight.OrderServices
             }
             return "";
         }
+
+        public static string SplitPlace(this object o, bool start = true)
+        {
+            if (null == o)
+                return "";
+            var arr = o.ToString().Split(" ");
+            if (arr.Length >= 3)
+            {
+                if (start)
+                    return arr[0];
+                else
+                    return arr[2];
+            }
+            return "";
+        }
     }
 }

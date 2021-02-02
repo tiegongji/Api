@@ -303,13 +303,14 @@
             <param name="OrderNo"></param>
             <returns></returns>
         </member>
-        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateMoney(TGJ.NetworkFreight.Commons.Users.SysUser,System.String,System.Decimal)">
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateMoney(TGJ.NetworkFreight.Commons.Users.SysUser,System.String,System.Decimal,System.Int32)">
             <summary>
             更新价格
             </summary>
             <param name="sysUser"></param>
             <param name="OrderNo"></param>
             <param name="TotalAmount"></param>
+            <param name="CarrierTruckID"></param>
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.Commons.Users.SysUser,TGJ.NetworkFreight.SeckillAggregateServices.Pos.OrderSercive.OrderImgFormDto)">
@@ -343,6 +344,22 @@
             </summary>
             <param name="sysUser"></param>
             <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.GetThirdList(TGJ.NetworkFreight.Commons.Users.SysUser,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            第三方订单列表
+            </summary>
+            <param name="sysUser"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.OrderController.AddAreaRelation(TGJ.NetworkFreight.OrderServices.Models.AreaRelation)">
+            <summary>
+            关联第三方订单
+            </summary>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.SendController">
@@ -430,6 +447,18 @@
             <returns></returns>
         </member>
         <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.GetList(TGJ.NetworkFreight.Commons.Users.SysUser)">
+            <summary>
+            列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.GetListByUserId(TGJ.NetworkFreight.Commons.Users.SysUser)">
+            <summary>
+            列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Controllers.UserTruckController.GetListByUserId(System.Int32)">
             <summary>
             列表
             </summary>
@@ -1285,6 +1314,16 @@
             上传图片
             </summary>
         </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.GetThirdList(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            第三方订单
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.OrderService.IOrderClient.AddAreaRelation(TGJ.NetworkFreight.OrderServices.Models.AreaRelation)">
+            <summary>
+            关联第三方订单
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserService.IUserClient">
             <summary>
             用户微服务客户端
@@ -1366,6 +1405,13 @@
             <summary>
             获取单个
             </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService.IUserTruckClient.UserList(System.Int32)">
+            <summary>
+            获取可用列表
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

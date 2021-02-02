@@ -127,5 +127,30 @@ namespace TGJ.NetworkFreight.UserServices.Controllers
 
             return UserTruck;
         }
+
+
+
+        /// <summary>
+        /// 可用车辆列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet("UserList/{userId}")]
+        public ActionResult<IEnumerable<UserTruckDto>> GetUserTrucksByUser(int userId)
+        {
+            var models = userTruckService.GetUserTrucksByUser(userId).ToList();
+
+            if (models == null)
+                return Ok("未查到结果");
+
+            models.ForEach(x =>
+            {
+                x.Color = Util.GetColorValue(x.Color);
+            });
+
+            var entity = AutoMapperHelper.AutoMapTo<UserTruck, UserTruckDto>(models).ToList();
+
+            return entity;
+        }
     }
 }

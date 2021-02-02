@@ -154,6 +154,24 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetThirdList(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            第三方订单
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="type">0:g7 1:运满满</param>
+            <param name="OrderNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.AddAreaRelation(TGJ.NetworkFreight.OrderServices.Models.AreaRelation)">
+            <summary>
+            关联第三方订单
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
         <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.UserID">
             <summary>
             用户
@@ -392,6 +410,196 @@
             司机端列表状态描述
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.shipperOrgroot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.supplyHash">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.totalPrice">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.orderId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.description">
+            <summary>
+            常德市武陵区 到 南通市通州区
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.senderTel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.routeName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.senderId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.carType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.receiptTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.routeId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.carLength">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.licenseNumber">
+            <summary>
+            苏FH5295
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.toPlace">
+            <summary>
+            江苏南通市通州区基地
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.cancelReason">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.goodsName">
+            <summary>
+            塔吊
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.startPlace">
+            <summary>
+            湖南常德新机
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.orderSource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.consignee">
+            <summary>
+            朱经理
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.orderNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.consigneeTel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.receiveCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.gmtCreate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.invoiceTitleId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.shipperOrgcode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.toPlaceCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.goodsType">
+            <summary>
+            工业品及机械设备
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.shippingPrice">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.intendedShippingTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.sender">
+            <summary>
+            铁公鸡
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.supplyId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.schedulingStrategy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.driverName">
+            <summary>
+            高光明
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.actualShippingTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.projectName">
+            <summary>
+            无项目
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.projectId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.startPlaceCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.G7_Order.status">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:TGJ.NetworkFreight.OrderServices.Models.InitCategory">
             <summary>
             货物类型表
@@ -597,6 +805,11 @@
             主键
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
         <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.OrderNo">
             <summary>
             订单号
@@ -772,6 +985,601 @@
             更新时间
             </summary>
         </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.WxToken.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.WxToken.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.WxToken.AppId">
+            <summary>
+            toen
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.WxToken.Secret">
+            <summary>
+            toen
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.WxToken.Token">
+            <summary>
+            toen
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.WxToken.UpdateTime">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.WxToken.Template_id">
+            <summary>
+            toen
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.transportOrderNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.internalOrderNum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.transportOrderStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.createTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.start">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.end">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.totalFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.depositDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.depositAmount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.serviceFee">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.arriveDesc">
+            <summary>
+            1300.00/已付款到收款方
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.receiptDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.preDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.preOilDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.consignorName">
+            <summary>
+            易红兵
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.consignorTel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.carrierName">
+            <summary>
+            张跃
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.carrierTel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.protocolStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.protocolConfirmBtnStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.countdown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.remark">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.freezeFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.protocolType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.tradeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.myOrderFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.myProposeFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.carrierRegister">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.confirmContractSuppleButtonFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.applyPayFreightButtonFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.confirmReceiptButtonFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.confirmCargoButtonFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.confirmCargoButtonPopFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.confirmLoadButtonFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.truckNumber">
+            <summary>
+            皖S2K527
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.companyName">
+            <summary>
+            上海铁公鸡网络科技有限公司
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.uploadReceiptButtonFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.cancelOrderButtonFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.cancelOrderProcessFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.collectCarrierName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.collectCarrierTel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.goodsName">
+            <summary>
+            塔吊
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.goodsVolume">
+            <summary>
+            0-0方
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.goodsWeight">
+            <summary>
+            30-30吨
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.loadTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.unloadTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.loadAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.unloadAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.truckType">
+            <summary>
+            高低板
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.truckLength">
+            <summary>
+            13.7米
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.loadType">
+            <summary>
+            一装一卸
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.note">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.arrivalPayTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.receiptPayTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualTotalFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualPreFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.preFreightPayTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualPreOilFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.preOilFreightPayTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualArriveFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.arriveFreightPayTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualReceiptFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.receiptFreightPayTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualCargoPayFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualCargoPayTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.mergeActualExtraFreightItemDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualExtraPayItemList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.recorderName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.recorderTel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.receiptIsUpload">
+            <summary>
+            已部分上传
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.invoiceStatus">
+            <summary>
+            未开票
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.completeTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.serviceFeeAmount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.companyIdName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.companyId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.riskFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.appealFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.refundedServiceAmount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.innerRemark">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.agentFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.agentName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.agentMobile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.jingxuanFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.puhuojingxuanFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.buyoutPriceFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.dealModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.depositRefundAmount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.showRefundWhenCancel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.cancelWindowTips">
+            <summary>
+            提示：您的申请提交后，司机如果在2小时内未处理，将由客服跟进处理。
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.cargoPayDesc">
+            <summary>
+            1394.85/未支付
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.oneCityFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.gasCard">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.freightDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.longOilDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.orderSource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.longFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.longFreightPayTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.longFreightDesc">
+            <summary>
+            1394.85/未支付
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.specialTruckFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.logoTab">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.invoiceFreightDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.extraFreightDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.serviceFeeAmountDesc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualInvoiceFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.actualExtraFreight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.shortDistanceFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.sameWayFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.fastFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.lineStartEnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.mybCommodityMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.orderFreezeReason">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.YMM_Order.claimStatusFlag">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.GetList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
             <summary>
             
@@ -829,6 +1637,13 @@
             </summary>
             <param name="entity"></param>
         </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Services.HttpsService.Get(System.String)">
+            <summary>
+            处理http GET请求，返回数据
+            </summary>
+            <param name="url">请求的url地址</param>
+            <returns>http GET成功后返回的数据，失败抛WebException异常</returns>
+        </member>
         <member name="M:TGJ.NetworkFreight.OrderServices.Services.Impl.OrderService.UpdateLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
             <summary>
             装货
@@ -840,6 +1655,13 @@
             卸货
             </summary>
             <param name="entity"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Services.Impl.OrderService.GetToken(System.String,System.String)">
+            <summary>
+            获取OpenId和SessionKey的Json数据包
+            </summary>
+            <param name="code">客户端发来的code</param>
+            <returns>Json数据包</returns>
         </member>
     </members>
 </doc>

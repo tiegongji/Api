@@ -17,6 +17,10 @@ namespace TGJ.NetworkFreight.OrderServices.Models
         [Key]
         public int ID { set; get; }
         /// <summary>
+        /// 用户ID
+        /// </summary>
+        public int UserID { set; get; }
+        /// <summary>
         /// 订单号
         /// </summary>
         public string OrderNo { get; set; }

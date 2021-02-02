@@ -254,14 +254,16 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
         /// <param name="sysUser"></param>
         /// <param name="OrderNo"></param>
         /// <param name="TotalAmount"></param>
+        /// <param name="CarrierTruckID"></param>
         /// <returns></returns>
         [HttpPost("UpdateMoney")]
-        public ActionResult<dynamic> UpdateMoney(SysUser sysUser, string OrderNo, decimal TotalAmount)
+        public ActionResult<dynamic> UpdateMoney(SysUser sysUser, string OrderNo, decimal TotalAmount, int CarrierTruckID)
         {
             var entity = new Order();
             entity.OrderNo = OrderNo;
             entity.UserID = sysUser.UserId;
             entity.TotalAmount = TotalAmount;
+            entity.CarrierTruckID = CarrierTruckID;
             return orderClient.UpdateMoney(entity);
         }
         /// <summary>
@@ -345,6 +347,31 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
             entity.OrderNo = "";
             entity.FileUrl = strRet;
             return orderClient.AddOrderReceiptImage(entity);
+        }
+
+
+        /// <summary>
+        /// 第三方订单列表
+        /// </summary>
+        /// <param name="sysUser"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="type"></param>
+        [HttpPost("GetThirdList")]
+        public ActionResult<IEnumerable<dynamic>> GetThirdList(SysUser sysUser, int pageIndex, int pageSize, int type, string orderNo)
+        {
+            return orderClient.GetThirdList(sysUser.UserId, pageIndex, pageSize, type, orderNo);
+        }
+
+        /// <summary>
+        /// 关联第三方订单
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [HttpPost("AddAreaRelation")]
+        public ActionResult<dynamic> AddAreaRelation([FromForm] AreaRelation entity)
+        {
+            return orderClient.AddAreaRelation(entity);
         }
     }
 }

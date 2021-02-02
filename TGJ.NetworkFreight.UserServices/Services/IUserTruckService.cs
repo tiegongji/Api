@@ -16,5 +16,6 @@ namespace TGJ.NetworkFreight.UserServices.Services
         void Create(UserTruck UserTruck);
         void Update(UserTruck UserTruck);
         bool Exists(int userId, string vehicleNumber);
+        IEnumerable<UserTruck> GetUserTrucksByUser(int userId);
     }
 }

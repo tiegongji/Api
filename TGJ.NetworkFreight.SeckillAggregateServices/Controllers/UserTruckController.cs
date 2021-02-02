@@ -211,5 +211,58 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Controllers
 
             return Ok(truck);
         }
+
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("MyUserList")]
+        public ActionResult<IEnumerable<dynamic>> GetListByUserId(SysUser sysUser)
+        {
+            var cacheKey = $"UserTruckValid{sysUser.UserId}";
+            var truck = caching.Get(cacheKey);
+
+           // if (truck == null)
+            {
+                truck = userTruckClient.UserList(sysUser.UserId);
+
+                if (truck == null)
+                    return NotFound("未查到结果");
+
+                Task.Run(() =>
+                {
+                    caching.Set(cacheKey, truck);
+                });
+            }
+
+            return Ok(truck);
+        }
+
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("UserList/{UserId}")]
+        public ActionResult<IEnumerable<dynamic>> GetListByUserId(int UserId)
+        {
+            var cacheKey = $"UserTruckValid{UserId}";
+            var truck = caching.Get(cacheKey);
+
+            //if (truck == null)
+            {
+                truck = userTruckClient.UserList(UserId);
+
+                if (truck == null)
+                    return NotFound("未查到结果");
+
+                Task.Run(() =>
+                {
+                    caching.Set(cacheKey, truck);
+                });
+            }
+
+            return Ok(truck);
+        }
+
     }
 }

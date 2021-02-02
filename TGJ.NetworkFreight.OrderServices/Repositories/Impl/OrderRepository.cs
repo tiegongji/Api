@@ -122,7 +122,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                         DepartureAddress = DepartureAddress_New.Address,
                         ArrivalAddressName = ArrivalAddress_New.Name,
                         ArrivalAddress = ArrivalAddress_New.Address,
-                        TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
+                        TradeStatusText = o.TradeStatus == 3 && o.ActionStatus > 0 ? ((EnumActionStatus)o.ActionStatus).GetDescriptionOriginal() : ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                         o.TradeStatus,
                         o.ActionStatus,
                         o.TotalAmount
@@ -158,38 +158,53 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                            join user in context.Users on o.CarrierUserID equals user.Id
                            into _user
                            from user_new in _user.DefaultIfEmpty()
+                           join userTruck in context.UserTruck on o.CarrierTruckID equals userTruck.Id
+                           into _userTruck
+                           from userTruck_new in _userTruck.DefaultIfEmpty()
                            select new
                            {
                                order.Name,
                                order.OrderNo,
-                               truck.Length,
                                order.Weight,
-                               Date = order.StartDate.ToDate(),
+                               order.StartDate,
                                order.Distance,
+                               order.CategoryID,
+                               order.TruckID,
+                               order.DepartureAddressID,
+                               order.ArrivalAddressID,
+                               order.Comment,
+                               o.TradeStatus,
+                               o.ActionStatus,
+                               o.TotalAmount,
+                               o.CarrierUserID,
+                               o.CarrierTruckID,
+                               truck.Length,
+                               userTruck_new.VehicleNumber,
                                DepartureAddressObject = new
                                {
                                    DepartureAddress_New.Name,
                                    DepartureAddress_New.ContactPhone,
                                    DepartureAddress_New.ContactPerson,
-                                   DepartureAddress_New.Address
+                                   DepartureAddress_New.Address,
+                                   DepartureAddress_New.TencentLat,
+                                   DepartureAddress_New.TencentLng
                                },
                                DArrivalAddressObject = new
                                {
                                    ArrivalAddress_New.Name,
                                    ArrivalAddress_New.ContactPhone,
                                    ArrivalAddress_New.ContactPerson,
-                                   ArrivalAddress_New.Address
+                                   ArrivalAddress_New.Address,
+                                   ArrivalAddress_New.TencentLat,
+                                   ArrivalAddress_New.TencentLng
                                },
-                               TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
-                               o.TradeStatus,
-                               o.ActionStatus,
-                               order.Comment,
                                Driver = user_new == null ? null : new
                                {
                                    user_new.Name,
                                    user_new.Phone
                                },
-                               o.TotalAmount,
+                               Date = order.StartDate.ToDate(),
+                               TradeStatusText = ((EnumOrderStatus)o.TradeStatus).GetDescriptionOriginal(),
                                imgs,
                                imgs2
                            });
@@ -245,6 +260,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
 
                     var orderFlow = new OrderFlow();
+                    orderFlow.UserID = entity.UserID;
                     orderFlow.ActionStatus = (int)EnumOrderStatus.Cancel;
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
@@ -276,14 +292,14 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     var model = Get(entity.OrderNo);
                     if (model == null || model.UserID != entity.UserID)
                         throw new Exception("订单不存在");
-                    if (model.CarrierUserID > 0)
+                    if (model.TotalAmount > 0)
                     {
-                        throw new Exception("该订单已有指定司机");
+                        throw new Exception("该订单已报价,不能重新指定司机");
                     }
-                    if (model.TradeStatus != (int)EnumOrderStatus.Waiting)
-                    {
-                        throw new Exception("订单状态错误");
-                    }
+                    //if (model.TradeStatus != (int)EnumOrderStatus.Waiting)
+                    //{
+                    //    throw new Exception("订单状态错误");
+                    //}
                     model.CarrierUserID = entity.CarrierUserID;
                     model.LastUpdateTime = DateTime.Now;
                     model.TradeStatus = (int)EnumOrderStatus.Start;
@@ -292,6 +308,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
 
                     var orderFlow = new OrderFlow();
+                    orderFlow.UserID = entity.UserID;
                     orderFlow.ActionStatus = (int)EnumOrderStatus.Start;
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
@@ -334,6 +351,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
 
                     var orderFlow = new OrderFlow();
+                    orderFlow.UserID = entity.UserID;
                     orderFlow.ActionStatus = (int)EnumOrderStatus.Finish;
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
@@ -416,7 +434,6 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
 
 
-        #region 司机端状态更新
         /// <summary>
         /// 修改金额
         /// </summary>
@@ -430,18 +447,43 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                     var model = Get(entity.OrderNo);
                     if (model == null || !(model.CarrierUserID == entity.UserID || model.UserID == entity.UserID))
                         throw new Exception("订单不存在");
-                    if (model.TradeStatus != (int)EnumOrderStatus.Start && model.ActionStatus < (int)EnumActionStatus.Loading)
+                    //物流端改价格的话
+                    if (model.CarrierUserID <= 0)
                     {
                         throw new Exception("未指定司机");
+                    }
+                    if (entity.CarrierTruckID <= 0)
+                    {
+                        throw new Exception("请先添加车辆");
+                    }
+                    if (!context.UserTruck.Any(a => a.UserID == model.CarrierUserID && a.Id == entity.CarrierTruckID))
+                    {
+                        throw new Exception("车辆添加失败");
+                    }
+                    if (model.UserID == entity.UserID)
+                    {
+                        if (model.TradeStatus == (int)EnumOrderStatus.Finish)
+                        {
+                            throw new Exception("订单已完成不能修改价格");
+                        }
+                    }
+                    else
+                    {
+                        if (!(model.TradeStatus == (int)EnumOrderStatus.Start && model.ActionStatus < (int)EnumActionStatus.Loading))
+                        {
+                            throw new Exception("不能修改价格");
+                        }
                     }
                     model.TotalAmount = entity.TotalAmount;
                     model.LastUpdateTime = DateTime.Now;
                     model.ActionStatus = (int)EnumActionStatus.Pay;
+                    model.CarrierTruckID = entity.CarrierTruckID;
                     context.Order.Update(model);
                     context.SaveChanges();
 
 
                     var orderFlow = new OrderFlow();
+                    orderFlow.UserID = entity.UserID;
                     orderFlow.ActionStatus = (int)EnumActionStatus.Pay;
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
@@ -477,7 +519,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                 try
                 {
                     var model = Get(entity.OrderNo);
-                    if (model == null || model.CarrierUserID != entity.UserID)
+                    if (model == null || !(model.CarrierUserID == entity.UserID || model.UserID == entity.UserID))
                         throw new Exception("订单不存在");
                     if (model.ActionStatus != (int)EnumActionStatus.Pay)
                     {
@@ -491,6 +533,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
 
                     var orderFlow = new OrderFlow();
+                    orderFlow.UserID = entity.UserID;
                     orderFlow.ActionStatus = (int)EnumActionStatus.Loading;
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
@@ -539,7 +582,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
                 try
                 {
                     var model = Get(entity.OrderNo);
-                    if (model == null || model.CarrierUserID != entity.UserID)
+                    if (model == null || !(model.CarrierUserID == entity.UserID || model.UserID == entity.UserID))
                         throw new Exception("订单不存在");
                     if (model.ActionStatus != (int)EnumActionStatus.Loading)
                     {
@@ -553,6 +596,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
 
 
                     var orderFlow = new OrderFlow();
+                    orderFlow.UserID = entity.UserID;
                     orderFlow.ActionStatus = (int)EnumActionStatus.Unloading;
                     orderFlow.OrderNo = model.OrderNo;
                     orderFlow.CreateTime = DateTime.Now;
@@ -583,7 +627,64 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Impl
             }
 
         }
+
         #endregion
-        #endregion
+
+
+        public IEnumerable<dynamic> GetList_G7(int pageIndex, int pageSize, string OrderNo)
+        {
+            return (from o in context.G7_Order
+                    where o.id > 0 && string.IsNullOrWhiteSpace(OrderNo) ? 1 == 1 : o.orderNo.IndexOf(OrderNo) > 0
+                    join relation in context.AreaRelation.Where(a => a.Status == 1 && a.Type == 0) on o.orderNo equals relation.RelationOrderNo
+                     into _relation
+                    from relation_new in _relation.DefaultIfEmpty()
+                    select new
+                    {
+                        o.orderNo,
+                        o.totalPrice,
+                        startPlace = o.description.SplitPlace(true),
+                        toPlace = o.description.SplitPlace(false),
+                        o.consignee,
+                        relation_new.Status,
+                        type = 0,
+                    }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
+        }
+
+
+        public IEnumerable<dynamic> GetList_YMM(int pageIndex, int pageSize, string OrderNo)
+        {
+            return (from o in context.YMM_Order
+                    where o.id > 0 && string.IsNullOrWhiteSpace(OrderNo) ? 1 == 1 : o.transportOrderNo == OrderNo
+                    join relation in context.AreaRelation.Where(a => a.Status == 1 && a.Type == 1) on o.transportOrderNo equals relation.RelationOrderNo
+                    into _relation
+                    from relation_new in _relation.DefaultIfEmpty()
+
+                    join area_start in context.Area on o.start equals area_start.Code
+                    into _area_start
+                    from area_start_new in _area_start.DefaultIfEmpty()
+
+                    join area_province_start in context.Area on area_start_new.Parent equals area_province_start.Code
+                    into _area_province_start
+                    from area_province_start_new in _area_province_start.DefaultIfEmpty()
+
+
+                    join area_to in context.Area on o.end equals area_to.Code
+                    into _area_to
+                    from area_to_new in _area_to.DefaultIfEmpty()
+
+                    join area_province_to in context.Area on area_to_new.Parent equals area_province_to.Code
+                    into _area_province_to
+                    from area_province_to_new in _area_province_to.DefaultIfEmpty()
+                    select new
+                    {
+                        orderNo = o.transportOrderNo,
+                        totalPrice = o.actualTotalFreight,
+                        startPlace = area_province_start_new.Name + area_start_new.Name,
+                        toPlace = area_province_to_new.Name + area_to_new.Name,
+                        consignee = o.consignorName,
+                        relation_new.Status,
+                        type = 1
+                    }).Skip(pageSize * (pageIndex - 1)).Take(pageSize);
+        }
     }
 }

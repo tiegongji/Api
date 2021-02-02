@@ -25,5 +25,7 @@ namespace TGJ.NetworkFreight.OrderServices.Services.Interface
         void UpdateUnLoading(OrderDto entity);
         IEnumerable<dynamic> GetWayBillList(int userId, int pageIndex, int pageSize, int? status);
         void AddOrderReceiptImage(OrderReceiptImage entity);
+        IEnumerable<dynamic> GetThirdList(int userId, int pageIndex, int pageSize, int type, string OrderNo);
+        void AddAreaRelation(AreaRelation entity);
     }
 }

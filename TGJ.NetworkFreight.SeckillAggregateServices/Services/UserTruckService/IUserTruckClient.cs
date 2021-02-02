@@ -54,5 +54,13 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices.Services.UserTruckService
         [GetPath("/UserTrucks/{userId}/{id}")]
 
         public UserTruck GetUserTruckById(int userId, int id);
+
+        /// <summary>
+        /// 获取可用列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [GetPath("/UserTrucks/UserList/{userId}")]
+        public dynamic UserList(int userId);
     }
 }

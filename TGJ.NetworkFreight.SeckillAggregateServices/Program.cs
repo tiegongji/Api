@@ -23,9 +23,13 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
             //    .Build();
 
             //host.Run();
+            #if DEBUG
+            CreateHostBuilder(args).Build().Run();
+            #endif
 
-            //CreateHostBuilder(args).Build().Run();
+            #if RELEASE
             InitWebHost(args).Run();
+            #endif
         }
 
         //public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -48,7 +52,7 @@ namespace TGJ.NetworkFreight.SeckillAggregateServices
            {
                webBuilder.UseStartup<Startup>();
            });
-
+            
         public static IWebHost InitWebHost(string[] args)
         {
             var x509ca = new X509Certificate2(File.ReadAllBytes(@"tmsapi.51tgj.com.pfx"), "HD3P0YE9");

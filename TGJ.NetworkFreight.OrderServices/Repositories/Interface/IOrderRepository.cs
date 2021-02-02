@@ -22,5 +22,7 @@ namespace TGJ.NetworkFreight.OrderServices.Repositories.Interface
         void UpdateLoading(OrderDto entity);
         void UpdateUnLoading(OrderDto entity);
         IEnumerable<dynamic> GetWayBillList(int userId, int pageIndex, int pageSize, int? status);
+        IEnumerable<dynamic> GetList_G7(int pageIndex, int pageSize, string OrderNo);
+        IEnumerable<dynamic> GetList_YMM(int pageIndex, int pageSize, string OrderNo);
     }
 }

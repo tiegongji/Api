@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TGJ.NetworkFreight.UserServices.Context;
 using TGJ.NetworkFreight.UserServices.Models;
@@ -43,6 +44,11 @@ namespace TGJ.NetworkFreight.UserServices.Repositories
         public bool Exists(int userId, string vehicleNumber)
         {
             return UserContext.UserTruck.Any(e => e.VehicleNumber == vehicleNumber && e.UserID == userId);
+        }
+
+        public IEnumerable<UserTruck> GetUserTrucksByUser(Expression<Func<UserTruck, bool>> filter)
+        {
+            return UserContext.UserTruck.Where(filter).ToList();
         }
     }
 }

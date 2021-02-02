@@ -290,5 +290,33 @@ namespace TGJ.NetworkFreight.OrderServices.Controllers
             IOrderService.AddOrderReceiptImage(entity);
             return Ok(entity);
         }
+
+
+        /// <summary>
+        /// 第三方订单
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="type">0:g7 1:运满满</param>
+        /// <param name="OrderNo"></param>
+        /// <returns></returns>
+        [HttpGet("GetThirdList")]
+        public ActionResult<IEnumerable<dynamic>> GetThirdList(int userId, int pageIndex, int pageSize, int type, string OrderNo)
+        {
+            return IOrderService.GetThirdList(userId, pageIndex, pageSize, type, OrderNo).ToList();
+        }
+
+        /// <summary>
+        /// 关联第三方订单
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [HttpPost("AddAreaRelation")]
+        public ActionResult AddAreaRelation(AreaRelation entity)
+        {
+            IOrderService.AddAreaRelation(entity);
+            return Ok("添加成功");
+        }
     }
 }

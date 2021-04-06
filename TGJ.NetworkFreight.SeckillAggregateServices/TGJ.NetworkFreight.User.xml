@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TGJ.NetworkFreight.UserServices</name>
+    </assembly>
+    <members>
+        <member name="M:TGJ.NetworkFreight.UserServices.Configs.Config.GetResource">
+            <summary>
+            1、微服务API资源
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.UserServices.Configs.Config.GetClients">
+            <summary>
+            2、客户端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Configs.Config.Ids">
+            <summary>
+            2.1 openid身份资源
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.UserServices.Configs.Config.GetUsers">
+            <summary>
+            3、测试用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Context.UserContext">
+            <summary>
+            用户服务上下文
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Context.UserContext.Users">
+            <summary>
+            用户集合
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Context.UserContext.UserAddresss">
+            <summary>
+            用户地址集合
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Context.UserContext.UserTrucks">
+            <summary>
+            用户车辆集合
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Context.UserContext.UserBankCards">
+            <summary>
+            用户银行卡集合
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Controllers.AddressController">
+            <summary>
+            地址控制器
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Controllers.UsersController">
+            <summary>
+            用户服务控制器
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.IdentityServer.ResourceOwnerPasswordValidator">
+            <summary>
+            自定义资源持有者验证
+            (从数据库获取用户信息进行验证)
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Models.User">
+            <summary>
+            用户模型
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.Phone">
+            <summary>
+            用户手机号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.Status">
+            <summary>
+            z状态
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.HasAuthenticated">
+            <summary>
+            认证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.Name">
+            <summary>
+            名字
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.RoleName">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.LoginPassword">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.wx_OpenID">
+            <summary>
+            微信OpenId
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.wx_UnionID">
+            <summary>
+            微信UnionId
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.wx_HeadImgUrl">
+            <summary>
+            微信头像
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.wx_NickName">
+            <summary>
+            微信昵称
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.IDCard">
+            <summary>
+            身份证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.CarClass">
+            <summary>
+            车辆
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.DriverBeginTime">
+            <summary>
+            驾驶证开始时间
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:TGJ.NetworkFreight.UserServices.Models.User.DriverEndTime" -->
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.User.LastUpdateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Models.UserAddress">
+            <summary>
+            用户地址模型
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.UserID">
+            <summary>
+            用户Id 
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.BaiduLat">
+            <summary>
+            百度经度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.BaiduLng">
+            <summary>
+            百度纬度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.GaodeLat">
+            <summary>
+            高德经度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.GaodeLng">
+            <summary>
+            高德纬度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.TencentLat">
+            <summary>
+            腾讯经度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.TencentLng">
+            <summary>
+            腾讯纬度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.Address">
+            <summary>
+            详细地址
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.IsValid">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.CountrySubdivisionCode">
+            <summary>
+            区县代码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.Province">
+            <summary>
+            省份
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.City">
+            <summary>
+            城市
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.County">
+            <summary>
+            国家
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.RegionID">
+            <summary>
+            区域Id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserAddress.LastUpdateTime">
+            <summary>
+             最后修改时间
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Models.UserBankCard">
+            <summary>
+            用户银行卡模型
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserBankCard.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserBankCard.UserID">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserBankCard.CardNumber">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserBankCard.BankName">
+            <summary>
+            银行
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserBankCard.IsSelf">
+            <summary>
+            是否本人
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserBankCard.IsValid">
+            <summary>
+            是否认证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserBankCard.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Models.UserTruck">
+            <summary>
+            用户车辆模型
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.UserID">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.VehicleNumber">
+            <summary>
+            车牌号 
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.Color">
+            <summary>
+            颜色
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.Length">
+            <summary>
+            长度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.PlateType">
+            <summary>
+            板型
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.Owner">
+            <summary>
+            车主
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.MaxWeight">
+            <summary>
+            最大宽度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.RegisterDate">
+            <summary>
+            注册日期
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.PresentationDate">
+            <summary>
+            发证日期
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.RoadTransportCertificateNumber">
+            <summary>
+            道路运输证书编号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.RoadTransportManageNumber">
+            <summary>
+            道路运输管理编号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.HasDrivingLicense">
+            <summary>
+            是否有驾照
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.IsValid">
+            <summary>
+            是否认证
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.UserServices.Models.UserTruck.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Repositories.IUserAddressRepository">
+            <summary>
+            用户地址仓储接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Repositories.IUserRepository">
+            <summary>
+            用户仓储接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Repositories.UserAddressRepository">
+            <summary>
+            用户地址仓储实现
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Repositories.UserRepository">
+            <summary>
+            商品仓储实现
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Services.IUserAddressService">
+            <summary>
+            用户地址服务接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Services.IUserService">
+            <summary>
+            商品服务接口
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Services.UserAddressService">
+            <summary>
+            用户地址服务实现
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.Services.UserService">
+            <summary>
+            商品服务实现
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.WeChat.Lib.HttpService">
+            <summary>
+            http连接基础类，负责底层的http通信
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.UserServices.WeChat.Lib.HttpService.Get(System.String)">
+            <summary>
+            处理http GET请求，返回数据
+            </summary>
+            <param name="url">请求的url地址</param>
+            <returns>http GET成功后返回的数据，失败抛WebException异常</returns>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.WeChat.Lib.OpenIdAndSessionKey">
+            <summary>
+            微信小程序从服务端获取的OpenId和SessionKey信息结构
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.WeChat.Lib.WechatLoginInfo">
+            <summary>
+            微信小程序登录信息结构
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.UserServices.WeChat.WeChatAppDecrypt">
+            <summary>
+            微信小程序登录接口
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.UserServices.WeChat.WeChatAppDecrypt.#ctor">
+            <summary>
+            构造函数
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.UserServices.WeChat.WeChatAppDecrypt.GetOpenIdAndSessionKeyString(System.String)">
+            <summary>
+            获取OpenId和SessionKey的Json数据包
+            </summary>
+            <param name="code">客户端发来的code</param>
+            <returns>Json数据包</returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.UserServices.WeChat.WeChatAppDecrypt.DecodeOpenIdAndSessionKey(TGJ.NetworkFreight.UserServices.WeChat.Lib.WechatLoginInfo)">
+            <summary>
+            反序列化包含OpenId和SessionKey的Json数据包
+            </summary>
+            <param name="loginInfo">Json数据包</param>
+            <returns>包含OpenId和SessionKey的类</returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.UserServices.WeChat.WeChatAppDecrypt.Decrypt(TGJ.NetworkFreight.UserServices.WeChat.Lib.WechatLoginInfo)">
+            <summary>
+            根据微信小程序平台提供的解密算法解密数据，推荐直接使用此方法
+            </summary>
+            <param name="loginInfo">登陆信息</param>
+            <returns>用户信息</returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.UserServices.WeChat.WeChatAppDecrypt.Decrypt(System.String,System.String,System.String)">
+            <summary>
+            根据微信小程序平台提供的解密算法解密数据
+            </summary>
+            <param name="encryptedData">加密数据</param>
+            <param name="iv">初始向量</param>
+            <param name="sessionKey">从服务端获取的SessionKey</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,827 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TGJ.NetworkFreight.OrderServices</name>
+    </assembly>
+    <members>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Controllers.OrderController">
+            <summary>
+            订单控制器
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetOrders">
+            <summary>
+            获取所有订单（测试）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetInitCategoryList">
+            <summary>
+            货物类型  
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetInitTruckList">
+            <summary>
+            卡车类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.Add(TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto)">
+            <summary>
+            新增订单
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            订单列表
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetDetail(System.Int32,System.String)">
+            <summary>
+            订单详情
+            </summary>
+            <param name="userId"></param>
+            <param name="OrderNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetOrderGather(System.Int32)">
+            <summary>
+            订单统计
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetOrderTurnover(System.Int32)">
+            <summary>
+            金额统计
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetOrderStateTurnover(System.Int32)">
+            <summary>
+            状态金额统计
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.AddAddress(TGJ.NetworkFreight.OrderServices.Models.UserAddress)">
+            <summary>
+            新增地址
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.DelAddress(System.Int32,System.Int32)">
+            <summary>
+            删除地址
+            </summary>
+            <param name="id"></param>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetAddressList(System.Int32)">
+            <summary>
+            地址列表
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.Cancel(TGJ.NetworkFreight.OrderServices.Models.OrderCancelDto)">
+            <summary>
+            取消订单
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateCarrierUser(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            指定司机
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.Confirm(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            确认回单
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateMoney(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            更新价格
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+            <summary>
+            装货
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.UpdateUnLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+            <summary>
+            卸货
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Controllers.OrderController.GetWayBillList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            司机订单列表
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="status">null：运单列表,2：货源列表</param>
+            <returns></returns>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.UserID">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.Name">
+            <summary>
+            货物名称
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.Weight">
+            <summary>
+            重量
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.CategoryID">
+            <summary>
+            货物类型ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.TruckID">
+            <summary>
+            车型ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.DepartureAddressID">
+            <summary>
+            装货地址ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.ArrivalAddressID">
+            <summary>
+            卸货地址ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.StartDate">
+            <summary>
+            装货日期
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDetailDto.Comment">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDto.OrderNo">
+            <summary>
+            订单ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderDto.imgs">
+            <summary>
+            图片集合
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Dto.OrderGatherDto">
+            <summary>
+            订单统计Dto
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderGatherDto.Dispatch">
+            <summary>
+            调度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderGatherDto.Confirm">
+            <summary>
+            确认
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderGatherDto.Complete">
+            <summary>
+            完成
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Dto.OrderStateTurnoverDto">
+            <summary>
+            司机端我的Dto
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderStateTurnoverDto.DispatchTurnover">
+            <summary>
+            调度中金额
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderStateTurnoverDto.CompleteTurnover">
+            <summary>
+            已完成金额
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Dto.OrderTurnoverDto">
+            <summary>
+            订单金额 
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderTurnoverDto.MonthlyTurnover">
+            <summary>
+            月成交额
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Dto.OrderTurnoverDto.TotalTurnover">
+            <summary>
+            总成交额
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Extend.AddDataService.AddDataServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            扩展方法
+            </summary>
+            <param name="services">要扩展的类</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Extend.Tool.GetDistance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算两点位置的距离，返回两点的距离，单位 米
+            该公式为GOOGLE提供，误差小于0.2米
+            </summary>
+            <param name="lat1">第一点纬度</param>
+            <param name="lng1">第一点经度</param>
+            <param name="lat2">第二点纬度</param>
+            <param name="lng2">第二点经度</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Extend.Tool.Rad(System.Double)">
+            <summary>
+            经纬度转化成弧度
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToLong(System.Object,System.Nullable{System.Int64})">
+            <summary>
+            转换Long类型
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToInt(System.Object,System.Nullable{System.Int32})">
+            <summary>
+             转换Int类型
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToDecimal(System.Object,System.Nullable{System.Decimal})">
+            <summary>
+             转换Decimal类型
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToBoolean(System.Object,System.String,System.String,System.Nullable{System.Boolean})">
+            <summary>
+             转换Bool类型
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToGuid(System.Object,System.Nullable{System.Guid})">
+            <summary>
+            转换成Guid类型
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToDateTime(System.Object,System.Nullable{System.DateTime})">
+            <summary>
+            转换DateTime类型
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToString(System.Object,System.String)">
+            <summary>
+            尝试获取字符串值
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToString(System.Object,System.Func{System.String},System.String)">
+            <summary>
+            尝试获取字符串值
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToTrimString(System.Object,System.String)">
+            <summary>
+            尝试获取字符串值
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.IsNull``1(``0)">
+            <summary>
+            是否为null
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.GetDescription(System.Enum,System.Boolean)">
+            <summary>
+            扩展方法，获得枚举的Description
+            </summary>
+            <param name="value">枚举值</param>
+            <param name="nameInstead">当枚举值没有定义DescriptionAttribute，是否使用枚举名代替，默认是使用</param>
+            <returns>枚举的Description</returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.ObjectExtensions.ToDate(System.Object)">
+            <summary>
+            转换DateTime类型
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Cancel">
+            <summary>
+            已取消
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Waiting">
+            <summary>
+            接单中
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Received">
+            <summary>
+            已接单
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Start">
+            <summary>
+            调度中
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumOrderStatus.Finish">
+            <summary>
+            已完成
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus.Pay">
+            <summary>
+            已支付
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus.Loading">
+            <summary>
+            已装货
+            </summary>
+        </member>
+        <member name="F:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus.Unloading">
+            <summary>
+            已卸货
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.Enum.EnumHelper.EnumActionStatus_Driver">
+            <summary>
+            司机端列表状态描述
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.InitCategory">
+            <summary>
+            货物类型表
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitCategory.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitCategory.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitCategory.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitCategory.IsValid">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitCategory.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitCategory.CreateTime">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.InitTruck">
+            <summary>
+            卡车型号表
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitTruck.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitTruck.Length">
+            <summary>
+            车长长度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitTruck.MaxWeight">
+            <summary>
+            最大载重
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitTruck.IsValid">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.InitTruck.CreateTime">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.Order">
+            <summary>
+            订单表
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.OrderNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.TradeStatus">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.ActionStatus">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.TotalAmount">
+            <summary>
+            订单金额
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.CarrierUserID">
+            <summary>
+            承运人ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.CarrierTruckID">
+            <summary>
+            承运人车辆ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.DepartureTime">
+            <summary>
+            装货时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.ArrivalTime">
+            <summary>
+            到达时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.Order.LastUpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.OrderDetail">
+            <summary>
+            订单明细表
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.OrderNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.Name">
+            <summary>
+            货物名称
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.Weight">
+            <summary>
+            重量
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.Num">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.CategoryID">
+            <summary>
+            货物类型ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.TruckID">
+            <summary>
+            车型ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.StartDate">
+            <summary>
+            装货日期
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.DepartureAddressID">
+            <summary>
+            装货地址ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.ArrivalAddressID">
+            <summary>
+            卸货地址ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.Comment">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderDetail.Distance">
+            <summary>
+            距离
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.OrderFlow">
+            <summary>
+            订单流程表
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.OrderNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.ActionStatus">
+            <summary>
+            动作状态
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.Type">
+            <summary>
+            类型（1：TradeStatus,2：ActionStatus）
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.Reason">
+            <summary>
+            理由/原因
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderFlow.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage">
+            <summary>
+            订单回单表
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage.OrderNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage.FileUrl">
+            <summary>
+            文件地址
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage.Type">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.OrderReceiptImage.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.Order_">
+            <summary>
+            订单模型
+            </summary>
+        </member>
+        <member name="T:TGJ.NetworkFreight.OrderServices.Models.UserAddress">
+            <summary>
+            地址表
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.Name">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.BaiduLat">
+            <summary>
+            百度纬度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.BaiduLng">
+            <summary>
+            百度经度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.GaodeLat">
+            <summary>
+            高德纬度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.GaodeLng">
+            <summary>
+            高德经度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.TencentLat">
+            <summary>
+            腾讯纬度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.TencentLng">
+            <summary>
+            腾讯经度
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.IsValid">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.CountrySubdivisionCode">
+            <summary>
+            国家行政区代码
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.County">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.RegionID">
+            <summary>
+            县ID
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:TGJ.NetworkFreight.OrderServices.Models.UserAddress.LastUpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.GetList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="status">3：调度中，4：已完成，33：回单确认</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateCancel(TGJ.NetworkFreight.OrderServices.Models.OrderCancelDto)">
+            <summary>
+            取消订单
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateCarrierUser(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            指定司机
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.Confirm(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            回单确认
+            </summary>
+            <param name="entity"></param>
+            <param name="imgs"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.GetWayBillList(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            运单列表
+            </summary>
+            <param name="userId"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="status">null：运单列表,2：货源列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateMoney(TGJ.NetworkFreight.OrderServices.Models.Order)">
+            <summary>
+            修改金额
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+            <summary>
+            装货
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Repositories.Impl.OrderRepository.UpdateUnLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+            <summary>
+            卸货
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:TGJ.NetworkFreight.OrderServices.Services.Impl.OrderService.UpdateUnLoading(TGJ.NetworkFreight.OrderServices.Dto.OrderDto)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+        </member>
+    </members>
+</doc>

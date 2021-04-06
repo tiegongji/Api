@@ -9,7 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-*.json
+*.appsettings.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -359,3 +359,4 @@ TGJ.NetworkFreight.sln
 .gitignore
 TGJ.NetworkFreight.Order.xml
 TGJ.NetworkFreight.Certification.xml
+appsettings.json
